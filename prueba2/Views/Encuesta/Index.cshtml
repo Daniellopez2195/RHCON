@@ -1,0 +1,729 @@
+﻿@using rhcon.Models.ViewModel
+@model List<ListEncabezadoCuestionRioViewModel>
+@{
+    ViewBag.Title = "Encuesta Factores de Riesgo Psicosocial y Entorno Organizacional";
+    Layout = "~/Views/Shared/_LayoutCuestionario.cshtml";
+
+    var oEmpresa = (EmpresaViewModel)Session["empresa"];
+}
+
+
+<div>
+    <form method="post" id="regForm">
+
+
+        @* introducción *@
+        <div class="tab seccion">
+            <div class="cent blanco">
+
+
+
+
+
+
+                <h1 class="bienestar"><b>TU BIENESTAR ES IMPORTANTE</b></h1>
+
+                <div class="textrf" style="text-align:center">
+                    Con el fin de identificar y analizar los factores de riesgo psicosocial, evaluar el entorno
+                    organizacional, así como el clima laboral del centro de trabajo, te pedimos responder el
+                    cuestionario de esta aplicación.
+                </div>
+
+                <div class="textrf" style="text-align:center">
+                    Es compromiso de la empresa  @oEmpresa.RazonComercial garantizar la privacidad y
+                    confidencialidad de tus datos y la información que proporciones; los resultados que de éste
+                    cuestionario se obtengan serán exclusivamente para fines de establecer acciones de
+                    prevención y control para mejorar el ambiente de trabajo y clima laboral en la empresa.
+
+                </div>
+
+                <div class="textrf" style="text-align:center">
+                    En una primera parte contestarás el cuestionario sobre factores de riesgo psicosocial y
+                    entorno organizacional, seguido por el cuestionario de igualdad laboral y no discriminación,
+                    para concluir con el llenado de la ficha de datos generales.
+
+                </div>
+
+                <div class="textrf" style="text-align:center">
+                    Debes responder el cuestionario completamente; no existen respuestas correctas o
+                    incorrectas, no está permitido que nadie conduzca, persuada o dirija tus respuestas; es
+                    necesaria tu concentración; considera las condiciones de los dos últimos meses, tu opinión
+                    es lo más importante por lo que te pedimos contestar con sinceridad.
+                </div>
+
+                <div class="textrf" style="text-align:center">
+                    La encuesta total te tomará aproximadamente 60 minutos, es indispensable estar en un
+                    ambiente libre de interrupciones y contestar en un solo momento de corrido; si sales de la
+                    aplicación o tardas más de 2 horas respondiendo, la aplicación se cierra y no se guardarán
+                    los datos por lo que deberás iniciar nuevamente.
+                </div>
+
+                <div class="textrf" style="text-align:center;">
+                    Gracias de antemano por tu cumplimiento, si estás listo iniciamos validando que
+                </div>
+
+
+                <div class="politicaA">
+                    <input type="checkbox" id="entendido" name="aceptar" value="1">
+                    <span for="vehicle1" style="margin-left: 20px;">
+                        He leído las instrucciones y ratifico de entendido.
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+
+        @* Preguntas de la encuesta *@
+        @{ string nombrecuestionario = "";}
+
+        @foreach (ListEncabezadoCuestionRioViewModel lstEncabezado in Model)
+        {
+
+            if (!nombrecuestionario.Equals(lstEncabezado.Cuestionario))
+            {
+
+                nombrecuestionario = lstEncabezado.Cuestionario;
+            }
+
+            <div class="tab seccion">
+                <div class="cent">
+
+                    <span class="intruccion">
+                        <p>Cuestionario de la @lstEncabezado.Nomenclatura</p>
+                        <p>@lstEncabezado.Descripcion</p>
+                    </span>
+
+                    @if (!lstEncabezado.esOpcional)
+                    {
+                        foreach (ListPreguntasViewModel lstPreguntas in lstEncabezado.PreguntasList)
+                        {
+                            <div class="pregunta">
+                                <p class="p">
+                                    <input name="pre-@lstPreguntas.Id" type="hidden" value="@lstPreguntas.Id" />
+                                    @if (lstPreguntas.NoReactivo != 0)
+                                    {
+                                        <span>@lstPreguntas.NoReactivo .-</span>
+                                    }
+                                    @lstPreguntas.Reactivo
+                                </p>
+                                <select name="resp-@lstPreguntas.Id" class="inf">
+                                    <option value="0">Elige una opción</option>
+                                    @foreach (ListRespuestasViewModel lstRespuestas in lstPreguntas.RespList)
+                                    {
+                                        <option value="@lstRespuestas.Id"> @lstRespuestas.Respuesta</option>
+                                    }
+                                </select>
+
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        bool i = false;
+                        foreach (ListPreguntasViewModel lstPreguntas in lstEncabezado.PreguntasList)
+                        {
+                            if (!i)
+                            {
+                                <div class="pregunta">
+                                    <p class="p">
+                                        <input name="pre-@lstPreguntas.Id" type="hidden" value="@lstPreguntas.Id" />
+                                        @lstPreguntas.Reactivo
+                                    </p>
+                                    <select name="resp-@lstPreguntas.Id" class="inf" id="p-@lstPreguntas.Id">
+                                        <option value="0">Elige una opción</option>
+                                        @foreach (ListRespuestasViewModel lstRespuestas in lstPreguntas.RespList)
+                                        {
+                                            <option value="@lstRespuestas.Id"> @lstRespuestas.Respuesta</option>
+                                        }
+                                    </select>
+                                </div>
+                                i = true;
+                            }
+                            else
+                            {
+                                <div class="pregunta oculta" id="pregunta-@lstPreguntas.Id">
+                                    <p class="p">
+                                        <input name="pre-@lstPreguntas.Id" type="hidden" value="@lstPreguntas.Id" />
+                                        @if (lstPreguntas.NoReactivo != 0)
+                                        {
+                                            <span>@lstPreguntas.NoReactivo .-</span>
+                                        }
+                                        @lstPreguntas.Reactivo
+                                    </p>
+                                    <select name="resp-@lstPreguntas.Id" class="">
+                                        <option value="0">Elige una opción</option>
+                                        @foreach (ListRespuestasViewModel lstRespuestas in lstPreguntas.RespList)
+                                        {
+                                            <option value="@lstRespuestas.Id"> @lstRespuestas.Respuesta</option>
+                                        }
+                                    </select>
+                                </div>
+                                i = true;
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        }
+        @* Comentario *@
+        <div class="tab seccion">
+            <div class="cent">
+
+                <div class="pregunta">
+                    <p>¿Tienes alguna sugerencia, aportación o comentario adicional que contribuya a mejorar el entorno organizacional de tu centro de trabajo?</p>
+
+                    <textarea class="form-control val" id="exampleTextarea" rows="3" name="comentario"></textarea>
+                </div>
+
+
+            </div>
+        </div>
+
+        @* preguntas estadisticas  *@
+
+        <div class="tab seccion">
+            <div class="cent">
+
+                <span class="intruccion"> Datos generales, para fines estadísticos</span>
+
+                <div class="pregunta">
+                    <p class="p">Sexo:   </p>
+
+                    <select name="sexo" id="p1" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                    </select>
+
+                </div>
+
+                <div class="pregunta">
+                    <p class="p">Edad:</p>
+
+                    <select name="edad" id="p2" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="15 a 19">15 a 19</option>
+                        <option value="20 a 24">20 a 24</option>
+                        <option value="25 a 29">25 a 29</option>
+                        <option value="30 a 34">30 a 34</option>
+                        <option value="35 a 39">35 a 39</option>
+                        <option value="40 a 44">40 a 44</option>
+                        <option value="45 a 49">45 a 49</option>
+                        <option value="50 a 54">50 a 54</option>
+                        <option value="55 a 59">55 a 59</option>
+                        <option value="60 a 64">60 a 64</option>
+                        <option value="65 a 69">65 a 69</option>
+                        <option value="70 o mas">70 o mas</option>
+                    </select>
+                </div>
+
+                <div class="pregunta">
+
+                    <p class="p">Estado civil o conyugal:</p>
+
+                    <select name="estadoCivil" id="p3" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="soltera">Soltera/o</option>
+                        <option value="casada">Casada/o</option>
+                        <option value="unionlibre">Unión libre</option>
+                        <option value="divorciada">Divorciada/o</option>
+                        <option value="viuda">Viuda/o</option>
+                    </select>
+                </div>
+
+                <div class="pregunta">
+
+                    <p class="p">Años de antigüedad en el centro de trabajo:</p>
+
+                    <select name="antiguedad" id="p4" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="Menos de 6 meses">Menos de 6 meses</option>
+                        <option value="Entre 6 meses y 1 año">Entre 6 meses y 1 año</option>
+                        <option value="Entre 1 año a 4 años">Entre 1 año a 4 años</option>
+                        <option value="Entre 5 años a 9 años">Entre 5 años a 9 años</option>
+                        <option value="Entre 10 años a 14 años">Entre 10 años a 14 años</option>
+                        <option value="Entre 15 años a 19 años">Entre 15 años a 19 años</option>
+                        <option value="Entre 20 años a 24 años">Entre 20 años a 24 años</option>
+                        <option value="25 años a mas">25 años a mas</option>
+                    </select>
+
+                </div>
+
+                <div class="pregunta">
+
+                    <p class="p">Años en el puesto actual:</p>
+
+                    <select name="tiempoPuestoActual" id="p73" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="Menos de 6 meses">Menos de 6 meses</option>
+                        <option value="Entre 6 meses y 1 año">Entre 6 meses y 1 año</option>
+                        <option value="Entre 1 año a 4 años">Entre 1 año a 4 años</option>
+                        <option value="Entre 5 años a 9 años">Entre 5 años a 9 años</option>
+                        <option value="Entre 10 años a 14 años">Entre 10 años a 14 años</option>
+                        <option value="Entre 15 años a 19 años">Entre 15 años a 19 años</option>
+                        <option value="Entre 20 años a 24 años">Entre 20 años a 24 años</option>
+                        <option value="25 años a mas">25 años a mas</option>
+                    </select>
+                </div>
+
+                <div class="pregunta">
+
+                    <p class="p">Años en experiencia laboral:</p>
+
+                    <select name="tiempoExperienciaLaboral" id="p74" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="Menos de 6 meses">Menos de 6 meses</option>
+                        <option value="Entre 6 meses y 1 año">Entre 6 meses y 1 año</option>
+                        <option value="Entre 1 año a 4 años">Entre 1 año a 4 años</option>
+                        <option value="Entre 5 años a 9 años">Entre 5 años a 9 años</option>
+                        <option value="Entre 10 años a 14 años">Entre 10 años a 14 años</option>
+                        <option value="Entre 15 años a 19 años">Entre 15 años a 19 años</option>
+                        <option value="Entre 20 años a 24 años">Entre 20 años a 24 años</option>
+                        <option value="25 años a mas">25 años a mas</option>
+                    </select>
+                </div>
+
+                <div class="pregunta">
+
+                    <p class="p">Nivel de estudios:</p>
+
+                    <select name="escolaridad" id="p5" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="Sin escolaridad">Sin escolaridad</option>
+                        <option value="Primaria">Primaria</option>
+                        <option value="Secundaria">Secundaria</option>
+                        <option value="Bachillerato o preparatoria">Bachillerato o preparatoria</option>
+                        <option value="Carrera técnica">Carrera técnica</option>
+                        <option value="Licenciatura">Licenciatura</option>
+                        <option value="Maestría">Maestría</option>
+                        <option value="Doctorado">Doctorado</option>
+                    </select>
+                </div>
+
+                <div class="pregunta">
+
+
+                    <p class="p">Tipo de jornada de trabajo:</p>
+                    <select name="tipoJornada" id="p6" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="Fijo diurno (entre las 6:00 y 20:00 hrs)">Fijo diurno (entre las 6:00 y 20:00 hrs)</option>
+                        <option value="Fijo nocturno (entre las 20:00 y 6:00 hrs)">Fijo nocturno (entre las 20:00 y 6:00 hrs)</option>
+                        <option value="Fijo mixto (combinacion nocturno y diurno)">Fijo mixto (combinacion nocturno y diurno)</option>
+
+
+                    </select>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <div class="pregunta">
+
+                    <p class="p">Tipo de contratación:</p>
+
+                    <select name="tipoContratacion" id="p8" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="Tiempo indeterminado">Tiempo indeterminado</option>
+                        <option value="Por tiempo determinado(temporal)">Por tiempo determinado(temporal)</option>
+                        <option value="Por obra o proyecto">Por obra o proyecto</option>
+                        <option value="Honorarios">Honorarios</option>
+                    </select>
+                </div>
+
+                <div class="pregunta">
+
+                    <p class="p">Tipo de personal:</p>
+
+                    <select name="tipoPersonal" id="especifique" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="Confianza">Confianza</option>
+                        <option value="Sindicalizado">Sindicalizado</option>
+                        <option value="Ninguno de los anteriores">Ninguno de los anteriores</option>
+                    </select>
+                </div>
+
+                <div class="pregunta">
+                    <p class="p">El trabajo lo desempeño</p>
+
+                    <select name="dondeTrabajo" id="p0" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="En su totalidad en el centro de trabajo de la empresa">En su totalidad en el centro de trabajo de la empresa.</option>
+                        <option value="Regularmente en el centro de trabajo de la empresa, aun cuando esporádicamente se
+                            me solicita desplazarme y hacer algunas diligencias fuera del mismo.">
+                            Regularmente en el centro de trabajo de la empresa, aun cuando esporádicamente se
+                            me solicita desplazarme y hacer algunas diligencias fuera del mismo.
+                        </option>
+                        <option value="En el centro de trabajo de la empresa, pero principalmente por mi función requiero
+                            desplazarme y hacer actividades en las instalaciones de clientes y/o proveedores.">
+                            En el centro de trabajo de la empresa, pero principalmente por mi función requiero
+                            desplazarme y hacer actividades en las instalaciones de clientes y/o proveedores.
+                        </option>
+                        <option value="Trabajo desde casa de manera regular y sólo si se requiere acudo al centro de trabajo o
+                            a las instalaciones de clientes y/o proveedores.">
+                            Trabajo desde casa de manera regular y sólo si se requiere acudo al centro de trabajo o
+                            a las instalaciones de clientes y/o proveedores.
+                        </option>
+                    </select>
+                </div>
+
+                <div class="pregunta">
+
+                    <p class="p">Realiza rotación de turnos:</p>
+
+                    <select name="realizaRotacion" id="p7" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="No">No</option>
+                        <option value="Si">Si</option>
+
+
+
+
+                    </select>
+                </div>
+
+                <div class="pregunta">
+
+                    <p class="p">Tienes alguna discapacidad:</p>
+
+                    <select name="tieneDiscapacidad" id="p9" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="no">No</option>
+                        <option value="si">Si</option>
+
+
+                    </select>
+                </div>
+
+                <div class="pregunta oculta" id="pregunta10">
+
+                    <p class="p">Cuál:</p>
+
+                    <select name="discapacidad" id="p10" class="">
+                        <option value="5">Elige una opción</option>
+                        <option value="Intelectual">Intelectual</option>
+                        <option value="Motriz">Motriz</option>
+                        <option value="Auditiva">Auditiva</option>
+                        <option value="Visual">Visual</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tab seccion">
+            <div class="cent">
+
+                <span class="intruccion">
+                    Datos generales, para fines estadísticos
+                </span>
+
+
+                <div class="pregunta">
+
+                    <p class="p">
+                    <p>Solicitamos contestes la siguiente pregunta de manera voluntaria:</p>
+                    Formas parte de alguno de los siguientes sectores de la población
+                    </p>
+
+                    <select name="sector" id="p12" class="">
+                        <option value="5">Elige una opción</option>
+                        <option value="De la diversidad sexual">De la diversidad sexual</option>
+                        <option value="Indígenas">Indígenas</option>
+                        <option value="Afrodescendientes">Afrodescendientes</option>
+                        <option value="Adultos mayores">Adultos mayores</option>
+                        <option value="otro">Otro</option>
+                        <option value="0">No deseo responder</option>
+                    </select>
+                </div>
+
+
+
+                <div class="pregunta oculta" id="text12">
+
+                    <p>Cuáles:</p>
+                    <textarea class="" id="otro" rows="3" name="otro"></textarea>
+                </div>
+
+                <div class="pregunta">
+                    <p class="p">En mi centro de trabajo existe una política de igualdad laboral y no discriminación.</p>
+
+                    <select name="existePolitica" id="p13" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                        <option value="no se">No sé</option>
+                    </select>
+                </div>
+
+
+                <div class="pregunta">
+
+                    <p class="p">En mi centro de trabajo existe un código de ética y/o conducta.</p>
+
+                    <select name="existeCodigoEtica" id="p14" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                        <option value="no se">No sé</option>
+                    </select>
+                </div>
+
+                <div class="pregunta">
+
+                    <p class="p">En mi centro de trabajo existe un comité de igualdad y no discriminación.</p>
+
+                    <select name="existeComite" id="p15" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                        <option value="no se">No sé</option>
+                    </select>
+                </div>
+
+
+                <div class="pregunta">
+
+                    <p class="p">En mi centro de trabajo existe un mecanismo para prevenir, atender y sancionar las prácticas de discriminación y violencia laboral.</p>
+
+                    <select name="existeMecanismo" id="p16" class="inf">
+                        <option value="5">Elige una opción</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                        <option value="no se">No sé</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div style="overflow:auto; margin-top: 10px;">
+            <div>
+                <button type="button" id="prevBtn" onclick="prev()">Anterior</button>
+                <button type="button" id="nextBtn" onclick="next()">Siguiente</button>
+            </div>
+        </div>
+    </form>
+    <a href="~/Empleado/" style="float:right; padding: 0 20px; text-align: right;" class="btn btn-primary">Salir</a>
+    <br />
+</div>
+
+
+@section scripts {
+
+    <script>
+
+
+        // currentTab: contador de pagina de secciones
+        var currentTab = 0;
+
+        //ejecucion de los parametro de inicio de los tabs
+        showTab(currentTab);
+
+        //showTab: cambia el estado de los botones de paginacion de Atras y Adelante
+        // y cambiar el estado de la pagina actual
+        function showTab(n) {
+            // almacenamos en un arreglo todos los elementos con la clase tab
+            var x = document.getElementsByClassName("tab");
+            // deacuerdo al valos de CurrentTab que es el contador de paginas
+            // con css se añade un display block para hacer visible la seccion
+            // o pagina que marca el contador
+            x[n].style.display = "block";
+            if (n == 0) {
+                // si estamos en la pagina 0 ocultamos el boto para retroceder
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                // si estamos fuera de la pagina 0 agregamos el boton de retroceder
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                // si n (pagina actual) es menor al numero de paginas totales
+                // el boton de avanzar tendre el texto siguiente
+                // n (pagina actual) es igual al numero de paginas totales
+                // el boton  de avanzar tendra el texto de enviar
+                document.getElementById("nextBtn").innerHTML = "Enviar";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Siguiente";
+            }
+
+
+        }
+
+        // es el metodo que se ejecuta cada que se dispara un evento click en el boton
+        // seguiente o atras el cual es el encargado de ocultar o visualizar la pagina actual
+        function nextPrev(n) {
+            // Scroll en 0 del heigth
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
+            // guardamos en un arreglo el numero de paginas  que hay
+            var x = document.getElementsByClassName("tab");
+            // validamos los requisitos del formulario con el metodo validateForm
+            // de tal forma que si los datos estan de forma incorrecta no podemos avanzar de pagina
+            if (n == 1 && !validateForm()) return false;
+            // del areglo de paginas accedemos al atributo de la posicion que es igual
+            // a nuestro contador de paginas
+            // y aplicamos un display none para ocultarlo
+            x[currentTab].style.display = "none";
+            // CurrentTab va ser igual a su valor actual mas los que se pasan por parameto de la funcion
+            currentTab = currentTab + n;
+            if (currentTab >= x.length) {
+                // si nos encontramos en la ultima pagina
+                // por lo tanto ya no tenemos una pagina siguiente
+                // aplicamos un submit al formulario
+                document.getElementById("regForm").submit();
+                return false;
+            }
+            // cambiamos el estado de los botones cada que cambiamos de pagina y de la pagina siguiente
+            showTab(currentTab);
+        }
+
+
+        // ValidateForm se encarga de validar que los datos del formulario
+        // cumplan los parametros
+        function validateForm() {
+            //inicializamos variables
+            var x, y, i, valid = true;
+            // seleccionamos la pagina actual
+            var tabla = document.getElementsByClassName("tab")[currentTab];
+            // guardamos en un arreglo todos los elementos que contengan la clase inf
+            // en este caso sera todas las contenedores de preguntas del formulario
+            // las cuales estan integradas por un select
+            y = tabla.getElementsByClassName("inf");
+            // recorremos el arreglo de preguntas
+            for (dato of y) {
+                // inicializamos la pregunta dandole estilos css
+                dato.parentNode.className = "pregunta";
+                // 5 es el valor que define si una pregunta de tipo select esta vacia
+                // "" aplica para los input de tipo text o que tengan como valor inicial un campo vacio
+                if (dato.value == "" || dato.value == 0) {
+                    // si los elementos estan vacios agregamos la clase de estilos pregunta que tiene los estilos de la pregunta
+                    // y cargamos la clase error que contiene el color rojo que marca las preguntas vacias
+                    dato.parentNode.className = "pregunta error";
+                    // valid sera igual a false ya que se encontraron errores que inpuden que se cambie de pagina
+                    valid = false;
+
+                }
+            }
+            // si valid es igual a false ejecutamos la funcion de sweetalert que dispara la alerta de campos vacios
+            // funcion creada dento de la carpeta js en raiz en el archivo con nombre sweetalert
+            if (valid == false) {
+                alert("Error espacios vacios");
+            }
+
+            // retornamos el valor
+            return valid;
+        }
+
+
+        function prev() {
+
+            nextPrev(-1);
+        }
+
+        function next() {
+            if ($('#entendido').prop('checked')) { nextPrev(1); } else { alert("Debes ratificar de entendido"); }
+
+        }
+
+
+
+
+        $('#p9').change(function () {
+            var value = $(this).val();
+
+            if (value == "si") {
+
+                $("#pregunta10").removeClass("oculta");
+                $("#p10").addClass("inf");
+            }
+
+            else if (value == "no") {
+                $("#pregunta10").addClass("oculta");
+            }
+        });
+
+
+        $('#p11').change(function () {
+            var value = $(this).val();
+
+            if (value == "si") {
+
+                $("#pregunta12").removeClass("oculta");
+                $("#p12").addClass("inf");
+            }
+
+            else if (value == "no") {
+                $("#pregunta12").addClass("oculta");
+            }
+        });
+
+        $('#p12').change(function () {
+            var value = $(this).val();
+
+            if (value == "otro") {
+
+                $("#text12").removeClass("oculta");
+                $("#otro").addClass("inf");
+            }
+
+            else {
+                $("#text12").addClass("oculta");
+            }
+        });
+
+        //preguntas dinamicas
+
+        $('#p-130').change(function () {
+            var value = $(this).val();
+
+            if (value == "46") {
+
+                $("#pregunta-131").removeClass("oculta");
+                $("#pregunta-132").removeClass("oculta");
+                $("#pregunta-133").removeClass("oculta");
+                $("#pregunta-134").removeClass("oculta");
+                $("#p-131").addClass("inf");
+                $("#p-132").addClass("inf");
+                $("#p-133").addClass("inf");
+                $("#p-134").addClass("inf");
+            }
+
+            else if (value == "47") {
+                $("#pregunta-131").addClass("oculta");
+                $("#pregunta-132").addClass("oculta");
+                $("#pregunta-133").addClass("oculta");
+                $("#pregunta-134").addClass("oculta");
+            }
+        });
+
+        $('#p-135').change(function () {
+            var value = $(this).val();
+
+            if (value == "46") {
+
+                $("#pregunta-136").removeClass("oculta");
+                $("#pregunta-137").removeClass("oculta");
+                $("#pregunta-138").removeClass("oculta");
+                $("#pregunta-139").removeClass("oculta");
+                $("#p-136").addClass("inf");
+                $("#p-137").addClass("inf");
+                $("#p-138").addClass("inf");
+                $("#p-139").addClass("inf");
+            }
+
+            else if (value == "47") {
+                $("#pregunta-136").addClass("oculta");
+                $("#pregunta-137").addClass("oculta");
+                $("#pregunta-138").addClass("oculta");
+                $("#pregunta-139").addClass("oculta");
+            }
+        });
+
+    </script>
+
+
+}

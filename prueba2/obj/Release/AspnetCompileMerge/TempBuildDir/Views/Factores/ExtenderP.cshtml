@@ -1,0 +1,278 @@
+﻿@using rhcon.Models.ViewModel
+@model rhcon.Models.ViewModel.PeriodosEncuestaViewModel
+
+
+@{
+    ViewBag.Title = "Activar Periodo de Encuesta";
+    Layout = "~/Views/Shared/_LayoutSubMenu.cshtml";
+    ArchivoAtsViewModel modelo = ViewBag.model;
+    rhcon.Models.periodosEncuesta periodo = ViewBag.periodo;
+    var oEmpresa = (EmpresaViewModel)Session["empresa"];
+}
+
+
+<style>
+    body {
+        background-color: #E4E9F7;
+    }
+
+
+
+    h2 {
+        font-size: 14px;
+        font-weight: 600;
+        padding-top: 20px;
+    }
+
+    h1 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        background: #fff;
+        border-collapse: collapse;
+        text-align: center;
+        box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    }
+
+
+    .subta {
+        width: 100%;
+        background: #fff;
+        border-collapse: collapse;
+        text-align: center;
+        box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    }
+
+    .separador {
+        margin: 20px 0;
+    }
+
+
+    td a {
+        text-decoration: none;
+        color: white;
+    }
+
+    th {
+        border-bottom: 1px solid #E9E9E9;
+        padding: 20px;
+    }
+
+    th {
+        color: #393A58;
+        font-size: 16px;
+    }
+
+    .subta tr th {
+        padding: 10px;
+        border: transparent;
+    }
+
+    td {
+        font-size: 14px;
+        border-bottom: 1px solid #E9E9E9;
+        padding: 10px;
+        background: #3498db;
+        color: white;
+    }
+
+    .agr {
+        cursor: pointer;
+        color: #ffd35c;
+        font-weight: bold;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    @@media(max-width:768px) {
+        table thead {
+            display: none !important;
+        }
+
+        table, table tbody, table tr, table td {
+            display: block;
+            width: 100%;
+        }
+
+            table tr {
+                margin-bottom: 15px;
+            }
+
+            table tbody tr td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            table td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: 600;
+                font-size: 14px;
+                text-align: left;
+            }
+    }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <hr />
+        <h4 class="" style="text-align:center; margin: 40px 0;">
+            Selecciona el período en el que deseas extender las encuestas
+        </h4>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (periodo.cierre == null)
+        {
+            <div class="d-flex justify-content-center align-items-center">
+
+                <div class="">
+                    @Html.LabelFor(model => model.FechaInicio, htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "form-control inicio", @Value = periodo.fechaInicio.ToString("yyyy-MM-dd") } })
+                    @Html.ValidationMessageFor(model => model.FechaInicio, "", new { @class = "text-danger" })
+                </div>
+                <div class="">
+                    @Html.LabelFor(model => model.FechaFinal, htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.FechaFinal, new { htmlAttributes = new { @class = "form-control final", @Value = periodo.fechaFinal.ToString("yyyy-MM-dd") } })
+                    @Html.ValidationMessageFor(model => model.FechaFinal, "", new { @class = "text-danger" })
+                </div>
+                <input type="submit" value="Extender Periodo de Encuesta" class="btn btn-primary py-2 " style="margin-left:20px; margin-top:20px;" />
+            </div>
+        }
+        else
+        {
+            <div class="d-flex justify-content-center align-items-center">
+
+                <div class="">
+                    @Html.LabelFor(model => model.FechaInicio, htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "form-control inicio", @disabled = "true" } })
+                    @Html.ValidationMessageFor(model => model.FechaInicio, "", new { @class = "text-danger" })
+                </div>
+                <div class="">
+                    @Html.LabelFor(model => model.FechaFinal, htmlAttributes: new { @class = "" })
+                    @Html.EditorFor(model => model.FechaFinal, new { htmlAttributes = new { @class = "form-control final", @disabled = "true" } })
+                    @Html.ValidationMessageFor(model => model.FechaFinal, "", new { @class = "text-danger" })
+                </div>
+                <input type="submit" disabled value="Extender Periodo de Encuesta" class="btn btn-primary py-2 " style="margin-left:20px; margin-top:20px;" />
+            </div> if (periodo.cierre == 0)
+            {
+                <span class="d-flex justify-content-center text-danger pt-3">
+                    No se encuentra activo el periodo de encuesta del año @DateTime.Now.Year activa tu periodo de encuesta antes de realizar alguna modificación
+                </span>
+            }
+            else
+            {
+                <span class="d-flex justify-content-center text-danger pt-3">
+                    El período de evaluación ya fue dado como cierre definitivo. La encuesta se habilitara nuevamente desde la fecha del 1 de enero del @DateTime.Now.AddYears(1).Year
+                </span>
+            }
+
+        }
+
+        <br />
+
+
+    </div>
+}
+
+<hr />
+<div class="d-flex justify-content-center">
+    <h4 class="">Registros de Extención de Períodos realizados por la empresa</h4>
+</div>
+<div class="cent">
+    <table id="tabla" class="tabla tabla2">
+        <thead>
+            <tr class="titulo">
+                <th>Tipo</th>
+                <th>Fecha</th>
+                <th>Descargar PDF</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in modelo.logFac)
+            {
+                <tr class="seguir">
+                    <td data-label="Tipo">
+                        @if (item.tipo == 1)
+                        {<span>Activacion de Período</span>}
+                        else if (item.tipo == 2)
+                        { <span>Extencion de Período</span>}
+                        else if (item.tipo == 3)
+                        {<span>Reforzamiento de Período</span>}
+                    </td>
+                    <td data-label="Fecha">
+                        @item.fecha
+                    </td>
+                    <td data-label="Descarga">
+                        <a href="~/Files/@item.archivo" download="@item.archivo" class="agr">Descargar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @{Html.RenderPartial("_Paginator", modelo);}
+</div>
+
+<a style="float:right" href="~/Empresa/Perfil" class="btn btn-primary">Salir</a>
+
+
+@*<div>
+        @Html.ActionLink("Regresar al Inicio", "Perfil", "Empresa")
+    </div>*@
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <script type="text/javascript">
+    $.validator.unobtrusive.adapters.add('restrictbackdates', ['mindate'], function (options) {
+        options.rules['restrictbackdates'] = { mindate: options.params.mindate };
+        options.messages['restrictbackdates'] = options.message;
+    });
+
+    $.validator.addMethod("restrictbackdates", function (value, element, param) {
+        var date = new Date(value);
+        var minDate = new Date(param.mindate);
+        return date >= minDate;
+    });
+
+    $.validator.unobtrusive.adapters.add('isgreater', ['otherproperty'], function (options) {
+        options.rules['isgreater'] = { otherproperty: options.params.otherproperty };
+        options.messages['isgreater'] = options.message;
+    });
+
+    $.validator.addMethod("isgreater", function (value, element, param) {
+        var otherProp = $('#' + param.otherproperty);
+        if (otherProp.val() != '') {
+            var StartDate = new Date(moment(otherProp.val(), 'MM/DD/YYYY'));
+
+            var Enddate = new Date(value);
+            if (StartDate != '') {
+                return Enddate >= StartDate;
+            }
+        }
+        return true;
+    });
+        //Mecanismo para prohibir las fechas anteriores
+        $(".inicio").attr("min", "@DateTime.Now.ToString("yyyy-MM-dd")");
+
+        $(".inicio").change(function () {
+
+            $(".final").attr("min", $(".inicio").val());
+
+        });
+    </script>
+}

@@ -1,0 +1,878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{215CC936-6040-4918-9F8A-E25C119DB8EF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>rhcon</RootNamespace>
+    <AssemblyName>rhcon</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44351</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.11.3.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.11.3\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=5.7.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.7.4\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
+    <Reference Include="SpreadsheetLight, Version=3.5.0.0, Culture=neutral, PublicKeyToken=32fbb46dc1730c57, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpreadsheetLight.3.5.0\lib\netstandard2.0\SpreadsheetLight.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.5.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.8\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\ATSController.cs" />
+    <Compile Include="Controllers\CargaMasivaController.cs" />
+    <Compile Include="Controllers\CentroTrabajoController.cs" />
+    <Compile Include="Controllers\ResultadosController.cs" />
+    <Compile Include="Models\admin_perfil.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\categoria.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\centroTrabajo.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\correos.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cstatus.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cuestionario.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cuestionarioATS.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cuestionarioATSPersonas.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cuestionarioATSRespuestas.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cuestionarioDetalle.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dimencion.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dominio.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\empleado.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\empresa.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EncabezadoCuestionario.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\encargadosEmpresa.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EncuestaSugerencias.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\logCuestionarioATS.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\logRespuestaEmpleado.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Log_factores.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\modulo.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\operaciones.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\periodosEncuesta.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\plandeaccion.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\politica.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\posiblesRespDetalle.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\posiblesRespuestas.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\respuestaEmpDetalle.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\respuestaEmpleado.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\resultados_nom025.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\resultados_nom035.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\resultados_por_usuario_025.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\resultados_por_usuario_035.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\result_categoria.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\result_dimension.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\result_dominio.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rol.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rol_operacion.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usuario.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\AdminViewModel.cs" />
+    <Compile Include="Models\ViewModel\aplicacionPdf.cs" />
+    <Compile Include="Models\ViewModel\CabeceraViewModel.cs" />
+    <Compile Include="Models\ViewModel\ArchivoAtsViewModel.cs" />
+    <Compile Include="Models\ViewModel\CondicionalesInformeViewModel.cs" />
+    <Compile Include="Models\ViewModel\ConexionViewModel.cs" />
+    <Compile Include="Models\ViewModel\ConsultasViewModel.cs" />
+    <Compile Include="Models\ViewModel\CorreosPdfViewModel.cs" />
+    <Compile Include="Controllers\CuestionarioController.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
+    <Compile Include="Controllers\EmpresaController.cs" />
+    <Compile Include="Controllers\EncuestaController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PoliticaController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Filters\VerifySession.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\db_rhcon.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_rhcon.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\db_rhcon.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\db_rhcon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_rhcon.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\FactoresController.cs" />
+    <Compile Include="Models\ViewModel\AceptaPoliticasViewModel.cs" />
+    <Compile Include="Models\ViewModel\ArchivoViewModel.cs" />
+    <Compile Include="Models\ViewModel\CentroTrabajoViewModel.cs" />
+    <Compile Include="Models\ViewModel\CuestionarioViewModel.cs" />
+    <Compile Include="Models\ViewModel\Cumplimiento035ViewModel.cs" />
+    <Compile Include="Models\ViewModel\DataResultadosViewModel.cs" />
+    <Compile Include="Models\ViewModel\DatosDeEncuestaViewModel.cs" />
+    <Compile Include="Models\ViewModel\DimensionesViewModel.cs" />
+    <Compile Include="Models\ViewModel\DominioViewModel.cs" />
+    <Compile Include="Models\ViewModel\EmpleadoViewModel.cs" />
+    <Compile Include="Models\ViewModel\EmpresaEditViewModel.cs" />
+    <Compile Include="Models\ViewModel\EmpresaViewModel.cs" />
+    <Compile Include="Models\ViewModel\EncargadoEmpresaViewModel.cs" />
+    <Compile Include="Models\ViewModel\FiltrosResultados.cs" />
+    <Compile Include="Models\ViewModel\graficaViewModel.cs" />
+    <Compile Include="Models\ViewModel\HistorialATSViewModel.cs" />
+    <Compile Include="Models\ViewModel\HistorialFactoresViewModel.cs" />
+    <Compile Include="Models\ViewModel\ListCentroTrabajoViewModel.cs" />
+    <Compile Include="Models\ViewModel\ListEmpleadoViewModel.cs" />
+    <Compile Include="Models\ViewModel\ListEmpresaViewModel.cs" />
+    <Compile Include="Models\ViewModel\ListEncabezadoCuestionRioViewModel.cs" />
+    <Compile Include="Models\ViewModel\ListPreguntasViewModel.cs" />
+    <Compile Include="Models\ViewModel\ListRespuestasViewModel.cs" />
+    <Compile Include="Models\ViewModel\ListUserViewModel.cs" />
+    <Compile Include="Models\ViewModel\LoginViewModel.cs" />
+    <Compile Include="Models\ViewModel\CategoriasViewModel.cs" />
+    <Compile Include="Models\ViewModel\OpcionesViewModel.cs" />
+    <Compile Include="Models\ViewModel\PaginacionViewModel.cs" />
+    <Compile Include="Models\ViewModel\PeriodosEncuestaViewModel.cs" />
+    <Compile Include="Models\ViewModel\PersonaViewModel.cs" />
+    <Compile Include="Models\ViewModel\PlanAccionViewModel.cs" />
+    <Compile Include="Models\ViewModel\politicaViewModel.cs" />
+    <Compile Include="Models\ViewModel\ReporteViewModel.cs" />
+    <Compile Include="Models\ViewModel\RepuestaInformeViewModel.cs" />
+    <Compile Include="Models\ViewModel\ResultadoInformeViewModel.cs" />
+    <Compile Include="Models\ViewModel\ResultadosInformeViewModelcs.cs" />
+    <Compile Include="Models\ViewModel\RolViewModel.cs" />
+    <Compile Include="Models\ViewModel\UserViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils\MemoryFile.cs" />
+    <Compile Include="utils\MyDateAttribute.cs" />
+    <Compile Include="utils\SvgHandler.cs" />
+    <Compile Include="utils\utilerias.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\chkeEditor\build\ckeditor.js" />
+    <Content Include="Assets\chkeEditor\build\translations\af.js" />
+    <Content Include="Assets\chkeEditor\build\translations\ar.js" />
+    <Content Include="Assets\chkeEditor\build\translations\ast.js" />
+    <Content Include="Assets\chkeEditor\build\translations\az.js" />
+    <Content Include="Assets\chkeEditor\build\translations\bg.js" />
+    <Content Include="Assets\chkeEditor\build\translations\ca.js" />
+    <Content Include="Assets\chkeEditor\build\translations\cs.js" />
+    <Content Include="Assets\chkeEditor\build\translations\da.js" />
+    <Content Include="Assets\chkeEditor\build\translations\de-ch.js" />
+    <Content Include="Assets\chkeEditor\build\translations\de.js" />
+    <Content Include="Assets\chkeEditor\build\translations\el.js" />
+    <Content Include="Assets\chkeEditor\build\translations\en-au.js" />
+    <Content Include="Assets\chkeEditor\build\translations\en-gb.js" />
+    <Content Include="Assets\chkeEditor\build\translations\en.js" />
+    <Content Include="Assets\chkeEditor\build\translations\eo.js" />
+    <Content Include="Assets\chkeEditor\build\translations\et.js" />
+    <Content Include="Assets\chkeEditor\build\translations\eu.js" />
+    <Content Include="Assets\chkeEditor\build\translations\fa.js" />
+    <Content Include="Assets\chkeEditor\build\translations\fi.js" />
+    <Content Include="Assets\chkeEditor\build\translations\fr.js" />
+    <Content Include="Assets\chkeEditor\build\translations\gl.js" />
+    <Content Include="Assets\chkeEditor\build\translations\gu.js" />
+    <Content Include="Assets\chkeEditor\build\translations\he.js" />
+    <Content Include="Assets\chkeEditor\build\translations\hi.js" />
+    <Content Include="Assets\chkeEditor\build\translations\hr.js" />
+    <Content Include="Assets\chkeEditor\build\translations\hu.js" />
+    <Content Include="Assets\chkeEditor\build\translations\id.js" />
+    <Content Include="Assets\chkeEditor\build\translations\it.js" />
+    <Content Include="Assets\chkeEditor\build\translations\ja.js" />
+    <Content Include="Assets\chkeEditor\build\translations\kk.js" />
+    <Content Include="Assets\chkeEditor\build\translations\km.js" />
+    <Content Include="Assets\chkeEditor\build\translations\kn.js" />
+    <Content Include="Assets\chkeEditor\build\translations\ko.js" />
+    <Content Include="Assets\chkeEditor\build\translations\ku.js" />
+    <Content Include="Assets\chkeEditor\build\translations\lt.js" />
+    <Content Include="Assets\chkeEditor\build\translations\lv.js" />
+    <Content Include="Assets\chkeEditor\build\translations\ms.js" />
+    <Content Include="Assets\chkeEditor\build\translations\nb.js" />
+    <Content Include="Assets\chkeEditor\build\translations\ne.js" />
+    <Content Include="Assets\chkeEditor\build\translations\nl.js" />
+    <Content Include="Assets\chkeEditor\build\translations\no.js" />
+    <Content Include="Assets\chkeEditor\build\translations\oc.js" />
+    <Content Include="Assets\chkeEditor\build\translations\pl.js" />
+    <Content Include="Assets\chkeEditor\build\translations\pt-br.js" />
+    <Content Include="Assets\chkeEditor\build\translations\pt.js" />
+    <Content Include="Assets\chkeEditor\build\translations\ro.js" />
+    <Content Include="Assets\chkeEditor\build\translations\ru.js" />
+    <Content Include="Assets\chkeEditor\build\translations\si.js" />
+    <Content Include="Assets\chkeEditor\build\translations\sk.js" />
+    <Content Include="Assets\chkeEditor\build\translations\sl.js" />
+    <Content Include="Assets\chkeEditor\build\translations\sq.js" />
+    <Content Include="Assets\chkeEditor\build\translations\sr-latn.js" />
+    <Content Include="Assets\chkeEditor\build\translations\sr.js" />
+    <Content Include="Assets\chkeEditor\build\translations\sv.js" />
+    <Content Include="Assets\chkeEditor\build\translations\th.js" />
+    <Content Include="Assets\chkeEditor\build\translations\tk.js" />
+    <Content Include="Assets\chkeEditor\build\translations\tr.js" />
+    <Content Include="Assets\chkeEditor\build\translations\tt.js" />
+    <Content Include="Assets\chkeEditor\build\translations\ug.js" />
+    <Content Include="Assets\chkeEditor\build\translations\uk.js" />
+    <Content Include="Assets\chkeEditor\build\translations\uz.js" />
+    <Content Include="Assets\chkeEditor\build\translations\vi.js" />
+    <Content Include="Assets\chkeEditor\build\translations\zh-cn.js" />
+    <Content Include="Assets\chkeEditor\build\translations\zh.js" />
+    <Content Include="Assets\chkeEditor\sample\index.html" />
+    <Content Include="Assets\chkeEditor\sample\styles.css" />
+    <Content Include="Assets\chkeEditor\src\ckeditor.js" />
+    <Content Include="Assets\chkeEditor\webpack.config.js" />
+    <Content Include="Assets\img\ban\1.jpg" />
+    <Content Include="Assets\img\ban\10.jpg" />
+    <Content Include="Assets\img\ban\11.jpg" />
+    <Content Include="Assets\img\ban\12.jpg" />
+    <Content Include="Assets\img\ban\2.jpg" />
+    <Content Include="Assets\img\ban\3.jpg" />
+    <Content Include="Assets\img\ban\4.jpg" />
+    <Content Include="Assets\img\ban\5.jpg" />
+    <Content Include="Assets\img\ban\8.jpg" />
+    <Content Include="Assets\img\ban\9.jpg" />
+    <Content Include="Assets\img\botones\atsEmpleado.JPG" />
+    <Content Include="Assets\img\botones\grafic.png" />
+    <Content Include="Assets\img\carrusel\apoyoSocial.jpg" />
+    <Content Include="Assets\img\carrusel\compromiso.jpg" />
+    <Content Include="Assets\img\carrusel\diversidad.jpg" />
+    <Content Include="Assets\img\carrusel\entornofavorable.jpg" />
+    <Content Include="Assets\img\carrusel\linea.jpg" />
+    <Content Include="Assets\img\carrusel\nom035.jpg" />
+    <Content Include="Assets\img\carrusel\prevencion.jpg" />
+    <Content Include="Assets\img\carrusel\respeto.jpg" />
+    <Content Include="Assets\img\carrusel\responsabilidad.jpg" />
+    <Content Include="Assets\img\carrusel\violencia.jpg" />
+    <Content Include="Assets\img\centroAtencion.svg" />
+    <Content Include="Assets\img\centroEv.svg" />
+    <Content Include="Assets\img\encuestas.png" />
+    <Content Include="Assets\img\et1.png" />
+    <Content Include="Assets\img\excel.png" />
+    <Content Include="Assets\img\nivelesDeRiesgo.JPG" />
+    <Content Include="Assets\img\politicas.svg" />
+    <Content Include="Assets\img\referenciaEvaluacion.PNG" />
+    <Content Include="Assets\img\SVG\ADMINISTRADOR\SVG Atencion nutricional.svg" />
+    <Content Include="Assets\img\SVG\ADMINISTRADOR\SVG Atención psicologica.svg" />
+    <Content Include="Assets\img\SVG\ADMINISTRADOR\SVG Convenios.svg" />
+    <Content Include="Assets\img\SVG\ADMINISTRADOR\SVG Correo electronico.svg" />
+    <Content Include="Assets\img\SVG\ADMINISTRADOR\SVG Entorno Organizacional favorable con letras.svg" />
+    <Content Include="Assets\img\SVG\ADMINISTRADOR\SVG indentificación de acontecimiento traumatico severo.svg" />
+    <Content Include="Assets\img\SVG\ADMINISTRADOR\SVG Linea de directa.svg" />
+    <Content Include="Assets\img\SVG\ADMINISTRADOR\SVG Registro.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG at.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG atn.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG atp.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG cd2.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG centroAtencionF.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG centroev.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG Comite de bienestar laboral %281%29.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG desempenio.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG di.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG et1.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG et2.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG Fotos de fuera de servicio-03.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG juridico.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG linea.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG plus.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG politicatt.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG reconocimiento ambiente.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG resul.svg" />
+    <Content Include="Assets\img\SVG\EMPLEADO\SVG tc.svg" />
+    <Content Include="Assets\img\SVG\EMPRESA\Centrodetrabajo.svg" />
+    <Content Include="Assets\img\SVG\EMPRESA\Comitedebienestarlaboral.svg" />
+    <Content Include="Assets\img\SVG\EMPRESA\cuestionariosresultados.svg" />
+    <Content Include="Assets\img\SVG\EMPRESA\EntornoOrganizacionalfavorableconletras.svg" />
+    <Content Include="Assets\img\SVG\EMPRESA\Evaluación.svg" />
+    <Content Include="Assets\img\SVG\EMPRESA\indentificacióndeacontecimientotraumaticosevero.svg" />
+    <Content Include="Assets\img\SVG\EMPRESA\iniciodesesionnaranja.svg" />
+    <Content Include="Assets\img\SVG\EMPRESA\Lineadirecta.svg" />
+    <Content Include="Assets\img\SVG\EMPRESA\mano.svg" />
+    <Content Include="Assets\img\SVG\EMPRESA\Seguridadehigiene.svg" />
+    <Content Include="Assets\img\SVG\EMPRESA\Tablerodecomunicación.svg" />
+    <Content Include="Assets\img\SVG\Historial.svg" />
+    <Content Include="Assets\img\SVG\LOGO\Copy of Datos del empleado.svg" />
+    <Content Include="Assets\img\SVG\LOGO\Copy of difusión.svg" />
+    <Content Include="Assets\img\SVG\LOGO\Copy of Investigación.svg" />
+    <Content Include="Assets\img\SVG\LOGO\diversidad e inclusión.svg" />
+    <Content Include="Assets\img\SVG\LOGO\Entorno organizacional 1.svg" />
+    <Content Include="Assets\img\SVG\LOGO\Evaluacion.svg" />
+    <Content Include="Assets\img\SVG\LOGO\Registro.svg" />
+    <Content Include="Assets\img\SVG\LOGO\rhlogo.png" />
+    <Content Include="Assets\img\SVG\LOGO\Software.svg" />
+    <Content Include="Assets\img\SVG\LOGO\SVGBIENESTAR.svg" />
+    <Content Include="Assets\img\SVG\LOGO\SVGLOGO.svg" />
+    <Content Include="Assets\img\SVG\ADMINISTRADOR\perfil.png.svg" />
+    <Content Include="Assets\img\tablero.svg" />
+    <Content Include="Assets\img\tc.svg" />
+    <Content Include="Assets\img\VIDEO EN DESARROLLO PLATAFORMA.png" />
+    <Content Include="Assets\logos\bienestar.png" />
+    <Content Include="Assets\logos\fuera de servicio.jpg" />
+    <Content Include="Assets\logos\logo-LOZD951212CH9.jpg" />
+    <Content Include="Assets\logos\rh.png" />
+    <Content Include="Assets\logos\sistemas.png" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\css\dataTables.bootstrap.css" />
+    <Content Include="Content\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\css\dataTables.bootstrap5.css" />
+    <Content Include="Content\css\dataTables.bootstrap5.min.css" />
+    <Content Include="Content\css\dataTables.bulma.css" />
+    <Content Include="Content\css\dataTables.bulma.min.css" />
+    <Content Include="Content\css\dataTables.dataTables.css" />
+    <Content Include="Content\css\dataTables.dataTables.min.css" />
+    <Content Include="Content\css\dataTables.foundation.css" />
+    <Content Include="Content\css\dataTables.foundation.min.css" />
+    <Content Include="Content\css\dataTables.jqueryui.css" />
+    <Content Include="Content\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\css\dataTables.semanticui.css" />
+    <Content Include="Content\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\css\jquery.dataTables.css" />
+    <Content Include="Content\css\jquery.dataTables.min.css" />
+    <Content Include="Content\datatables.min.css" />
+    <Content Include="Content\style\crud.css" />
+    <Content Include="Content\style\cuestionario.css" />
+    <Content Include="Content\style\filtros.css" />
+    <Content Include="Content\style\home.css" />
+    <Content Include="Content\style\perfil_administrador.css" />
+    <Content Include="Content\style\perfil_empleado.css" />
+    <Content Include="Content\style\perfil_empresa.css" />
+    <Content Include="Content\style\resultados.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\db_rhcon.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>db_rhcon.Context.cs</LastGenOutput>
+      <DependentUpon>db_rhcon.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\db_rhcon.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>db_rhcon.edmx</DependentUpon>
+      <LastGenOutput>db_rhcon.cs</LastGenOutput>
+    </Content>
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\db_rhcon.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>db_rhcon.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\db_rhcon.edmx.diagram">
+      <DependentUpon>db_rhcon.edmx</DependentUpon>
+    </Content>
+    <Content Include="Scripts\datatables.min.js" />
+    <Content Include="libman.json" />
+    <Content Include="Files\plantilla_Alta_Empleados.xlsx" />
+    <Content Include="Files\plantilla_AltaCentrosTrabajo.xlsx" />
+    <Content Include="Assets\contratos\contratoi-prueba.pdf" />
+    <Content Include="App_Browsers\qt.browser" />
+    <Content Include="Files\plantilla_Alta_EmpleadosCt.xlsx" />
+    <Content Include="Assets\chkeEditor\build\ckeditor.js.map" />
+    <Content Include="Assets\chkeEditor\LICENSE.md" />
+    <Content Include="Assets\chkeEditor\package.json" />
+    <Content Include="Assets\chkeEditor\README.md" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\js\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\js\dataTables.bootstrap5.js" />
+    <Content Include="Scripts\js\dataTables.bootstrap5.min.js" />
+    <Content Include="Scripts\js\dataTables.bulma.js" />
+    <Content Include="Scripts\js\dataTables.bulma.min.js" />
+    <Content Include="Scripts\js\dataTables.dataTables.js" />
+    <Content Include="Scripts\js\dataTables.dataTables.min.js" />
+    <Content Include="Scripts\js\dataTables.foundation.js" />
+    <Content Include="Scripts\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\js\dataTables.semanticui.js" />
+    <Content Include="Scripts\js\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\js\jquery.dataTables.js" />
+    <Content Include="Scripts\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Politica\Index.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Usuarios\Users.cshtml" />
+    <Content Include="Views\Home\Paginado.cshtml" />
+    <Content Include="Views\Usuarios\Nuevo.cshtml" />
+    <Content Include="Views\Usuarios\Editar.cshtml" />
+    <Content Include="Views\Empresa\Index.cshtml" />
+    <Content Include="Views\Empresa\Nuevo.cshtml" />
+    <Content Include="Views\Shared\_LayoutIndex.cshtml" />
+    <Content Include="Views\Home\LineDirect.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Encuesta\Index.cshtml" />
+    <Content Include="Views\Empresa\Perfil.cshtml" />
+    <Content Include="Views\Shared\_LayoutEmpresa.cshtml" />
+    <Content Include="Views\Administrador\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdministrador.cshtml" />
+    <Content Include="Views\Empleado\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutEmpleado.cshtml" />
+    <Content Include="Views\Empresa\Editar.cshtml" />
+    <Content Include="Views\CentroTrabajo\Index.cshtml" />
+    <Content Include="Views\CentroTrabajo\Nuevo.cshtml" />
+    <Content Include="Views\CentroTrabajo\Editar.cshtml" />
+    <Content Include="Views\Empresa\Empleados.cshtml" />
+    <Content Include="Views\Empresa\NuevoEmpleado.cshtml" />
+    <Content Include="Views\Empresa\EditarEmpleado.cshtml" />
+    <Content Include="Views\Shared\_LayoutCrud.cshtml" />
+    <Content Include="Views\Factores\ActivarPeriodo.cshtml" />
+    <Content Include="Views\Shared\_LayoutCuestionario.cshtml" />
+    <Content Include="Views\CargaMasiva\Centro.cshtml" />
+    <Content Include="Views\CargaMasiva\Empleado.cshtml" />
+    <Content Include="Views\Encuesta\Mensaje.cshtml" />
+    <Content Include="Views\Politica\Descargarpolitica.cshtml" />
+    <Content Include="Views\Empleado\PaginaContruccion.cshtml" />
+    <Content Include="Views\Empresa\PaginaConstruccion.cshtml" />
+    <Content Include="Views\Home\Mensaje.cshtml" />
+    <Content Include="Views\Home\CambiarPassword.cshtml" />
+    <Content Include="Views\Politica\VistaPdf.cshtml" />
+    <Content Include="Views\CentroTrabajo\Perfil.cshtml" />
+    <Content Include="Views\CentroTrabajo\NuevoEmpleado.cshtml" />
+    <Content Include="Views\CentroTrabajo\Empleados.cshtml" />
+    <Content Include="Views\Shared\_LayoutSubMenu.cshtml" />
+    <Content Include="Views\Factores\PaginaConstruccion.cshtml" />
+    <Content Include="Views\CentroTrabajo\EditarEmpleado.cshtml" />
+    <Content Include="Views\CargaMasiva\EmpleadoCt.cshtml" />
+    <Content Include="Views\Administrador\PaginaConstruccion.cshtml" />
+    <Content Include="Views\Cuestionario\Index.cshtml" />
+    <Content Include="Views\ATS\Recordatorio.cshtml" />
+    <Content Include="Views\Cuestionario\acuse1.cshtml" />
+    <Content Include="Views\Cuestionario\acuse2.cshtml" />
+    <Content Include="Views\Cuestionario\acuse3.cshtml" />
+    <Content Include="Views\Cuestionario\informe.cshtml" />
+    <Content Include="Views\Cuestionario\Historial.cshtml" />
+    <Content Include="Views\CentroTrabajo\PaginaEnConstruccion.cshtml" />
+    <Content Include="Views\Factores\Extender.cshtml" />
+    <Content Include="Views\Factores\Reforzamiento.cshtml" />
+    <Content Include="Views\Factores\Activar.cshtml" />
+    <Content Include="Views\Shared\_LayoutCrudEmpleado.cshtml" />
+    <Content Include="Views\Cuestionario\informePdf.cshtml" />
+    <Content Include="Views\Cuestionario\paginacion.cshtml" />
+    <Content Include="Views\Shared\_paginator.cshtml" />
+    <Content Include="Views\Home\HeaderInforme.cshtml" />
+    <Content Include="Views\Factores\Resultados.cshtml" />
+    <Content Include="Views\Factores\Reporte.cshtml" />
+    <Content Include="Views\CargaMasiva\EditEmpleado.cshtml" />
+    <Content Include="Views\Politica\PoliticaVideo.cshtml" />
+    <Content Include="Views\Shared\_LayoutCrudAdministrador.cshtml" />
+    <Content Include="Views\Empleado\VideoNom035.cshtml" />
+    <Content Include="Views\Empleado\VideoNom025.cshtml" />
+    <Content Include="Views\Home\HeaderLogo.cshtml" />
+    <Content Include="Views\Resultados\Index.cshtml" />
+    <Content Include="Views\Resultados\empresa.cshtml" />
+    <Content Include="Views\Shared\_LayoutResultados.cshtml" />
+    <Content Include="Views\Factores\menuresultados.cshtml" />
+    <Content Include="Views\Factores\MenuEncuesta.cshtml" />
+    <Content Include="Views\Empleado\Resultados.cshtml" />
+    <Content Include="Views\Shared\_LayoutResultadosEmpleado.cshtml" />
+    <Content Include="Views\CentroTrabajo\Resultados.cshtml" />
+    <Content Include="Views\Shared\_LayoutResultadosCentro.cshtml" />
+    <Content Include="Views\Resultados\Reporte.cshtml" />
+    <Content Include="Views\Resultados\Informe035.cshtml" />
+    <Content Include="Views\Resultados\Informe025.cshtml" />
+    <Content Include="Views\Home\HeaderReporte.cshtml" />
+    <Content Include="Views\Shared\_LayoutInformeEmpresa.cshtml" />
+    <Content Include="Views\Factores\ActivarP.cshtml" />
+    <Content Include="Views\Factores\ReforzarP.cshtml" />
+    <Content Include="Views\Factores\ExtenderP.cshtml" />
+    <Content Include="Views\Factores\CerrarP.cshtml" />
+    <Content Include="Views\Empresa\ReporteResultados.cshtml" />
+    <Content Include="Views\Resultados\Reporte035.cshtml" />
+    <Content Include="Views\Resultados\Reporte025.cshtml" />
+    <Content Include="Views\Shared\_LayoutSubMenuEmpresa.cshtml" />
+    <Content Include="Views\Factores\Historial.cshtml" />
+    <Content Include="Views\Factores\movimientosPdf.cshtml" />
+    <Content Include="Views\Factores\aplicacion.cshtml" />
+    <Content Include="Views\Home\HeaderFactores.cshtml" />
+    <Content Include="Views\Administrador\perfiladmin.cshtml" />
+    <Content Include="Views\Administrador\datosadmin.cshtml" />
+    <Content Include="Views\Empresa\Resultados.cshtml" />
+    <Content Include="Views\Home\headerInforme025.cshtml" />
+    <Content Include="Views\Empresa\Acciones.cshtml" />
+    <Content Include="Views\Empresa\PanelPlanDeAccion.cshtml" />
+    <Content Include="Views\Empresa\ReporteAcciones.cshtml" />
+    <Content Include="Views\Empresa\MisActividades.cshtml" />
+    <Content Include="Views\Empleado\ReporteAcciones.cshtml" />
+    <Content Include="Views\Empleado\MisActividades.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>24644</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44351/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

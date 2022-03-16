@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="rhconModelStoreContainer" CdmEntityContainer="rhconEntities">
+    <EntitySetMapping Name="modulo">
+      <EntityTypeMapping TypeName="rhconModel.modulo">
+        <MappingFragment StoreEntitySet="modulo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_padre" ColumnName="id_padre" />
+          <ScalarProperty Name="controller_name" ColumnName="controller_name" />
+          <ScalarProperty Name="action_name" ColumnName="action_name" />
+          <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="operaciones">
+      <EntityTypeMapping TypeName="rhconModel.operaciones">
+        <MappingFragment StoreEntitySet="operaciones">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+          <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rol_operacion">
+      <EntityTypeMapping TypeName="rhconModel.rol_operacion">
+        <MappingFragment StoreEntitySet="rol_operacion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idOperacion" ColumnName="idOperacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="userInsert" FunctionName="rhconModel.Store.userInsert" />
+    <FunctionImportMapping FunctionImportName="userUpdate" FunctionName="rhconModel.Store.userUpdate" />
+    <FunctionImportMapping FunctionImportName="empresaInsert" FunctionName="rhconModel.Store.empresaInsert" />
+    <FunctionImportMapping FunctionImportName="userDelete" FunctionName="rhconModel.Store.userDelete" />
+    <FunctionImportMapping FunctionImportName="userLogin" FunctionName="rhconModel.Store.userLogin" />
+    <EntitySetMapping Name="categoria">
+      <EntityTypeMapping TypeName="rhconModel.categoria">
+        <MappingFragment StoreEntitySet="categoria">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="centroTrabajo">
+      <EntityTypeMapping TypeName="rhconModel.centroTrabajo">
+        <MappingFragment StoreEntitySet="centroTrabajo">
+          <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="actividades" ColumnName="actividades" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cuestionarioDetalle">
+      <EntityTypeMapping TypeName="rhconModel.cuestionarioDetalle">
+        <MappingFragment StoreEntitySet="cuestionarioDetalle">
+          <ScalarProperty Name="idDimencion" ColumnName="idDimencion" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="idPosiblesResp" ColumnName="idPosiblesResp" />
+          <ScalarProperty Name="idCuestionario" ColumnName="idCuestionario" />
+          <ScalarProperty Name="Reactivo" ColumnName="Reactivo" />
+          <ScalarProperty Name="noReactivo" ColumnName="noReactivo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dominio">
+      <EntityTypeMapping TypeName="rhconModel.dominio">
+        <MappingFragment StoreEntitySet="dominio">
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="encargadosEmpresa">
+      <EntityTypeMapping TypeName="rhconModel.encargadosEmpresa">
+        <MappingFragment StoreEntitySet="encargadosEmpresa">
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="posiblesRespDetalle">
+      <EntityTypeMapping TypeName="rhconModel.posiblesRespDetalle">
+        <MappingFragment StoreEntitySet="posiblesRespDetalle">
+          <ScalarProperty Name="idEncabezado" ColumnName="idEncabezado" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="posiblesRespuestas">
+      <EntityTypeMapping TypeName="rhconModel.posiblesRespuestas">
+        <MappingFragment StoreEntitySet="posiblesRespuestas">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="grupo" ColumnName="grupo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="empresaDelete" FunctionName="rhconModel.Store.empresaDelete" />
+    <FunctionImportMapping FunctionImportName="empresaUpdate" FunctionName="rhconModel.Store.empresaUpdate" />
+    <FunctionImportMapping FunctionImportName="ctrabajoDelete" FunctionName="rhconModel.Store.ctrabajoDelete" />
+    <FunctionImportMapping FunctionImportName="ctrabajoInsert" FunctionName="rhconModel.Store.ctrabajoInsert" />
+    <FunctionImportMapping FunctionImportName="ctrabajoUpdate" FunctionName="rhconModel.Store.ctrabajoUpdate" />
+    <EntitySetMapping Name="correos">
+      <EntityTypeMapping TypeName="rhconModel.correos">
+        <MappingFragment StoreEntitySet="correos">
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="politica">
+      <EntityTypeMapping TypeName="rhconModel.politica">
+        <MappingFragment StoreEntitySet="politica">
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="video" ColumnName="video" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="empleadoDelete" FunctionName="rhconModel.Store.empleadoDelete" />
+    <FunctionImportMapping FunctionImportName="empleadoInsert" FunctionName="rhconModel.Store.empleadoInsert" />
+    <FunctionImportMapping FunctionImportName="empleadoUpdate" FunctionName="rhconModel.Store.empleadoUpdate" />
+    <FunctionImportMapping FunctionImportName="ActivarPeriodoEncuesta" FunctionName="rhconModel.Store.ActivarPeriodoEncuesta" />
+    <FunctionImportMapping FunctionImportName="respEmplInsert" FunctionName="rhconModel.Store.respEmplInsert" />
+    <EntitySetMapping Name="respuestaEmpDetalle">
+      <EntityTypeMapping TypeName="rhconModel.respuestaEmpDetalle">
+        <MappingFragment StoreEntitySet="respuestaEmpDetalle">
+          <ScalarProperty Name="idRespuesta" ColumnName="idRespuesta" />
+          <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
+          <ScalarProperty Name="idResuestaEmpleado" ColumnName="idResuestaEmpleado" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logRespuestaEmpleado">
+      <EntityTypeMapping TypeName="rhconModel.logRespuestaEmpleado">
+        <MappingFragment StoreEntitySet="logRespuestaEmpleado">
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cuestionario">
+      <EntityTypeMapping TypeName="rhconModel.cuestionario">
+        <MappingFragment StoreEntitySet="cuestionario">
+          <ScalarProperty Name="nomenclatura" ColumnName="nomenclatura" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rol">
+      <EntityTypeMapping TypeName="rhconModel.rol">
+        <MappingFragment StoreEntitySet="rol">
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="rhconModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empleado">
+      <EntityTypeMapping TypeName="rhconModel.empleado">
+        <MappingFragment StoreEntitySet="empleado">
+          <ScalarProperty Name="area_funcion" ColumnName="area_funcion" />
+          <ScalarProperty Name="aceptoPolitica" ColumnName="aceptoPolitica" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+          <ScalarProperty Name="idCentroTrabajo" ColumnName="idCentroTrabajo" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="celcontacto" ColumnName="celcontacto" />
+          <ScalarProperty Name="contacto" ColumnName="contacto" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="nss" ColumnName="nss" />
+          <ScalarProperty Name="curp" ColumnName="curp" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cuestionarioATS">
+      <EntityTypeMapping TypeName="rhconModel.cuestionarioATS">
+        <MappingFragment StoreEntitySet="cuestionarioATS">
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="personas" ColumnName="personas" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="fechao" ColumnName="fechao" />
+          <ScalarProperty Name="traumatico" ColumnName="traumatico" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cuestionarioATSPersonas">
+      <EntityTypeMapping TypeName="rhconModel.cuestionarioATSPersonas">
+        <MappingFragment StoreEntitySet="cuestionarioATSPersonas">
+          <ScalarProperty Name="empleado" ColumnName="empleado" />
+          <ScalarProperty Name="apellidom" ColumnName="apellidom" />
+          <ScalarProperty Name="apellidop" ColumnName="apellidop" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_cuestionarioATS" ColumnName="id_cuestionarioATS" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cuestionarioATSRespuestas">
+      <EntityTypeMapping TypeName="rhconModel.cuestionarioATSRespuestas">
+        <MappingFragment StoreEntitySet="cuestionarioATSRespuestas">
+          <ScalarProperty Name="idRespuesta" ColumnName="idRespuesta" />
+          <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
+          <ScalarProperty Name="id_cuestionarioATS" ColumnName="id_cuestionarioATS" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logCuestionarioATS">
+      <EntityTypeMapping TypeName="rhconModel.logCuestionarioATS">
+        <MappingFragment StoreEntitySet="logCuestionarioATS">
+          <ScalarProperty Name="acontecimiento" ColumnName="acontecimiento" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="verificacion" ColumnName="verificacion" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="acuse" ColumnName="acuse" />
+          <ScalarProperty Name="informe" ColumnName="informe" />
+          <ScalarProperty Name="id_cuestionarioATS" ColumnName="id_cuestionarioATS" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="cuestionatioATSInsert" FunctionName="rhconModel.Store.cuestionatioATSInsert" />
+    <EntitySetMapping Name="respuestaEmpleado">
+      <EntityTypeMapping TypeName="rhconModel.respuestaEmpleado">
+        <MappingFragment StoreEntitySet="respuestaEmpleado">
+          <ScalarProperty Name="dondeTrabajo" ColumnName="dondeTrabajo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="existeMecanismo" ColumnName="existeMecanismo" />
+          <ScalarProperty Name="existeComite" ColumnName="existeComite" />
+          <ScalarProperty Name="existeCodigoEtica" ColumnName="existeCodigoEtica" />
+          <ScalarProperty Name="existePolitica" ColumnName="existePolitica" />
+          <ScalarProperty Name="sector" ColumnName="sector" />
+          <ScalarProperty Name="parteSectores" ColumnName="parteSectores" />
+          <ScalarProperty Name="idCentroTrabajo" ColumnName="idCentroTrabajo" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="idCuestionario" ColumnName="idCuestionario" />
+          <ScalarProperty Name="realizaRotacion" ColumnName="realizaRotacion" />
+          <ScalarProperty Name="discapacidad" ColumnName="discapacidad" />
+          <ScalarProperty Name="tieneDiscapacidad" ColumnName="tieneDiscapacidad" />
+          <ScalarProperty Name="tipoPersonal" ColumnName="tipoPersonal" />
+          <ScalarProperty Name="tipoContratacion" ColumnName="tipoContratacion" />
+          <ScalarProperty Name="tipoJornada" ColumnName="tipoJornada" />
+          <ScalarProperty Name="escolaridad" ColumnName="escolaridad" />
+          <ScalarProperty Name="tiempoExperienciaLaboral" ColumnName="tiempoExperienciaLaboral" />
+          <ScalarProperty Name="tiempoPuestoActual" ColumnName="tiempoPuestoActual" />
+          <ScalarProperty Name="antiguedad" ColumnName="antiguedad" />
+          <ScalarProperty Name="estadoCivil" ColumnName="estadoCivil" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="rhconModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="verificacion" ColumnName="verificacion" />
+          <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cstatus">
+      <EntityTypeMapping TypeName="rhconModel.cstatus">
+        <MappingFragment StoreEntitySet="cstatus">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="resultados_nom035">
+      <EntityTypeMapping TypeName="rhconModel.resultados_nom035">
+        <MappingFragment StoreEntitySet="resultados_nom035">
+          <ScalarProperty Name="tipoPersonal" ColumnName="tipoPersonal" />
+          <ScalarProperty Name="tipoJornada" ColumnName="tipoJornada" />
+          <ScalarProperty Name="tipoContratacion" ColumnName="tipoContratacion" />
+          <ScalarProperty Name="tieneDiscapacidad" ColumnName="tieneDiscapacidad" />
+          <ScalarProperty Name="tiempoPuestoActual" ColumnName="tiempoPuestoActual" />
+          <ScalarProperty Name="tiempoExperienciaLaboral" ColumnName="tiempoExperienciaLaboral" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="sector" ColumnName="sector" />
+          <ScalarProperty Name="realizaRotacion" ColumnName="realizaRotacion" />
+          <ScalarProperty Name="parteSectores" ColumnName="parteSectores" />
+          <ScalarProperty Name="idCuestionario" ColumnName="idCuestionario" />
+          <ScalarProperty Name="idRespuestaEmpleado" ColumnName="idRespuestaEmpleado" />
+          <ScalarProperty Name="existePolitica" ColumnName="existePolitica" />
+          <ScalarProperty Name="existeMecanismo" ColumnName="existeMecanismo" />
+          <ScalarProperty Name="existeComite" ColumnName="existeComite" />
+          <ScalarProperty Name="existeCodigoEtica" ColumnName="existeCodigoEtica" />
+          <ScalarProperty Name="estadoCivil" ColumnName="estadoCivil" />
+          <ScalarProperty Name="escolaridad" ColumnName="escolaridad" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="dondeTrabajo" ColumnName="dondeTrabajo" />
+          <ScalarProperty Name="discapacidad" ColumnName="discapacidad" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="antiguedad" ColumnName="antiguedad" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="curp" ColumnName="curp" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoria_descripcion" ColumnName="categoria_descripcion" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="dominio_descripcion" ColumnName="dominio_descripcion" />
+          <ScalarProperty Name="idDominio" ColumnName="idDominio" />
+          <ScalarProperty Name="dimencion_descripcion" ColumnName="dimencion_descripcion" />
+          <ScalarProperty Name="idDimencion" ColumnName="idDimencion" />
+          <ScalarProperty Name="cabecera_descripcion" ColumnName="cabecera_descripcion" />
+          <ScalarProperty Name="id_cabecera" ColumnName="id_cabecera" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="idCentroTrabajo" ColumnName="idCentroTrabajo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="idRespuesta" ColumnName="idRespuesta" />
+          <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
+          <ScalarProperty Name="idResuestaEmpleado" ColumnName="idResuestaEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empresa">
+      <EntityTypeMapping TypeName="rhconModel.empresa">
+        <MappingFragment StoreEntitySet="empresa">
+          <ScalarProperty Name="puestojerarquia" ColumnName="puestojerarquia" />
+          <ScalarProperty Name="nombrejerarquia" ColumnName="nombrejerarquia" />
+          <ScalarProperty Name="contrato" ColumnName="contrato" />
+          <ScalarProperty Name="ctAdministraEmpleados" ColumnName="ctAdministraEmpleados" />
+          <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+          <ScalarProperty Name="actividad" ColumnName="actividad" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="razons" ColumnName="razons" />
+          <ScalarProperty Name="razonc" ColumnName="razonc" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="resultados_nom025">
+      <EntityTypeMapping TypeName="rhconModel.resultados_nom025">
+        <MappingFragment StoreEntitySet="resultados_nom025">
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="curp" ColumnName="curp" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idResuestaEmpleado" ColumnName="idResuestaEmpleado" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="idCentroTrabajo" ColumnName="idCentroTrabajo" />
+          <ScalarProperty Name="cabecera_descripcion" ColumnName="cabecera_descripcion" />
+          <ScalarProperty Name="id_cabecera" ColumnName="id_cabecera" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="idRespuesta" ColumnName="idRespuesta" />
+          <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="rhconModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="rhconModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="rhconModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="rhconModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="rhconModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="rhconModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="rhconModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="rhconModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="rhconModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="result_categoria">
+      <EntityTypeMapping TypeName="rhconModel.result_categoria">
+        <MappingFragment StoreEntitySet="result_categoria">
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="suma" ColumnName="suma" />
+          <ScalarProperty Name="categoria_descripcion" ColumnName="categoria_descripcion" />
+          <ScalarProperty Name="idResuestaEmpleado" ColumnName="idResuestaEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="result_dimension">
+      <EntityTypeMapping TypeName="rhconModel.result_dimension">
+        <MappingFragment StoreEntitySet="result_dimension">
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="suma" ColumnName="suma" />
+          <ScalarProperty Name="dimencion_descripcion" ColumnName="dimencion_descripcion" />
+          <ScalarProperty Name="idResuestaEmpleado" ColumnName="idResuestaEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="result_dominio">
+      <EntityTypeMapping TypeName="rhconModel.result_dominio">
+        <MappingFragment StoreEntitySet="result_dominio">
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="suma" ColumnName="suma" />
+          <ScalarProperty Name="dominio_descripcion" ColumnName="dominio_descripcion" />
+          <ScalarProperty Name="idResuestaEmpleado" ColumnName="idResuestaEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="resultados_por_usuario_025">
+      <EntityTypeMapping TypeName="rhconModel.resultados_por_usuario_025">
+        <MappingFragment StoreEntitySet="resultados_por_usuario_025">
+          <ScalarProperty Name="valores" ColumnName="valores" />
+          <ScalarProperty Name="idCentroTrabajo" ColumnName="idCentroTrabajo" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="curp" ColumnName="curp" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="resultados_por_usuario_035">
+      <EntityTypeMapping TypeName="rhconModel.resultados_por_usuario_035">
+        <MappingFragment StoreEntitySet="resultados_por_usuario_035">
+          <ScalarProperty Name="valores" ColumnName="valores" />
+          <ScalarProperty Name="idCentroTrabajo" ColumnName="idCentroTrabajo" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="curp" ColumnName="curp" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="periodosEncuesta">
+      <EntityTypeMapping TypeName="rhconModel.periodosEncuesta">
+        <MappingFragment StoreEntitySet="periodosEncuesta">
+          <ScalarProperty Name="cierre" ColumnName="cierre" />
+          <ScalarProperty Name="responsable" ColumnName="responsable" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dimencion">
+      <EntityTypeMapping TypeName="rhconModel.dimencion">
+        <MappingFragment StoreEntitySet="dimencion">
+          <ScalarProperty Name="texts_dimension" ColumnName="texts_dimension" />
+          <ScalarProperty Name="idDominio" ColumnName="idDominio" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EncabezadoCuestionario">
+      <EntityTypeMapping TypeName="rhconModel.EncabezadoCuestionario">
+        <MappingFragment StoreEntitySet="EncabezadoCuestionario">
+          <ScalarProperty Name="maximo" ColumnName="maximo" />
+          <ScalarProperty Name="opciones_text" ColumnName="opciones_text" />
+          <ScalarProperty Name="idCuestionario" ColumnName="idCuestionario" />
+          <ScalarProperty Name="esOPcional" ColumnName="esOPcional" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log_factores">
+      <EntityTypeMapping TypeName="rhconModel.Log_factores">
+        <MappingFragment StoreEntitySet="Log_factores">
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="archivo" ColumnName="archivo" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="admin_perfil">
+      <EntityTypeMapping TypeName="rhconModel.admin_perfil">
+        <MappingFragment StoreEntitySet="admin_perfil">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="contacto" ColumnName="contacto" />
+          <ScalarProperty Name="celcontacto" ColumnName="celcontacto" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EncuestaSugerencias">
+      <EntityTypeMapping TypeName="rhconModel.EncuestaSugerencias">
+        <MappingFragment StoreEntitySet="EncuestaSugerencias">
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="sugerencia" ColumnName="sugerencia" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="plandeaccion">
+      <EntityTypeMapping TypeName="rhconModel.plandeaccion">
+        <MappingFragment StoreEntitySet="plandeaccion">
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="responsable" ColumnName="responsable" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="accion" ColumnName="accion" />
+          <ScalarProperty Name="nivelriesgo" ColumnName="nivelriesgo" />
+          <ScalarProperty Name="dimension" ColumnName="dimension" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

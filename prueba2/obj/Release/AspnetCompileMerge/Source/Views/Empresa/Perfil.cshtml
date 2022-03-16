@@ -1,0 +1,286 @@
+﻿@model rhcon.Models.ViewModel.EmpresaViewModel
+@{
+    ViewBag.Title = "Perfil";
+    Layout = "~/Views/Shared/_LayoutEmpresa.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 col-lg-9 position-relative">
+            <div class="logo position-relative">
+                <img src="~/Assets/logos/@Model.strlogotipo" class="img" alt="Alternate Text" />
+                <span class="d-block" id="boton_informacion">Información de Empresa <i class="fas fa-chevron-down"></i></span>
+                <div class="informacion informacion_none" id="caja">
+                    <div><b>Responsable:</b> @Model.Responsable</div>
+                    <div><b>Correo:</b> @Model.Email</div>
+                    <div><b>Empresa:</b> @Model.RazonSocial</div>
+                    @*<div><a href="#">ver Información</a></div>*@
+                </div>
+            </div>
+        </div>
+
+        <div class="col-7 col-lg-3 d-flex justify-content-end align-items-start">
+            <div class="btn_perfil"><a href="~/Home/Logout"><i class="fas fa-sign-out-alt"></i></a><span>Cerrar Sesión</span></div>
+            @*<div class="btn_perfil"><a href="#" download="Manual Administrador"><i class="fas fa-file-pdf"></i></a><span>Manual</span></div>*@
+        </div>
+    </div>
+
+    <div class="row pt-2 pb-2">
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0  col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/CentroTrabajo/" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPRESA/Centrodetrabajo.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+                <h2>Centro de Trabajo</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/Empleados" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPRESA/iniciodesesionnaranja.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+                <h2>Empleados(as)</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPRESA/Comitedebienestarlaboral.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Comité de Bienestar Laboral</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPRESA/Tablerodecomunicación.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Tablero de Comunicación</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPRESA/Lineadirecta.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Línea Directa</h2>
+            </a>
+        </div>
+
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/ATS/Recordatorio/" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPRESA/indentificacióndeacontecimientotraumaticosevero.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Acontecimiento Traumático Severo</h2>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row  pt-2 pb-2 ">
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Factores/Menuresultados" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPRESA/cuestionariosresultados.svg" style="width:90px; height:90px" type="image/svg+xml" />
+                </span>
+
+                <h2>Cuestionarios, Encuestas y Resultados</h2>
+            </a>
+        </div>
+
+
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/LOGO/Copy of Investigación.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Medidas de Prevención</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/LOGO/Evaluacion.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Recursos y Obligaciones</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/ADMINISTRADOR/SVG Convenios.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Beneficios y Descuentos</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG reconocimiento ambiente.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Reconocimiento y Ambiente de Trabajo</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG desempenio.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Desempeño</h2>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row  pt-2 pb-2 ">
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG cd2.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Centro de Desarrollo</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG atn.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Atención Nutricional</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG atp.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Atención Psicológica</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/LOGO/Registro.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Políticas</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PaginaConstruccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/LOGO/Software.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Cuenta</h2>
+            </a>
+        </div>
+
+
+    </div>
+
+    @*<div class="text-info" style="text-align:center">
+            @ViewBag.Message
+        </div>*@
+
+    @* tercera fila *@
+
+
+
+    <div class="row">
+
+        <div class="col-8 col-lg-9 offset-lg-3 d-flex justify-content-end" style="padding-top:20px;">
+            <a href="https://rhcon.com.mx/" target="_blank">
+                <span>
+                    <embed src="~/Assets/img/SVG/LOGO/SVGLOGO.svg" style="width:400px; height:60px" type="image/svg+xml" />
+                </span>
+            </a>
+        </div>
+
+    </div>
+
+
+</div>
+
+@section scripts{
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script>
+
+        $("#boton_informacion").click(() => {
+
+            $("#caja").toggleClass("informacion_none");
+
+        });
+
+        /*Initialize Swiper*/
+        var slides = 3;
+
+
+        if (screen.width < 900) {
+            slides = 2;
+        }
+
+        if (screen.width < 600) {
+            slides = 1;
+        }
+
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: slides,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+        });
+
+
+        //alerta de viewbag
+
+        var message = "@Html.ViewBag.Message";
+    if (message != 0) {
+        Swal.fire({
+            //title:"",
+            // text:
+            html: '<h4>' + message + '</h4>' +
+                '<img src="/assets/img/encuestas.png" alt="">'
+        });
+    }
+
+    </script>
+
+}

@@ -1,0 +1,458 @@
+﻿@using rhcon.Models.ViewModel
+@model  rhcon.Models.ViewModel.FiltrosResultados
+@{
+    ViewBag.Title = "Resultados";
+    Layout = "~/Views/Shared/_LayoutInformeEmpresa.cshtml";
+}
+
+@using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data", id = "formulario" }))
+{
+    <div class="filtros-description">
+        <h2>Filtros Generales</h2>
+    </div>
+    <input type="hidden" name="idEmpresa" value="@Model.Empresa" />
+    <div class="grilla-resultadosX" id="grilla-general">
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Selecciona la Norma:</label>
+                <select id="norma" name="norma">
+                    <option value="0" disabled selected>Normas</option>
+                    <option value="1">Nom035</option>
+                    <option value="2">nom025</option>
+                </select>
+            </div>
+        </section>
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Selecciona el Año:</label>
+                <select id="fecha" name="fecha">
+                    <option value="0" disabled selected>Años</option>
+                    @for (int i = Model.FechaEmpresa.Year; i <= DateTime.Now.Year; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+            </div>
+        </section>
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Selecciona la Empresa:</label>
+                <select id="dimension" name="dimension">
+                    <option value="0" disabled selected>Dimensiónes</option>
+                    <option value="2">Centro de trabajo</option>
+                    <option value="1">Empresa</option>
+                </select>
+            </div>
+        </section>
+
+
+    </div>
+
+    <div class="filtros-description margenX">
+        <h2>Filtros (Opcionales)</h2>
+    </div>
+
+
+
+    <div class="grilla-resultados">
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Sexo:</label>
+                <select name="sexo" id="sexo">
+                    <option value="">Elige una opción</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                </select>
+            </div>
+        </section>
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Edad:</label>
+                <select name="edad" id="edad">
+                    <option value="">Elige una opción</option>
+                    <option value="15 a 19">15 a 19</option>
+                    <option value="20 a 24">20 a 24</option>
+                    <option value="25 a 29">25 a 29</option>
+                    <option value="30 a 34">30 a 34</option>
+                    <option value="35 a 39">35 a 39</option>
+                    <option value="40 a 44">40 a 44</option>
+                    <option value="45 a 49">45 a 49</option>
+                    <option value="50 a 54">50 a 54</option>
+                    <option value="55 a 59">55 a 59</option>
+                    <option value="60 a 64">60 a 64</option>
+                    <option value="65 a 69">65 a 69</option>
+                    <option value="70 o mas">70 o mas</option>
+                </select>
+            </div>
+        </section>
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label"> Estado Civil:</label>
+                <select name="estadoCivil" id="estadoCivil">
+                    <option value="">Elige una opción</option>
+                    <option value="soltera">Soltera/o</option>
+                    <option value="casada">Casada/o</option>
+                    <option value="unionlibre">Unión libre</option>
+                    <option value="divorciada">Divorciada/o</option>
+                    <option value="viuda">Viuda/o</option>
+                </select>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Antiguedad:</label>
+
+                <select name="antiguedad" id="antiguedad">
+                    <option value="">Elige una opción</option>
+                    <option value="Menos de 6 meses">Menos de 6 meses</option>
+                    <option value="Entre 6 meses y 1 año">Entre 6 meses y 1 año</option>
+                    <option value="Entre 1 año a 4 años">Entre 1 año a 4 años</option>
+                    <option value="Entre 5 años a 9 años">Entre 5 años a 9 años</option>
+                    <option value="Entre 10 años a 14 años">Entre 10 años a 14 años</option>
+                    <option value="Entre 15 años a 19 años">Entre 15 años a 19 años</option>
+                    <option value="Entre 20 años a 24 años">Entre 20 años a 24 años</option>
+                    <option value="25 años a mas">25 años a mas</option>
+                </select>
+            </div>
+        </section>
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Periodo del Puesto:</label>
+
+                <select name="tiempoPuestoActual" id="tiempoPuestoActual">
+                    <option value="">Elige una opción</option>
+                    <option value="Menos de 6 meses">Menos de 6 meses</option>
+                    <option value="Entre 6 meses y 1 año">Entre 6 meses y 1 año</option>
+                    <option value="Entre 1 año a 4 años">Entre 1 año a 4 años</option>
+                    <option value="Entre 5 años a 9 años">Entre 5 años a 9 años</option>
+                    <option value="Entre 10 años a 14 años">Entre 10 años a 14 años</option>
+                    <option value="Entre 15 años a 19 años">Entre 15 años a 19 años</option>
+                    <option value="Entre 20 años a 24 años">Entre 20 años a 24 años</option>
+                    <option value="25 años a mas">25 años a mas</option>
+                </select>
+            </div>
+        </section>
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Periodo de Experiencia Laboral:</label>
+
+                <select name="tiempoExperienciaLaboral" id="tiempoExperienciaLaboral">
+                    <option value="">Elige una opción</option>
+                    <option value="Menos de 6 meses">Menos de 6 meses</option>
+                    <option value="Entre 6 meses y 1 año">Entre 6 meses y 1 año</option>
+                    <option value="Entre 1 año a 4 años">Entre 1 año a 4 años</option>
+                    <option value="Entre 5 años a 9 años">Entre 5 años a 9 años</option>
+                    <option value="Entre 10 años a 14 años">Entre 10 años a 14 años</option>
+                    <option value="Entre 15 años a 19 años">Entre 15 años a 19 años</option>
+                    <option value="Entre 20 años a 24 años">Entre 20 años a 24 años</option>
+                    <option value="25 años a mas">25 años a mas</option>
+                </select>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Escolaridad:</label>
+
+
+                <select name="escolaridad" id="escolaridad">
+                    <option value="">Elige una opción</option>
+                    <option value="Sin escolaridad">Sin escolaridad</option>
+                    <option value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option>
+                    <option value="Bachillerato o preparatoria">Bachillerato o preparatoria</option>
+                    <option value="Carrera técnica">Carrera técnica</option>
+                    <option value="Licenciatura">Licenciatura</option>
+                    <option value="Maestría">Maestría</option>
+                    <option value="Doctorado">Doctorado</option>
+                </select>
+            </div>
+        </section>
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Jornada Laboral:</label>
+
+
+                <select name="tipoJornada" id="tipoJornada">
+                    <option value="">Elige una opción</option>
+                    <option value="Fijo diurno (entre las 6:00 y 20:00 hrs)">Fijo diurno (entre las 6:00 y 20:00 hrs)</option>
+                    <option value="Fijo nocturno (entre las 20:00 y 6:00 hrs)">Fijo nocturno (entre las 20:00 y 6:00 hrs)</option>
+                    <option value="Fijo mixto (combinacion nocturno y diurno)">Fijo mixto (combinacion nocturno y diurno)</option>
+                </select>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Tipo de Contratación:</label>
+
+
+                <select name="tipoContratacion" id="tipoContratacion">
+                    <option value="">Elige una opción</option>
+                    <option value="Tiempo indeterminado">Tiempo indeterminado</option>
+                    <option value="Por tiempo determinado(temporal)">Por tiempo determinado(temporal)</option>
+                    <option value="Por obra o proyecto">Por obra o proyecto</option>
+                    <option value="Honorarios">Honorarios</option>
+                </select>
+            </div>
+        </section>
+
+
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label">Tipo de Personal:</label>
+
+
+                <select name="tipoPersonal" id="tipoPersonal">
+                    <option value="">Elige una opción</option>
+                    <option value="Confianza">Confianza</option>
+                    <option value="Sindicalizado">Sindicalizado</option>
+                    <option value="Ninguno de los anteriores">Ninguno de los anteriores</option>
+                </select>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label"> rotación de turnos:</label>
+
+
+                <select name="realizaRotacion" id="realizaRotacion">
+                    <option value="">Elige una opción</option>
+                    <option value="No">No</option>
+                    <option value="Si">Si</option>
+                </select>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label"> discapacidad:</label>
+
+
+                <select name="discapacidad" id="discapacidad">
+                    <option value="">Elige una opción</option>
+                    <option value="Intelectual">Intelectual</option>
+                    <option value="Motriz">Motriz</option>
+                    <option value="Auditiva">Auditiva</option>
+                    <option value="Visual">Visual</option>
+                </select>
+            </div>
+        </section>
+
+
+    </div>
+
+    <div class="grilla-resultadosy">
+
+        <section>
+            <div class="select_Content">
+                <label for="opciones" class="select_label"> sectores de la población:</label>
+
+
+                <select name="sector" id="sector">
+                    <option value="">Elige una opción</option>
+                    <option value="De la diversidad sexual">De la diversidad sexual</option>
+                    <option value="Indígenas">Indígenas</option>
+                    <option value="Afrodescendientes">Afrodescendientes</option>
+                    <option value="Adultos mayores">Adultos mayores</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+        </section>
+
+    </div>
+    <section class="centrar-seccion">
+        <button id="enviar" class="boton-enviar">Enviar</button>
+    </section>
+}
+<div id="json" style="display:none;">
+    @Model.Centros
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+        var selects = document.querySelectorAll("select");
+        var boton = document.querySelector("#enviar");
+        var form = document.querySelector("#formulario");
+        var json = document.querySelector("#json");
+        var centrost = JSON.parse(json.textContent);
+    var alerta = "@ViewBag.Message";
+
+
+    const mensaje = (inicial, cadena) => {
+
+
+        Swal.fire({
+            toast: true,
+            icon: 'error',
+            title: `Error ${inicial}`,
+            html: `
+                    <style>
+                        p{
+                        font-size:12px;
+                        }
+                        span{font-weight: bold;}
+                    </style>
+               <p> <span>${cadena}</span> estan vacios </p>`,
+            backdrop: true,
+            animation: false,
+            position: 'bottom',
+            showConfirmButton: false,
+            timer: 8000,
+            timerProgressBar: true,
+
+        })
+    }
+
+
+             if (alerta !== "0") {
+                 mensaje("", alerta);
+            }
+
+        form.addEventListener("change", (e) => {
+
+            if (e.target.tagName == "SELECT")
+            {
+                e.target.className = "marcado";
+                Addcentros(e.target.value, e.target.name);
+            }
+         });
+
+
+
+
+        var Addcentros = (valor, name) => {
+
+
+            let select = document.querySelector("#dimension");
+            if (select.name == name) {
+
+                if (valor == 2) {
+
+
+
+                    const grilla = document.querySelector("#grilla-general");
+                    let section = document.createElement("section");
+                    section.setAttribute("id", "section-centro");
+                    let div = document.createElement("div");
+                    div.setAttribute("class", "select_Content");
+                    let label = document.createElement("label");
+                    label.setAttribute("class", "select_label");
+                    label.textContent = "Selecciona el Centro de Trabajo";
+                    let select = document.createElement("select");
+                    select.setAttribute("id", "centro");
+                    select.setAttribute("name", "centro");
+                    let option = document.createElement("option");
+                    option.setAttribute("value", "0");
+                    option.setAttribute("disabled", true);
+                    option.setAttribute("selected", true);
+                    option.textContent = "Centros de Trabajo";
+                    select.appendChild(option);
+
+
+                    centrost.map(key => {
+                        let option = document.createElement("option");
+                        option.setAttribute("value", key.Id);
+                        option.textContent = key.Nombre;
+                        select.appendChild(option);
+
+                    });
+
+                    div.appendChild(label);
+                    div.appendChild(select);
+                    section.appendChild(div);
+                    grilla.appendChild(section);
+                    grilla.className = "grilla-resultados"
+
+
+
+                } else {
+                    const grilla = document.querySelector("#grilla-general");
+                    const remove = grilla.querySelector("#section-centro");
+                    if (remove != null) {
+                        grilla.removeChild(remove);
+                        grilla.className = "grilla-resultadosX"
+                    }
+
+
+                }
+            }
+        }
+
+        boton.addEventListener("click",async (e) => {
+
+            e.preventDefault();
+            let dimension = document.querySelector("#dimension");
+            let fecha = document.querySelector("#fecha");
+            let norma = document.querySelector("#norma");
+            let centro = document.querySelector("#centro");
+
+            let paquete = {
+                dimension,
+                fecha,
+                norma,
+                centro
+            }
+
+            var respuesta = AddError(paquete);
+
+            if (respuesta.length == 0) {
+
+                if (norma.value == 1) {
+                    var url = "@Url.Content("~/Resultados/Informe035")";
+                    form.setAttribute("action", url);
+                    form.submit();
+                } else {
+                    var url = "@Url.Content("~/Resultados/informe025")";
+                    form.setAttribute("action", url);
+                    form.submit();
+                }
+            } else {
+                let inicial = "el campo: ";
+                if (respuesta.length > 1)
+                    inicial = "los campos: ";
+                let cadena = respuesta.reduce((v, f)  => {
+                  return  v += ", " + f
+                });
+
+                mensaje(inicial,cadena);
+            }
+
+
+        });
+
+
+        const AddError = ({ dimension = 0, fecha = 0, norma = 0, centro = 0 }) => {
+            var concatenar = [];
+            if (dimension.value == 0) { concatenar.push(dimension.name); dimension.className = "marcadoX"; }
+            if (fecha.value == 0) { concatenar.push(fecha.name); fecha.className = "marcadoX";}
+            if (norma.value == 0) { concatenar.push(norma.name); norma.className = "marcadoX";}
+            if (centro != null)
+            {
+                if (centro.value == 0) { concatenar.push(centro.name); centro.className = "marcadoX"; }
+            }
+
+
+
+            return concatenar;
+
+        }
+
+
+
+</script>

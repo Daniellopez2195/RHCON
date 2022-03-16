@@ -1,0 +1,1456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rhconModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin_perfil">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cedula" Type="varchar" MaxLength="200" />
+    <Property Name="celular" Type="varchar" MaxLength="50" />
+    <Property Name="celcontacto" Type="varchar" MaxLength="50" />
+    <Property Name="contacto" Type="varchar" MaxLength="50" />
+    <Property Name="idUsuario" Type="int" />
+  </EntityType>
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="centroTrabajo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="150" />
+    <Property Name="actividades" Type="varchar" MaxLength="200" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="idEmpresa" Type="int" Nullable="false" />
+    <Property Name="idStatus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="correos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="varchar(max)" />
+    <Property Name="tipo" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="cstatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cuestionario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nomenclatura" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="cuestionarioATS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="traumatico" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="fechao" Type="datetime" Nullable="false" />
+    <Property Name="hora" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="personas" Type="int" Nullable="false" />
+    <Property Name="tipo" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cuestionarioATSPersonas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cuestionarioATS" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidop" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="empleado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cuestionarioATSRespuestas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cuestionarioATS" Type="int" Nullable="false" />
+    <Property Name="idPregunta" Type="int" Nullable="false" />
+    <Property Name="idRespuesta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cuestionarioDetalle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="noReactivo" Type="int" Nullable="false" />
+    <Property Name="Reactivo" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="idCuestionario" Type="int" Nullable="false" />
+    <Property Name="idPosiblesResp" Type="int" Nullable="false" />
+    <Property Name="idCategoria" Type="int" Nullable="false" />
+    <Property Name="idDimencion" Type="int" />
+  </EntityType>
+  <EntityType Name="dimencion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idCategoria" Type="int" Nullable="false" />
+    <Property Name="idDominio" Type="int" Nullable="false" />
+    <Property Name="texts_dimension" Type="text" />
+  </EntityType>
+  <EntityType Name="dominio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idCategoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="curp" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="nss" Type="varchar" MaxLength="30" />
+    <Property Name="telefono" Type="varchar" MaxLength="15" />
+    <Property Name="contacto" Type="varchar" MaxLength="100" />
+    <Property Name="celcontacto" Type="varchar" MaxLength="50" />
+    <Property Name="idEmpresa" Type="int" Nullable="false" />
+    <Property Name="idCentroTrabajo" Type="int" Nullable="false" />
+    <Property Name="idEstatus" Type="int" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="aceptoPolitica" Type="bit" />
+    <Property Name="area_funcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="empresa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="razonc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="razons" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="75" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="150" />
+    <Property Name="actividad" Type="varchar" MaxLength="200" />
+    <Property Name="puesto" Type="varchar" MaxLength="50" />
+    <Property Name="rfc" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="img" Type="varchar" MaxLength="200" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="idStatus" Type="int" Nullable="false" />
+    <Property Name="ctAdministraEmpleados" Type="bit" />
+    <Property Name="contrato" Type="varchar" MaxLength="200" />
+    <Property Name="nombrejerarquia" Type="varchar" MaxLength="200" />
+    <Property Name="puestojerarquia" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="EncabezadoCuestionario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="esOPcional" Type="bit" Nullable="false" />
+    <Property Name="idCuestionario" Type="int" Nullable="false" />
+    <Property Name="opciones_text" Type="text" />
+    <Property Name="maximo" Type="int" />
+  </EntityType>
+  <EntityType Name="encargadosEmpresa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="idEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EncuestaSugerencias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sugerencia" Type="text" />
+    <Property Name="categoria" Type="varchar" MaxLength="200" />
+    <Property Name="year" Type="smallint" />
+    <Property Name="rol" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Log_factores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empresa" Type="int" />
+    <Property Name="archivo" Type="text" />
+    <Property Name="tipo" Type="int" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="fechaInicial" Type="datetime" />
+    <Property Name="fechaFinal" Type="datetime" />
+  </EntityType>
+  <EntityType Name="logCuestionarioATS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empleado" Type="int" Nullable="false" />
+    <Property Name="id_cuestionarioATS" Type="int" />
+    <Property Name="informe" Type="varchar" MaxLength="100" />
+    <Property Name="acuse" Type="varchar" MaxLength="100" />
+    <Property Name="tipo" Type="int" Nullable="false" />
+    <Property Name="verificacion" Type="varchar" MaxLength="100" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="fecha_registro" Type="datetime" />
+    <Property Name="acontecimiento" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="logRespuestaEmpleado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idEmpleado" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="modulo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_padre" Type="int" />
+    <Property Name="controller_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="action_name" Type="varchar" MaxLength="50" />
+    <Property Name="idStatus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="operaciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idModulo" Type="int" Nullable="false" />
+    <Property Name="idStatus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="periodosEncuesta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idEmpresa" Type="int" Nullable="false" />
+    <Property Name="fechaInicio" Type="datetime" Nullable="false" />
+    <Property Name="fechaFinal" Type="datetime" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="cedula" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="year" Type="smallint" Nullable="false" />
+    <Property Name="responsable" Type="varchar" MaxLength="100" />
+    <Property Name="cierre" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'rhcon.dbo.plandeaccion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="plandeaccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dimension" Type="varchar" MaxLength="50" />
+    <Property Name="nivelriesgo" Type="varchar" MaxLength="50" />
+    <Property Name="accion" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="responsable" Type="varchar" MaxLength="50" />
+    <Property Name="fecha" Type="date" />
+  </EntityType>
+  <EntityType Name="politica">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="texto" Type="varchar(max)" />
+    <Property Name="titulo" Type="varchar" MaxLength="200" />
+    <Property Name="video" Type="varchar" MaxLength="200" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="posiblesRespDetalle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Respuesta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="valor" Type="smallint" Nullable="false" />
+    <Property Name="idEncabezado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="posiblesRespuestas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="grupo" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="respuestaEmpDetalle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idResuestaEmpleado" Type="int" Nullable="false" />
+    <Property Name="idPregunta" Type="int" Nullable="false" />
+    <Property Name="idRespuesta" Type="int" />
+  </EntityType>
+  <EntityType Name="respuestaEmpleado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sexo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="edad" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="estadoCivil" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="antiguedad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tiempoPuestoActual" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tiempoExperienciaLaboral" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="escolaridad" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="tipoJornada" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipoContratacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipoPersonal" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="tieneDiscapacidad" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="discapacidad" Type="varchar" MaxLength="20" />
+    <Property Name="realizaRotacion" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="idCuestionario" Type="int" Nullable="false" />
+    <Property Name="idEmpresa" Type="int" Nullable="false" />
+    <Property Name="idCentroTrabajo" Type="int" Nullable="false" />
+    <Property Name="parteSectores" Type="varchar" MaxLength="10" />
+    <Property Name="sector" Type="varchar" MaxLength="50" />
+    <Property Name="existePolitica" Type="varchar" MaxLength="10" />
+    <Property Name="existeCodigoEtica" Type="varchar" MaxLength="10" />
+    <Property Name="existeComite" Type="varchar" MaxLength="20" />
+    <Property Name="existeMecanismo" Type="varchar" MaxLength="10" />
+    <Property Name="comentario" Type="text" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="dondeTrabajo" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idStatus" Type="int" Nullable="false" />
+    <Property Name="orden" Type="int" />
+  </EntityType>
+  <EntityType Name="rol_operacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+    <Property Name="idOperacion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="75" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="75" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+    <Property Name="idStatus" Type="int" Nullable="false" />
+    <Property Name="verificacion" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'rhcon.dbo.result_categoria' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="result_categoria">
+    <Key>
+      <PropertyRef Name="idResuestaEmpleado" />
+      <PropertyRef Name="categoria_descripcion" />
+    </Key>
+    <Property Name="idResuestaEmpleado" Type="int" Nullable="false" />
+    <Property Name="categoria_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="suma" Type="int" />
+    <Property Name="year" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'rhcon.dbo.result_dimension' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="result_dimension">
+    <Key>
+      <PropertyRef Name="idResuestaEmpleado" />
+      <PropertyRef Name="dimencion_descripcion" />
+    </Key>
+    <Property Name="idResuestaEmpleado" Type="int" Nullable="false" />
+    <Property Name="dimencion_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="suma" Type="int" />
+    <Property Name="year" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'rhcon.dbo.result_dominio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="result_dominio">
+    <Key>
+      <PropertyRef Name="idResuestaEmpleado" />
+      <PropertyRef Name="dominio_descripcion" />
+    </Key>
+    <Property Name="idResuestaEmpleado" Type="int" Nullable="false" />
+    <Property Name="dominio_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="suma" Type="int" />
+    <Property Name="year" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_nom025' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="resultados_nom025">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="curp" />
+      <PropertyRef Name="idResuestaEmpleado" />
+      <PropertyRef Name="idPregunta" />
+      <PropertyRef Name="valor" />
+      <PropertyRef Name="id_cabecera" />
+      <PropertyRef Name="cabecera_descripcion" />
+      <PropertyRef Name="idCentroTrabajo" />
+      <PropertyRef Name="idEmpresa" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="curp" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="idResuestaEmpleado" Type="int" Nullable="false" />
+    <Property Name="idPregunta" Type="int" Nullable="false" />
+    <Property Name="idRespuesta" Type="int" />
+    <Property Name="valor" Type="smallint" Nullable="false" />
+    <Property Name="id_cabecera" Type="int" Nullable="false" />
+    <Property Name="cabecera_descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="idCentroTrabajo" Type="int" Nullable="false" />
+    <Property Name="idEmpresa" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="year" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_nom035' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="resultados_nom035">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="curp" />
+      <PropertyRef Name="idResuestaEmpleado" />
+      <PropertyRef Name="idPregunta" />
+      <PropertyRef Name="valor" />
+      <PropertyRef Name="id_cabecera" />
+      <PropertyRef Name="cabecera_descripcion" />
+      <PropertyRef Name="dimencion_descripcion" />
+      <PropertyRef Name="idDominio" />
+      <PropertyRef Name="dominio_descripcion" />
+      <PropertyRef Name="idCategoria" />
+      <PropertyRef Name="categoria_descripcion" />
+      <PropertyRef Name="antiguedad" />
+      <PropertyRef Name="edad" />
+      <PropertyRef Name="escolaridad" />
+      <PropertyRef Name="estadoCivil" />
+      <PropertyRef Name="idRespuestaEmpleado" />
+      <PropertyRef Name="idCentroTrabajo" />
+      <PropertyRef Name="idCuestionario" />
+      <PropertyRef Name="idEmpresa" />
+      <PropertyRef Name="realizaRotacion" />
+      <PropertyRef Name="sexo" />
+      <PropertyRef Name="tiempoExperienciaLaboral" />
+      <PropertyRef Name="tiempoPuestoActual" />
+      <PropertyRef Name="tieneDiscapacidad" />
+      <PropertyRef Name="tipoContratacion" />
+      <PropertyRef Name="tipoJornada" />
+      <PropertyRef Name="tipoPersonal" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="curp" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="idResuestaEmpleado" Type="int" Nullable="false" />
+    <Property Name="idPregunta" Type="int" Nullable="false" />
+    <Property Name="idRespuesta" Type="int" />
+    <Property Name="valor" Type="smallint" Nullable="false" />
+    <Property Name="year" Type="int" />
+    <Property Name="id_cabecera" Type="int" Nullable="false" />
+    <Property Name="cabecera_descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="idDimencion" Type="int" />
+    <Property Name="dimencion_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idDominio" Type="int" Nullable="false" />
+    <Property Name="dominio_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idCategoria" Type="int" Nullable="false" />
+    <Property Name="categoria_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="antiguedad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="comentario" Type="text" />
+    <Property Name="discapacidad" Type="varchar" MaxLength="20" />
+    <Property Name="dondeTrabajo" Type="varchar" MaxLength="100" />
+    <Property Name="edad" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="escolaridad" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="estadoCivil" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="existeCodigoEtica" Type="varchar" MaxLength="10" />
+    <Property Name="existeComite" Type="varchar" MaxLength="20" />
+    <Property Name="existeMecanismo" Type="varchar" MaxLength="10" />
+    <Property Name="existePolitica" Type="varchar" MaxLength="10" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="idRespuestaEmpleado" Type="int" Nullable="false" />
+    <Property Name="idCentroTrabajo" Type="int" Nullable="false" />
+    <Property Name="idCuestionario" Type="int" Nullable="false" />
+    <Property Name="idEmpresa" Type="int" Nullable="false" />
+    <Property Name="parteSectores" Type="varchar" MaxLength="10" />
+    <Property Name="realizaRotacion" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="sector" Type="varchar" MaxLength="50" />
+    <Property Name="sexo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="tiempoExperienciaLaboral" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tiempoPuestoActual" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tieneDiscapacidad" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="tipoContratacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipoJornada" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipoPersonal" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_025' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="resultados_por_usuario_025">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="curp" />
+      <PropertyRef Name="idEmpresa" />
+      <PropertyRef Name="idCentroTrabajo" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="curp" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="idEmpresa" Type="int" Nullable="false" />
+    <Property Name="idCentroTrabajo" Type="int" Nullable="false" />
+    <Property Name="valores" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="resultados_por_usuario_035">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="curp" />
+      <PropertyRef Name="idEmpresa" />
+      <PropertyRef Name="idCentroTrabajo" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="curp" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="idEmpresa" Type="int" Nullable="false" />
+    <Property Name="idCentroTrabajo" Type="int" Nullable="false" />
+    <Property Name="valores" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_categoriaCuestionario_cuestionario">
+    <End Role="cuestionario" Type="Self.cuestionario" Multiplicity="1" />
+    <End Role="EncabezadoCuestionario" Type="Self.EncabezadoCuestionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuestionario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EncabezadoCuestionario">
+        <PropertyRef Name="idCuestionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_centroTrabajo_cstatus">
+    <End Role="cstatus" Type="Self.cstatus" Multiplicity="1" />
+    <End Role="centroTrabajo" Type="Self.centroTrabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="centroTrabajo">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_centroTrabajo_empresa">
+    <End Role="empresa" Type="Self.empresa" Multiplicity="1" />
+    <End Role="centroTrabajo" Type="Self.centroTrabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="centroTrabajo">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_centroTrabajo_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="centroTrabajo" Type="Self.centroTrabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="centroTrabajo">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuestionarioDetalle_categoriaCuestionario">
+    <End Role="EncabezadoCuestionario" Type="Self.EncabezadoCuestionario" Multiplicity="1" />
+    <End Role="cuestionarioDetalle" Type="Self.cuestionarioDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EncabezadoCuestionario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuestionarioDetalle">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuestionarioDetalle_cuestionario">
+    <End Role="cuestionario" Type="Self.cuestionario" Multiplicity="1" />
+    <End Role="cuestionarioDetalle" Type="Self.cuestionarioDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuestionario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuestionarioDetalle">
+        <PropertyRef Name="idCuestionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuestionarioDetalle_dimencion">
+    <End Role="dimencion" Type="Self.dimencion" Multiplicity="0..1" />
+    <End Role="cuestionarioDetalle" Type="Self.cuestionarioDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dimencion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuestionarioDetalle">
+        <PropertyRef Name="idDimencion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuestionarioDetalle_posiblesRespuestas">
+    <End Role="posiblesRespuestas" Type="Self.posiblesRespuestas" Multiplicity="1" />
+    <End Role="cuestionarioDetalle" Type="Self.cuestionarioDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="posiblesRespuestas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuestionarioDetalle">
+        <PropertyRef Name="idPosiblesResp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dimencion_categoria">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
+    <End Role="dimencion" Type="Self.dimencion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dimencion">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dimencion_dominio">
+    <End Role="dominio" Type="Self.dominio" Multiplicity="1" />
+    <End Role="dimencion" Type="Self.dimencion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dominio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dimencion">
+        <PropertyRef Name="idDominio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dominio_categoria">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
+    <End Role="dominio" Type="Self.dominio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dominio">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_empleado_centroTrabajo">
+    <End Role="centroTrabajo" Type="Self.centroTrabajo" Multiplicity="1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="centroTrabajo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idCentroTrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_empleado_cstatus">
+    <End Role="cstatus" Type="Self.cstatus" Multiplicity="1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idEstatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_empleado_empresa">
+    <End Role="empresa" Type="Self.empresa" Multiplicity="1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_empleado_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_empresa_cstatus">
+    <End Role="cstatus" Type="Self.cstatus" Multiplicity="1" />
+    <End Role="empresa" Type="Self.empresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empresa">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_encargadosEmpresa_empresa">
+    <End Role="empresa" Type="Self.empresa" Multiplicity="1" />
+    <End Role="encargadosEmpresa" Type="Self.encargadosEmpresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="encargadosEmpresa">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_encargadosEmpresa_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="encargadosEmpresa" Type="Self.encargadosEmpresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="encargadosEmpresa">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_logRespuestaEmpleado_empleado">
+    <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
+    <End Role="logRespuestaEmpleado" Type="Self.logRespuestaEmpleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="logRespuestaEmpleado">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_modulo_cstatus">
+    <End Role="cstatus" Type="Self.cstatus" Multiplicity="1" />
+    <End Role="modulo" Type="Self.modulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="modulo">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_modulo_modulo">
+    <End Role="modulo" Type="Self.modulo" Multiplicity="0..1" />
+    <End Role="modulo1" Type="Self.modulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="modulo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="modulo1">
+        <PropertyRef Name="id_padre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_operaciones_cstatus">
+    <End Role="cstatus" Type="Self.cstatus" Multiplicity="1" />
+    <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="operaciones">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_operaciones_modulo">
+    <End Role="modulo" Type="Self.modulo" Multiplicity="1" />
+    <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="modulo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="operaciones">
+        <PropertyRef Name="idModulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_posiblesRespDetalle_posiblesRespuestas">
+    <End Role="posiblesRespuestas" Type="Self.posiblesRespuestas" Multiplicity="1" />
+    <End Role="posiblesRespDetalle" Type="Self.posiblesRespDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="posiblesRespuestas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="posiblesRespDetalle">
+        <PropertyRef Name="idEncabezado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_respuestaEmpDetalle_cuestionarioDetalle">
+    <End Role="cuestionarioDetalle" Type="Self.cuestionarioDetalle" Multiplicity="1" />
+    <End Role="respuestaEmpDetalle" Type="Self.respuestaEmpDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuestionarioDetalle">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="respuestaEmpDetalle">
+        <PropertyRef Name="idPregunta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_respuestaEmpDetalle_respuestaEmpleado">
+    <End Role="respuestaEmpleado" Type="Self.respuestaEmpleado" Multiplicity="1" />
+    <End Role="respuestaEmpDetalle" Type="Self.respuestaEmpDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="respuestaEmpleado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="respuestaEmpDetalle">
+        <PropertyRef Name="idResuestaEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_respuestaEmpleado_centroTrabajo">
+    <End Role="centroTrabajo" Type="Self.centroTrabajo" Multiplicity="1" />
+    <End Role="respuestaEmpleado" Type="Self.respuestaEmpleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="centroTrabajo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="respuestaEmpleado">
+        <PropertyRef Name="idCentroTrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_respuestaEmpleado_cuestionario">
+    <End Role="cuestionario" Type="Self.cuestionario" Multiplicity="1" />
+    <End Role="respuestaEmpleado" Type="Self.respuestaEmpleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuestionario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="respuestaEmpleado">
+        <PropertyRef Name="idCuestionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_respuestaEmpleado_empresa">
+    <End Role="empresa" Type="Self.empresa" Multiplicity="1" />
+    <End Role="respuestaEmpleado" Type="Self.respuestaEmpleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="respuestaEmpleado">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rol_cstatus">
+    <End Role="cstatus" Type="Self.cstatus" Multiplicity="1" />
+    <End Role="rol" Type="Self.rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rol">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rol_operacion_operaciones">
+    <End Role="operaciones" Type="Self.operaciones" Multiplicity="1" />
+    <End Role="rol_operacion" Type="Self.rol_operacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="operaciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rol_operacion">
+        <PropertyRef Name="idOperacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rol_operacion_rol">
+    <End Role="rol" Type="Self.rol" Multiplicity="1" />
+    <End Role="rol_operacion" Type="Self.rol_operacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rol_operacion">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_cstatus">
+    <End Role="cstatus" Type="Self.cstatus" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_rol">
+    <End Role="rol" Type="Self.rol" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ActivarPeriodoEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="int" Mode="In" />
+    <Parameter Name="fechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="fechaFinal" Type="datetime" Mode="In" />
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+    <Parameter Name="cedula" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="smallint" Mode="In" />
+    <Parameter Name="responsable" Type="varchar" Mode="In" />
+    <Parameter Name="periodoEncuestaID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="ctrabajoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ctID" Type="int" Mode="In" />
+    <Parameter Name="ctIdStatus" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ctrabajoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ctNombre" Type="varchar" Mode="In" />
+    <Parameter Name="ctDireccion" Type="varchar" Mode="In" />
+    <Parameter Name="ctActividades" Type="varchar" Mode="In" />
+    <Parameter Name="ctIdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="ctIdStatus" Type="int" Mode="In" />
+    <Parameter Name="ctUserName" Type="varchar" Mode="In" />
+    <Parameter Name="ctUserEmail" Type="varchar" Mode="In" />
+    <Parameter Name="ctUserPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ctUserIdRol" Type="int" Mode="In" />
+    <Parameter Name="ctID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="ctrabajoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ctID" Type="int" Mode="In" />
+    <Parameter Name="ctNombre" Type="varchar" Mode="In" />
+    <Parameter Name="ctDireccion" Type="varchar" Mode="In" />
+    <Parameter Name="ctActividades" Type="varchar" Mode="In" />
+    <Parameter Name="ctIdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="ctIdStatus" Type="int" Mode="In" />
+    <Parameter Name="ctUserId" Type="int" Mode="In" />
+    <Parameter Name="ctUserName" Type="varchar" Mode="In" />
+    <Parameter Name="ctUserEmail" Type="varchar" Mode="In" />
+    <Parameter Name="ctUserPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ctUserIdRol" Type="int" Mode="In" />
+  </Function>
+  <Function Name="cuestionatioATSInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="traumatico" Type="varchar" Mode="In" />
+    <Parameter Name="fechao" Type="datetime" Mode="In" />
+    <Parameter Name="hora" Type="varchar" Mode="In" />
+    <Parameter Name="descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="personas" Type="int" Mode="In" />
+    <Parameter Name="tipo" Type="int" Mode="In" />
+    <Parameter Name="idCuestionarioATS" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="empleadoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="emplID" Type="int" Mode="In" />
+    <Parameter Name="emplIdStatus" Type="int" Mode="In" />
+  </Function>
+  <Function Name="empleadoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="emplNombre" Type="varchar" Mode="In" />
+    <Parameter Name="emplCurp" Type="varchar" Mode="In" />
+    <Parameter Name="emplNss" Type="varchar" Mode="In" />
+    <Parameter Name="emplTelefono" Type="varchar" Mode="In" />
+    <Parameter Name="emplContacto" Type="varchar" Mode="In" />
+    <Parameter Name="emplCelcontacto" Type="varchar" Mode="In" />
+    <Parameter Name="emplIdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="emplIdCentroTrabajo" Type="int" Mode="In" />
+    <Parameter Name="emplIdEstatus" Type="int" Mode="In" />
+    <Parameter Name="emplUserName" Type="varchar" Mode="In" />
+    <Parameter Name="emplUserEmail" Type="varchar" Mode="In" />
+    <Parameter Name="emplUserPassword" Type="varchar" Mode="In" />
+    <Parameter Name="emplUserIdRol" Type="int" Mode="In" />
+    <Parameter Name="empAreaFuncion" Type="varchar" Mode="In" />
+    <Parameter Name="emplID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="empleadoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="emplID" Type="int" Mode="In" />
+    <Parameter Name="emplNombre" Type="varchar" Mode="In" />
+    <Parameter Name="emplCurp" Type="varchar" Mode="In" />
+    <Parameter Name="emplNss" Type="varchar" Mode="In" />
+    <Parameter Name="emplTelefono" Type="varchar" Mode="In" />
+    <Parameter Name="emplContacto" Type="varchar" Mode="In" />
+    <Parameter Name="emplCelcontacto" Type="varchar" Mode="In" />
+    <Parameter Name="emplIdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="emplIdCentroTrabajo" Type="int" Mode="In" />
+    <Parameter Name="emplIdEstatus" Type="int" Mode="In" />
+    <Parameter Name="emplIdUsuario" Type="int" Mode="In" />
+    <Parameter Name="emplUserName" Type="varchar" Mode="In" />
+    <Parameter Name="emplUserEmail" Type="varchar" Mode="In" />
+    <Parameter Name="emplUserPassword" Type="varchar" Mode="In" />
+    <Parameter Name="emplUserIdRol" Type="int" Mode="In" />
+    <Parameter Name="empAreaFuncion" Type="varchar" Mode="In" />
+    <Parameter Name="emplUserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="empresaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empID" Type="int" Mode="In" />
+    <Parameter Name="empIdStatus" Type="int" Mode="In" />
+  </Function>
+  <Function Name="empresaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empRazonc" Type="varchar" Mode="In" />
+    <Parameter Name="empRazons" Type="varchar" Mode="In" />
+    <Parameter Name="empEmail" Type="varchar" Mode="In" />
+    <Parameter Name="empTelefono" Type="varchar" Mode="In" />
+    <Parameter Name="empDireccion" Type="varchar" Mode="In" />
+    <Parameter Name="empActividad" Type="varchar" Mode="In" />
+    <Parameter Name="empPuesto" Type="varchar" Mode="In" />
+    <Parameter Name="empRFC" Type="varchar" Mode="In" />
+    <Parameter Name="empImg" Type="varchar" Mode="In" />
+    <Parameter Name="empIdStatus" Type="int" Mode="In" />
+    <Parameter Name="empUserName" Type="varchar" Mode="In" />
+    <Parameter Name="empUserEmail" Type="varchar" Mode="In" />
+    <Parameter Name="empUserPassword" Type="varchar" Mode="In" />
+    <Parameter Name="empUserIdRol" Type="int" Mode="In" />
+    <Parameter Name="empContrato" Type="varchar" Mode="In" />
+    <Parameter Name="nombreJerarquia" Type="varchar" Mode="In" />
+    <Parameter Name="puestoJerarquia" Type="varchar" Mode="In" />
+    <Parameter Name="empID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="empresaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empID" Type="int" Mode="In" />
+    <Parameter Name="empRazonc" Type="varchar" Mode="In" />
+    <Parameter Name="empRazons" Type="varchar" Mode="In" />
+    <Parameter Name="empEmail" Type="varchar" Mode="In" />
+    <Parameter Name="empTelefono" Type="varchar" Mode="In" />
+    <Parameter Name="empDireccion" Type="varchar" Mode="In" />
+    <Parameter Name="empActividad" Type="varchar" Mode="In" />
+    <Parameter Name="empPuesto" Type="varchar" Mode="In" />
+    <Parameter Name="empRFC" Type="varchar" Mode="In" />
+    <Parameter Name="empImg" Type="varchar" Mode="In" />
+    <Parameter Name="empIdUsuario" Type="int" Mode="In" />
+    <Parameter Name="empUserName" Type="varchar" Mode="In" />
+    <Parameter Name="empUserEmail" Type="varchar" Mode="In" />
+    <Parameter Name="empUserPassword" Type="varchar" Mode="In" />
+    <Parameter Name="empUserIdRol" Type="int" Mode="In" />
+    <Parameter Name="empUserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="respEmplInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sexo" Type="varchar" Mode="In" />
+    <Parameter Name="edad" Type="varchar" Mode="In" />
+    <Parameter Name="estadoCivil" Type="varchar" Mode="In" />
+    <Parameter Name="antiguedad" Type="varchar" Mode="In" />
+    <Parameter Name="tiempoPuesto" Type="varchar" Mode="In" />
+    <Parameter Name="tiempoExperiencia" Type="varchar" Mode="In" />
+    <Parameter Name="escolaridad" Type="varchar" Mode="In" />
+    <Parameter Name="tipoJornada" Type="varchar" Mode="In" />
+    <Parameter Name="tipoContratacion" Type="varchar" Mode="In" />
+    <Parameter Name="tipoPersonal" Type="varchar" Mode="In" />
+    <Parameter Name="tieneDiscapacidad" Type="varchar" Mode="In" />
+    <Parameter Name="discapacidad" Type="varchar" Mode="In" />
+    <Parameter Name="realizaRotacion" Type="varchar" Mode="In" />
+    <Parameter Name="idCuestionario" Type="int" Mode="In" />
+    <Parameter Name="idEmpresa" Type="int" Mode="In" />
+    <Parameter Name="idCentroTRabajo" Type="int" Mode="In" />
+    <Parameter Name="parteSectores" Type="varchar" Mode="In" />
+    <Parameter Name="sector" Type="varchar" Mode="In" />
+    <Parameter Name="existePolitica" Type="varchar" Mode="In" />
+    <Parameter Name="existeCodigoEtica" Type="varchar" Mode="In" />
+    <Parameter Name="existeComite" Type="varchar" Mode="In" />
+    <Parameter Name="existeMecanismo" Type="varchar" Mode="In" />
+    <Parameter Name="comentario" Type="text" Mode="In" />
+    <Parameter Name="idEmpleado" Type="int" Mode="In" />
+    <Parameter Name="dondeTrabajo" Type="varchar" Mode="In" />
+    <Parameter Name="idRespEmpl" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="userDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="int" Mode="In" />
+    <Parameter Name="userIdStatus" Type="int" Mode="In" />
+  </Function>
+  <Function Name="userInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userName" Type="varchar" Mode="In" />
+    <Parameter Name="userEmail" Type="varchar" Mode="In" />
+    <Parameter Name="userPassword" Type="varchar" Mode="In" />
+    <Parameter Name="userIdRol" Type="int" Mode="In" />
+    <Parameter Name="userIdStatus" Type="int" Mode="In" />
+    <Parameter Name="userID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="userLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userName" Type="varchar" Mode="In" />
+    <Parameter Name="userPassword" Type="varchar" Mode="In" />
+    <Parameter Name="userPerfil" Type="int" Mode="In" />
+    <Parameter Name="valorRetorno" Type="bit" Mode="InOut" />
+    <Parameter Name="IdUsuaro" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="userUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="int" Mode="In" />
+    <Parameter Name="userName" Type="varchar" Mode="In" />
+    <Parameter Name="userEmail" Type="varchar" Mode="In" />
+    <Parameter Name="userPassword" Type="varchar" Mode="In" />
+    <Parameter Name="userIdRol" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="rhconModelStoreContainer">
+    <EntitySet Name="admin_perfil" EntityType="Self.admin_perfil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="centroTrabajo" EntityType="Self.centroTrabajo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="correos" EntityType="Self.correos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cstatus" EntityType="Self.cstatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cuestionario" EntityType="Self.cuestionario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cuestionarioATS" EntityType="Self.cuestionarioATS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cuestionarioATSPersonas" EntityType="Self.cuestionarioATSPersonas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cuestionarioATSRespuestas" EntityType="Self.cuestionarioATSRespuestas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cuestionarioDetalle" EntityType="Self.cuestionarioDetalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dimencion" EntityType="Self.dimencion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dominio" EntityType="Self.dominio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empresa" EntityType="Self.empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EncabezadoCuestionario" EntityType="Self.EncabezadoCuestionario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="encargadosEmpresa" EntityType="Self.encargadosEmpresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EncuestaSugerencias" EntityType="Self.EncuestaSugerencias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log_factores" EntityType="Self.Log_factores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="logCuestionarioATS" EntityType="Self.logCuestionarioATS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="logRespuestaEmpleado" EntityType="Self.logRespuestaEmpleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="modulo" EntityType="Self.modulo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="operaciones" EntityType="Self.operaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="periodosEncuesta" EntityType="Self.periodosEncuesta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="politica" EntityType="Self.politica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="posiblesRespDetalle" EntityType="Self.posiblesRespDetalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="posiblesRespuestas" EntityType="Self.posiblesRespuestas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="respuestaEmpDetalle" EntityType="Self.respuestaEmpDetalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="respuestaEmpleado" EntityType="Self.respuestaEmpleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rol_operacion" EntityType="Self.rol_operacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="plandeaccion" EntityType="Self.plandeaccion" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [plandeaccion].[id] AS [id], 
+    [plandeaccion].[dimension] AS [dimension], 
+    [plandeaccion].[nivelriesgo] AS [nivelriesgo], 
+    [plandeaccion].[accion] AS [accion], 
+    [plandeaccion].[descripcion] AS [descripcion], 
+    [plandeaccion].[responsable] AS [responsable], 
+    [plandeaccion].[fecha] AS [fecha]
+    FROM [dbo].[plandeaccion] AS [plandeaccion]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="result_categoria" EntityType="Self.result_categoria" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [result_categoria].[idResuestaEmpleado] AS [idResuestaEmpleado], 
+    [result_categoria].[categoria_descripcion] AS [categoria_descripcion], 
+    [result_categoria].[suma] AS [suma], 
+    [result_categoria].[year] AS [year]
+    FROM [dbo].[result_categoria] AS [result_categoria]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="result_dimension" EntityType="Self.result_dimension" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [result_dimension].[idResuestaEmpleado] AS [idResuestaEmpleado], 
+    [result_dimension].[dimencion_descripcion] AS [dimencion_descripcion], 
+    [result_dimension].[suma] AS [suma], 
+    [result_dimension].[year] AS [year]
+    FROM [dbo].[result_dimension] AS [result_dimension]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="result_dominio" EntityType="Self.result_dominio" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [result_dominio].[idResuestaEmpleado] AS [idResuestaEmpleado], 
+    [result_dominio].[dominio_descripcion] AS [dominio_descripcion], 
+    [result_dominio].[suma] AS [suma], 
+    [result_dominio].[year] AS [year]
+    FROM [dbo].[result_dominio] AS [result_dominio]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="resultados_nom025" EntityType="Self.resultados_nom025" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [resultados_nom025].[id] AS [id], 
+    [resultados_nom025].[curp] AS [curp], 
+    [resultados_nom025].[idResuestaEmpleado] AS [idResuestaEmpleado], 
+    [resultados_nom025].[idPregunta] AS [idPregunta], 
+    [resultados_nom025].[idRespuesta] AS [idRespuesta], 
+    [resultados_nom025].[valor] AS [valor], 
+    [resultados_nom025].[id_cabecera] AS [id_cabecera], 
+    [resultados_nom025].[cabecera_descripcion] AS [cabecera_descripcion], 
+    [resultados_nom025].[idCentroTrabajo] AS [idCentroTrabajo], 
+    [resultados_nom025].[idEmpresa] AS [idEmpresa], 
+    [resultados_nom025].[fecha] AS [fecha], 
+    [resultados_nom025].[year] AS [year]
+    FROM [dbo].[resultados_nom025] AS [resultados_nom025]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="resultados_nom035" EntityType="Self.resultados_nom035" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [resultados_nom035].[id] AS [id], 
+    [resultados_nom035].[curp] AS [curp], 
+    [resultados_nom035].[idResuestaEmpleado] AS [idResuestaEmpleado], 
+    [resultados_nom035].[idPregunta] AS [idPregunta], 
+    [resultados_nom035].[idRespuesta] AS [idRespuesta], 
+    [resultados_nom035].[valor] AS [valor], 
+    [resultados_nom035].[year] AS [year], 
+    [resultados_nom035].[id_cabecera] AS [id_cabecera], 
+    [resultados_nom035].[cabecera_descripcion] AS [cabecera_descripcion], 
+    [resultados_nom035].[idDimencion] AS [idDimencion], 
+    [resultados_nom035].[dimencion_descripcion] AS [dimencion_descripcion], 
+    [resultados_nom035].[idDominio] AS [idDominio], 
+    [resultados_nom035].[dominio_descripcion] AS [dominio_descripcion], 
+    [resultados_nom035].[idCategoria] AS [idCategoria], 
+    [resultados_nom035].[categoria_descripcion] AS [categoria_descripcion], 
+    [resultados_nom035].[antiguedad] AS [antiguedad], 
+    [resultados_nom035].[comentario] AS [comentario], 
+    [resultados_nom035].[discapacidad] AS [discapacidad], 
+    [resultados_nom035].[dondeTrabajo] AS [dondeTrabajo], 
+    [resultados_nom035].[edad] AS [edad], 
+    [resultados_nom035].[escolaridad] AS [escolaridad], 
+    [resultados_nom035].[estadoCivil] AS [estadoCivil], 
+    [resultados_nom035].[existeCodigoEtica] AS [existeCodigoEtica], 
+    [resultados_nom035].[existeComite] AS [existeComite], 
+    [resultados_nom035].[existeMecanismo] AS [existeMecanismo], 
+    [resultados_nom035].[existePolitica] AS [existePolitica], 
+    [resultados_nom035].[fecha] AS [fecha], 
+    [resultados_nom035].[idRespuestaEmpleado] AS [idRespuestaEmpleado], 
+    [resultados_nom035].[idCentroTrabajo] AS [idCentroTrabajo], 
+    [resultados_nom035].[idCuestionario] AS [idCuestionario], 
+    [resultados_nom035].[idEmpresa] AS [idEmpresa], 
+    [resultados_nom035].[parteSectores] AS [parteSectores], 
+    [resultados_nom035].[realizaRotacion] AS [realizaRotacion], 
+    [resultados_nom035].[sector] AS [sector], 
+    [resultados_nom035].[sexo] AS [sexo], 
+    [resultados_nom035].[tiempoExperienciaLaboral] AS [tiempoExperienciaLaboral], 
+    [resultados_nom035].[tiempoPuestoActual] AS [tiempoPuestoActual], 
+    [resultados_nom035].[tieneDiscapacidad] AS [tieneDiscapacidad], 
+    [resultados_nom035].[tipoContratacion] AS [tipoContratacion], 
+    [resultados_nom035].[tipoJornada] AS [tipoJornada], 
+    [resultados_nom035].[tipoPersonal] AS [tipoPersonal]
+    FROM [dbo].[resultados_nom035] AS [resultados_nom035]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="resultados_por_usuario_025" EntityType="Self.resultados_por_usuario_025" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [resultados_por_usuario_025].[id] AS [id], 
+    [resultados_por_usuario_025].[curp] AS [curp], 
+    [resultados_por_usuario_025].[fecha] AS [fecha], 
+    [resultados_por_usuario_025].[idEmpresa] AS [idEmpresa], 
+    [resultados_por_usuario_025].[idCentroTrabajo] AS [idCentroTrabajo], 
+    [resultados_por_usuario_025].[valores] AS [valores]
+    FROM [dbo].[resultados_por_usuario_025] AS [resultados_por_usuario_025]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="resultados_por_usuario_035" EntityType="Self.resultados_por_usuario_035" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [resultados_por_usuario_035].[id] AS [id], 
+    [resultados_por_usuario_035].[curp] AS [curp], 
+    [resultados_por_usuario_035].[fecha] AS [fecha], 
+    [resultados_por_usuario_035].[idEmpresa] AS [idEmpresa], 
+    [resultados_por_usuario_035].[idCentroTrabajo] AS [idCentroTrabajo], 
+    [resultados_por_usuario_035].[valores] AS [valores]
+    FROM [dbo].[resultados_por_usuario_035] AS [resultados_por_usuario_035]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_categoriaCuestionario_cuestionario" Association="Self.FK_categoriaCuestionario_cuestionario">
+      <End Role="cuestionario" EntitySet="cuestionario" />
+      <End Role="EncabezadoCuestionario" EntitySet="EncabezadoCuestionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_centroTrabajo_cstatus" Association="Self.FK_centroTrabajo_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="centroTrabajo" EntitySet="centroTrabajo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_centroTrabajo_empresa" Association="Self.FK_centroTrabajo_empresa">
+      <End Role="empresa" EntitySet="empresa" />
+      <End Role="centroTrabajo" EntitySet="centroTrabajo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_centroTrabajo_usuario" Association="Self.FK_centroTrabajo_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="centroTrabajo" EntitySet="centroTrabajo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuestionarioDetalle_categoriaCuestionario" Association="Self.FK_cuestionarioDetalle_categoriaCuestionario">
+      <End Role="EncabezadoCuestionario" EntitySet="EncabezadoCuestionario" />
+      <End Role="cuestionarioDetalle" EntitySet="cuestionarioDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuestionarioDetalle_cuestionario" Association="Self.FK_cuestionarioDetalle_cuestionario">
+      <End Role="cuestionario" EntitySet="cuestionario" />
+      <End Role="cuestionarioDetalle" EntitySet="cuestionarioDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuestionarioDetalle_dimencion" Association="Self.FK_cuestionarioDetalle_dimencion">
+      <End Role="dimencion" EntitySet="dimencion" />
+      <End Role="cuestionarioDetalle" EntitySet="cuestionarioDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuestionarioDetalle_posiblesRespuestas" Association="Self.FK_cuestionarioDetalle_posiblesRespuestas">
+      <End Role="posiblesRespuestas" EntitySet="posiblesRespuestas" />
+      <End Role="cuestionarioDetalle" EntitySet="cuestionarioDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dimencion_categoria" Association="Self.FK_dimencion_categoria">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="dimencion" EntitySet="dimencion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dimencion_dominio" Association="Self.FK_dimencion_dominio">
+      <End Role="dominio" EntitySet="dominio" />
+      <End Role="dimencion" EntitySet="dimencion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dominio_categoria" Association="Self.FK_dominio_categoria">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="dominio" EntitySet="dominio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_empleado_centroTrabajo" Association="Self.FK_empleado_centroTrabajo">
+      <End Role="centroTrabajo" EntitySet="centroTrabajo" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_empleado_cstatus" Association="Self.FK_empleado_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_empleado_empresa" Association="Self.FK_empleado_empresa">
+      <End Role="empresa" EntitySet="empresa" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_empleado_usuario" Association="Self.FK_empleado_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_empresa_cstatus" Association="Self.FK_empresa_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="empresa" EntitySet="empresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_encargadosEmpresa_empresa" Association="Self.FK_encargadosEmpresa_empresa">
+      <End Role="empresa" EntitySet="empresa" />
+      <End Role="encargadosEmpresa" EntitySet="encargadosEmpresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_encargadosEmpresa_usuario" Association="Self.FK_encargadosEmpresa_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="encargadosEmpresa" EntitySet="encargadosEmpresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_logRespuestaEmpleado_empleado" Association="Self.FK_logRespuestaEmpleado_empleado">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="logRespuestaEmpleado" EntitySet="logRespuestaEmpleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_modulo_cstatus" Association="Self.FK_modulo_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="modulo" EntitySet="modulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_modulo_modulo" Association="Self.FK_modulo_modulo">
+      <End Role="modulo" EntitySet="modulo" />
+      <End Role="modulo1" EntitySet="modulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_operaciones_cstatus" Association="Self.FK_operaciones_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="operaciones" EntitySet="operaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_operaciones_modulo" Association="Self.FK_operaciones_modulo">
+      <End Role="modulo" EntitySet="modulo" />
+      <End Role="operaciones" EntitySet="operaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_posiblesRespDetalle_posiblesRespuestas" Association="Self.FK_posiblesRespDetalle_posiblesRespuestas">
+      <End Role="posiblesRespuestas" EntitySet="posiblesRespuestas" />
+      <End Role="posiblesRespDetalle" EntitySet="posiblesRespDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_respuestaEmpDetalle_cuestionarioDetalle" Association="Self.FK_respuestaEmpDetalle_cuestionarioDetalle">
+      <End Role="cuestionarioDetalle" EntitySet="cuestionarioDetalle" />
+      <End Role="respuestaEmpDetalle" EntitySet="respuestaEmpDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_respuestaEmpDetalle_respuestaEmpleado" Association="Self.FK_respuestaEmpDetalle_respuestaEmpleado">
+      <End Role="respuestaEmpleado" EntitySet="respuestaEmpleado" />
+      <End Role="respuestaEmpDetalle" EntitySet="respuestaEmpDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_respuestaEmpleado_centroTrabajo" Association="Self.FK_respuestaEmpleado_centroTrabajo">
+      <End Role="centroTrabajo" EntitySet="centroTrabajo" />
+      <End Role="respuestaEmpleado" EntitySet="respuestaEmpleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_respuestaEmpleado_cuestionario" Association="Self.FK_respuestaEmpleado_cuestionario">
+      <End Role="cuestionario" EntitySet="cuestionario" />
+      <End Role="respuestaEmpleado" EntitySet="respuestaEmpleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_respuestaEmpleado_empresa" Association="Self.FK_respuestaEmpleado_empresa">
+      <End Role="empresa" EntitySet="empresa" />
+      <End Role="respuestaEmpleado" EntitySet="respuestaEmpleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rol_cstatus" Association="Self.FK_rol_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="rol" EntitySet="rol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rol_operacion_operaciones" Association="Self.FK_rol_operacion_operaciones">
+      <End Role="operaciones" EntitySet="operaciones" />
+      <End Role="rol_operacion" EntitySet="rol_operacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rol_operacion_rol" Association="Self.FK_rol_operacion_rol">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="rol_operacion" EntitySet="rol_operacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_cstatus" Association="Self.FK_usuario_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_rol" Association="Self.FK_usuario_rol">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

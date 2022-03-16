@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title RHcon</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/e4bc8339a1.js" crossorigin="anonymous"></script>
+    @Styles.Render("~/bundles/css")
+    @Styles.Render("~/Content/style/crud.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="row perfil">
+        <div class="col-lg-3 col-md-3 col-12 d-flex align-items-center justify-content-center pt-2 justify-content-md-start logo">
+            <img src="~/Assets/img/SVG/LOGO/rhlogo.png" style="width:220px;" class="img-fluid" alt="Alternate Text" />
+        </div>
+        <div class="col-lg-6 col-md-4 col-12  d-flex align-items-center pt-2 justify-content-center">
+              @Session["infoDisplay"].ToString()
+        </div>
+        <div class="col-lg-3 col-md-5 col-12  d-flex justify-content-center justify-content-md-end pt-2 align-items-center">
+
+        </div>
+
+    @RenderBody()
+
+        <div class="d-flex  justify-content-end" style="padding-top:70px;">
+            <a href="https://rhcon.com.mx/" target="_blank">
+                <span>
+                    <embed src="~/Assets/img/SVG/LOGO/SVGLOGO.svg" style="width:400px; height:60px" type="image/svg+xml" />
+                </span>
+            </a>
+        </div>
+        </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquerydatatables")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/dataTablesBS5")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
+
+

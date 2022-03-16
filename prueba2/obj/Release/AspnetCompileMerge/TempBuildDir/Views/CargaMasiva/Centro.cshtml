@@ -1,0 +1,45 @@
+﻿@using rhcon.Models.ViewModel
+@model ArchivoViewModel
+@{
+    ViewBag.Title = "Carga masiva de Centros de Trabajo";
+    Layout = "~/Views/Shared/_LayoutCrud.cshtml";
+}
+
+@using (Html.BeginForm("SaveCentro", "CargaMasiva", FormMethod.Post,
+    new { enctype = "multipart/form-data" }))
+{
+
+
+<div class="container-fluid">
+
+    <div class="row d-block">
+
+        <div class="col-md-12 justify-content-center">
+
+            <div class="d-grid gap-2 col-md-6 mx-auto">
+                <a href="~/Files/plantilla_AltaCentrosTrabajo.xlsx" download="plantilla_AltaCentrosTrabajo.xlsx" class="btn btn-primary btn-lg ">Descargar plantilla para alta de Centros de Trabajo</a>
+            </div>
+        </div>
+        <br />
+        <div class="col-md-12 d-flex justify-content-center flex-column align-items-center">
+            <div class="form-group">
+                @*@Html.LabelFor(d => d.Archivo)*@
+                @Html.TextBoxFor(d => d.Archivo, new { @class = "form-control", type = "file", accept = ".xlsx" })
+                @Html.ValidationMessageFor(d => d.Archivo, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Subir Archivo" />
+            </div>
+            <br />
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert-info" role="alert">
+                    @ViewBag.Message
+                </div>
+            }
+        </div>
+
+    </div>
+    <a href="~/CentroTrabajo" class="btn btn-primary">Regresar</a>
+</div>
+}

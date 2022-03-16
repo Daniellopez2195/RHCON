@@ -1,0 +1,144 @@
+﻿<style>
+
+    @@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
+
+
+
+
+    * {
+        font-size: 12px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+    }
+
+
+
+    td{
+      padding: 2px 10px;
+      border:1px solid black;
+    }
+
+    #encabezado{
+        text-align:center;
+    }
+    #encabezado b{
+        font-size:18px;
+    }
+
+    .base {
+        background-color: #c2c2c2;
+        font-weight: bold;
+        margin-top:10px;
+        font-size: 11px;
+        width: 100%;
+    }
+
+    td table td{
+        border: 1px solid white;
+        border:none;
+        margin:10px;
+
+    }
+
+
+    .clear table  {
+        border: 1px solid white !important;
+        border: none;
+    }
+
+    .barrera {
+        border-right: 1px solid black;
+    }
+
+
+
+</style>
+
+
+
+<div id="encabezado">
+    <b>INFORME EJECUTIVO DE RESULTADOS</b>
+</div>
+<div id="encabezado">
+    <b> @Request.Params["norma"].ToString() </b>
+</div>
+<div id="encabezado">
+    <b>  @Request.Params["titulo"].ToString() </b>
+</div>
+<div class="base borrado">DATOS GENERALES:</div>
+<div class="margen">
+
+    <table class="egt white">
+        @if (Request.Params["ternario"].ToString().Equals("true"))
+        {
+            <tr>
+                <td width="200">
+
+                    <b> Centro de Trabajo: </b>
+                </td>
+                <td width="270">
+                    @Request.Params["centro"].ToString()
+                </td>
+                <td></td>
+
+            </tr>
+        }
+        <tr>
+            <td width="200">
+
+                <b> Empresa: </b>
+            </td>
+            <td width="270">
+                @Request.Params["empresa"].ToString()
+            </td>
+
+
+
+            <td class="fecha">
+                Evaluación realizada mediante Cuestionario en Línea, a través de RH.con
+            </td>
+        </tr>
+
+        <tr>
+            <td width="250" class="espacio">
+                @if (Request.Params["ternario"].ToString().Equals("true"))
+                {
+                     <b>Domicilio del Centro de Trabajo:</b>
+                }
+                else
+                {
+                    <b>Domicilio de la Empresa:</b>
+                }
+            </td>
+            <td> @Request.Params["domicilio"].ToString()</td>
+            <td style="padding:0 0;" class="clear">
+                <table style="width:100%;">
+                    <tr>
+                        <td width="100" class="barrera"><b>Responsable:</b></td>
+                        <td>Lic. @Request.Params["responsable"].ToString()</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td width="200" class="espacio"><b>Fecha de Aplicación:</b></td>
+            <td> @Request.Params["fecha"].ToString()</td>
+            <td style="padding:0 0;" class="clear">
+                <table style="width:100%;">
+                    <tr>
+                        <td width="113" class="barrera"><b>Cédula:</b></td>
+                        <td>@Request.Params["cedula"].ToString()</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+    </table>
+</div>
+
+

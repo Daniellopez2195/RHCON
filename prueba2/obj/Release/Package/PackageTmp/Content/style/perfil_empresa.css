@@ -1,0 +1,154 @@
+﻿
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*Hacer clickeable los svg*/
+a {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+span {
+    display: inline-block;
+}
+
+embed {
+    position: relative;
+    z-index: -1;
+}
+/*Fin de Hacer clickeable los svg*/
+
+img {
+    max-width: 100%;
+    max-height: 80px;
+}
+
+
+
+.img {
+    max-width: 100%;
+    max-height: 80px;
+}
+
+svg {
+    max-height: 80px;
+    max-width: 200px;
+    width: 100%;
+}
+
+
+.logo {
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap column;
+}
+
+.informacion {
+    position: absolute;
+    top: 100%;
+    z-index: 100;
+    background-color: #007bff;
+    padding: 5px;
+}
+
+    .informacion div {
+        border: 1px solid white;
+        color: white;
+        padding: 5px;
+    }
+
+        .informacion div a {
+            color: white;
+        }
+
+.informacion_none {
+    display: none;
+}
+
+#boton_informacion {
+    cursor: pointer;
+}
+
+.btn_perfil {
+    width: 50%;
+    background-color: white;
+    padding: 10px 10px;
+    color: #007bff;
+    -webkit-box-shadow: -11px 11px 10px 0px rgb(204 204 204);
+    -moz-box-shadow: -11px 11px 10px 0px rgba(204,204,204,1);
+    box-shadow: 2px 11px 10px 0px rgb(204 204 204);
+    position: relative;
+}
+
+    .btn_perfil a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn_perfil span {
+        position: absolute;
+        top: 100%;
+        width: 90%;
+        text-align: center;
+    }
+
+.btn_option {
+    background: #fff;
+    border-radius: 10%;
+    width: 90%;
+    padding: 15px 10px;
+    -webkit-box-shadow: 11px 11px 10px 0px rgb(204 204 204);
+    -moz-box-shadow: 11px 11px 10px 0px rgba(204,204,204,1);
+    box-shadow: 11px 11px 10px 0px rgb(204 204 204);
+    border-radius: 20%;
+    position: relative;
+    text-decoration: none;
+}
+
+    .btn_option h2 {
+        font-size: 1em;
+        text-decoration: none;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .btn_option svg {
+        width: 50%;
+    }
+
+@media(max-width:600px) {
+
+    .btn_option {
+        width: 100%;
+    }
+
+    .btn_perfil span {
+        font-size: 10px;
+    }
+}

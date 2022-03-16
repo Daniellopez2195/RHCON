@@ -1,0 +1,252 @@
+﻿thead {
+    text-align: center;
+}
+
+
+body {
+    font-family: sans-serif !important;
+    padding: 0 20px;
+}
+
+* {
+    font-family: sans-serif !important;
+}
+
+
+.foot {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+#regForm {
+    background-color: #e9ecf4 !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap column;
+}
+
+
+.seccion {
+    width: 100%;
+}
+
+
+.cent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap column;
+}
+
+.blanco {
+    background-color: white;
+    padding: 30px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.log {
+    max-height: 80px;
+    padding: 10px 0;
+}
+
+.idfac {
+    width: 80%;
+    padding-top: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.periodo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+    .periodo div {
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+    }
+
+.bienestar {
+    padding: 10px;
+    font-size: 16px;
+    color: #F48846;
+}
+
+.textrf {
+    box-sizing: border-box;
+    padding: 10px 0px;
+    width: 90%;
+    font-size: 14px;
+}
+
+.politicaA {
+    font-weight: bold;
+}
+
+.historial {
+    padding: 10px;
+}
+
+.pregunta {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap column;
+    margin: 20px 0;
+    border-radius: 24px;
+    background: #e0e0e0;
+    box-shadow: 24px 24px 47px #bebebe, -24px -24px 47px #ffffff;
+}
+
+    .pregunta p {
+        width: 100%;
+        font-weight: bold;
+        font-size: 16px;
+        box-sizing: border-box;
+        padding: 5px 20px;
+    }
+
+    .pregunta select {
+        outline: none;
+        border: transparent;
+        padding: 10px 20px;
+        background-color: transparent;
+        outline: none;
+    }
+
+
+.intruccion {
+    border: 1px solid #ADABAB;
+    background-color: white;
+    padding: 10px 10px;
+    width: 70%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1B85F1;
+}
+
+
+.logo1 {
+    display: flex;
+    justify-content: flex-start;
+}
+
+    .logo1 a {
+        width: 300px;
+    }
+
+        .logo1 a img {
+            width: 100%;
+        }
+
+.logo2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+    .logo2 a {
+        width: 300px;
+    }
+
+        .logo2 a img {
+            width: 100%;
+        }
+
+textarea {
+    outline: none;
+    background-color: #e0e0e0;
+    border: 1px solid #C4C4C4;
+    padding: 10px;
+    width: 90%;
+}
+
+select {
+    text-align: center !important;
+}
+
+.tab {
+    display: none;
+}
+
+
+@media(max-width: 600px) {
+
+    .idfac {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .politicaA {
+        width: 80%;
+    }
+
+    .pregunta {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .intruccion {
+        width: 100%;
+    }
+
+    .logo1 a, .logo2 a {
+        width: 200px;
+    }
+}
+
+.error {
+    background-color: #FFB5B5 !important;
+}
+
+.oculta {
+    display: none;
+}
+
+
+.lista {
+    width: 90%;
+    /*list-style:*/ 
+}
+
+.descargaPolitica {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 0;
+    margin: 10px 0;
+    text-decoration: none;
+    border: 1px solid #ababad;
+}
+
+    .descargaPolitica svg {
+        width: 80px;
+        height: 80px;
+    }
+
+.pdfCargado {
+}
+
+
+.btnSubmenu {
+    margin: 10px 10px;
+    text-decoration: none;
+    color: white !important;
+    background-color: #176db3;
+    padding: 10px 20px;
+}
+
+.btn {
+    padding-top: 0;
+    padding-bottom: 0;
+}

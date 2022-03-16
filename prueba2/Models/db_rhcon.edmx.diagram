@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="90c5271753d54004b958577db2950bfb" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="rhconModel.modulo" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="rhconModel.operaciones" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="rhconModel.rol_operacion" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="rhconModel.FK_modulo_modulo" ManuallyRouted="false" />
+        <AssociationConnector Association="rhconModel.FK_operaciones_modulo" ManuallyRouted="false" />
+        <AssociationConnector Association="rhconModel.FK_rol_operacion_operaciones" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="rhconModel.usuario" PointX="5.25" PointY="5.875" Width="1.5" />
+        <EntityTypeShape EntityType="rhconModel.categoria" Width="1.5" PointX="7.375" PointY="25.625" />
+        <EntityTypeShape EntityType="rhconModel.cuestionarioDetalle" Width="1.5" PointX="11.875" PointY="13.125" />
+        <EntityTypeShape EntityType="rhconModel.dominio" Width="1.5" PointX="7.375" PointY="22.875" />
+        <EntityTypeShape EntityType="rhconModel.encargadosEmpresa" Width="1.5" PointX="10.5" PointY="5.375" />
+        <EntityTypeShape EntityType="rhconModel.posiblesRespDetalle" Width="1.5" PointX="11.875" PointY="9.25" />
+        <EntityTypeShape EntityType="rhconModel.posiblesRespuestas" Width="1.5" PointX="9.625" PointY="20.125" />
+        <AssociationConnector Association="rhconModel.FK_dominio_categoria" />
+        <AssociationConnector Association="rhconModel.FK_cuestionarioDetalle_posiblesRespuestas" />
+        <AssociationConnector Association="rhconModel.FK_encargadosEmpresa_usuario" />
+        <AssociationConnector Association="rhconModel.FK_posiblesRespDetalle_posiblesRespuestas" />
+        <EntityTypeShape EntityType="rhconModel.correos" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="rhconModel.respuestaEmpDetalle" Width="1.5" PointX="14.125" PointY="11.125" />
+        <AssociationConnector Association="rhconModel.FK_respuestaEmpDetalle_cuestionarioDetalle" />
+        <AssociationConnector Association="rhconModel.FK_respuestaEmpDetalle_posiblesRespDetalle" />
+        <EntityTypeShape EntityType="rhconModel.logRespuestaEmpleado" Width="1.5" PointX="15.875" PointY="5.5" />
+        <EntityTypeShape EntityType="rhconModel.cuestionario" Width="1.5" PointX="7.375" PointY="10.75" />
+        <AssociationConnector Association="rhconModel.FK_cuestionarioDetalle_cuestionario" />
+        <EntityTypeShape EntityType="rhconModel.rol" Width="1.5" PointX="3" PointY="5.5" />
+        <AssociationConnector Association="rhconModel.FK_rol_operacion_rol" />
+        <AssociationConnector Association="rhconModel.FK_usuario_rol" />
+        <EntityTypeShape EntityType="rhconModel.sysdiagrams" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="rhconModel.empleado" Width="1.5" PointX="13.5" PointY="4.125" />
+        <AssociationConnector Association="rhconModel.FK_empleado_usuario" />
+        <AssociationConnector Association="rhconModel.FK_logRespuestaEmpleado_empleado" />
+        <EntityTypeShape EntityType="rhconModel.cuestionarioATS" Width="1.5" PointX="14.75" PointY="14.75" />
+        <EntityTypeShape EntityType="rhconModel.cuestionarioATSPersonas" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="rhconModel.cuestionarioATSRespuestas" Width="1.5" PointX="2.75" PointY="15.75" />
+        <EntityTypeShape EntityType="rhconModel.logCuestionarioATS" Width="1.5" PointX="4.75" PointY="15.75" />
+        <EntityTypeShape EntityType="rhconModel.respuestaEmpleado" Width="1.5" PointX="9.625" PointY="9" />
+        <AssociationConnector Association="rhconModel.FK_respuestaEmpleado_cuestionario" />
+        <AssociationConnector Association="rhconModel.FK_respuestaEmpDetalle_respuestaEmpleado" />
+        <EntityTypeShape EntityType="rhconModel.centroTrabajo" Width="1.5" PointX="16.5" PointY="9" />
+        <AssociationConnector Association="rhconModel.FK_centroTrabajo_usuario" />
+        <AssociationConnector Association="rhconModel.FK_empleado_centroTrabajo" />
+        <AssociationConnector Association="rhconModel.FK_respuestaEmpleado_centroTrabajo" />
+        <EntityTypeShape EntityType="rhconModel.politica" Width="1.5" PointX="17.375" PointY="13.75" />
+        <EntityTypeShape EntityType="rhconModel.cstatus" Width="1.5" PointX="0.75" PointY="6.125" />
+        <AssociationConnector Association="rhconModel.FK_centroTrabajo_cstatus" />
+        <AssociationConnector Association="rhconModel.FK_empleado_cstatus" />
+        <AssociationConnector Association="rhconModel.FK_modulo_cstatus" />
+        <AssociationConnector Association="rhconModel.FK_operaciones_cstatus" />
+        <AssociationConnector Association="rhconModel.FK_rol_cstatus" />
+        <AssociationConnector Association="rhconModel.FK_usuario_cstatus" />
+        <EntityTypeShape EntityType="rhconModel.resultados_nom035" Width="1.5" PointX="17.375" PointY="16.75" />
+        <EntityTypeShape EntityType="rhconModel.empresa" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="rhconModel.resultados_nom025" Width="1.5" PointX="18.375" PointY="0.75" />
+        <AssociationConnector Association="rhconModel.FK_centroTrabajo_empresa" />
+        <AssociationConnector Association="rhconModel.FK_empresa_cstatus" />
+        <AssociationConnector Association="rhconModel.FK_empleado_empresa" />
+        <AssociationConnector Association="rhconModel.FK_encargadosEmpresa_empresa" />
+        <AssociationConnector Association="rhconModel.FK_respuestaEmpleado_empresa" />
+        <EntityTypeShape EntityType="rhconModel.result_categoria" Width="1.5" PointX="0.75" PointY="18.75" />
+        <EntityTypeShape EntityType="rhconModel.result_dimension" Width="1.5" PointX="18.75" PointY="5.75" />
+        <EntityTypeShape EntityType="rhconModel.result_dominio" Width="1.5" PointX="12.75" PointY="18.75" />
+        <EntityTypeShape EntityType="rhconModel.resultados_por_usuario_025" Width="1.5" PointX="14.75" PointY="18.75" />
+        <EntityTypeShape EntityType="rhconModel.resultados_por_usuario_035" Width="1.5" PointX="2.75" PointY="19.75" />
+        <EntityTypeShape EntityType="rhconModel.periodosEncuesta" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="rhconModel.dimencion" Width="1.5" PointX="9.625" PointY="23.875" />
+        <AssociationConnector Association="rhconModel.FK_dimencion_categoria" />
+        <AssociationConnector Association="rhconModel.FK_cuestionarioDetalle_dimencion" />
+        <AssociationConnector Association="rhconModel.FK_dimencion_dominio" />
+        <EntityTypeShape EntityType="rhconModel.EncabezadoCuestionario" Width="1.5" PointX="9.625" PointY="16.5" />
+        <AssociationConnector Association="rhconModel.FK_categoriaCuestionario_cuestionario" />
+        <AssociationConnector Association="rhconModel.FK_cuestionarioDetalle_categoriaCuestionario" />
+        <EntityTypeShape EntityType="rhconModel.Log_factores" Width="1.5" PointX="19.375" PointY="8.75" />
+        <EntityTypeShape EntityType="rhconModel.admin_perfil" Width="1.5" PointX="19.375" PointY="12.75" />
+        <EntityTypeShape EntityType="rhconModel.EncuestaSugerencias" Width="1.5" PointX="5.375" PointY="19.75" />
+        <EntityTypeShape EntityType="rhconModel.plandeaccion" Width="1.5" PointX="19.375" PointY="15.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

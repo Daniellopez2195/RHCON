@@ -1,0 +1,330 @@
+﻿@using rhcon.Models.ViewModel
+@model rhcon.Models.ViewModel.CuestionarioViewModel
+
+@{
+    var oEmpresa = (EmpresaViewModel)Session["empresa"];
+    var oEmpleado = (EmpleadoViewModel)Session["empleado"];
+
+}
+
+<style>
+    div {
+        margin-top: 10px;
+    }
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
+
+    * {
+        font-family: "Arial"
+    }
+
+    .titulo {
+        font-weight: bold;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .titulo2 {
+        font-weight: bold;
+        margin: 10px 0 0 0;
+    }
+
+    .titulo3 {
+        padding: 4px;
+        margin: 0px;
+    }
+
+    .imagen222 {
+        width: 40%;
+        margin-left: 30%;
+    }
+
+    .p {
+        justify-content: left;
+        text-align: justify;
+    }
+
+
+    #encabezado {
+        padding-bottom: 20px;
+        border-bottom: 1px solid grey;
+    }
+
+
+    td {
+        border: 1px solid black;
+        padding: 5px 10px;
+    }
+
+    #col_1, #col_2, #col_3 {
+        border: 1px solid white;
+        width: 100vw;
+    }
+
+    .empre {
+    }
+
+    .bienestar {
+        padding: 0px;
+        margin: 15px 0px;
+    }
+</style>
+
+
+@if (Model.Tipo == 1)
+{
+
+    <page>
+        <page_header>
+            <div id="encabezado">
+
+                <p>Atención a:</p>
+                <p>@oEmpresa.RazonComercial</p>
+                <p>Comité de Bienestar Laboral</p>
+                <br />
+                <p>
+                    Yo @oEmpleado.Nombre por medio del presente escrito reportado el día @DateTime.Now.ToString("dd/MM/yyyy"), informo bajo protesta de decir verdad que no he sufrido o presenciado durante o con motivo de trabajo ningún Acontecimiento Traumático Severo o violencia laboral en la empresa @oEmpresa.RazonComercial.
+                </p>
+            </div>
+
+        </page_header>
+
+        <p><b>Atentamente</b></p>
+        <p style="padding:0; margin:0;">@oEmpleado.Nombre</p>
+        <p style="padding:0; margin:0;">@oEmpleado.Email</p>
+        <p style="padding:0; margin:0;">@oEmpleado.Telefono</p>
+
+    </page>
+}
+else
+{
+
+    <page>
+
+
+
+        @if (Model.NPersonas != 0)
+        {
+            <p style="margin:0; padding:5px;"><b>Personas involucradas: @Model.NPersonas</b></p>
+            <table>
+
+                <tr>
+                    <td><b> Nombre </b></td>
+                    <td><b> Apellido Paterno </b></td>
+                    <td><b> Apellido Materno </b></td>
+                    <td><b>Empleado(a)</b></td>
+                </tr>
+                @foreach (var persona in Model.Personas)
+                {
+
+                    <tr>
+
+
+                        <td>@persona.nombre</td>
+
+                        <td>@persona.apellidop</td>
+
+                        <td>@persona.apellidom</td>
+
+                        <td>@persona.ifempleado</td>
+
+                    </tr>
+
+
+                }
+
+            </table>
+
+
+        }
+        <br />
+        <p>
+            Derivado del mismo hago saber que:
+        </p>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta1.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                he tenido recuerdos recurrentes sobre el acontecimiento que me provocan malestares físicos y/o psicológicos.
+            </span>
+        </div>
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta2.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                he tenido sueños de carácter recurrente sobre el acontecimiento, que producen malestar.
+            </span>
+
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta3.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                me he esforzado por evitar todo tipo de sentimientos, conversaciones o situaciones que me puedan recordar el acontecimiento.
+            </span>
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta4.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                me he esforzado por evitar todo tipo de actividades, lugares o personas que motivan recuerdos del acontecimiento.
+            </span>
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta5.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                he tenido dificultad para recordar alguna parte importante del evento.
+            </span>
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta6.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                he disminuido interés en mis actividades cotidianas.
+            </span>
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta7.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                me he sentido alejado o distante de los demás.
+            </span>
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta8.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                he notado que tengo dificultad para expresar mis sentimientos.
+            </span>
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta9.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                he tenido la impresión de mi vida se va a acortar, que voy a morir antes que otras personas o que tengo un futuro limitado.
+            </span>
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta10.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                he tenido dificultad para dormir.
+            </span>
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta11.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                he estado particularmente irritable o me han dado arranques de coraje.
+            </span>
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta12.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                he tenido dificultad para concentrarme.
+            </span>
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta13.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                he estado nervioso o constantemente en alerta.
+            </span>
+        </div>
+
+        <div>
+            <span>
+                <b>
+                    @if (Model.pregunta14.Equals("47"))
+                    {<span>No</span>}
+                    else
+                    {<span>Sí</span>}
+                </b>
+                me he sobresaltado fácilmente por cualquier cosa.
+            </span>
+        </div>
+
+        <div>
+            <p style=" text-align: justify;">
+                Lo anterior lo informo  bajo protesta de decir verdad y en cumplimiento de mi obligación establecida en la NOM-035-STPS-2018.
+            </p>
+        </div>
+        <br />
+        <p><b>Atentamente:</b></p>
+        <p style="padding:0; margin:0;">@oEmpleado.Nombre</p>
+        <p style="padding:0; margin:0;">@oEmpleado.Email</p>
+        <p style="padding:0; margin:0;">@oEmpleado.Telefono</p>
+
+    </page>
+
+
+}

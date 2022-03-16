@@ -1,0 +1,21 @@
+﻿@model rhcon.Models.ViewModel.politicaViewModel
+@{
+    ViewBag.Title = "VideoNom035";
+    Layout = "~/Views/Shared/_LayoutCrud.cshtml";
+}
+
+
+<hr />
+<div>
+    <center>
+        <iframe width="600"
+                height="370"
+                src="@Model.video"
+                frameborder="0"
+                allowfullscreen></iframe>
+    </center>
+    <hr />
+    <Left>
+        <a href="javascript:history.go(-1)" class="btn btn-primary">Regresar</a>
+    </Left>
+</div>

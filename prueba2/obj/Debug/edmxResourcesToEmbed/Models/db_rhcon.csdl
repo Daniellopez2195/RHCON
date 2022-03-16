@@ -1,0 +1,1428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rhconModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="modulo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_padre" Type="Int32" />
+    <Property Name="controller_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="action_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idStatus" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="modulo1" Relationship="Self.FK_modulo_modulo" FromRole="modulo" ToRole="modulo1" />
+    <NavigationProperty Name="modulo2" Relationship="Self.FK_modulo_modulo" FromRole="modulo1" ToRole="modulo" />
+    <NavigationProperty Name="operaciones" Relationship="Self.FK_operaciones_modulo" FromRole="modulo" ToRole="operaciones" />
+    <NavigationProperty Name="cstatus" Relationship="rhconModel.FK_modulo_cstatus" FromRole="modulo" ToRole="cstatus" />
+  </EntityType>
+  <EntityType Name="operaciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idModulo" Type="Int32" Nullable="false" />
+    <Property Name="idStatus" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="modulo" Relationship="Self.FK_operaciones_modulo" FromRole="operaciones" ToRole="modulo" />
+    <NavigationProperty Name="rol_operacion" Relationship="Self.FK_rol_operacion_operaciones" FromRole="operaciones" ToRole="rol_operacion" />
+    <NavigationProperty Name="cstatus" Relationship="rhconModel.FK_operaciones_cstatus" FromRole="operaciones" ToRole="cstatus" />
+  </EntityType>
+  <EntityType Name="rol_operacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idRol" Type="Int32" Nullable="false" />
+    <Property Name="idOperacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="operaciones" Relationship="Self.FK_rol_operacion_operaciones" FromRole="rol_operacion" ToRole="operaciones" />
+    <NavigationProperty Name="rol" Relationship="rhconModel.FK_rol_operacion_rol" FromRole="rol_operacion" ToRole="rol" />
+  </EntityType>
+  <Association Name="FK_modulo_modulo">
+    <End Role="modulo" Type="Self.modulo" Multiplicity="0..1" />
+    <End Role="modulo1" Type="Self.modulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="modulo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="modulo1">
+        <PropertyRef Name="id_padre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_operaciones_modulo">
+    <End Role="modulo" Type="Self.modulo" Multiplicity="1" />
+    <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="modulo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="operaciones">
+        <PropertyRef Name="idModulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rol_operacion_operaciones">
+    <End Role="operaciones" Type="Self.operaciones" Multiplicity="1" />
+    <End Role="rol_operacion" Type="Self.rol_operacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="operaciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rol_operacion">
+        <PropertyRef Name="idOperacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="rhconEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="modulo" EntityType="Self.modulo" />
+    <EntitySet Name="operaciones" EntityType="Self.operaciones" />
+    <EntitySet Name="rol_operacion" EntityType="Self.rol_operacion" />
+    <AssociationSet Name="FK_modulo_modulo" Association="Self.FK_modulo_modulo">
+      <End Role="modulo" EntitySet="modulo" />
+      <End Role="modulo1" EntitySet="modulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_operaciones_modulo" Association="Self.FK_operaciones_modulo">
+      <End Role="modulo" EntitySet="modulo" />
+      <End Role="operaciones" EntitySet="operaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rol_operacion_operaciones" Association="Self.FK_rol_operacion_operaciones">
+      <End Role="operaciones" EntitySet="operaciones" />
+      <End Role="rol_operacion" EntitySet="rol_operacion" />
+    </AssociationSet>
+    <FunctionImport Name="userInsert">
+      <Parameter Name="userName" Mode="In" Type="String" />
+      <Parameter Name="userEmail" Mode="In" Type="String" />
+      <Parameter Name="userPassword" Mode="In" Type="String" />
+      <Parameter Name="userIdRol" Mode="In" Type="Int32" />
+      <Parameter Name="userIdStatus" Mode="In" Type="Int32" />
+      <Parameter Name="userID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="userUpdate">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+      <Parameter Name="userName" Mode="In" Type="String" />
+      <Parameter Name="userEmail" Mode="In" Type="String" />
+      <Parameter Name="userPassword" Mode="In" Type="String" />
+      <Parameter Name="userIdRol" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="empresaInsert">
+      <Parameter Name="empRazonc" Mode="In" Type="String" />
+      <Parameter Name="empRazons" Mode="In" Type="String" />
+      <Parameter Name="empEmail" Mode="In" Type="String" />
+      <Parameter Name="empTelefono" Mode="In" Type="String" />
+      <Parameter Name="empDireccion" Mode="In" Type="String" />
+      <Parameter Name="empActividad" Mode="In" Type="String" />
+      <Parameter Name="empPuesto" Mode="In" Type="String" />
+      <Parameter Name="empRFC" Mode="In" Type="String" />
+      <Parameter Name="empImg" Mode="In" Type="String" />
+      <Parameter Name="empIdStatus" Mode="In" Type="Int32" />
+      <Parameter Name="empUserName" Mode="In" Type="String" />
+      <Parameter Name="empUserEmail" Mode="In" Type="String" />
+      <Parameter Name="empUserPassword" Mode="In" Type="String" />
+      <Parameter Name="empUserIdRol" Mode="In" Type="Int32" />
+      <Parameter Name="empContrato" Mode="In" Type="String" />
+      <Parameter Name="nombreJerarquia" Mode="In" Type="String" />
+      <Parameter Name="puestoJerarquia" Mode="In" Type="String" />
+      <Parameter Name="empID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="userDelete">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+      <Parameter Name="userIdStatus" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="userLogin">
+      <Parameter Name="userName" Mode="In" Type="String" />
+      <Parameter Name="userPassword" Mode="In" Type="String" />
+      <Parameter Name="userPerfil" Mode="In" Type="Int32" />
+      <Parameter Name="valorRetorno" Mode="InOut" Type="Boolean" />
+      <Parameter Name="IdUsuaro" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="categoria" EntityType="rhconModel.categoria" />
+    <EntitySet Name="centroTrabajo" EntityType="rhconModel.centroTrabajo" />
+    <EntitySet Name="cuestionarioDetalle" EntityType="rhconModel.cuestionarioDetalle" />
+    <EntitySet Name="dominio" EntityType="rhconModel.dominio" />
+    <EntitySet Name="encargadosEmpresa" EntityType="rhconModel.encargadosEmpresa" />
+    <EntitySet Name="posiblesRespDetalle" EntityType="rhconModel.posiblesRespDetalle" />
+    <EntitySet Name="posiblesRespuestas" EntityType="rhconModel.posiblesRespuestas" />
+    <AssociationSet Name="FK_dominio_categoria" Association="rhconModel.FK_dominio_categoria">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="dominio" EntitySet="dominio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuestionarioDetalle_posiblesRespuestas" Association="rhconModel.FK_cuestionarioDetalle_posiblesRespuestas">
+      <End Role="posiblesRespuestas" EntitySet="posiblesRespuestas" />
+      <End Role="cuestionarioDetalle" EntitySet="cuestionarioDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_posiblesRespDetalle_posiblesRespuestas" Association="rhconModel.FK_posiblesRespDetalle_posiblesRespuestas">
+      <End Role="posiblesRespuestas" EntitySet="posiblesRespuestas" />
+      <End Role="posiblesRespDetalle" EntitySet="posiblesRespDetalle" />
+    </AssociationSet>
+    <FunctionImport Name="empresaDelete">
+      <Parameter Name="empID" Mode="In" Type="Int32" />
+      <Parameter Name="empIdStatus" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="empresaUpdate">
+      <Parameter Name="empID" Mode="In" Type="Int32" />
+      <Parameter Name="empRazonc" Mode="In" Type="String" />
+      <Parameter Name="empRazons" Mode="In" Type="String" />
+      <Parameter Name="empEmail" Mode="In" Type="String" />
+      <Parameter Name="empTelefono" Mode="In" Type="String" />
+      <Parameter Name="empDireccion" Mode="In" Type="String" />
+      <Parameter Name="empActividad" Mode="In" Type="String" />
+      <Parameter Name="empPuesto" Mode="In" Type="String" />
+      <Parameter Name="empRFC" Mode="In" Type="String" />
+      <Parameter Name="empImg" Mode="In" Type="String" />
+      <Parameter Name="empIdUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="empUserName" Mode="In" Type="String" />
+      <Parameter Name="empUserEmail" Mode="In" Type="String" />
+      <Parameter Name="empUserPassword" Mode="In" Type="String" />
+      <Parameter Name="empUserIdRol" Mode="In" Type="Int32" />
+      <Parameter Name="empUserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ctrabajoDelete">
+      <Parameter Name="ctID" Mode="In" Type="Int32" />
+      <Parameter Name="ctIdStatus" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ctrabajoInsert">
+      <Parameter Name="ctNombre" Mode="In" Type="String" />
+      <Parameter Name="ctDireccion" Mode="In" Type="String" />
+      <Parameter Name="ctActividades" Mode="In" Type="String" />
+      <Parameter Name="ctIdEmpresa" Mode="In" Type="Int32" />
+      <Parameter Name="ctIdStatus" Mode="In" Type="Int32" />
+      <Parameter Name="ctUserName" Mode="In" Type="String" />
+      <Parameter Name="ctUserEmail" Mode="In" Type="String" />
+      <Parameter Name="ctUserPassword" Mode="In" Type="String" />
+      <Parameter Name="ctUserIdRol" Mode="In" Type="Int32" />
+      <Parameter Name="ctID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ctrabajoUpdate">
+      <Parameter Name="ctID" Mode="In" Type="Int32" />
+      <Parameter Name="ctNombre" Mode="In" Type="String" />
+      <Parameter Name="ctDireccion" Mode="In" Type="String" />
+      <Parameter Name="ctActividades" Mode="In" Type="String" />
+      <Parameter Name="ctIdEmpresa" Mode="In" Type="Int32" />
+      <Parameter Name="ctIdStatus" Mode="In" Type="Int32" />
+      <Parameter Name="ctUserId" Mode="In" Type="Int32" />
+      <Parameter Name="ctUserName" Mode="In" Type="String" />
+      <Parameter Name="ctUserEmail" Mode="In" Type="String" />
+      <Parameter Name="ctUserPassword" Mode="In" Type="String" />
+      <Parameter Name="ctUserIdRol" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="correos" EntityType="rhconModel.correos" />
+    <EntitySet Name="politica" EntityType="rhconModel.politica" />
+    <FunctionImport Name="empleadoDelete">
+      <Parameter Name="emplID" Mode="In" Type="Int32" />
+      <Parameter Name="emplIdStatus" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="empleadoInsert">
+      <Parameter Name="emplNombre" Mode="In" Type="String" />
+      <Parameter Name="emplCurp" Mode="In" Type="String" />
+      <Parameter Name="emplNss" Mode="In" Type="String" />
+      <Parameter Name="emplTelefono" Mode="In" Type="String" />
+      <Parameter Name="emplContacto" Mode="In" Type="String" />
+      <Parameter Name="emplCelcontacto" Mode="In" Type="String" />
+      <Parameter Name="emplIdEmpresa" Mode="In" Type="Int32" />
+      <Parameter Name="emplIdCentroTrabajo" Mode="In" Type="Int32" />
+      <Parameter Name="emplIdEstatus" Mode="In" Type="Int32" />
+      <Parameter Name="emplUserName" Mode="In" Type="String" />
+      <Parameter Name="emplUserEmail" Mode="In" Type="String" />
+      <Parameter Name="emplUserPassword" Mode="In" Type="String" />
+      <Parameter Name="emplUserIdRol" Mode="In" Type="Int32" />
+      <Parameter Name="empAreaFuncion" Mode="In" Type="String" />
+      <Parameter Name="emplID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="empleadoUpdate">
+      <Parameter Name="emplID" Mode="In" Type="Int32" />
+      <Parameter Name="emplNombre" Mode="In" Type="String" />
+      <Parameter Name="emplCurp" Mode="In" Type="String" />
+      <Parameter Name="emplNss" Mode="In" Type="String" />
+      <Parameter Name="emplTelefono" Mode="In" Type="String" />
+      <Parameter Name="emplContacto" Mode="In" Type="String" />
+      <Parameter Name="emplCelcontacto" Mode="In" Type="String" />
+      <Parameter Name="emplIdEmpresa" Mode="In" Type="Int32" />
+      <Parameter Name="emplIdCentroTrabajo" Mode="In" Type="Int32" />
+      <Parameter Name="emplIdEstatus" Mode="In" Type="Int32" />
+      <Parameter Name="emplIdUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="emplUserName" Mode="In" Type="String" />
+      <Parameter Name="emplUserEmail" Mode="In" Type="String" />
+      <Parameter Name="emplUserPassword" Mode="In" Type="String" />
+      <Parameter Name="emplUserIdRol" Mode="In" Type="Int32" />
+      <Parameter Name="empAreaFuncion" Mode="In" Type="String" />
+      <Parameter Name="emplUserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ActivarPeriodoEncuesta">
+      <Parameter Name="idEmpresa" Mode="In" Type="Int32" />
+      <Parameter Name="fechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="fechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="Int16" />
+      <Parameter Name="responsable" Mode="In" Type="String" />
+      <Parameter Name="periodoEncuestaID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="respEmplInsert">
+      <Parameter Name="sexo" Mode="In" Type="String" />
+      <Parameter Name="edad" Mode="In" Type="String" />
+      <Parameter Name="estadoCivil" Mode="In" Type="String" />
+      <Parameter Name="antiguedad" Mode="In" Type="String" />
+      <Parameter Name="tiempoPuesto" Mode="In" Type="String" />
+      <Parameter Name="tiempoExperiencia" Mode="In" Type="String" />
+      <Parameter Name="escolaridad" Mode="In" Type="String" />
+      <Parameter Name="tipoJornada" Mode="In" Type="String" />
+      <Parameter Name="tipoContratacion" Mode="In" Type="String" />
+      <Parameter Name="tipoPersonal" Mode="In" Type="String" />
+      <Parameter Name="tieneDiscapacidad" Mode="In" Type="String" />
+      <Parameter Name="discapacidad" Mode="In" Type="String" />
+      <Parameter Name="realizaRotacion" Mode="In" Type="String" />
+      <Parameter Name="idCuestionario" Mode="In" Type="Int32" />
+      <Parameter Name="idEmpresa" Mode="In" Type="Int32" />
+      <Parameter Name="idCentroTRabajo" Mode="In" Type="Int32" />
+      <Parameter Name="parteSectores" Mode="In" Type="String" />
+      <Parameter Name="sector" Mode="In" Type="String" />
+      <Parameter Name="existePolitica" Mode="In" Type="String" />
+      <Parameter Name="existeCodigoEtica" Mode="In" Type="String" />
+      <Parameter Name="existeComite" Mode="In" Type="String" />
+      <Parameter Name="existeMecanismo" Mode="In" Type="String" />
+      <Parameter Name="comentario" Mode="In" Type="String" />
+      <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
+      <Parameter Name="dondeTrabajo" Mode="In" Type="String" />
+      <Parameter Name="idRespEmpl" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="respuestaEmpDetalle" EntityType="rhconModel.respuestaEmpDetalle" />
+    <AssociationSet Name="FK_respuestaEmpDetalle_cuestionarioDetalle" Association="rhconModel.FK_respuestaEmpDetalle_cuestionarioDetalle">
+      <End Role="cuestionarioDetalle" EntitySet="cuestionarioDetalle" />
+      <End Role="respuestaEmpDetalle" EntitySet="respuestaEmpDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_respuestaEmpDetalle_posiblesRespDetalle" Association="rhconModel.FK_respuestaEmpDetalle_posiblesRespDetalle">
+      <End Role="posiblesRespDetalle" EntitySet="posiblesRespDetalle" />
+      <End Role="respuestaEmpDetalle" EntitySet="respuestaEmpDetalle" />
+    </AssociationSet>
+    <EntitySet Name="logRespuestaEmpleado" EntityType="rhconModel.logRespuestaEmpleado" />
+    <EntitySet Name="cuestionario" EntityType="rhconModel.cuestionario" />
+    <AssociationSet Name="FK_cuestionarioDetalle_cuestionario" Association="rhconModel.FK_cuestionarioDetalle_cuestionario">
+      <End Role="cuestionario" EntitySet="cuestionario" />
+      <End Role="cuestionarioDetalle" EntitySet="cuestionarioDetalle" />
+    </AssociationSet>
+    <EntitySet Name="rol" EntityType="rhconModel.rol" />
+    <AssociationSet Name="FK_rol_operacion_rol" Association="rhconModel.FK_rol_operacion_rol">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="rol_operacion" EntitySet="rol_operacion" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="rhconModel.sysdiagrams" />
+    <EntitySet Name="empleado" EntityType="rhconModel.empleado" />
+    <AssociationSet Name="FK_empleado_centroTrabajo" Association="rhconModel.FK_empleado_centroTrabajo">
+      <End Role="centroTrabajo" EntitySet="centroTrabajo" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_logRespuestaEmpleado_empleado" Association="rhconModel.FK_logRespuestaEmpleado_empleado">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="logRespuestaEmpleado" EntitySet="logRespuestaEmpleado" />
+    </AssociationSet>
+    <EntitySet Name="cuestionarioATS" EntityType="rhconModel.cuestionarioATS" />
+    <EntitySet Name="cuestionarioATSPersonas" EntityType="rhconModel.cuestionarioATSPersonas" />
+    <EntitySet Name="cuestionarioATSRespuestas" EntityType="rhconModel.cuestionarioATSRespuestas" />
+    <EntitySet Name="logCuestionarioATS" EntityType="rhconModel.logCuestionarioATS" />
+    <FunctionImport Name="cuestionatioATSInsert">
+      <Parameter Name="traumatico" Mode="In" Type="String" />
+      <Parameter Name="fechao" Mode="In" Type="DateTime" />
+      <Parameter Name="hora" Mode="In" Type="String" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="personas" Mode="In" Type="Int32" />
+      <Parameter Name="tipo" Mode="In" Type="Int32" />
+      <Parameter Name="idCuestionarioATS" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="respuestaEmpleado" EntityType="rhconModel.respuestaEmpleado" />
+    <AssociationSet Name="FK_respuestaEmpleado_centroTrabajo" Association="rhconModel.FK_respuestaEmpleado_centroTrabajo">
+      <End Role="centroTrabajo" EntitySet="centroTrabajo" />
+      <End Role="respuestaEmpleado" EntitySet="respuestaEmpleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_respuestaEmpleado_cuestionario" Association="rhconModel.FK_respuestaEmpleado_cuestionario">
+      <End Role="cuestionario" EntitySet="cuestionario" />
+      <End Role="respuestaEmpleado" EntitySet="respuestaEmpleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_respuestaEmpDetalle_respuestaEmpleado" Association="rhconModel.FK_respuestaEmpDetalle_respuestaEmpleado">
+      <End Role="respuestaEmpleado" EntitySet="respuestaEmpleado" />
+      <End Role="respuestaEmpDetalle" EntitySet="respuestaEmpDetalle" />
+    </AssociationSet>
+    <EntitySet Name="usuario" EntityType="rhconModel.usuario" />
+    <AssociationSet Name="FK_centroTrabajo_usuario" Association="rhconModel.FK_centroTrabajo_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="centroTrabajo" EntitySet="centroTrabajo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_empleado_usuario" Association="rhconModel.FK_empleado_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_encargadosEmpresa_usuario" Association="rhconModel.FK_encargadosEmpresa_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="encargadosEmpresa" EntitySet="encargadosEmpresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_rol" Association="rhconModel.FK_usuario_rol">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <EntitySet Name="cstatus" EntityType="rhconModel.cstatus" />
+    <AssociationSet Name="FK_centroTrabajo_cstatus" Association="rhconModel.FK_centroTrabajo_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="centroTrabajo" EntitySet="centroTrabajo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_empleado_cstatus" Association="rhconModel.FK_empleado_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_modulo_cstatus" Association="rhconModel.FK_modulo_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="modulo" EntitySet="modulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_operaciones_cstatus" Association="rhconModel.FK_operaciones_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="operaciones" EntitySet="operaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rol_cstatus" Association="rhconModel.FK_rol_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="rol" EntitySet="rol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_cstatus" Association="rhconModel.FK_usuario_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <EntitySet Name="resultados_nom035" EntityType="rhconModel.resultados_nom035" />
+    <EntitySet Name="empresa" EntityType="rhconModel.empresa" />
+    <EntitySet Name="resultados_nom025" EntityType="rhconModel.resultados_nom025" />
+    <AssociationSet Name="FK_centroTrabajo_empresa" Association="rhconModel.FK_centroTrabajo_empresa">
+      <End Role="empresa" EntitySet="empresa" />
+      <End Role="centroTrabajo" EntitySet="centroTrabajo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_empresa_cstatus" Association="rhconModel.FK_empresa_cstatus">
+      <End Role="cstatus" EntitySet="cstatus" />
+      <End Role="empresa" EntitySet="empresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_empleado_empresa" Association="rhconModel.FK_empleado_empresa">
+      <End Role="empresa" EntitySet="empresa" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_encargadosEmpresa_empresa" Association="rhconModel.FK_encargadosEmpresa_empresa">
+      <End Role="empresa" EntitySet="empresa" />
+      <End Role="encargadosEmpresa" EntitySet="encargadosEmpresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_respuestaEmpleado_empresa" Association="rhconModel.FK_respuestaEmpleado_empresa">
+      <End Role="empresa" EntitySet="empresa" />
+      <End Role="respuestaEmpleado" EntitySet="respuestaEmpleado" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(rhconModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(rhconModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="result_categoria" EntityType="rhconModel.result_categoria" />
+    <EntitySet Name="result_dimension" EntityType="rhconModel.result_dimension" />
+    <EntitySet Name="result_dominio" EntityType="rhconModel.result_dominio" />
+    <EntitySet Name="resultados_por_usuario_025" EntityType="rhconModel.resultados_por_usuario_025" />
+    <EntitySet Name="resultados_por_usuario_035" EntityType="rhconModel.resultados_por_usuario_035" />
+    <EntitySet Name="periodosEncuesta" EntityType="rhconModel.periodosEncuesta" />
+    <EntitySet Name="dimencion" EntityType="rhconModel.dimencion" />
+    <AssociationSet Name="FK_dimencion_categoria" Association="rhconModel.FK_dimencion_categoria">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="dimencion" EntitySet="dimencion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuestionarioDetalle_dimencion" Association="rhconModel.FK_cuestionarioDetalle_dimencion">
+      <End Role="dimencion" EntitySet="dimencion" />
+      <End Role="cuestionarioDetalle" EntitySet="cuestionarioDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dimencion_dominio" Association="rhconModel.FK_dimencion_dominio">
+      <End Role="dominio" EntitySet="dominio" />
+      <End Role="dimencion" EntitySet="dimencion" />
+    </AssociationSet>
+    <EntitySet Name="EncabezadoCuestionario" EntityType="rhconModel.EncabezadoCuestionario" />
+    <AssociationSet Name="FK_categoriaCuestionario_cuestionario" Association="rhconModel.FK_categoriaCuestionario_cuestionario">
+      <End Role="cuestionario" EntitySet="cuestionario" />
+      <End Role="EncabezadoCuestionario" EntitySet="EncabezadoCuestionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuestionarioDetalle_categoriaCuestionario" Association="rhconModel.FK_cuestionarioDetalle_categoriaCuestionario">
+      <End Role="EncabezadoCuestionario" EntitySet="EncabezadoCuestionario" />
+      <End Role="cuestionarioDetalle" EntitySet="cuestionarioDetalle" />
+    </AssociationSet>
+    <EntitySet Name="Log_factores" EntityType="rhconModel.Log_factores" />
+    <EntitySet Name="admin_perfil" EntityType="rhconModel.admin_perfil" />
+    <EntitySet Name="EncuestaSugerencias" EntityType="rhconModel.EncuestaSugerencias" />
+    <EntitySet Name="plandeaccion" EntityType="rhconModel.plandeaccion" />
+  </EntityContainer>
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="dominio" Relationship="rhconModel.FK_dominio_categoria" FromRole="categoria" ToRole="dominio" />
+    <NavigationProperty Name="dimencion" Relationship="rhconModel.FK_dimencion_categoria" FromRole="categoria" ToRole="dimencion" />
+  </EntityType>
+  <EntityType Name="centroTrabajo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="actividades" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="idStatus" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="empleado" Relationship="rhconModel.FK_empleado_centroTrabajo" FromRole="centroTrabajo" ToRole="empleado" />
+    <NavigationProperty Name="respuestaEmpleado" Relationship="rhconModel.FK_respuestaEmpleado_centroTrabajo" FromRole="centroTrabajo" ToRole="respuestaEmpleado" />
+    <NavigationProperty Name="usuario" Relationship="rhconModel.FK_centroTrabajo_usuario" FromRole="centroTrabajo" ToRole="usuario" />
+    <NavigationProperty Name="cstatus" Relationship="rhconModel.FK_centroTrabajo_cstatus" FromRole="centroTrabajo" ToRole="cstatus" />
+    <NavigationProperty Name="empresa" Relationship="rhconModel.FK_centroTrabajo_empresa" FromRole="centroTrabajo" ToRole="empresa" />
+  </EntityType>
+  <EntityType Name="cuestionarioDetalle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="noReactivo" Type="Int32" Nullable="false" />
+    <Property Name="Reactivo" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="idCuestionario" Type="Int32" Nullable="false" />
+    <Property Name="idPosiblesResp" Type="Int32" Nullable="false" />
+    <Property Name="idCategoria" Type="Int32" Nullable="false" />
+    <Property Name="idDimencion" Type="Int32" />
+    <NavigationProperty Name="posiblesRespuestas" Relationship="rhconModel.FK_cuestionarioDetalle_posiblesRespuestas" FromRole="cuestionarioDetalle" ToRole="posiblesRespuestas" />
+    <NavigationProperty Name="respuestaEmpDetalle" Relationship="rhconModel.FK_respuestaEmpDetalle_cuestionarioDetalle" FromRole="cuestionarioDetalle" ToRole="respuestaEmpDetalle" />
+    <NavigationProperty Name="cuestionario" Relationship="rhconModel.FK_cuestionarioDetalle_cuestionario" FromRole="cuestionarioDetalle" ToRole="cuestionario" />
+    <NavigationProperty Name="dimencion" Relationship="rhconModel.FK_cuestionarioDetalle_dimencion" FromRole="cuestionarioDetalle" ToRole="dimencion" />
+    <NavigationProperty Name="EncabezadoCuestionario" Relationship="rhconModel.FK_cuestionarioDetalle_categoriaCuestionario" FromRole="cuestionarioDetalle" ToRole="EncabezadoCuestionario" />
+  </EntityType>
+  <EntityType Name="dominio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idCategoria" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="categoria" Relationship="rhconModel.FK_dominio_categoria" FromRole="dominio" ToRole="categoria" />
+    <NavigationProperty Name="dimencion" Relationship="rhconModel.FK_dimencion_dominio" FromRole="dominio" ToRole="dimencion" />
+  </EntityType>
+  <EntityType Name="encargadosEmpresa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="usuario" Relationship="rhconModel.FK_encargadosEmpresa_usuario" FromRole="encargadosEmpresa" ToRole="usuario" />
+    <NavigationProperty Name="empresa" Relationship="rhconModel.FK_encargadosEmpresa_empresa" FromRole="encargadosEmpresa" ToRole="empresa" />
+  </EntityType>
+  <EntityType Name="posiblesRespDetalle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Respuesta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="Int16" Nullable="false" />
+    <Property Name="idEncabezado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="posiblesRespuestas" Relationship="rhconModel.FK_posiblesRespDetalle_posiblesRespuestas" FromRole="posiblesRespDetalle" ToRole="posiblesRespuestas" />
+    <NavigationProperty Name="respuestaEmpDetalle" Relationship="rhconModel.FK_respuestaEmpDetalle_posiblesRespDetalle" FromRole="posiblesRespDetalle" ToRole="respuestaEmpDetalle" />
+  </EntityType>
+  <EntityType Name="posiblesRespuestas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grupo" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cuestionarioDetalle" Relationship="rhconModel.FK_cuestionarioDetalle_posiblesRespuestas" FromRole="posiblesRespuestas" ToRole="cuestionarioDetalle" />
+    <NavigationProperty Name="posiblesRespDetalle" Relationship="rhconModel.FK_posiblesRespDetalle_posiblesRespuestas" FromRole="posiblesRespuestas" ToRole="posiblesRespDetalle" />
+  </EntityType>
+  <Association Name="FK_dominio_categoria">
+    <End Type="rhconModel.categoria" Role="categoria" Multiplicity="1" />
+    <End Type="rhconModel.dominio" Role="dominio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dominio">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuestionarioDetalle_posiblesRespuestas">
+    <End Type="rhconModel.posiblesRespuestas" Role="posiblesRespuestas" Multiplicity="1" />
+    <End Type="rhconModel.cuestionarioDetalle" Role="cuestionarioDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="posiblesRespuestas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuestionarioDetalle">
+        <PropertyRef Name="idPosiblesResp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_posiblesRespDetalle_posiblesRespuestas">
+    <End Type="rhconModel.posiblesRespuestas" Role="posiblesRespuestas" Multiplicity="1" />
+    <End Type="rhconModel.posiblesRespDetalle" Role="posiblesRespDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="posiblesRespuestas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="posiblesRespDetalle">
+        <PropertyRef Name="idEncabezado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="correos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="politica">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="titulo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="video" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="respuestaEmpDetalle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idResuestaEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="idPregunta" Type="Int32" Nullable="false" />
+    <Property Name="idRespuesta" Type="Int32" />
+    <NavigationProperty Name="cuestionarioDetalle" Relationship="rhconModel.FK_respuestaEmpDetalle_cuestionarioDetalle" FromRole="respuestaEmpDetalle" ToRole="cuestionarioDetalle" />
+    <NavigationProperty Name="posiblesRespDetalle" Relationship="rhconModel.FK_respuestaEmpDetalle_posiblesRespDetalle" FromRole="respuestaEmpDetalle" ToRole="posiblesRespDetalle" />
+    <NavigationProperty Name="respuestaEmpleado" Relationship="rhconModel.FK_respuestaEmpDetalle_respuestaEmpleado" FromRole="respuestaEmpDetalle" ToRole="respuestaEmpleado" />
+  </EntityType>
+  <Association Name="FK_respuestaEmpDetalle_cuestionarioDetalle">
+    <End Type="rhconModel.cuestionarioDetalle" Role="cuestionarioDetalle" Multiplicity="1" />
+    <End Type="rhconModel.respuestaEmpDetalle" Role="respuestaEmpDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuestionarioDetalle">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="respuestaEmpDetalle">
+        <PropertyRef Name="idPregunta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_respuestaEmpDetalle_posiblesRespDetalle">
+    <End Type="rhconModel.posiblesRespDetalle" Role="posiblesRespDetalle" Multiplicity="0..1" />
+    <End Type="rhconModel.respuestaEmpDetalle" Role="respuestaEmpDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="posiblesRespDetalle">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="respuestaEmpDetalle">
+        <PropertyRef Name="idRespuesta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="logRespuestaEmpleado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="empleado" Relationship="rhconModel.FK_logRespuestaEmpleado_empleado" FromRole="logRespuestaEmpleado" ToRole="empleado" />
+  </EntityType>
+  <EntityType Name="cuestionario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nomenclatura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cuestionarioDetalle" Relationship="rhconModel.FK_cuestionarioDetalle_cuestionario" FromRole="cuestionario" ToRole="cuestionarioDetalle" />
+    <NavigationProperty Name="respuestaEmpleado" Relationship="rhconModel.FK_respuestaEmpleado_cuestionario" FromRole="cuestionario" ToRole="respuestaEmpleado" />
+    <NavigationProperty Name="EncabezadoCuestionario" Relationship="rhconModel.FK_categoriaCuestionario_cuestionario" FromRole="cuestionario" ToRole="EncabezadoCuestionario" />
+  </EntityType>
+  <Association Name="FK_cuestionarioDetalle_cuestionario">
+    <End Type="rhconModel.cuestionario" Role="cuestionario" Multiplicity="1" />
+    <End Type="rhconModel.cuestionarioDetalle" Role="cuestionarioDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuestionario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuestionarioDetalle">
+        <PropertyRef Name="idCuestionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idStatus" Type="Int32" Nullable="false" />
+    <Property Name="orden" Type="Int32" />
+    <NavigationProperty Name="rol_operacion" Relationship="rhconModel.FK_rol_operacion_rol" FromRole="rol" ToRole="rol_operacion" />
+    <NavigationProperty Name="usuario" Relationship="rhconModel.FK_usuario_rol" FromRole="rol" ToRole="usuario" />
+    <NavigationProperty Name="cstatus" Relationship="rhconModel.FK_rol_cstatus" FromRole="rol" ToRole="cstatus" />
+  </EntityType>
+  <Association Name="FK_rol_operacion_rol">
+    <End Type="rhconModel.rol" Role="rol" Multiplicity="1" />
+    <End Type="rhconModel.rol_operacion" Role="rol_operacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rol_operacion">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="curp" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="nss" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="contacto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="celcontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="idCentroTrabajo" Type="Int32" Nullable="false" />
+    <Property Name="idEstatus" Type="Int32" Nullable="false" />
+    <Property Name="idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="aceptoPolitica" Type="Boolean" />
+    <Property Name="area_funcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="centroTrabajo" Relationship="rhconModel.FK_empleado_centroTrabajo" FromRole="empleado" ToRole="centroTrabajo" />
+    <NavigationProperty Name="logRespuestaEmpleado" Relationship="rhconModel.FK_logRespuestaEmpleado_empleado" FromRole="empleado" ToRole="logRespuestaEmpleado" />
+    <NavigationProperty Name="usuario" Relationship="rhconModel.FK_empleado_usuario" FromRole="empleado" ToRole="usuario" />
+    <NavigationProperty Name="cstatus" Relationship="rhconModel.FK_empleado_cstatus" FromRole="empleado" ToRole="cstatus" />
+    <NavigationProperty Name="empresa" Relationship="rhconModel.FK_empleado_empresa" FromRole="empleado" ToRole="empresa" />
+  </EntityType>
+  <Association Name="FK_empleado_centroTrabajo">
+    <End Type="rhconModel.centroTrabajo" Role="centroTrabajo" Multiplicity="1" />
+    <End Type="rhconModel.empleado" Role="empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="centroTrabajo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idCentroTrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_logRespuestaEmpleado_empleado">
+    <End Type="rhconModel.empleado" Role="empleado" Multiplicity="1" />
+    <End Type="rhconModel.logRespuestaEmpleado" Role="logRespuestaEmpleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="logRespuestaEmpleado">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="cuestionarioATS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="traumatico" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="fechao" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hora" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="personas" Type="Int32" Nullable="false" />
+    <Property Name="tipo" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="cuestionarioATSPersonas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_cuestionarioATS" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellidop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellidom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="empleado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cuestionarioATSRespuestas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_cuestionarioATS" Type="Int32" Nullable="false" />
+    <Property Name="idPregunta" Type="Int32" Nullable="false" />
+    <Property Name="idRespuesta" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="logCuestionarioATS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_empleado" Type="Int32" Nullable="false" />
+    <Property Name="id_cuestionarioATS" Type="Int32" />
+    <Property Name="informe" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="acuse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="Int32" Nullable="false" />
+    <Property Name="verificacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+    <Property Name="acontecimiento" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="respuestaEmpleado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sexo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="edad" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="estadoCivil" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="antiguedad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tiempoPuestoActual" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tiempoExperienciaLaboral" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="escolaridad" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="tipoJornada" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoContratacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoPersonal" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="tieneDiscapacidad" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="discapacidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="realizaRotacion" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="idCuestionario" Type="Int32" Nullable="false" />
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="idCentroTrabajo" Type="Int32" Nullable="false" />
+    <Property Name="parteSectores" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="sector" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="existePolitica" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="existeCodigoEtica" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="existeComite" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="existeMecanismo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="dondeTrabajo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="centroTrabajo" Relationship="rhconModel.FK_respuestaEmpleado_centroTrabajo" FromRole="respuestaEmpleado" ToRole="centroTrabajo" />
+    <NavigationProperty Name="cuestionario" Relationship="rhconModel.FK_respuestaEmpleado_cuestionario" FromRole="respuestaEmpleado" ToRole="cuestionario" />
+    <NavigationProperty Name="respuestaEmpDetalle" Relationship="rhconModel.FK_respuestaEmpDetalle_respuestaEmpleado" FromRole="respuestaEmpleado" ToRole="respuestaEmpDetalle" />
+    <NavigationProperty Name="empresa" Relationship="rhconModel.FK_respuestaEmpleado_empresa" FromRole="respuestaEmpleado" ToRole="empresa" />
+  </EntityType>
+  <Association Name="FK_respuestaEmpleado_centroTrabajo">
+    <End Type="rhconModel.centroTrabajo" Role="centroTrabajo" Multiplicity="1" />
+    <End Type="rhconModel.respuestaEmpleado" Role="respuestaEmpleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="centroTrabajo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="respuestaEmpleado">
+        <PropertyRef Name="idCentroTrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_respuestaEmpleado_cuestionario">
+    <End Type="rhconModel.cuestionario" Role="cuestionario" Multiplicity="1" />
+    <End Type="rhconModel.respuestaEmpleado" Role="respuestaEmpleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuestionario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="respuestaEmpleado">
+        <PropertyRef Name="idCuestionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_respuestaEmpDetalle_respuestaEmpleado">
+    <End Type="rhconModel.respuestaEmpleado" Role="respuestaEmpleado" Multiplicity="1" />
+    <End Type="rhconModel.respuestaEmpDetalle" Role="respuestaEmpDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="respuestaEmpleado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="respuestaEmpDetalle">
+        <PropertyRef Name="idResuestaEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="idRol" Type="Int32" Nullable="false" />
+    <Property Name="idStatus" Type="Int32" Nullable="false" />
+    <Property Name="verificacion" Type="Int32" />
+    <NavigationProperty Name="centroTrabajo" Relationship="rhconModel.FK_centroTrabajo_usuario" FromRole="usuario" ToRole="centroTrabajo" />
+    <NavigationProperty Name="empleado" Relationship="rhconModel.FK_empleado_usuario" FromRole="usuario" ToRole="empleado" />
+    <NavigationProperty Name="encargadosEmpresa" Relationship="rhconModel.FK_encargadosEmpresa_usuario" FromRole="usuario" ToRole="encargadosEmpresa" />
+    <NavigationProperty Name="rol" Relationship="rhconModel.FK_usuario_rol" FromRole="usuario" ToRole="rol" />
+    <NavigationProperty Name="cstatus" Relationship="rhconModel.FK_usuario_cstatus" FromRole="usuario" ToRole="cstatus" />
+  </EntityType>
+  <Association Name="FK_centroTrabajo_usuario">
+    <End Type="rhconModel.usuario" Role="usuario" Multiplicity="1" />
+    <End Type="rhconModel.centroTrabajo" Role="centroTrabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="centroTrabajo">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_empleado_usuario">
+    <End Type="rhconModel.usuario" Role="usuario" Multiplicity="1" />
+    <End Type="rhconModel.empleado" Role="empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_encargadosEmpresa_usuario">
+    <End Type="rhconModel.usuario" Role="usuario" Multiplicity="1" />
+    <End Type="rhconModel.encargadosEmpresa" Role="encargadosEmpresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="encargadosEmpresa">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_rol">
+    <End Type="rhconModel.rol" Role="rol" Multiplicity="1" />
+    <End Type="rhconModel.usuario" Role="usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="cstatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="centroTrabajo" Relationship="rhconModel.FK_centroTrabajo_cstatus" FromRole="cstatus" ToRole="centroTrabajo" />
+    <NavigationProperty Name="empleado" Relationship="rhconModel.FK_empleado_cstatus" FromRole="cstatus" ToRole="empleado" />
+    <NavigationProperty Name="modulo" Relationship="rhconModel.FK_modulo_cstatus" FromRole="cstatus" ToRole="modulo" />
+    <NavigationProperty Name="operaciones" Relationship="rhconModel.FK_operaciones_cstatus" FromRole="cstatus" ToRole="operaciones" />
+    <NavigationProperty Name="rol" Relationship="rhconModel.FK_rol_cstatus" FromRole="cstatus" ToRole="rol" />
+    <NavigationProperty Name="usuario" Relationship="rhconModel.FK_usuario_cstatus" FromRole="cstatus" ToRole="usuario" />
+    <NavigationProperty Name="empresa" Relationship="rhconModel.FK_empresa_cstatus" FromRole="cstatus" ToRole="empresa" />
+  </EntityType>
+  <Association Name="FK_centroTrabajo_cstatus">
+    <End Type="rhconModel.cstatus" Role="cstatus" Multiplicity="1" />
+    <End Type="rhconModel.centroTrabajo" Role="centroTrabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="centroTrabajo">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_empleado_cstatus">
+    <End Type="rhconModel.cstatus" Role="cstatus" Multiplicity="1" />
+    <End Type="rhconModel.empleado" Role="empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idEstatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_modulo_cstatus">
+    <End Type="rhconModel.cstatus" Role="cstatus" Multiplicity="1" />
+    <End Type="rhconModel.modulo" Role="modulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="modulo">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_operaciones_cstatus">
+    <End Type="rhconModel.cstatus" Role="cstatus" Multiplicity="1" />
+    <End Type="rhconModel.operaciones" Role="operaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="operaciones">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rol_cstatus">
+    <End Type="rhconModel.cstatus" Role="cstatus" Multiplicity="1" />
+    <End Type="rhconModel.rol" Role="rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rol">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_cstatus">
+    <End Type="rhconModel.cstatus" Role="cstatus" Multiplicity="1" />
+    <End Type="rhconModel.usuario" Role="usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="resultados_nom035">
+    <Key>
+      <PropertyRef Name="idResuestaEmpleado" />
+      <PropertyRef Name="idPregunta" />
+      <PropertyRef Name="valor" />
+      <PropertyRef Name="idCentroTrabajo" />
+      <PropertyRef Name="idEmpresa" />
+      <PropertyRef Name="id_cabecera" />
+      <PropertyRef Name="cabecera_descripcion" />
+      <PropertyRef Name="dimencion_descripcion" />
+      <PropertyRef Name="idDominio" />
+      <PropertyRef Name="dominio_descripcion" />
+      <PropertyRef Name="idCategoria" />
+      <PropertyRef Name="categoria_descripcion" />
+      <PropertyRef Name="id" />
+      <PropertyRef Name="curp" />
+      <PropertyRef Name="antiguedad" />
+      <PropertyRef Name="edad" />
+      <PropertyRef Name="escolaridad" />
+      <PropertyRef Name="estadoCivil" />
+      <PropertyRef Name="idRespuestaEmpleado" />
+      <PropertyRef Name="idCuestionario" />
+      <PropertyRef Name="realizaRotacion" />
+      <PropertyRef Name="sexo" />
+      <PropertyRef Name="tiempoExperienciaLaboral" />
+      <PropertyRef Name="tiempoPuestoActual" />
+      <PropertyRef Name="tieneDiscapacidad" />
+      <PropertyRef Name="tipoContratacion" />
+      <PropertyRef Name="tipoJornada" />
+      <PropertyRef Name="tipoPersonal" />
+    </Key>
+    <Property Name="idResuestaEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="idPregunta" Type="Int32" Nullable="false" />
+    <Property Name="idRespuesta" Type="Int32" />
+    <Property Name="valor" Type="Int16" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="idCentroTrabajo" Type="Int32" Nullable="false" />
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="id_cabecera" Type="Int32" Nullable="false" />
+    <Property Name="cabecera_descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="idDimencion" Type="Int32" />
+    <Property Name="dimencion_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idDominio" Type="Int32" Nullable="false" />
+    <Property Name="dominio_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idCategoria" Type="Int32" Nullable="false" />
+    <Property Name="categoria_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="curp" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="antiguedad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="discapacidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="dondeTrabajo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="edad" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="escolaridad" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="estadoCivil" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="existeCodigoEtica" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="existeComite" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="existeMecanismo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="existePolitica" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="idRespuestaEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="idCuestionario" Type="Int32" Nullable="false" />
+    <Property Name="parteSectores" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="realizaRotacion" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="sector" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sexo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="tiempoExperienciaLaboral" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tiempoPuestoActual" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tieneDiscapacidad" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="tipoContratacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoJornada" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoPersonal" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="empresa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="razonc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="razons" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="actividad" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rfc" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="img" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="idStatus" Type="Int32" Nullable="false" />
+    <Property Name="ctAdministraEmpleados" Type="Boolean" />
+    <Property Name="contrato" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="nombrejerarquia" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="puestojerarquia" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="centroTrabajo" Relationship="rhconModel.FK_centroTrabajo_empresa" FromRole="empresa" ToRole="centroTrabajo" />
+    <NavigationProperty Name="cstatus" Relationship="rhconModel.FK_empresa_cstatus" FromRole="empresa" ToRole="cstatus" />
+    <NavigationProperty Name="empleado" Relationship="rhconModel.FK_empleado_empresa" FromRole="empresa" ToRole="empleado" />
+    <NavigationProperty Name="encargadosEmpresa" Relationship="rhconModel.FK_encargadosEmpresa_empresa" FromRole="empresa" ToRole="encargadosEmpresa" />
+    <NavigationProperty Name="respuestaEmpleado" Relationship="rhconModel.FK_respuestaEmpleado_empresa" FromRole="empresa" ToRole="respuestaEmpleado" />
+  </EntityType>
+  <EntityType Name="resultados_nom025">
+    <Key>
+      <PropertyRef Name="idPregunta" />
+      <PropertyRef Name="valor" />
+      <PropertyRef Name="id_cabecera" />
+      <PropertyRef Name="cabecera_descripcion" />
+      <PropertyRef Name="idCentroTrabajo" />
+      <PropertyRef Name="idEmpresa" />
+      <PropertyRef Name="idResuestaEmpleado" />
+      <PropertyRef Name="id" />
+      <PropertyRef Name="curp" />
+    </Key>
+    <Property Name="idPregunta" Type="Int32" Nullable="false" />
+    <Property Name="idRespuesta" Type="Int32" />
+    <Property Name="valor" Type="Int16" Nullable="false" />
+    <Property Name="id_cabecera" Type="Int32" Nullable="false" />
+    <Property Name="cabecera_descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="idCentroTrabajo" Type="Int32" Nullable="false" />
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="idResuestaEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="curp" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="year" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_centroTrabajo_empresa">
+    <End Type="rhconModel.empresa" Role="empresa" Multiplicity="1" />
+    <End Type="rhconModel.centroTrabajo" Role="centroTrabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="centroTrabajo">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_empresa_cstatus">
+    <End Type="rhconModel.cstatus" Role="cstatus" Multiplicity="1" />
+    <End Type="rhconModel.empresa" Role="empresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empresa">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_empleado_empresa">
+    <End Type="rhconModel.empresa" Role="empresa" Multiplicity="1" />
+    <End Type="rhconModel.empleado" Role="empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_encargadosEmpresa_empresa">
+    <End Type="rhconModel.empresa" Role="empresa" Multiplicity="1" />
+    <End Type="rhconModel.encargadosEmpresa" Role="encargadosEmpresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="encargadosEmpresa">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_respuestaEmpleado_empresa">
+    <End Type="rhconModel.empresa" Role="empresa" Multiplicity="1" />
+    <End Type="rhconModel.respuestaEmpleado" Role="respuestaEmpleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="respuestaEmpleado">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="result_categoria">
+    <Key>
+      <PropertyRef Name="idResuestaEmpleado" />
+      <PropertyRef Name="categoria_descripcion" />
+    </Key>
+    <Property Name="idResuestaEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="categoria_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="suma" Type="Int32" />
+    <Property Name="year" Type="Int32" />
+  </EntityType>
+  <EntityType Name="result_dimension">
+    <Key>
+      <PropertyRef Name="idResuestaEmpleado" />
+      <PropertyRef Name="dimencion_descripcion" />
+    </Key>
+    <Property Name="idResuestaEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="dimencion_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="suma" Type="Int32" />
+    <Property Name="year" Type="Int32" />
+  </EntityType>
+  <EntityType Name="result_dominio">
+    <Key>
+      <PropertyRef Name="idResuestaEmpleado" />
+      <PropertyRef Name="dominio_descripcion" />
+    </Key>
+    <Property Name="idResuestaEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="dominio_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="suma" Type="Int32" />
+    <Property Name="year" Type="Int32" />
+  </EntityType>
+  <EntityType Name="resultados_por_usuario_025">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="curp" />
+      <PropertyRef Name="idEmpresa" />
+      <PropertyRef Name="idCentroTrabajo" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="curp" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="idCentroTrabajo" Type="Int32" Nullable="false" />
+    <Property Name="valores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="resultados_por_usuario_035">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="curp" />
+      <PropertyRef Name="idEmpresa" />
+      <PropertyRef Name="idCentroTrabajo" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="curp" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="idCentroTrabajo" Type="Int32" Nullable="false" />
+    <Property Name="valores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="periodosEncuesta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="fechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fechaFinal" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="cedula" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="year" Type="Int16" Nullable="false" />
+    <Property Name="responsable" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cierre" Type="Int32" />
+  </EntityType>
+  <EntityType Name="dimencion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idCategoria" Type="Int32" Nullable="false" />
+    <Property Name="idDominio" Type="Int32" Nullable="false" />
+    <Property Name="texts_dimension" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="categoria" Relationship="rhconModel.FK_dimencion_categoria" FromRole="dimencion" ToRole="categoria" />
+    <NavigationProperty Name="cuestionarioDetalle" Relationship="rhconModel.FK_cuestionarioDetalle_dimencion" FromRole="dimencion" ToRole="cuestionarioDetalle" />
+    <NavigationProperty Name="dominio" Relationship="rhconModel.FK_dimencion_dominio" FromRole="dimencion" ToRole="dominio" />
+  </EntityType>
+  <Association Name="FK_dimencion_categoria">
+    <End Type="rhconModel.categoria" Role="categoria" Multiplicity="1" />
+    <End Type="rhconModel.dimencion" Role="dimencion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dimencion">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuestionarioDetalle_dimencion">
+    <End Type="rhconModel.dimencion" Role="dimencion" Multiplicity="0..1" />
+    <End Type="rhconModel.cuestionarioDetalle" Role="cuestionarioDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dimencion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuestionarioDetalle">
+        <PropertyRef Name="idDimencion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dimencion_dominio">
+    <End Type="rhconModel.dominio" Role="dominio" Multiplicity="1" />
+    <End Type="rhconModel.dimencion" Role="dimencion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dominio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dimencion">
+        <PropertyRef Name="idDominio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="EncabezadoCuestionario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="esOPcional" Type="Boolean" Nullable="false" />
+    <Property Name="idCuestionario" Type="Int32" Nullable="false" />
+    <Property Name="opciones_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="maximo" Type="Int32" />
+    <NavigationProperty Name="cuestionario" Relationship="rhconModel.FK_categoriaCuestionario_cuestionario" FromRole="EncabezadoCuestionario" ToRole="cuestionario" />
+    <NavigationProperty Name="cuestionarioDetalle" Relationship="rhconModel.FK_cuestionarioDetalle_categoriaCuestionario" FromRole="EncabezadoCuestionario" ToRole="cuestionarioDetalle" />
+  </EntityType>
+  <Association Name="FK_categoriaCuestionario_cuestionario">
+    <End Type="rhconModel.cuestionario" Role="cuestionario" Multiplicity="1" />
+    <End Type="rhconModel.EncabezadoCuestionario" Role="EncabezadoCuestionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuestionario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EncabezadoCuestionario">
+        <PropertyRef Name="idCuestionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuestionarioDetalle_categoriaCuestionario">
+    <End Type="rhconModel.EncabezadoCuestionario" Role="EncabezadoCuestionario" Multiplicity="1" />
+    <End Type="rhconModel.cuestionarioDetalle" Role="cuestionarioDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EncabezadoCuestionario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuestionarioDetalle">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Log_factores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_empresa" Type="Int32" />
+    <Property Name="archivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="fechaInicial" Type="DateTime" Precision="3" />
+    <Property Name="fechaFinal" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="admin_perfil">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cedula" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="celular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="celcontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idUsuario" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EncuestaSugerencias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sugerencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="year" Type="Int16" />
+    <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="plandeaccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dimension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nivelriesgo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="accion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="responsable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+  </EntityType>
+</Schema>

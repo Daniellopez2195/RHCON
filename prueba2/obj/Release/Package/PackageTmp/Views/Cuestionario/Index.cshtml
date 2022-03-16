@@ -1,0 +1,741 @@
+﻿@using rhcon.Models.ViewModel
+@model List<ListEncabezadoCuestionRioViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCuestionario.cshtml";
+    var oEmpresa = (EmpresaViewModel)Session["empresa"];
+    var oEmpleado = (EmpleadoViewModel)Session["empleado"];
+}
+
+<style>
+    .hist-ats {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+        margin-bottom: 60px;
+    }
+
+    .uno {
+        justify-content: flex-start;
+    }
+
+    .dos {
+        justify-content: flex-end;
+    }
+
+    #botones {
+        justify-content: center;
+    }
+
+    .hist-ats div {
+        display: flex;
+        padding-top: 20px;
+    }
+</style>
+<form method="post" id="regForm" enctype="multipart/form-data">
+    <input type="hidden" name="tipo" value="" id="tipo" />
+    @* introducción *@
+    <div class="tab seccion">
+        <div class="cent blanco">
+
+
+            <h6 style="text-align:center; padding:0 40px; color:#005096; font-size:24px; font-weight:bold; ">
+                ¡Tu bienestar es lo más importante!
+            </h6>
+
+            @*<h5 style="text-align:center; padding:0 40px; font-size:22px;">
+                    Cuestionario para identificar a las y los trabajadores que fueron sujetos(as) a Acontecimientos Traumáticos Severos NOM-035-STPS-2018
+                </h5>*@
+
+
+            <div class="textrf" style="text-align:center;">
+                Con el fin de identificar cualquier acontecimiento ocurrido durante o con motivo de trabajo que pueda afectar tu salud, te pedimos responder el cuestionario que abajo presentamos.
+
+            </div>
+
+            <div class="textrf" style="text-align:center;">
+                @oEmpresa.RazonComercial, mantiene el compromiso de que la información que aquí manifiestes será tratada bajo estricto sentido de confidencialidad.
+
+            </div>
+
+            <h4 style="text-align:center;">CUESTIONARIO</h4>
+
+            <div class="textrf" style="text-align:center;">
+                Bajo protesta de decir verdad manifiesto que
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                <select class="form-control traumatico" id="traumatico" name="traumatico">
+                    <option disabled selected value="0">
+                        Selecciona la respuesta según corresponda, en caso de haber sufrido más de un acontecimiento, selecciona el de mayor gravedad.
+                    </option>
+                    <option value="1">
+                        No he sufrido o presenciado durante o por motivo de trabajo ningún Acontecimiento Traumático Severo o Violencia Laboral
+                    </option>
+                    <option value="2">
+                        He sufrido o presenciado un accidente que tuvo como consecuencia la pérdida de un miembro o una lesión grave durante o con motivo del trabajo
+                    </option>
+                    <option value="3">
+                        He sufrido o presenciado un asalto durante o con motivo del trabajo
+                    </option>
+                    <option value="4">
+                        He sufrido o presenciado actos violentos que derivaron en lesiones graves durante o con motivo del trabajo
+                    </option>
+                    <option value="5">
+                        He sufrido o presenciado un secuestro durante o con motivo del trabajo
+                    </option>
+                    <option value="6">
+                        He sufrido o presenciado amenazas durante o con motivo del trabajo
+                    </option>
+                    <option value="7">
+                        He sufrido o presenciado cualquier otro acto que puso en riesgo mi vida o salud, y/o la de otras personas durante o con motivo del trabajo
+                    </option>
+                </select>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="tab seccion">
+        <div class="cent">
+
+
+            <span class="intruccion">
+                <p class="aco">
+
+                    <span class="">Lamentamos que hayas</span>
+
+                    @* AQUI DEBE JALAR EL ATS *@
+                    <span style="font-weight: bold;" id="textAts1"> </span>.
+                </p>
+            </span>
+
+
+            <div class="pregunta">
+                <p class="p">Selecciona la fecha en que ocurrió el acontecimiento: </p>
+
+                <input name="fechaO" type="date" class="date inf verif" id="fecha" max="@DateTime.Now.ToString("yyyy-MM-dd")" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+
+            </div>
+
+
+            <div class="pregunta">
+                <p class="p">Selecciona la hora en que ocurrió el acontecimiento:</p>
+
+                <div>
+                    <div style="width:40%; display:inline-block;">
+                        <input data-role="timepicker" name="hora" id="hora" data-seconds="false">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="pregunta">
+                <p class="p">Describe detalladamente el acontecimiento, especifica qué, cómo y dónde ocurrió, incluye el mayor detalle posible:</p>
+
+                <textarea id="exampleTextarea" class="verif inf" rows="3" name="descripcion"></textarea>
+
+            </div>
+
+
+            <div class="pregunta">
+                <p class="p">Durante el acontecimiento:</p>
+
+                <select onchange="changeFunc(value);" id="pers" name="personas">
+                    <option id="ninguna" value="0" class="ninguna">
+                        No hubo más  personas involucradas o presentes
+                    </option>
+                    <option value="1">Hubo 1 persona involucrada o presente</option>
+                    <option value="2">Hubo 2 personas involucradas o presentes</option>
+                    <option value="3">Hubo 3 personas involucradas o presentes</option>
+                    <option value="4">Hubo 4 personas involucradas o presentes</option>
+                    <option value="5">Hubo 5 personas involucradas o presentes</option>
+                    <option value="6">Hubo 6 personas involucradas o presentes</option>
+                </select>
+            </div>
+
+
+            <div class="conter ijij" id="conter"></div>
+
+
+        </div>
+    </div>
+
+
+    <div class="tab seccion preguntas-ats">
+        <div class="cent">
+            <span class="intruccion">
+                <p class="aco aco2s">
+
+                    Acontecimiento:
+                    <span id="textAts2"></span>,
+                    <span style="" id="fechatext">ocurrido en fecha: <span id="paso"></span></span>, <span style="">
+                        reportando en fecha: @DateTime.Now.ToString("dd/MM/yyyy")
+                    </span>
+
+
+                </p>
+
+            </span>
+
+
+            @*<div class="infr" style="margin-top:20px; font-weight:bold;">
+                    <span style="" id="fechatext">Ocurrido en fecha: <span id="paso"></span></span>
+
+                    <span style="">
+                        Reportando en fecha:
+                        @DateTime.Now.ToString("dd/MM/yyyy")
+                    </span>
+                </div>*@
+
+            @* Preguntas de la encuesta *@
+            @{ string nombrecuestionario = "";}
+
+            @foreach (ListEncabezadoCuestionRioViewModel lstEncabezado in Model)
+            {
+
+                if (!nombrecuestionario.Equals(lstEncabezado.Cuestionario))
+                {
+
+                    nombrecuestionario = lstEncabezado.Cuestionario;
+                }
+
+                <p style="font-weight: bold; background-color: #D6D6D6; color: #035afc; margin:15px 0; font-size: 18px;">
+                    @lstEncabezado.Descripcion
+                </p>
+
+                if (!lstEncabezado.esOpcional)
+                {
+                    foreach (ListPreguntasViewModel lstPreguntas in lstEncabezado.PreguntasList)
+                    {
+                        <div class="pregunta">
+                            <p class="p">
+                                <input name="pre-@lstPreguntas.Id" type="hidden" value="@lstPreguntas.Id" />
+                                @if (lstPreguntas.NoReactivo != 0)
+                                {
+                                    <span>@lstPreguntas.NoReactivo .-</span>
+                                }
+                                @lstPreguntas.Reactivo
+                            </p>
+                            <select name="resp-@lstPreguntas.Id" class="inf">
+                                <option value="0">Elige una opción</option>
+                                @foreach (ListRespuestasViewModel lstRespuestas in lstPreguntas.RespList)
+                                {
+                                    <option value="@lstRespuestas.Id"> @lstRespuestas.Respuesta</option>
+                                }
+                            </select>
+
+                        </div>
+                    }
+                }
+                else
+                {
+                    bool i = false;
+                    foreach (ListPreguntasViewModel lstPreguntas in lstEncabezado.PreguntasList)
+                    {
+                        if (!i)
+                        {
+                            <div class="pregunta">
+                                <p class="p">
+                                    <input name="pre-@lstPreguntas.Id" type="hidden" value="@lstPreguntas.Id" />
+                                    @lstPreguntas.Reactivo
+                                </p>
+                                <select name="resp-@lstPreguntas.Id" class="inf" id="p-@lstPreguntas.Id">
+                                    <option value="0">Elige una opción</option>
+                                    @foreach (ListRespuestasViewModel lstRespuestas in lstPreguntas.RespList)
+                                    {
+                                        <option value="@lstRespuestas.Id"> @lstRespuestas.Respuesta</option>
+                                    }
+                                </select>
+                            </div>
+                            i = true;
+                        }
+                        else
+                        {
+                            <div class="pregunta oculta" id="pregunta-@lstPreguntas.Id">
+                                <p class="p">
+                                    <input name="pre-@lstPreguntas.Id" type="hidden" value="@lstPreguntas.Id" />
+                                    @if (lstPreguntas.NoReactivo != 0)
+                                    {
+                                        <span>@lstPreguntas.NoReactivo .-</span>
+                                    }
+                                    @lstPreguntas.Reactivo
+                                </p>
+                                <select name="resp-@lstPreguntas.Id" class="reactiv">
+                                    <option value="0">Elige una opción</option>
+                                    @foreach (ListRespuestasViewModel lstRespuestas in lstPreguntas.RespList)
+                                    {
+                                        <option value="@lstRespuestas.Id"> @lstRespuestas.Respuesta</option>
+                                    }
+                                </select>
+                            </div>
+                            i = true;
+                        }
+                    }
+                }
+
+            }
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="hist-ats">
+        <div class="uno">
+            <a href="~/Cuestionario/Historial" style="background-color: #4287f5; color:white; text-decoration:none; padding:10px 15px;">Historial</a>
+        </div>
+        <div id="botones">
+            <button type="button" id="prevBtn">Anterior</button>
+            <button type="button" id="nextBtn">Siguiente</button>
+        </div>
+        <div class="dos">
+            <a href="~/Empleado/" style="background-color: #4287f5; color:white; text-decoration:none;  padding:10px 15px;">Salir</a>
+        </div>
+    </div>
+</form>
+
+
+@section scripts {
+
+    <script src="https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+
+
+
+        // currentTab: contador de pagina de secciones
+        var currentTab = 0;
+
+        //ejecucion de los parametro de inicio de los tabs
+        showTab(currentTab);
+
+        //showTab: cambia el estado de los botones de paginacion de Atras y Adelante
+        // y cambiar el estado de la pagina actual
+        function showTab(n) {
+            // almacenamos en un arreglo todos los elementos con la clase tab
+            var x = document.getElementsByClassName("tab");
+            console.log(x);
+            // deacuerdo al valos de CurrentTab que es el contador de paginas
+            // con css se añade un display block para hacer visible la seccion
+            // o pagina que marca el contador
+            x[n].style.display = "block";
+            if (n == 0) {
+                // si estamos en la pagina 0 ocultamos el boto para retroceder
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                // si estamos fuera de la pagina 0 agregamos el boton de retroceder
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                // si n (pagina actual) es menor al numero de paginas totales
+                // el boton de avanzar tendre el texto siguiente
+                // n (pagina actual) es igual al numero de paginas totales
+                // el boton  de avanzar tendra el texto de enviar
+                document.getElementById("nextBtn").innerHTML = "Enviar";
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Siguiente";
+            }
+
+
+        }
+
+        // es el metodo que se ejecuta cada que se dispara un evento click en el boton
+        // seguiente o atras el cual es el encargado de ocultar o visualizar la pagina actual
+        var contador = 0, dataReactivo = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        function nextPrev(n) {
+
+
+            // Scroll en 0 del heigth
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
+            // guardamos en un arreglo el numero de paginas  que hay
+            var x = document.getElementsByClassName("tab");
+            // validamos los requisitos del formulario con el metodo validateForm
+            // de tal forma que si los datos estan de forma incorrecta no podemos avanzar de pagina
+            if (n == 1 && !validateForm()) return false;
+            // del areglo de paginas accedemos al atributo de la posicion que es igual
+            // a nuestro contador de paginas
+            // y aplicamos un display none para ocultarlo
+            x[currentTab].style.display = "none";
+            // CurrentTab va ser igual a su valor actual mas los que se pasan por parameto de la funcion
+
+            var positivo = false;
+
+
+            if (currentTab == x.length - 1) {
+                var tabla = document.getElementsByClassName("tab")[currentTab];
+                z = tabla.getElementsByClassName("inf");
+                // recorremos el arreglo de preguntas
+
+                for (var info of z) {
+                    if (info.value == 46) {
+                        dataReactivo[contador] = 1;
+                    }
+
+                    contador++;
+                }
+
+
+                if (
+                    dataReactivo[0] + dataReactivo[1] >= 1 ||
+                    dataReactivo[2] + dataReactivo[3] + dataReactivo[4] + dataReactivo[5] + dataReactivo[6] >= 3 ||
+                    dataReactivo[9] + dataReactivo[10] + dataReactivo[11] + dataReactivo[12] + dataReactivo[13] >= 2
+                ) { $("#tipo").val("3"); } else { $("#tipo").val("2");}
+
+
+
+
+
+                   document.getElementById("regForm").submit();
+                    return false;
+            }
+
+            if (currentTab == 2) {
+                var daf = document.getElementById("tab");
+                daf.innerHTML = "";
+                const f = fet.split("-");
+                var fechabien = f[2] + "/" + f[1] + "/" + f[0];
+
+
+
+            } else if (currentTab < x.length-1) {
+
+                currentTab = currentTab + n;
+
+            }
+
+
+            // cambiamos el estado de los botones cada que cambiamos de pagina y de la pagina siguiente
+            showTab(currentTab);
+        }
+
+
+        // ValidateForm se encarga de validar que los datos del formulario
+        // cumplan los parametros
+        function validateForm() {
+            //inicializamos variables
+            var x, y, i, z, valid = true;
+            // seleccionamos la pagina actual
+            var tabla = document.getElementsByClassName("tab")[currentTab];
+            var seccion = document.getElementsByClassName("tab")[2];
+            // guardamos en un arreglo todos los elementos que contengan la clase inf
+            // en este caso sera todas las contenedores de preguntas del formulario
+            // las cuales estan integradas por un select
+            y = tabla.getElementsByClassName("inf");
+            z = tabla.getElementsByClassName("inf");
+            // recorremos el arreglo de preguntas
+
+            if (currentTab == 2) {
+
+                for (var info of z) {
+                    if (info.value == 46) {
+                        dataReactivo[contador] = 1;
+                    }
+
+                    contador++;
+                }
+            }
+
+
+
+
+            for (dato of y) {
+                // inicializamos la pregunta dandole estilos css
+                dato.parentNode.className = "pregunta";
+                // 5 es el valor que define si una pregunta de tipo select esta vacia
+                // "" aplica para los input de tipo text o que tengan como valor inicial un campo vacio
+                if (dato.value == "" || dato.value == 0) {
+                    // si los elementos estan vacios agregamos la clase de estilos pregunta que tiene los estilos de la pregunta
+                    // y cargamos la clase error que contiene el color rojo que marca las preguntas vacias
+                    dato.parentNode.className = "pregunta error";
+                    // valid sera igual a false ya que se encontraron errores que inpuden que se cambie de pagina
+                    valid = false;
+
+                }
+            }
+            // si valid es igual a false ejecutamos la funcion de sweetalert que dispara la alerta de campos vacios
+            // funcion creada dento de la carpeta js en raiz en el archivo con nombre sweetalert
+            if (valid == false) {
+                alert("Error espacios vacios");
+            }
+
+            // retornamos el valor
+            return valid;
+           }
+
+
+
+
+
+        var variable;
+        var opciones = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        opciones[0] = 1;
+        var contador = 0;
+        var traumatico = 0;
+        var fet = document.getElementById("fecha").value;
+        var textAts1;
+        var pase = true;
+        var textAts2;
+        const f = fet.split("-");
+        var fechabien = f[2] + "/" + f[1] + "/" + f[0];
+        console.log(fet);
+        $("#fechatext").text("ocurrido en fecha: " + fechabien);
+
+        $('#botones').on("click", "#nextBtn", function (data) {
+            if (traumatico != 0) {
+                /*fet = document.getElementById("fecha").value;*/
+                if (pase == true) {
+                    nextPrev(1);
+                } else {
+                    alert("Hora seleccionada incorrecta");
+                }
+            } else {243
+                alert("No has seleccionado ninguna de las opciones");
+            }
+        });
+
+        $('#botones').on("click", "#prevBtn", function (data) {
+            nextPrev(-1);
+        });
+
+
+        // #traumatico change guarda el id del ats seleccionado en el select
+        //modifica el id next para enviar o continuar con el cuestionario
+        // dependiendo de si tiene o no ats
+        $("#traumatico").change(function (value) {
+            traumatico = value.target.value;
+
+            if (traumatico == 1) {
+                textAts1 = "sufrido o presenciado durante o por motivo de trabajo ningún Acontecimiento Traumático Severo o Violencia Laboral";
+                textAts2 = "sufrido o presenciado durante o por motivo de trabajo ningún Acontecimiento Traumático Severo o Violencia Laboral";
+            }
+
+            else if (traumatico == 2) {
+                textAts1 = "sufrido o presenciado un accidente que tuvo como consecuencia la pérdida de un miembro o una lesión grave durante o con motivo del trabajo";
+                textAts2 = "Accidente que tuvo como consecuencia la pérdida de un miembro o una lesión grave durante o con motivo del trabajo";
+            }
+
+            else if (traumatico == 3) {
+                textAts1 = "sufrido o presenciado un asalto durante o con motivo del trabajo";
+                textAts2 = "Asalto durante o con motivo del trabajo";
+            }
+
+            else if (traumatico == 4) {
+                textAts1 = "sufrido o presenciado actos violentos que derivaron en lesiones graves durante o con motivo del trabajo";
+                textAts2 = "Actos violentos que derivaron en lesiones graves durante o con motivo del trabajo";
+            }
+
+            else if (traumatico == 5) {
+                textAts1 = "sufrido o presenciado un secuestro durante o con motivo del trabajo";
+                textAts2 = "Secuestro durante o con motivo del trabajo";
+            }
+
+           else if (traumatico == 6) {
+                textAts1 = "sufrido o presenciado amenazas durante o con motivo del trabajo";
+                textAts2 = "Amenazas durante o con motivo del trabajo";
+            }
+           else  if (traumatico == 7) {
+                textAts1 = "sufrido o presenciado cualquier otro acto que puso en riesgo tu vida o salud, y/o la de otras personas durante o con motivo del trabajo";
+                textAts2 = "cualquier otro acto que puso en riesgo tu vida o salud, y/o la de otras personas durante o con motivo del trabajo";
+            }
+
+
+
+            $("#textAts1").text(textAts1);
+            $("#textAts2").text(textAts2);
+            $('#act').text(value.target.value);
+
+            if (value.target.value == 1) {
+
+                $("#tipo").val("1");
+                $("#nextBtn").attr("id", "mandar");
+                document.getElementById("mandar").innerHTML = "Enviar";
+            } else {
+                $("#tipo").val("");
+                $("#mandar").attr("id", "nextBtn");
+                document.getElementById("nextBtn").innerHTML = "Siguiente";
+            }
+        });
+
+        //evento click del boton de next que proboca que se envie el formulario
+        $('#botones').on("click", "#mandar", function (data) {
+            document.getElementById("regForm").submit();
+        });
+
+        // recoge la fecha en que sucedio el ats y lo coloca en el elemento html con id #fechatext
+        $("#fecha").change(function (value) {
+            fet = value.target.value;
+            const f = fet.split("-");
+            var fechabien = f[2] + "/" + f[1] + "/" + f[0];
+            var f1 = new Date(); //fecha actual
+
+            var mes;
+            if (f[1] == "01") { mes = 0 }
+            if (f[1] == "02") { mes = 1 }
+            if (f[1] == "03") { mes = 2 }
+            if (f[1] == "04") { mes = 3 }
+            if (f[1] == "05") { mes = 4 }
+            if (f[1] == "06") { mes = 5 }
+            if (f[1] == "07") { mes = 6 }
+            if (f[1] == "08") { mes = 7 }
+            if (f[1] == "09") { mes = 8 }
+            if (f[1] == "10") { mes = 9 }
+            if (f[1] == "11") { mes = 10 }
+            if (f[1] == "12") { mes = 11 }
+            var f2 = new Date(f[0], mes, f[2]);
+            if (f1.toLocaleDateString() == f2.toLocaleDateString()) {
+
+            }
+            else { pase = true; }
+
+
+
+            $("#fechatext").text("ocurrido en Fecha: " + fechabien);
+        });
+
+
+
+        const contenido = document.getElementById("conter");
+        const fragmento = document.createDocumentFragment();
+        const nombres = ["Nombre", "Apellido paterno", "Apellido materno"];
+        const variables = ["nombre", "apellidop", "apellidom", "empleado"];
+        var j = 0;
+        function changeFunc($i) {
+            contenido.innerHTML = "";
+            var cont = 1;
+            while (cont <= $i) {
+
+
+                for (const nombre of nombres) {
+
+                    const seccion = document.createElement("div");
+                    const span = document.createElement("span");
+                    const input = document.createElement("input");
+                    input.setAttribute("type", "text");
+                    input.setAttribute("name", variables[j] + cont);
+
+                    span.textContent = nombre;
+                    seccion.appendChild(span);
+                    seccion.appendChild(input);
+                    fragmento.appendChild(seccion);
+
+                    j += 1;
+                }
+
+
+                const seccion2 = document.createElement("div");
+                seccion2.setAttribute("class", "botones-s");
+                const radio1 = document.createElement("input");
+                const radio2 = document.createElement("input");
+                radio1.setAttribute("type", "radio");
+                radio2.setAttribute("type", "radio");
+                radio1.setAttribute("value", "si");
+                radio2.setAttribute("value", "no");
+                radio1.setAttribute("name", "empleado" + cont);
+                radio2.setAttribute("name", "empleado" + cont);
+                radio1.setAttribute("id", "empleados" + cont);
+                radio2.setAttribute("id", "empleadon" + cont);
+                const label1 = document.createElement("label");
+                const label2 = document.createElement("label");
+                label1.setAttribute("for", "empleados" + cont);
+                label2.setAttribute("for", "empleadon" + cont);
+                label1.textContent = "Si";
+                label2.textContent = "No";
+                const span = document.createElement("span");
+                span.textContent = "Empleado(a)";
+                seccion2.appendChild(span);
+                seccion2.appendChild(radio1);
+                seccion2.appendChild(label1);
+                seccion2.appendChild(radio2);
+                seccion2.appendChild(label2);
+                fragmento.appendChild(seccion2);
+
+                j = 0;
+                cont = cont + 1;
+            }
+
+
+            contenido.appendChild(fragmento);
+
+        }
+
+
+
+        function envio() {
+
+            var url = "@Url.Content("~/Cuestionario/InformePdf")";
+
+            var parametros = new FormData($("#regForm")[0]);
+            var enlace = "par=1";
+            for (var pair of parametros.entries()) {
+                enlace = enlace + "&" + pair[0] + "=" + pair[1];
+            }
+            document.getElementById("descargarInf").href = `${url}?${enlace}`;
+
+
+        }
+
+        //validacion de la hora
+        var dt = new Date();
+
+            var time = dt.getHours() + ":" + dt.getMinutes();
+            console.log(time);
+
+        $("#hora").change(function (value) {
+            var hora = value.target.value;
+            var parte = new Date();
+            var f1 = new Date(); //fecha actual
+            console.log(f1);
+            const f = fet.split("-");
+            var mes;
+            if (f[1] == "01") { mes = 0 }
+            if (f[1] == "02") { mes = 1 }
+            if (f[1] == "03") { mes = 2 }
+            if (f[1] == "04") { mes = 3 }
+            if (f[1] == "05") { mes = 4 }
+            if (f[1] == "06") { mes = 5 }
+            if (f[1] == "07") { mes = 6 }
+            if (f[1] == "08") { mes = 7 }
+            if (f[1] == "09") { mes = 8 }
+            if (f[1] == "10") { mes = 9 }
+            if (f[1] == "11") { mes = 10 }
+            if (f[1] == "12") { mes = 11 }
+            var f2 = new Date(f[0], mes, f[2]);
+            if (f1.toLocaleDateString() == f2.toLocaleDateString())
+            {
+                if (hora >= time) {
+                    pase = false;
+                } else {
+                    pase = true;
+                }
+            }
+            else { pase = true; }
+
+        });
+
+
+
+
+    </script>
+
+
+
+}

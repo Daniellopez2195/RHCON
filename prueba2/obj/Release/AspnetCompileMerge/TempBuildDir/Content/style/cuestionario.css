@@ -1,0 +1,355 @@
+﻿thead {
+    text-align: center;
+}
+
+
+body {
+    background-color: #e9ecf4;
+    font-family: sans-serif !important;
+    padding: 0 20px;
+}
+
+* {
+    font-family: sans-serif !important;
+}
+
+
+.foot {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+#regForm {
+    background-color: #e9ecf4 !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap column;
+}
+
+
+.seccion {
+    width: 100%;
+}
+
+
+.cent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap column;
+}
+
+.blanco {
+    background-color: white;
+    padding: 30px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.log {
+    max-height: 80px;
+    padding: 10px 0;
+}
+
+.idfac {
+    width: 80%;
+    padding-top: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.periodo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+    .periodo div {
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+    }
+
+.bienestar {
+    padding: 10px;
+    font-size: 16px;
+    color: #F48846;
+}
+
+.textrf {
+    box-sizing: border-box;
+    padding: 10px 0px;
+    width: 90%;
+    font-size: 14px;
+}
+
+.politicaA {
+    font-weight: bold;
+}
+
+.historial {
+    padding: 10px;
+}
+
+.pregunta {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap column;
+    margin: 20px 0;
+    border-radius: 24px;
+    background: #e0e0e0;
+    box-shadow: 24px 24px 47px #bebebe, -24px -24px 47px #ffffff;
+}
+
+    .pregunta p {
+        width: 100%;
+        font-weight: bold;
+        font-size: 16px;
+        box-sizing: border-box;
+        padding: 5px 20px;
+    }
+
+    .pregunta select {
+        outline: none;
+        border: transparent;
+        background-color: transparent;
+        outline: none;
+    }
+
+
+.intruccion {
+    border: 1px solid #ADABAB;
+    background-color: white;
+    padding: 10px 10px;
+    width: 70%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1B85F1;
+}
+
+.intruccion2 {
+    padding: 10px 10px;
+    width: 70%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.logo1 {
+    display: flex;
+    justify-content: flex-start;
+}
+
+    .logo1 a {
+        width: 300px;
+    }
+
+        .logo1 a img {
+            width: 100%;
+        }
+
+.logo2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+    .logo2 a {
+        width: 300px;
+    }
+
+        .logo2 a img {
+            width: 100%;
+        }
+
+textarea {
+    outline: none;
+    background-color: #e0e0e0;
+    border: 1px solid #C4C4C4;
+    padding: 10px;
+    width: 90%;
+}
+
+select {
+    text-align: center !important;
+}
+
+.tab {
+    display: none;
+}
+
+
+@media(max-width: 600px) {
+
+    .idfac {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .politicaA {
+        width: 80%;
+    }
+
+    .pregunta {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .intruccion {
+        width: 100%;
+    }
+
+    .logo1 a, .logo2 a {
+        width: 200px;
+    }
+}
+
+.error {
+    background-color: #FFB5B5 !important;
+}
+
+.oculta {
+    display: none;
+}
+
+
+
+
+.conter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+}
+
+    .conter div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        box-sizing: border-box;
+        width: 25%;
+        padding: 20px 0;
+    }
+
+
+    .conter .botones-s {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        box-sizing: border-box;
+        width: 25%;
+    }
+
+    .conter div span {
+        width: 70%;
+    }
+
+    .conter div input[type="text"] {
+        width: 70%;
+        outline: none;
+        border: 1px solid #e3e3e3;
+        padding: 5px 20px;
+    }
+
+
+
+.botones-s input {
+    display: none;
+}
+
+.botones-s span {
+    width: 100%;
+    text-align: center;
+}
+
+.botones-s label {
+    color: white;
+    background-color: #57a7dd;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 10px 0;
+    border: 1px solid white;
+}
+
+.botones-s input:checked + label {
+    background-color: black !important;
+}
+
+
+
+@media (max-width: 600px) {
+
+    .aco span {
+        width: 100%;
+    }
+
+    .par div {
+        width: 90%;
+        padding: 10px 0;
+    }
+
+    .textA div {
+        width: 90%;
+        padding: 10px 0;
+    }
+
+    .selectA div {
+        width: 90%;
+    }
+
+
+    .conter div span {
+        width: 70%;
+    }
+
+    .conter div {
+        width: 100%;
+    }
+
+    .aco2s {
+        font-size: 12px;
+    }
+
+    .aco {
+        font-size: 12px;
+    }
+
+    .aco2s span {
+        text-align: center;
+    }
+
+    .aco span {
+        text-align: center;
+    }
+
+    .infr span:nth-child(1) {
+        border: 1px solid #57a7dd;
+        width: 90% !important;
+        margin: 0 5%;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .infr span:nth-child(2) {
+        border: 1px solid #57a7dd;
+        width: 90% !important;
+        margin: 0 5%;
+        padding: 10px 0;
+        text-align: center;
+    }
+}

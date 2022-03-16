@@ -1,0 +1,431 @@
+﻿@model rhcon.Models.ViewModel.EmpleadoViewModel
+@{
+    ViewBag.Title = "Pantalla principal de empleado";
+    Layout = "~/Views/Shared/_LayoutEmpleado.cshtml";
+}
+
+
+<div class="container-fluid">
+    @* Datos del perfil *@
+    <div class="row perfil">
+        <div class="col-lg-3 col-md-3 col-12 d-flex align-items-center justify-content-center pt-2 justify-content-md-start logo">
+            <img src="~/assets/logos/@Model.strlogotipo" class="img-fluid" alt="Alternate Text" />
+        </div>
+        <div class="col-lg-5 col-md-4 col-12  d-flex align-items-center pt-2 justify-content-center">
+            Empleado(a): @Model.Nombre
+        </div>
+        <div class="col-lg-4 col-md-5 col-12  d-flex justify-content-center justify-content-md-end pt-2 align-items-center">
+
+            <div class="btn_perfil"><a href="~/Home/Logout"><i class="fas fa-sign-out-alt"></i></a><span>Cerrar Sesión</span></div>
+        </div>
+    </div>
+
+    @* Politicas *@
+
+    <div class="row mt-4 mb-4">
+
+        <div class="grid">
+
+
+            <div class="caja caja1">
+                <div class="d-flex justify-content-center pt-3">
+                    <img src="~/assets/img/politicas.svg" class="img_politicas" alt="Alternate Text" style="width:25%" />
+                </div>
+                <div class="contenedor_botonesx p-4">
+
+                    <div class="d-flex justify-content-center">
+                        <a href="~/Politica/Descargarpolitica" class="boton d-flex flex-column justify-content-center align-items-center">
+                            <span>
+                                <embed src="~/Assets/img/SVG/LOGO/Registro.svg" style="width:65px; height:65px" type="image/svg+xml" />
+                            </span>                            
+
+                            <span>Políticas Aceptadas</span>
+
+                        </a>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <a href="~/Empleado/VideoNom035" class="boton d-flex flex-column justify-content-center align-items-center">
+                            <span>
+                                <embed src="~/Assets/img/SVG/LOGO/Entorno organizacional 1.svg" style="width:65px; height:65px" type="image/svg+xml" />
+                            </span>
+                            
+                            <span>
+                               Video de la NOM-035-STPS-2018
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <a href="~/Empleado/VideoNom025" class="boton d-flex flex-column justify-content-center align-items-center">
+                            <span>
+                                <embed src="~/Assets/img/SVG/LOGO/diversidad e inclusión.svg" style="width:90px; height:65px" type="image/svg+xml" class="svg2" />
+                            </span>
+                            
+                            <span>
+                               Video de la NMX-025-SCFI-2015
+                            </span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="caja caja2">
+                <div class="cajaCent">
+                    <div class="d-flex justify-content-center pt-3">
+                        <img src="~/assets/img/centroAtencion.svg" class="img_atencion" alt="Alternate Text" style="width:30%; " />
+                        @*<img src="~/Assets/img/SVG/EMPLEADO/SVG centroAtencionF.svg" class="img_atencion" alt="Alternate Text" />*@
+                    </div>
+
+                    <div class="contenedor_botonesy p-4">
+
+                        <div class="d-flex justify-content-center">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpwAlT35mzAH229JaUos0Z0RLLBDiwCsBnR7onIa35vrL98w/viewform?c=0&w=1" target="_blank" class="boton d-flex flex-column justify-content-center align-items-center">
+                                <span>
+                                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG linea.svg" style="width:65px; height:65px" type="image/svg+xml" />
+                                </span>
+                                
+                                <span>Línea Directa</span>
+                            </a>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <a href="~/Empleado/PaginaContruccion" class="boton d-flex flex-column justify-content-center align-items-center">
+                                <span>
+                                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG atn.svg" style="width:65px; height:65px" type="image/svg+xml" />
+                                </span>
+                                
+                                <span>Atención  Nutricional</span>
+                            </a>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <a href="~/Empleado/PaginaContruccion" class="boton d-flex flex-column justify-content-center align-items-center">
+                                <span>
+                                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG atp.svg" style="width:65px; height:65px" type="image/svg+xml" />
+                                </span>                                
+
+                                <span>Atención Psicológica</span>
+                            </a>
+                        </div>
+                        <div class="d-flex justify-content-center">
+
+                            <a href="http://universidad.contino.com.mx/index.php" target="_blank" class="boton d-flex flex-column justify-content-center align-items-center">
+                                <span>
+                                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG cd2.svg" style="width:65px; height:65px" type="image/svg+xml" />
+                                </span>                                
+
+                                <span>Centro de Desarrollo</span>
+                            </a>
+
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+
+                            <a href="~/Empleado/PaginaContruccion" class="boton d-flex flex-column justify-content-center align-items-center">
+                                <span>
+                                    <embed src="~/Assets/img/SVG/EMPRESA/Comitedebienestarlaboral.svg" style="width:65px; height:65px" type="image/svg+xml" />
+                                </span>                                
+
+                                <span>Bienestar Laboral</span>
+                            </a>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <a href="https://sites.google.com/a/sistemascontino.com.mx/rrhh1/convenios-descuentos-para-empleados" target="_blank" class="boton d-flex flex-column justify-content-center align-items-center">
+                                <span>
+                                    <embed src="~/Assets/img/SVG/ADMINISTRADOR/SVG Convenios.svg" style="width:65px; height:65px" type="image/svg+xml" />
+                                </span>                               
+
+                                <span>Beneficios y Descuentos</span>
+                            </a>
+
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <a href="~/Empleado/PaginaContruccion" class="boton d-flex flex-column justify-content-center align-items-center">
+                                <span>
+                                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG reconocimiento ambiente.svg" style="width:65px; height:65px" type="image/svg+xml" />
+                                </span>
+                               
+                                <span>Reconocimiento y Ambiente Laboral</span>
+                            </a>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <a href="~/Empleado/PaginaContruccion" class="boton d-flex flex-column justify-content-center align-items-center">
+                                <span>
+                                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG desempenio.svg" style="width:90px; height:65px" type="image/svg+xml" class="svg2" />
+                                </span>                                
+
+                                <span>Desempeño</span>
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="caja caja3">
+                <div class="d-flex justify-content-center">
+                    <img src="~/assets/img/centroEv.svg" class="img_evaluacion" alt="Alternate Text" />
+                </div>
+
+
+                <div class="contenedor_botonesx p-4">
+
+                    <div class="d-flex justify-content-center">
+                        <a href="~/Cuestionario/" class="boton d-flex flex-column justify-content-center align-items-center">
+                            <span>
+                                <embed src="~/Assets/img/SVG/EMPRESA/indentificacióndeacontecimientotraumaticosevero.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                            </span>
+                            
+                            <span>Acontecimiento Traumático</span>
+                        </a>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <a href="~/Encuesta/" class="boton d-flex flex-column justify-content-center align-items-center">
+                            <span>
+                                <embed src="~/Assets/img/SVG/EMPLEADO/SVG et1.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                            </span>                            
+
+                            <span>Cuestionarios y Encuestas</span>
+                        </a>
+                    </div>
+
+
+                    <div class="d-flex justify-content-center">
+
+                        <a href="~/Empleado/Resultados" class="boton d-flex flex-column justify-content-center align-items-center">
+                            <span>
+                                <embed src="~/Assets/img/SVG/EMPLEADO/SVG resul.svg" style="width:65px; height:65px" type="image/svg+xml" />
+                            </span>                           
+                            <span>Resultados</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+    <div class="row mt-2">
+
+        <div class="tablero col-lg-4 col-12 d-flex justify-content-center">
+            <img src="~/assets/img/tablero.svg" alt="Alternate Text" />
+        </div>
+
+        <div class="col-lg-12">
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="~/assets/img/carrusel/nom035.jpg" alt="">
+                        <div class="contenedor-img">
+                            <h1>NOM 035 STPS-2018</h1>
+                            <p>
+                                Cumplimos con los requerimientos normativos, estableciendo  elementos
+                                para identificar, analizar y prevenir los factores de riesgo psicosocial,
+                                así como para promover un entorno organizacional favorable en los centros
+                                de trabajo.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="~/assets/img/carrusel/entornofavorable.jpg" alt="">
+                        <div class="contenedor-img">
+                            <h1>ENTORNO ORGANIZACIONAL FAVORABLE</h1>
+                            <p>
+                                Promovemos el sentido de pertenencia de los trabajadores
+                                a la empresa; la formación para la adecuada realización de
+                                las tareas encomendadas; la definición precisa de responsabilidades
+                                para los trabajadores del centro de trabajo.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="~/assets/img/carrusel/prevencion.jpg" alt="">
+                        <div class="contenedor-img">
+                            <h1>PREVENCIÓN DE FACTORES DE RIESGO PSICOSOCIAL</h1>
+                            <p>
+                                Mantenemos acciones para evitar o mitigar  en el centro de
+                                trabajo situaciones  que puedan  provocar en las personas
+                                trastornos de ansiedad,  de estrés grave y de adaptación.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="~/assets/img/carrusel/violencia.jpg" alt="">
+                        <div class="contenedor-img">
+                            <h1>PREVENCIÓN DE VIOLENCIA LABORAL</h1>
+                            <p>
+                                Implementamos acciones para eliminar y mitigar
+                                actos de hostigamiento, acoso o malos tratos en
+                                contra del trabajador, que pueden dañar la integridad
+                                o salud de las personas que integran el centro de trabajo.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="~/assets/img/carrusel/linea.jpg" alt="">
+                        <div class="contenedor-img">
+                            <h1>LÍNEA DIRECTA</h1>
+                            <p>
+                                Contamos y mantenemos un procedimiento de atención justo,
+                                que no permite represalias y evita reclamaciones abusivas o
+                                carentes de fundamento, y que garantiza la confidencialidad de los
+                                casos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="~/assets/img/carrusel/diversidad.jpg" alt="">
+                        <div class="contenedor-img">
+                            <h1>DIVERSIDAD E INCLUSIÓN</h1>
+                            <P>
+                                Estamos comprometidos y pensamos que la diversidad nos
+                                enriquece y a su vez respetamos la individualidad de cada
+                                persona, no toleramos cualquier acto de discriminación.
+
+                            </P>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="~/assets/img/carrusel/responsabilidad.jpg" alt="">
+                        <div class="contenedor-img">
+                            <h1>RESPONSABILIDAD</h1>
+                            <P>
+                                Fomentamos al personal para contribuir a lograr un entorno
+                                organizacional favorable y a evitar todo factor de riesgo psicosocial
+                            </P>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="~/assets/img/carrusel/compromiso.jpg" alt="">
+                        <div class="contenedor-img">
+                            <h1>COMPROMISO</h1>
+                            <P>
+                                Vigilamos  el cumplimiento de las normas dirigidas a prevenir
+                                cualquier conducta o comportamiento que implique violencia laboral,
+                                a salvaguardar la información  e intervenir, de forma oportuna.
+                            </P>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="~/assets/img/carrusel/apoyoSocial.jpg" alt="">
+                        <div class="contenedor-img">
+                            <h1>Apoyo Social</h1>
+                            <P>
+                                Establecemos  acciones para mejorar las relaciones sociales
+                                en el trabajo en las que se promueve el apoyo mutuo en la
+                                solución de problemas de trabajo entre trabajadores, superiores y/o subordinados
+                            </P>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="~/assets/img/carrusel/respeto.jpg" alt="">
+                        <div class="contenedor-img">
+                            <h1>Respeto</h1>
+                            <P>
+                                Fomentamos un ambiente  de seguridad y cordialidad;
+                                aceptamos las  limitaciones y reconocer sus virtudes respetando
+                                la individualidad de cada persona.
+                            </P>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Initialize Swiper -->
+<script>
+
+    var slides = 3;
+
+
+    if (screen.width < 900) {
+        slides = 2;
+    }
+
+    if (screen.width < 600) {
+        slides = 1;
+    }
+
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: slides,
+        spaceBetween: 30,
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+    });
+
+
+    //alerta de aviso de periodo de evaluacion
+
+    var periodo = @Html.ViewBag.respuesta;
+
+    if(!periodo)
+    {
+
+            Swal.fire({
+                //title:"",
+                // text:
+                html: '<h4>El periodo de evaluación ha comenzado, participa entrando a:</h4>' +
+                    '<img src="/assets/img/referenciaEvaluacion.PNG" alt="">'
+            });
+
+    }
+    //alerta de aviso para mensaje resivido desde el controller
+    var message = "@Html.ViewBag.Message";
+    if (message != 0) {
+        Swal.fire({
+            //title:"",
+            // text:
+            html: '<h4>' + message + '</h4>' +
+                '<p>Muy pronto te notificaremos para brindarte los resultados de la identificación y análisis de los Factores de Riesgo Psicosocial. Así como, de la evaluación del Entorno y Clima Organizacional.</p>'
+
+        });
+    }
+
+    //alerta de aviso para mensaje resivido desde el controller
+    var messageActivo = "@Html.ViewBag.MessageActivo";
+    if (messageActivo != 0) {
+        Swal.fire({
+            //title:"",
+            // text:
+            html: '<h4>' + messageActivo + '</h4>' +
+                '<p>Te notificaremos cuando se encuentre disponible.</p>'
+
+        });
+    }
+
+</script>

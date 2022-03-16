@@ -1,0 +1,490 @@
+﻿<style>
+    #encabezado {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .fecha {
+        padding-left: 120px;
+    }
+
+    *{
+        font-size:14px;
+    }
+
+    .titulo {
+        background-color: #c2c2c2;
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .titulos {
+        background-color: #c2c2c2;
+        font-size: 11px;
+        font-weight: bold;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .egt {
+        font-size: 10px;
+        width:100%;
+    }
+
+    .egt2 {
+        font-size: 10px;
+    }
+
+    .espacio {
+        padding-right: 15px;
+  
+    }
+
+    .borde {
+        border: 1px solid black;
+        padding: 5px;
+        margin: 0px;
+    }
+
+    .uno {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    .dos {
+        padding-right: 70px;
+        padding-left: 70px;
+    }
+
+    .tres {
+        padding-right: 110px;
+        padding-left: 110px;
+    }
+
+    .parrafo {
+        margin: 0px;
+        padding: 0px;
+        font-size: 11px;
+    }
+
+    .parrafo2 {
+        text-align: justify;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 11px;
+    }
+
+    .base {
+        background-color: #c2c2c2;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 11px;
+        width:100%;
+    }
+
+
+    .base2 {
+        background-color: #c2c2c2;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-size: 11px;
+    }
+
+    .prueba {
+        display: inline;
+        width: 60%;
+        padding: 0;
+        margin: 0;
+        background-color: red;
+    }
+
+    .prueba2 {
+        background-color: red;
+        display: inline;
+        width: 39%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .numero {
+        font-size: 12px;
+        display: inline;
+        width: 80%;
+        font-weight: bold;
+        padding: 0;
+        margin: 6px 0px;
+    }
+
+    .valor {
+        display: inline;
+        width: 19%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .linea {
+        font-size: 11px;
+    }
+
+    .parte1 {
+    }
+
+    .parte2 {
+        padding-left: 10px;
+    }
+
+    .entorno {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: center;
+        border: 1px solid black;
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .nivel {
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border: 1px solid black;
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .color {
+        background-color: red;
+    }
+
+    .azul {
+        background-color: #9ac5ed;
+    }
+
+
+    .verde {
+        background-color: #6bed4e;
+    }
+
+    .amarillo {
+        background-color: #fff86b;
+    }
+
+    .naranja {
+        background-color: #e88a2c;
+    }
+
+    .rojo {
+        background-color: #bd5151;
+    }
+
+
+    .tamano {
+        font-size: 9px;
+    }
+
+    .tamano2 {
+        font-size: 10px;
+    }
+
+    .bor {
+        border: 0.5px solid black;
+    }
+
+    .circulo {
+        display: inline;
+        height: 50px;
+        border-radius: 25px;
+        position: relative;
+    }
+
+    .circulo1 {
+        display: inline;
+        height: 25px;
+        border-radius: 12.5px;
+    }
+
+
+
+    .circulof {
+        margin-left: 10px;
+        display: inline;
+        height: 40px;
+        border-radius: 20px;
+    }
+
+
+    .cen {
+        text-align: center;
+    }
+
+    .explicacion {
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+
+    .desc {
+        font-size: 11px;
+        font-weight: bold;
+        padding-top: 20px;
+        padding-bottom: 15px;
+    }
+
+    .val {
+        text-align: right;
+        font-size: 11px;
+    }
+
+    .dc {
+        padding-bottom: 25px;
+    }
+
+    .nivel {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .neg {
+        font-weight: bold;
+        text-align: center;
+    }
+
+
+    .neg2 {
+        font-weight: bold;
+    }
+
+
+    .doble {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .baj {
+        margin-top: 15px;
+    }
+
+    .mar {
+        margin-top: 100px;
+    }
+</style>
+
+
+
+
+        <div id="encabezado">
+            <b>INFORME EJECUTIVO DE RESULTADOS</b>
+        </div>
+        <div id="encabezado">
+            <b>NOM-035-STPS-2018</b>
+        </div>
+        <div id="encabezado">
+            <b> IDENTIFICACIÓN Y ANÁLISIS DE LOS FACTORES DE RIESGO PSICOSOCIAL, Y EVALUACIÓN DEL ENTORNO ORGANIZACIONAL</b>
+        </div>
+        <div class="base borrado">DATOS GENERALES:</div>
+        <div>
+
+            <table class="egt">
+
+                <tr>
+                    <td><b>Empresa</b></td>
+                    <td>'. ucwords($empresa["razons"]).'</td>
+                    <td class="fecha"></td>
+                </tr>
+
+                <tr>
+                    <td><b>Centro de Trabajo</b></td>
+                    <td>'.ucwords($centro["nombre"]).'</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td class="espacio"><b>Domicilio del Centro de Trabajo</b></td>
+                    <td>'.ucwords($centro["direccion"]).'</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td class="espacio"><b>Fecha:</b></td>
+                    <td>'.fechaResplace($fechaC).'</td>
+                    <td></td>
+                </tr>
+
+
+            </table>
+        </div>
+
+
+
+    <div>
+        <div class="base">OBJETIVO:</div>
+
+        <p class="parrafo">
+            Identificar, analizar y prevenir los factores de riesgo psicosocial, así como promover un entorno organizacional favorable del centro de trabajo.
+        </p>
+    </div>
+
+    <div>
+        <div class="base2">PRINCIPALES ACTIVIDADES REALIZADAS EN EL CENTRO DE TRABAJO</div>
+
+        <p class="parrafo">
+            '.$centro["p_actividades"].'
+        </p>
+    </div>
+
+
+    <div>
+        <div class="base2"> MÉTODO UTILIZADO</div>
+
+        <p class="parrafo2">
+            El presente informe, es el resultado de la evaluación que se llevó a cabo mediante la aplicación del cuestionario en línea, difundido al total de
+            las y los colaboradores de la empresa, utilizando el cuestionario de la GUÍA DE REFERENCIA III DE LA NOM-035-STPS-2018, con el
+            objetivo de Identificar los factores de riesgo psicosocial y evaluar el entorno organizacional.
+
+        </p>
+
+        <p class="parrafo2">
+            Para garantizar la confidencialidad no se cuenta con trazabilidad de los nombres de las personas, para fines estadísticos se utilizó la guía de
+            referencia (V) Datos del Trabajador de la NOM-035-STPS-2018; se les informó a las y los trabajadores y se enfatizó en la protección de la
+            privacidad y confidencialidad del manejo de los datos, y que el uso de la información proporcionada por el personal y sus resultados serán
+            exclusivamente para fines de mejora del ambiente de trabajo y evitar riesgos psicosociales.
+
+        </p>
+
+        <p class="parrafo2">
+            El cuestionario en línea, fue estructurado por secciones, donde todas las preguntas debían ser contestadas; se indicó dentro del cuestionario que
+            no existen respuestas correctas o incorrectas; que es necesaria la concentración; que se consideren las condiciones de los dos últimos
+            meses, y que la opinión es lo más importante por lo que se le pide que contestaran con sinceridad.
+
+        </p>
+
+    </div>
+    <table style="width:100%; border:none;">
+        <tr>
+
+            <td class="parte1" width="400">
+
+
+                <p class="explicacion">
+                    A continuación se muestra el nivel de riesgo y entorno organizacional a utilizar
+                    para interpretación de los resultadosdel análisis e identificación de los mismo en
+                    este centro de trabajo
+                </p>
+
+                <table cellspacing="0" >
+
+                    <tr>
+
+                        <th class="entorno" width="300">Entorno Organizacional/ Nivel de Riesgo Psicosocial</th>
+                        <th class="nivel" COLSPAN="2" width="120">Nivel</th>
+                    </tr>
+
+                    <tr>
+                        <td width="300" class="azul bor tamano">
+                            ENTORNO ORGANIZACIONAL ALTAMENTE FAVORABLE, CON NIVEL
+                            DE RIESGO PSICOSOCIAL NULO
+                        </td>
+                        <td class="bor"><div class="circulo azul" width="50"></div></td>
+                        <td class="bor cen" width="70"><50</td>
+                    </tr>
+
+                    <tr>
+                        <td width="300" class="verde bor tamano">
+                            ENTORNO ORGANIZACIONAL MUY FAVORABLE CON MINIMOS
+                            DOMINIOS A MEJORAR, CON NIVEL DE RIESGO PSICOSOCIAL BAJO
+                        </td>
+                        <td class="bor"><div class="circulo verde" width="50"></div></td>
+                        <td class="bor cen" width="70">50>75</td>
+                    </tr>
+
+                    <tr>
+                        <td width="300" class="amarillo bor tamano">
+                            ENTORNO ORGANIZACIONAL FAVORABLE CON ALGUNOS DOMINIOS
+                            A MEJORAR, CON NIVEL DE RIESGO PSICOSOCIAL MEDIO
+                        </td>
+                        <td class="bor"><div class="circulo amarillo" width="50"></div></td>
+                        <td class="bor cen" width="70">75>99</td>
+                    </tr>
+
+                    <tr>
+                        <td width="300" class="naranja bor tamano">
+                            ENTORNO POCO FAVORABLE CON GRAN PARTE DE LOS DOMINIOS
+                            A MEJORAR, CON NIVEL DE RIESGO PSICOSOCIAL ALTO
+                        </td>
+                        <td class="bor"><div class="circulo naranja" width="50"></div></td>
+                        <td class="bor cen" width="70">99>140</td>
+                    </tr>
+
+                    <tr>
+                        <td width="300" class="rojo bor tamano">
+                            ENTORNO ORGANIZACIONAL DEFICIENTE CON AREAS DE MEJORA
+                            EN TODOS LOS DOMINIOS QUE SE MIDEN, CON NIVEL DE RIESGO
+                            PSICOSOCIAL MUY ALTO
+                        </td>
+                        <td class="bor"><div class="circulo rojo" width="50"></div></td>
+                        <td class="bor cen" width="70">>140</td>
+                    </tr>
+                </table>
+            </td>
+
+            <td class="parte2" width="100">
+                <p class="explicacion dc">Aplicación del cuestionario</p>
+
+
+                <table cellspacing="0">
+
+                    <tr>
+                        <td class="tamano2" COLSPAN="2" width="240">
+                            Al convocar al total de trabajadores se cumplió
+                            con la condición que la selección de los
+                            trabajadores fuese de forma aleatoria, de esta
+                            manera todos los trabajadores fueron
+                            considerados para la aplicación de los
+                            cuestionarios, indistitamente de su turno, tipo de
+                            puesto, área de trabajo, departamento, etc.
+                            En el Centro de trabajo:'.$centro["nombre"].' en '.$empresa["razons"].', la aplicación fue como se
+                            muestra a continuación
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="200" class="desc">
+                            N: Número total de trabajadores en el
+                            centro de trabajo
+                        </td>
+                        <td width="40" class="val">'.$num_p.'</td>
+                    </tr>
+
+                    <tr>
+                        <td width="200" class="desc">
+                            n: Número de total de trabajadores a los
+                            que se debe de aplicar elcuestionario
+                        </td>
+                        <td width="40" class="val">'.$muestra.'</td>
+                    </tr>
+
+                    <tr>
+                        <td width="200" class="desc">
+                            E: Número total de trabajadores que
+                            contestaron el cuestionario
+                        </td>
+                        <td width="40" class="val">'.$numero_p.'</td>
+                    </tr>
+
+                    <tr>
+                        <td width="200" class="desc">
+                            Cumplimiento mínima de la muestra
+                        </td>
+                        <td width="40" class="val">'.$cumplimiento.'</td>
+                    </tr>
+
+
+                </table>
+
+            </td>
+        </tr>
+
+    </table>
+
+    <p class="tamano" style="height:100px; margin-bottom:80px;">'.$leyenda_f2.'</p>

@@ -1,0 +1,34 @@
+﻿@model rhcon.Models.ViewModel.UserViewModel
+@{
+    ViewBag.Title = "Descargar Políticas";
+    Layout = "~/Views/Shared/_LayoutCuestionario.cshtml";
+}
+<br />
+
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-12">
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a href="~/Files/Nom035-@(Model.email).pdf" download="Política por un Entorno Organizacional Favorable y La Prevención de Riesgos Psicosociales.pdf" class="btn btn-primary btn-lg">Consultar Política por un Entorno Organizacional Favorable y La Prevención de Riesgos Psicosociales  NOM-035-STPS-2018</a>
+                <a href="~/Empleado/VideoNom035" class="btn btn-primary btn-lg">Ver video de la  NOM-035-STPS-2018</a>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <br />
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a href="~/Files/Nom025-@(Model.email).pdf" download="Politica de Igualdad Laboral y no Discriminacion.pdf" class="btn btn-primary btn-lg ">Consultar Política de Igualdad Laboral y no Discriminación  NMX-R-025-SCFI-2015</a>
+                <a href="~/Empleado/VideoNom025" class="btn btn-primary btn-lg">Ver video de la NMX-025-SCFI-2015</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+<a href="~/Empleado" class="btn btn-primary">Regresar</a>

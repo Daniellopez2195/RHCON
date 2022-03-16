@@ -1,0 +1,942 @@
+D:\Proyectos\rhcon\prueba2\prueba2\bin\rhcon.dll.config
+D:\Proyectos\rhcon\prueba2\prueba2\bin\rhcon.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\rhcon.pdb
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\csc.exe
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\csc.exe.config
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\csc.rsp
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\csi.exe
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\csi.exe.config
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\csi.rsp
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.Buffers.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.Collections.Immutable.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.IO.FileSystem.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.Memory.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.Numerics.Vectors.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.Reflection.Metadata.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\System.ValueTuple.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\vbc.exe
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\vbc.exe.config
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\vbc.rsp
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\VBCSCompiler.exe
+D:\Proyectos\rhcon\prueba2\prueba2\bin\roslyn\VBCSCompiler.exe.config
+D:\Proyectos\rhcon\prueba2\prueba2\bin\Antlr3.Runtime.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\DocumentFormat.OpenXml.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\EntityFramework.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\EntityFramework.SqlServer.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\Microsoft.Web.Infrastructure.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\Newtonsoft.Json.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\SpreadsheetLight.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Drawing.Common.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.IO.Packaging.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Linq.Dynamic.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.Helpers.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.Mvc.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.Optimization.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.Razor.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.WebPages.Deployment.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.WebPages.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.WebPages.Razor.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\WebGrease.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\DocumentFormat.OpenXml.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\EntityFramework.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\EntityFramework.SqlServer.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\Newtonsoft.Json.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\SpreadsheetLight.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.IO.Packaging.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.Helpers.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.Mvc.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.Optimization.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.Razor.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.WebPages.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.WebPages.Deployment.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\System.Web.WebPages.Razor.xml
+D:\Proyectos\rhcon\prueba2\prueba2\bin\Antlr3.Runtime.pdb
+D:\Proyectos\rhcon\prueba2\prueba2\bin\es\System.Web.Helpers.resources.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\es\System.Web.Mvc.resources.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\es\System.Web.Optimization.resources.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\es\System.Web.Razor.resources.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\es\System.Web.WebPages.resources.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\Proyectos\rhcon\prueba2\prueba2\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\Proyectos\rhcon\prueba2\prueba2\obj\Release\rhcon.csproj.AssemblyReference.cache
+D:\Proyectos\rhcon\prueba2\prueba2\obj\Release\rhcon.csproj.CoreCompileInputs.cache
+D:\Proyectos\rhcon\prueba2\prueba2\obj\Release\rhcon.csproj.CopyComplete
+D:\Proyectos\rhcon\prueba2\prueba2\obj\Release\rhcon.dll
+D:\Proyectos\rhcon\prueba2\prueba2\obj\Release\rhcon.pdb
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\rhcon.dll.config
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\rhcon.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\rhcon.pdb
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\csc.exe
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\csc.exe.config
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\csc.rsp
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\csi.exe
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\csi.exe.config
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\csi.rsp
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\System.Buffers.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\System.Collections.Immutable.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\System.Memory.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\System.Numerics.Vectors.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\System.Reflection.Metadata.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\vbc.exe
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\vbc.exe.config
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\vbc.rsp
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\VBCSCompiler.exe
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\roslyn\VBCSCompiler.exe.config
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\Antlr3.Runtime.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\DocumentFormat.OpenXml.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\EntityFramework.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\EntityFramework.SqlServer.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\Microsoft.Web.Infrastructure.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\Newtonsoft.Json.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\SpreadsheetLight.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Drawing.Common.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.IO.Packaging.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Linq.Dynamic.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.Helpers.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.Mvc.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.Optimization.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.Razor.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.WebPages.Deployment.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.WebPages.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.WebPages.Razor.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\WebGrease.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\DocumentFormat.OpenXml.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\EntityFramework.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\EntityFramework.SqlServer.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\Newtonsoft.Json.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\SpreadsheetLight.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.IO.Packaging.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.Helpers.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.Mvc.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.Optimization.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.Razor.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.WebPages.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.WebPages.Deployment.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\System.Web.WebPages.Razor.xml
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\Antlr3.Runtime.pdb
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\es\System.Web.Helpers.resources.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\es\System.Web.Mvc.resources.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\es\System.Web.Optimization.resources.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\es\System.Web.Razor.resources.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\es\System.Web.WebPages.resources.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\obj\Release\rhcon.csproj.AssemblyReference.cache
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\obj\Release\rhcon.csproj.CoreCompileInputs.cache
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\obj\Release\rhcon.csproj.CopyComplete
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\obj\Release\rhcon.dll
+D:\Proyectos\rhcon\prueba2 - copia\prueba2\obj\Release\rhcon.pdb
+D:\Proyectos\rhcon\RHCON\prueba2\bin\rhcon.dll.config
+D:\Proyectos\rhcon\RHCON\prueba2\bin\rhcon.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\rhcon.pdb
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\csc.exe
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\csc.exe.config
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\csc.rsp
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\csi.exe
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\csi.exe.config
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\csi.rsp
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\System.Buffers.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\System.Collections.Immutable.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\System.Memory.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\System.Numerics.Vectors.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\System.Reflection.Metadata.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\vbc.exe
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\vbc.exe.config
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\vbc.rsp
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe
+D:\Proyectos\rhcon\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe.config
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Antlr3.Runtime.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\BouncyCastle.Crypto.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Common.Logging.Core.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Common.Logging.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\DocumentFormat.OpenXml.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\EntityFramework.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\EntityFramework.SqlServer.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.barcodes.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.forms.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.io.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.kernel.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.layout.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.pdfa.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.sign.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.styledxmlparser.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.svg.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Microsoft.Web.Infrastructure.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Newtonsoft.Json.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\SpreadsheetLight.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Drawing.Common.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.IO.Packaging.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Linq.Dynamic.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.Helpers.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.Mvc.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.Optimization.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.Razor.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.WebPages.Deployment.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.WebPages.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.WebPages.Razor.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\WebGrease.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\BouncyCastle.Crypto.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Common.Logging.pdb
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Common.Logging.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Common.Logging.Core.pdb
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Common.Logging.Core.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\DocumentFormat.OpenXml.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\EntityFramework.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\EntityFramework.SqlServer.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.barcodes.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.forms.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.io.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.kernel.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.layout.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.pdfa.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.sign.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.styledxmlparser.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\itext.svg.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Newtonsoft.Json.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\SpreadsheetLight.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.IO.Packaging.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.Helpers.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.Mvc.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.Optimization.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.Razor.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.WebPages.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.WebPages.Deployment.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.Web.WebPages.Razor.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Antlr3.Runtime.pdb
+D:\Proyectos\rhcon\RHCON\prueba2\bin\es\System.Web.Helpers.resources.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\es\System.Web.Mvc.resources.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\es\System.Web.Optimization.resources.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\es\System.Web.Razor.resources.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\es\System.Web.WebPages.resources.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\Proyectos\rhcon\RHCON\prueba2\obj\Release\rhcon.csproj.AssemblyReference.cache
+D:\Proyectos\rhcon\RHCON\prueba2\obj\Release\rhcon.csproj.CoreCompileInputs.cache
+D:\Proyectos\rhcon\RHCON\prueba2\obj\Release\rhcon.dll
+D:\Proyectos\rhcon\RHCON\prueba2\obj\Release\rhcon.pdb
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Rotativa.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\EPPlus.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\System.ComponentModel.Annotations.dll
+D:\Proyectos\rhcon\RHCON\prueba2\bin\EPPlus.xml
+D:\Proyectos\rhcon\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\Daniel Lopez\source\repos\BLRHCON\prueba2\obj\Release\rhcon.csproj.AssemblyReference.cache
+C:\Users\Daniel Lopez\source\repos\BLRHCON\prueba2\obj\Release\rhcon.csproj.CoreCompileInputs.cache
+C:\Users\Daniel Lopez\source\repos\BLRHCON\prueba2\obj\Release\rhcon.dll
+C:\Users\Daniel Lopez\source\repos\BLRHCON\prueba2\obj\Release\rhcon.pdb
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\rhcon.dll.config
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\rhcon.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\rhcon.pdb
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\csc.exe
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\csc.exe.config
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\csc.rsp
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\csi.exe
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\csi.exe.config
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\csi.rsp
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\System.Buffers.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\System.Memory.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\vbc.exe
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\vbc.exe.config
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\vbc.rsp
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Antlr3.Runtime.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\BouncyCastle.Crypto.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Common.Logging.Core.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Common.Logging.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\DocumentFormat.OpenXml.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\EntityFramework.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\EntityFramework.SqlServer.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\EPPlus.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.barcodes.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.forms.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.io.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.kernel.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.layout.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.pdfa.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.sign.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.styledxmlparser.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.svg.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Newtonsoft.Json.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Rotativa.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\SpreadsheetLight.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.ComponentModel.Annotations.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Drawing.Common.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.IO.Packaging.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Linq.Dynamic.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.Helpers.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.Mvc.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.Optimization.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.Razor.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.WebPages.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.WebPages.Razor.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\WebGrease.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\BouncyCastle.Crypto.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Common.Logging.pdb
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Common.Logging.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Common.Logging.Core.pdb
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Common.Logging.Core.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\DocumentFormat.OpenXml.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\EntityFramework.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\EntityFramework.SqlServer.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\EPPlus.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.barcodes.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.forms.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.io.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.kernel.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.layout.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.pdfa.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.sign.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.styledxmlparser.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\itext.svg.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Newtonsoft.Json.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\SpreadsheetLight.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.IO.Packaging.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.Helpers.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.Mvc.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.Optimization.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.Razor.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.WebPages.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\System.Web.WebPages.Razor.xml
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\Antlr3.Runtime.pdb
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\es\System.Web.Razor.resources.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\obj\Release\rhcon.csproj.AssemblyReference.cache
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\obj\Release\rhcon.csproj.CoreCompileInputs.cache
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\obj\Release\rhcon.csproj.CopyComplete
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\obj\Release\rhcon.dll
+C:\Users\Practicas RH\Desktop\RHCON\prueba2\obj\Release\rhcon.pdb
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\rhcon.dll.config
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\rhcon.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\rhcon.pdb
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\csc.exe
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\csc.exe.config
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\csc.rsp
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\csi.exe
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\csi.exe.config
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\csi.rsp
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\System.Buffers.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\System.Memory.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\vbc.exe
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\vbc.exe.config
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\vbc.rsp
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Antlr3.Runtime.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\BouncyCastle.Crypto.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Common.Logging.Core.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Common.Logging.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\DocumentFormat.OpenXml.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\EntityFramework.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\EntityFramework.SqlServer.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\EPPlus.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.barcodes.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.forms.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.io.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.kernel.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.layout.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.pdfa.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.sign.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.styledxmlparser.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.svg.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Newtonsoft.Json.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Rotativa.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\SpreadsheetLight.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.ComponentModel.Annotations.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Drawing.Common.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.IO.Packaging.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Linq.Dynamic.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.Helpers.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.Mvc.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.Optimization.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.Razor.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.WebPages.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.WebPages.Razor.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\WebGrease.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\BouncyCastle.Crypto.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Common.Logging.pdb
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Common.Logging.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Common.Logging.Core.pdb
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Common.Logging.Core.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\DocumentFormat.OpenXml.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\EntityFramework.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\EntityFramework.SqlServer.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\EPPlus.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.barcodes.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.forms.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.io.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.kernel.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.layout.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.pdfa.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.sign.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.styledxmlparser.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\itext.svg.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Newtonsoft.Json.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\SpreadsheetLight.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.IO.Packaging.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.Helpers.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.Mvc.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.Optimization.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.Razor.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.WebPages.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\System.Web.WebPages.Razor.xml
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\Antlr3.Runtime.pdb
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\es\System.Web.Helpers.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\es\System.Web.Mvc.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\es\System.Web.Optimization.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\es\System.Web.Razor.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\es\System.Web.WebPages.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\obj\Release\rhcon.csproj.AssemblyReference.cache
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\obj\Release\rhcon.csproj.CoreCompileInputs.cache
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\obj\Release\rhcon.csproj.CopyComplete
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\obj\Release\rhcon.dll
+C:\Users\EDMA\Documents\versiones de rh\RHCON\prueba2\obj\Release\rhcon.pdb
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\rhcon.dll.config
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\rhcon.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\rhcon.pdb
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\csc.exe
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\csc.exe.config
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\csc.rsp
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\csi.exe
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\csi.exe.config
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\csi.rsp
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\System.Buffers.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\System.Memory.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\vbc.exe
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\vbc.exe.config
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\vbc.rsp
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Antlr3.Runtime.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\BouncyCastle.Crypto.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Common.Logging.Core.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Common.Logging.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\DocumentFormat.OpenXml.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\EntityFramework.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\EntityFramework.SqlServer.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\EPPlus.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.barcodes.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.forms.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.io.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.kernel.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.layout.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.pdfa.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.sign.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.styledxmlparser.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.svg.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Newtonsoft.Json.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Rotativa.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\SpreadsheetLight.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.ComponentModel.Annotations.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Drawing.Common.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.IO.Packaging.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Linq.Dynamic.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.Helpers.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.Mvc.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.Optimization.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.Razor.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.WebPages.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.WebPages.Razor.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\WebGrease.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\BouncyCastle.Crypto.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Common.Logging.pdb
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Common.Logging.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Common.Logging.Core.pdb
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Common.Logging.Core.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\DocumentFormat.OpenXml.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\EntityFramework.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\EntityFramework.SqlServer.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\EPPlus.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.barcodes.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.forms.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.io.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.kernel.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.layout.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.pdfa.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.sign.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.styledxmlparser.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\itext.svg.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Newtonsoft.Json.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\SpreadsheetLight.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.IO.Packaging.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.Helpers.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.Mvc.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.Optimization.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.Razor.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.WebPages.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\System.Web.WebPages.Razor.xml
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\Antlr3.Runtime.pdb
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\es\System.Web.Helpers.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\es\System.Web.Mvc.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\es\System.Web.Optimization.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\es\System.Web.Razor.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\es\System.Web.WebPages.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\obj\Release\rhcon.csproj.AssemblyReference.cache
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\obj\Release\rhcon.csproj.CoreCompileInputs.cache
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\obj\Release\rhcon.csproj.CopyComplete
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\obj\Release\rhcon.dll
+C:\Users\EDMA\Documents\versiones de rh\Rhcon-10-12\RHCON\prueba2\obj\Release\rhcon.pdb
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\rhcon.dll.config
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\rhcon.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\rhcon.pdb
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\csc.exe
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\csc.exe.config
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\csc.rsp
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\csi.exe
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\csi.exe.config
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\csi.rsp
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\System.Buffers.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\System.Memory.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\vbc.exe
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\vbc.exe.config
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\vbc.rsp
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Antlr3.Runtime.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\BouncyCastle.Crypto.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Common.Logging.Core.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Common.Logging.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\DocumentFormat.OpenXml.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\EntityFramework.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\EntityFramework.SqlServer.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\EPPlus.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.barcodes.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.forms.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.io.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.kernel.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.layout.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.pdfa.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.sign.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.styledxmlparser.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.svg.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Newtonsoft.Json.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Rotativa.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\SpreadsheetLight.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.ComponentModel.Annotations.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Drawing.Common.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.IO.Packaging.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Linq.Dynamic.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.Helpers.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.Mvc.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.Optimization.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.Razor.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.WebPages.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.WebPages.Razor.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\WebGrease.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\BouncyCastle.Crypto.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Common.Logging.pdb
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Common.Logging.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Common.Logging.Core.pdb
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Common.Logging.Core.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\DocumentFormat.OpenXml.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\EntityFramework.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\EntityFramework.SqlServer.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\EPPlus.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.barcodes.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.forms.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.io.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.kernel.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.layout.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.pdfa.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.sign.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.styledxmlparser.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\itext.svg.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Newtonsoft.Json.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\SpreadsheetLight.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.IO.Packaging.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.Helpers.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.Mvc.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.Optimization.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.Razor.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.WebPages.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\System.Web.WebPages.Razor.xml
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\Antlr3.Runtime.pdb
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\es\System.Web.Razor.resources.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\obj\Release\rhcon.csproj.AssemblyReference.cache
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\obj\Release\rhcon.csproj.CoreCompileInputs.cache
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\obj\Release\rhcon.csproj.CopyComplete
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\obj\Release\rhcon.dll
+C:\Users\Practicas RH\Desktop\14 de febrero\RHCON\prueba2\obj\Release\rhcon.pdb
+E:\FINAL\RHCON\prueba2\bin\rhcon.dll.config
+E:\FINAL\RHCON\prueba2\bin\rhcon.dll
+E:\FINAL\RHCON\prueba2\bin\rhcon.pdb
+E:\FINAL\RHCON\prueba2\bin\roslyn\csc.exe
+E:\FINAL\RHCON\prueba2\bin\roslyn\csc.exe.config
+E:\FINAL\RHCON\prueba2\bin\roslyn\csc.rsp
+E:\FINAL\RHCON\prueba2\bin\roslyn\csi.exe
+E:\FINAL\RHCON\prueba2\bin\roslyn\csi.exe.config
+E:\FINAL\RHCON\prueba2\bin\roslyn\csi.rsp
+E:\FINAL\RHCON\prueba2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\FINAL\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\Microsoft.Managed.Core.targets
+E:\FINAL\RHCON\prueba2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\FINAL\RHCON\prueba2\bin\roslyn\System.Buffers.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\System.Collections.Immutable.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\System.Memory.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\System.Numerics.Vectors.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\System.Reflection.Metadata.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\FINAL\RHCON\prueba2\bin\roslyn\vbc.exe
+E:\FINAL\RHCON\prueba2\bin\roslyn\vbc.exe.config
+E:\FINAL\RHCON\prueba2\bin\roslyn\vbc.rsp
+E:\FINAL\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe
+E:\FINAL\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe.config
+E:\FINAL\RHCON\prueba2\bin\Antlr3.Runtime.dll
+E:\FINAL\RHCON\prueba2\bin\BouncyCastle.Crypto.dll
+E:\FINAL\RHCON\prueba2\bin\Common.Logging.Core.dll
+E:\FINAL\RHCON\prueba2\bin\Common.Logging.dll
+E:\FINAL\RHCON\prueba2\bin\DocumentFormat.OpenXml.dll
+E:\FINAL\RHCON\prueba2\bin\EntityFramework.dll
+E:\FINAL\RHCON\prueba2\bin\EntityFramework.SqlServer.dll
+E:\FINAL\RHCON\prueba2\bin\EPPlus.dll
+E:\FINAL\RHCON\prueba2\bin\itext.barcodes.dll
+E:\FINAL\RHCON\prueba2\bin\itext.forms.dll
+E:\FINAL\RHCON\prueba2\bin\itext.io.dll
+E:\FINAL\RHCON\prueba2\bin\itext.kernel.dll
+E:\FINAL\RHCON\prueba2\bin\itext.layout.dll
+E:\FINAL\RHCON\prueba2\bin\itext.pdfa.dll
+E:\FINAL\RHCON\prueba2\bin\itext.sign.dll
+E:\FINAL\RHCON\prueba2\bin\itext.styledxmlparser.dll
+E:\FINAL\RHCON\prueba2\bin\itext.svg.dll
+E:\FINAL\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\FINAL\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.dll
+E:\FINAL\RHCON\prueba2\bin\Microsoft.Web.Infrastructure.dll
+E:\FINAL\RHCON\prueba2\bin\Newtonsoft.Json.dll
+E:\FINAL\RHCON\prueba2\bin\Rotativa.dll
+E:\FINAL\RHCON\prueba2\bin\SpreadsheetLight.dll
+E:\FINAL\RHCON\prueba2\bin\System.ComponentModel.Annotations.dll
+E:\FINAL\RHCON\prueba2\bin\System.Drawing.Common.dll
+E:\FINAL\RHCON\prueba2\bin\System.IO.Packaging.dll
+E:\FINAL\RHCON\prueba2\bin\System.Linq.Dynamic.dll
+E:\FINAL\RHCON\prueba2\bin\System.Web.Helpers.dll
+E:\FINAL\RHCON\prueba2\bin\System.Web.Mvc.dll
+E:\FINAL\RHCON\prueba2\bin\System.Web.Optimization.dll
+E:\FINAL\RHCON\prueba2\bin\System.Web.Razor.dll
+E:\FINAL\RHCON\prueba2\bin\System.Web.WebPages.Deployment.dll
+E:\FINAL\RHCON\prueba2\bin\System.Web.WebPages.dll
+E:\FINAL\RHCON\prueba2\bin\System.Web.WebPages.Razor.dll
+E:\FINAL\RHCON\prueba2\bin\WebGrease.dll
+E:\FINAL\RHCON\prueba2\bin\BouncyCastle.Crypto.xml
+E:\FINAL\RHCON\prueba2\bin\Common.Logging.pdb
+E:\FINAL\RHCON\prueba2\bin\Common.Logging.xml
+E:\FINAL\RHCON\prueba2\bin\Common.Logging.Core.pdb
+E:\FINAL\RHCON\prueba2\bin\Common.Logging.Core.xml
+E:\FINAL\RHCON\prueba2\bin\DocumentFormat.OpenXml.xml
+E:\FINAL\RHCON\prueba2\bin\EntityFramework.xml
+E:\FINAL\RHCON\prueba2\bin\EntityFramework.SqlServer.xml
+E:\FINAL\RHCON\prueba2\bin\EPPlus.xml
+E:\FINAL\RHCON\prueba2\bin\itext.barcodes.xml
+E:\FINAL\RHCON\prueba2\bin\itext.forms.xml
+E:\FINAL\RHCON\prueba2\bin\itext.io.xml
+E:\FINAL\RHCON\prueba2\bin\itext.kernel.xml
+E:\FINAL\RHCON\prueba2\bin\itext.layout.xml
+E:\FINAL\RHCON\prueba2\bin\itext.pdfa.xml
+E:\FINAL\RHCON\prueba2\bin\itext.sign.xml
+E:\FINAL\RHCON\prueba2\bin\itext.styledxmlparser.xml
+E:\FINAL\RHCON\prueba2\bin\itext.svg.xml
+E:\FINAL\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\FINAL\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.xml
+E:\FINAL\RHCON\prueba2\bin\Newtonsoft.Json.xml
+E:\FINAL\RHCON\prueba2\bin\SpreadsheetLight.xml
+E:\FINAL\RHCON\prueba2\bin\System.IO.Packaging.xml
+E:\FINAL\RHCON\prueba2\bin\System.Web.Helpers.xml
+E:\FINAL\RHCON\prueba2\bin\System.Web.Mvc.xml
+E:\FINAL\RHCON\prueba2\bin\System.Web.Optimization.xml
+E:\FINAL\RHCON\prueba2\bin\System.Web.Razor.xml
+E:\FINAL\RHCON\prueba2\bin\System.Web.WebPages.xml
+E:\FINAL\RHCON\prueba2\bin\System.Web.WebPages.Deployment.xml
+E:\FINAL\RHCON\prueba2\bin\System.Web.WebPages.Razor.xml
+E:\FINAL\RHCON\prueba2\bin\Antlr3.Runtime.pdb
+E:\FINAL\RHCON\prueba2\bin\es\System.Web.Helpers.resources.dll
+E:\FINAL\RHCON\prueba2\bin\es\System.Web.Mvc.resources.dll
+E:\FINAL\RHCON\prueba2\bin\es\System.Web.Optimization.resources.dll
+E:\FINAL\RHCON\prueba2\bin\es\System.Web.Razor.resources.dll
+E:\FINAL\RHCON\prueba2\bin\es\System.Web.WebPages.resources.dll
+E:\FINAL\RHCON\prueba2\bin\es\System.Web.WebPages.Deployment.resources.dll
+E:\FINAL\RHCON\prueba2\bin\es\System.Web.WebPages.Razor.resources.dll
+E:\FINAL\RHCON\prueba2\obj\Release\rhcon.csproj.AssemblyReference.cache
+E:\FINAL\RHCON\prueba2\obj\Release\rhcon.csproj.CoreCompileInputs.cache
+E:\FINAL\RHCON\prueba2\obj\Release\rhcon.csproj.CopyComplete
+E:\FINAL\RHCON\prueba2\obj\Release\rhcon.dll
+E:\FINAL\RHCON\prueba2\obj\Release\rhcon.pdb
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\rhcon.dll.config
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\rhcon.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\rhcon.pdb
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\csc.exe
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\csc.exe.config
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\csc.rsp
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\csi.exe
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\csi.exe.config
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\csi.rsp
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\System.Buffers.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\System.Memory.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\vbc.exe
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\vbc.exe.config
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\vbc.rsp
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Antlr3.Runtime.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\BouncyCastle.Crypto.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Common.Logging.Core.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Common.Logging.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\DocumentFormat.OpenXml.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\EntityFramework.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\EntityFramework.SqlServer.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\EPPlus.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.barcodes.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.forms.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.io.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.kernel.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.layout.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.pdfa.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.sign.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.styledxmlparser.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.svg.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Newtonsoft.Json.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Rotativa.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\SpreadsheetLight.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.ComponentModel.Annotations.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Drawing.Common.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.IO.Packaging.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Linq.Dynamic.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.Helpers.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.Mvc.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.Optimization.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.Razor.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.WebPages.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.WebPages.Razor.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\WebGrease.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\BouncyCastle.Crypto.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Common.Logging.pdb
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Common.Logging.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Common.Logging.Core.pdb
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Common.Logging.Core.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\DocumentFormat.OpenXml.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\EntityFramework.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\EntityFramework.SqlServer.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\EPPlus.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.barcodes.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.forms.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.io.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.kernel.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.layout.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.pdfa.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.sign.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.styledxmlparser.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\itext.svg.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Newtonsoft.Json.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\SpreadsheetLight.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.IO.Packaging.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.Helpers.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.Mvc.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.Optimization.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.Razor.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.WebPages.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\System.Web.WebPages.Razor.xml
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\Antlr3.Runtime.pdb
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\es\System.Web.Razor.resources.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\obj\Release\rhcon.csproj.AssemblyReference.cache
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\obj\Release\rhcon.csproj.CoreCompileInputs.cache
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\obj\Release\rhcon.csproj.CopyComplete
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\obj\Release\rhcon.dll
+C:\Users\Daniel Lopez\Documents\RHCON\prueba2\obj\Release\rhcon.pdb
