@@ -799,6 +799,7 @@
     <Content Include="Views\Empresa\MisActividades.cshtml" />
     <Content Include="Views\Empleado\ReporteAcciones.cshtml" />
     <Content Include="Views\Empleado\MisActividades.cshtml" />
+    <Content Include="Views\Empresa\SinAcciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_LayoutCrud.cshtml";
 }
 <style>
+
     table, tr, th, td {
         border: 1.5px solid black
     }
@@ -47,12 +48,18 @@
     }
 
     select {
+        display: block;
+        text-align: center;
         text-align-last: center;
         width: 100%;
         border: 1.5px solid #878787;
         border-radius: 4px;
         color: #666665;
         padding: 10px 0;
+    }
+  
+    option {
+        text-align: left;
     }
 
     input {
@@ -63,7 +70,20 @@
         padding: 8px 0;
     }
 
-   
+    .boton-personalizado {
+        text-decoration: none;
+        font-size: 15px;
+        color: #333333;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 50px;
+        padding-right: 50px;
+        background-color: #ffffff;
+        border-color: #878787;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 4px;
+    }
 </style>
 
 
@@ -154,24 +174,26 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton1()" class="boton-personalizado">Contenido</a>
+      
+            @*<select >
                 <option value="value">
                     Medidas de Prevención
                 </option>
-                    <option value="value">
-                        Evaluar las instalaciones y el equipo del centro de trabajo
-                    </option>
-                <option value="value">
+                <option value="Evaluar las instalaciones y el equipo del centro de trabajo">
+                    Evaluar las instalaciones y el equipo del centro de trabajo
+                </option>
+                <option value=" Establecer un mecanismo de comunicación para reportar las condiciones peligrosas e inseguras dentro del centro de trabajo">
                     Establecer un mecanismo de comunicación para reportar las condiciones
                     peligrosas e inseguras dentro del centro de trabajo
                 </option>
-                <option value="value">
+                <option value="Crear un manual de seguridad por área de trabajo">
                     Crear un manual de seguridad por área de trabajo
                 </option>
-                <option value="value">
+                <option value="Otra">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -273,7 +295,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton2()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -289,7 +312,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -389,7 +412,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton3()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -405,7 +429,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -505,7 +529,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton4()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -521,7 +546,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -620,7 +645,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton5()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -639,7 +665,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -737,7 +763,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton6()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -753,7 +780,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -854,7 +881,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton7()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -870,7 +898,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -968,7 +996,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton8()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -984,7 +1013,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -1085,7 +1114,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton9()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -1101,7 +1131,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -1213,7 +1243,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton10()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -1229,7 +1260,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -1335,7 +1366,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton11()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -1351,7 +1383,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -1458,7 +1490,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton12()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -1474,7 +1507,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -1579,7 +1612,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton13()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -1595,7 +1629,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -1704,7 +1738,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton14()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -1720,7 +1755,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -1823,7 +1858,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton15()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -1839,7 +1875,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -1940,7 +1976,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton16()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -1956,7 +1993,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -2061,7 +2098,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton17()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -2077,7 +2115,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -2174,7 +2212,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton18()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -2190,7 +2229,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -2297,6 +2336,7 @@
             </select>
         </div>
         <div class="col">
+            <a href="#" onclick="boton19()" class="boton-personalizado">Contenido</a>
             <select>
                 <option value="value">
                     Medidas de prevención
@@ -2418,7 +2458,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton20()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -2434,7 +2475,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -2542,7 +2583,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton21()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -2558,7 +2600,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -2660,7 +2702,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton22()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -2676,7 +2719,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -2771,7 +2814,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton23()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -2790,7 +2834,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -2892,7 +2936,8 @@
             </select>
         </div>
         <div class="col">
-            <select>
+            <a href="#" onclick="boton24()" class="boton-personalizado">Contenido</a>
+            @*<select>
                 <option value="value">
                     Medidas de prevención
                 </option>
@@ -2909,7 +2954,7 @@
                 <option value="value">
                     Otra
                 </option>
-            </select>
+            </select>*@
         </div>
         <div class="col">
             <select>
@@ -2997,6 +3042,7 @@
         </div>
         <div class="col d-flex align-items-center"><div class="circulo-nivel"><span style="padding-left:30px;">Alto</span></div></div>
         <div class="col">
+            <a href="#" onclick="boton25()" class="boton-personalizado">Contenido</a>
             <select>
                 <option value="value">
                     Acciones de Mejora
@@ -3054,6 +3100,1172 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+
+    function boton1() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                    <select >
+                <option value="value">
+                    Medidas de Prevención
+                </option>
+                <option value="Evaluar las instalaciones y el equipo del centro de trabajo">
+                    Evaluar las instalaciones y el equipo del centro de trabajo
+                </option>
+                <option value=" Establecer un mecanismo de comunicación para reportar las condiciones peligrosas e inseguras dentro del centro de trabajo">
+                    Establecer un mecanismo de comunicación para reportar las condiciones
+                    peligrosas e inseguras dentro del centro de trabajo
+                </option>
+                <option value="Crear un manual de seguridad por área de trabajo">
+                    Crear un manual de seguridad por área de trabajo
+                </option>
+                <option value="Otra">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton2() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                   <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Crear/Revisar los programas de capacitación en seguridad y salud en el trabajo
+                </option>
+                <option value="value">
+                    Crear/Revisar los programas de capacitación en el puesto de trabajo
+                </option>
+                <option value="value">
+                    Proporcionar a los empleados las herramientas y equipo requerido para sus labores
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton3() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                    <select >
+                <option value="value">
+                    Medidas de Prevención
+                </option>
+                <option value="Evaluar las instalaciones y el equipo del centro de trabajo">
+                    Evaluar las instalaciones y el equipo del centro de trabajo
+                </option>
+                <option value=" Establecer un mecanismo de comunicación para reportar las condiciones peligrosas e inseguras dentro del centro de trabajo">
+                    Establecer un mecanismo de comunicación para reportar las condiciones
+                    peligrosas e inseguras dentro del centro de trabajo
+                </option>
+                <option value="Crear un manual de seguridad por área de trabajo">
+                    Crear un manual de seguridad por área de trabajo
+                </option>
+                <option value="Otra">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+function boton4() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+           <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Seguir los protocolos normativos que regulan las actividades consideradas peligrosas
+                </option>
+                <option value="value">
+                    Sistematizar los procesos y actividades para minimizar el factor de riesgo
+                </option>
+                <option value="value">
+                    Asignar solamente personal capacitado para el cumplimiento de las tareas con cierto nivel  de peligro
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton4() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+           <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Estudiar tiempos y movimientos por área de trabajo
+                </option>
+                <option value="value">
+                    Promover el respeto e importancia a la vida familiar
+                </option>
+                <option value="value">
+                    Disponer del recurso humano necesario por área para la correcta  carga de trabajo
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+function boton5() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                  <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Realizar pausas activas durante la jornada laboral
+
+                </option>
+                <option value="value">
+                    Adaptar la carga de trabajo a la demanda real
+
+                </option>
+                <option value="value">
+                    Capacitar al personal sobre los procesos adecuados para la realización de sus funciones
+
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton6() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                   <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Crear /Actualizar los perfiles de puesto
+                </option>
+                <option value="value">
+                    Orientar el reclutamiento y selección de personal al enfoque por competencias
+                </option>
+                <option value="value">
+                    Agregar a la política un apartado de pausas activas
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton7() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+    <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Proporcionar capacitación de inteligencia emocional
+                </option>
+                <option value="value">
+                    Crear/Actualizar protocolos de atención a clientes
+                </option>
+                <option value="value">
+                    Promover el cuidado de la salud mental y emocional
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton8() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                  <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Colocar solamente personal competente y capacitado para puestos de alta responsabilidad
+                </option>
+                <option value="value">
+                    Capacitar sobre el manejo del estrés
+                </option>
+                <option value="value">
+                    Generar estrategias eficaces para el cumplimiento de las metas y objetivos
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton9() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                  <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Definir organigrama y jerarquias de autoridad
+                </option>
+                <option value="value">
+                    Capacitar sobre comunicación asertiva por área de trabajo
+                </option>
+                <option value="value">
+                    Capacitar sobre estilos de liderazgo a los puestos con person a la su cargo
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton10() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Fomentar una cultura de autonomía del personal en relación a sus funciones o actividades
+                </option>
+                <option value="value">
+                    Crear/Actualizar una evaluación de desempeño donde se pueda hablar de las áreas de oportunidad del puesto
+                </option>
+                <option value="value">
+                    Una propuesta de calendarización por parte del personal
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton11() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+           <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Generar retos que motiven al personal demanera continua
+                </option>
+                <option value="value">
+                    Facilitarle el acceso a plataformas o sitios de formación en las áreas de interés
+                </option>
+                <option value="value">
+                    Crear y/o difundir de manera interna convocatorias para promoción de puestos o ascensos
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+function boton12() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                    <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Hacer uso de un medio formal de comunicación para mantener informado al personal de próximos cambios
+                </option>
+                <option value="value">
+                    Crear un comité integrado por personal colaborador y representantes de la empresa para la toma de decisiones
+                </option>
+                <option value="value">
+                    Capacitar al personal sobre los cambios o actualizaciones de sus funciones nuevas
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+function boton13() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+     <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Realizar detección de necesidades para identificar temas útiles y actuales
+                </option>
+                <option value="value">
+                    Crear /Actualizar los programas de capacitación
+                </option>
+                <option value="value">
+                    Fomentar la participación en las actividades de capacitación
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+function boton14() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                     <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Adecuar el número de personal a las exigencias reales del área
+                </option>
+                <option value="value">
+                    Apegarse a las dispociciones de ley en relación a las jornadas de trabajo justas y dignas
+                </option>
+                <option value="value">
+                    Difundir información al personal y altos mandos sobre los riesgos de laborar jornadas excesivas
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+function boton15() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                    <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Adoptar una cultura de responsabilidad social
+                </option>
+                <option value="value">
+                    Definir de manera clara y precisa los horarios de trabajo
+                </option>
+                <option value="value">
+                    Apegarse a las dispociciones de ley en relación a las jornadas de trabajo justas y dignas
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton16() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                    <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Otorgar flexibilidad y apoyo al personal en temas familiares de emergencia
+                </option>
+                <option value="value">
+                    Sensibilizar sobre Empatía a jefes directos
+                </option>
+                <option value="value">
+                    Capacitar al personal sobre estrategias de organización
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton17() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                    <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Informar sobre el perfil de puesto, jefe inmediato y objetivos al personal durante su contratación
+                </option>
+                <option value="value">
+                    Capacitar al personal sobre sus funciones y actividades del puesto
+                </option>
+                <option value="value">
+                    Programar juntas mensuales, quincenales o semanales uno a uno
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton18() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+             <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Capacitar a jefes directos sobre estilos de liderazgo
+                </option>
+                <option value="value">
+                    Establecer un medio formal para la comunicación directa entre jefes directos y el personal colaborador
+                </option>
+                <option value="value">
+                    Programar juntas mensuales, quincenales o semanales uno a uno
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton19() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+             <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Capacitar sobre el trabajo en equipo
+                </option>
+                <option value="value">
+                    Realizar actividades o eventos de integración y cohesión grupal
+                </option>
+                <option value="value">
+                    Promover un clima laboral favorable a traves de un política oficial
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+function boton20() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+            <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Capacitar sobre el trabajo en equipo
+                </option>
+                <option value="value">
+                    Motivar al personal colaborador al logro de sus objetivos mediante bonos economicos o prestaciones emocionales
+                </option>
+                <option value="value">
+                    Capacitar a jefes directos sobre estilos de liderazgo
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+function boton21() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                   <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Implementar y difundir una política de igualdad laboral y no discriminación
+                </option>
+                <option value="value">
+                    Establecer un mecanismo de comunicación para reportar
+                </option>
+                <option value="value">
+                    Crear una entidad de autoridad responsable de atender casos relacionados con violencia laboral
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+function boton22() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                      <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Realizar evaluación de desempeño
+                </option>
+                <option value="value">
+                    Implementar feed-back (retroalimentación)
+                </option>
+                <option value="value">
+                    Capacitar a jefes directos sobre estilos de liderazgo
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton23() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+    <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Incentivar al personal con valoraciones altas en su evaluación del desempeño
+
+                </option>
+                <option value="value">
+                    Implementar "personal colaborador del mes"
+
+                </option>
+                <option value="value">
+                    Implementar convocatorias para desarrollo laboral (promoción interna)
+
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton24() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                       <select>
+                <option value="value">
+                    Medidas de prevención
+                </option>
+                <option value="value">
+                    Promover el sentido de pertenencia
+
+                </option>
+                <option value="value">
+                    Realizar juntas o seguimiento programado para apoyar al personal en sus metas u objetivos
+                </option>
+                <option value="value">
+                    Realizar eventos grupales  o actividades de integración y cohesión por área o centro de trabajo
+                </option>
+                <option value="value">
+                    Otra
+                </option>
+            </select>
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+    function boton25() {
+        Swal.fire({
+            title: 'Medidas de Prevención',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                  
+
+                  </style>
+                 <form>
+
+                <select>
+                <option value="value">
+                    Acciones de Mejora
+                </option>
+                <option value="value">
+                    Prevención
+                </option>
+                <option value="value">
+                    Control
+                </option>
+            </select>
+                       
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+
+
     function alerta() {
         Swal.fire({
             position: 'center',
@@ -3063,15 +4275,7 @@
             timer: 9500
         })
 
-
-
-
-
-
     }
-
-
-
 
 </script>
 

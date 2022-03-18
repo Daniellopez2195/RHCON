@@ -1164,6 +1164,11 @@ namespace rhcon.Controllers
         {
             return Redirect("~/Empresa/Resultados");
         }
+
+        public ActionResult SinAcciones()
+        {
+            return View();
+        }
         public ActionResult PanelPlanDeAccion()
         {
             return View();
