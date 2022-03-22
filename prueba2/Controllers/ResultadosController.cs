@@ -13,7 +13,7 @@ namespace rhcon.Controllers
     public class ResultadosController : Controller
     {
 
-        public ActionResult jsonNom035(string yearData ,string idCentro = "" , string centro = "false", string rango = "")
+        public ActionResult jsonNom035(string yearData, string idCentro = "", string centro = "false", string rango = "")
         {
 
             var oEmpresa = (EmpresaViewModel)Session["empresa"];
@@ -33,33 +33,33 @@ namespace rhcon.Controllers
 
                 var year = DateTime.Now.Year;
 
-                string Ambiente_trabajo = ConsultasViewModel.GraficarNom035("Ambiente de trabajo",oEmpresa.Id, yearData,idCentro);
+                string Ambiente_trabajo = ConsultasViewModel.GraficarNom035("Ambiente de trabajo", oEmpresa.Id, yearData, idCentro);
                 SqlCommand command = new SqlCommand(Ambiente_trabajo, connection);
                 connection.Open();
 
                 // categoria de ambiente de trabajo
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    
+
                     while (reader.Read())
                     {
-                        int punto  = int.Parse(reader[0].ToString());
+                        int punto = int.Parse(reader[0].ToString());
 
                         if (punto < 5)
                             blue[0] += 1;
-                            else if (punto < 9)
-                                green[0] += 1;
-                                else if (punto < 11)
-                                    yellow[0] += 1;
-                                    else if (punto < 14)
-                                        orange[0] += 1;
-                                            else if (punto >= 14)
-                                                red[0] += 1;
+                        else if (punto < 9)
+                            green[0] += 1;
+                        else if (punto < 11)
+                            yellow[0] += 1;
+                        else if (punto < 14)
+                            orange[0] += 1;
+                        else if (punto >= 14)
+                            red[0] += 1;
                         personal++;
                     }
 
                     blue[0] = (blue[0] * 100) / personal;
-                    green[0] =(green[0] * 100) / personal;
+                    green[0] = (green[0] * 100) / personal;
                     yellow[0] = (yellow[0] * 100) / personal;
                     orange[0] = (orange[0] * 100) / personal;
                     red[0] = (red[0] * 100) / personal;
@@ -68,7 +68,7 @@ namespace rhcon.Controllers
 
 
                 //Factores propios de la actividad
-                string factores_propios = ConsultasViewModel.GraficarNom035("Factores propios de la actividad", oEmpresa.Id, yearData,idCentro);
+                string factores_propios = ConsultasViewModel.GraficarNom035("Factores propios de la actividad", oEmpresa.Id, yearData, idCentro);
                 SqlCommand command_f = new SqlCommand(factores_propios, connection);
 
                 using (SqlDataReader reader = command_f.ExecuteReader())
@@ -80,14 +80,14 @@ namespace rhcon.Controllers
 
                         if (punto < 15)
                             blue[1] += 1;
-                                else if (punto < 30)
-                                    green[1] += 1;
-                                        else if (punto < 45)
-                                            yellow[1] += 1;
-                                            else if (punto < 60)
-                                                orange[1] += 1;
-                                                    else if (punto > 60)
-                                                        red[1] += 1;
+                        else if (punto < 30)
+                            green[1] += 1;
+                        else if (punto < 45)
+                            yellow[1] += 1;
+                        else if (punto < 60)
+                            orange[1] += 1;
+                        else if (punto > 60)
+                            red[1] += 1;
                         personal++;
                     }
 
@@ -100,7 +100,7 @@ namespace rhcon.Controllers
                 }
 
                 //Organización de tiempo de trabajo
-                string organizacion_trabajo = ConsultasViewModel.GraficarNom035("Organización del tiempo de trabajo", oEmpresa.Id, yearData,idCentro);
+                string organizacion_trabajo = ConsultasViewModel.GraficarNom035("Organización del tiempo de trabajo", oEmpresa.Id, yearData, idCentro);
                 SqlCommand command_o = new SqlCommand(organizacion_trabajo, connection);
 
                 using (SqlDataReader reader = command_o.ExecuteReader())
@@ -132,7 +132,7 @@ namespace rhcon.Controllers
                 }
 
                 //Liderazgo y relaciones en el trabajo
-                string liderazgo_trabajo = ConsultasViewModel.GraficarNom035("Liderazgo y relaciones en el trabajo", oEmpresa.Id, yearData,idCentro);
+                string liderazgo_trabajo = ConsultasViewModel.GraficarNom035("Liderazgo y relaciones en el trabajo", oEmpresa.Id, yearData, idCentro);
                 SqlCommand command_l = new SqlCommand(liderazgo_trabajo, connection);
                 using (SqlDataReader reader = command_l.ExecuteReader())
                 {
@@ -156,7 +156,7 @@ namespace rhcon.Controllers
 
                     blue[3] = (blue[3] * 100) / personal;
                     green[3] = (green[3] * 100) / personal;
-                    yellow[3] =(yellow[3] * 100) / personal;
+                    yellow[3] = (yellow[3] * 100) / personal;
                     orange[3] = (orange[3] * 100) / personal;
                     red[3] = (red[3] * 100) / personal;
                     personal = 0;
@@ -164,7 +164,7 @@ namespace rhcon.Controllers
 
 
                 //Entorno Organizacional
-                string entorno_organizacional = ConsultasViewModel.GraficarNom035("Entorno organizacional", oEmpresa.Id, yearData,idCentro);
+                string entorno_organizacional = ConsultasViewModel.GraficarNom035("Entorno organizacional", oEmpresa.Id, yearData, idCentro);
                 SqlCommand command_e = new SqlCommand(entorno_organizacional, connection);
                 using (SqlDataReader reader = command_e.ExecuteReader())
                 {
@@ -190,7 +190,7 @@ namespace rhcon.Controllers
                     green[4] = (green[4] * 100) / personal;
                     yellow[4] = (yellow[4] * 100) / personal;
                     orange[4] = (orange[4] * 100) / personal;
-                    red[4] =  (red[4] * 100) / personal;
+                    red[4] = (red[4] * 100) / personal;
                     personal = 0;
                 }
 
@@ -198,7 +198,8 @@ namespace rhcon.Controllers
             }
 
 
-            using (rhconEntities db  = new rhconEntities()) {
+            using (rhconEntities db = new rhconEntities())
+            {
                 if (!string.IsNullOrEmpty(idCentro))
                 {
                     var id = int.Parse(idCentro);
@@ -208,22 +209,23 @@ namespace rhcon.Controllers
                 }
                 else
                 {
-                    title += "en "+ oEmpresa.RazonSocial;
+                    title += "en " + oEmpresa.RazonSocial;
                 }
             }
 
 
-                return Json( 
-               new {
-                   title = title,
-                   data = yearData,
-                   red = red,
-                   orange = orange,
-                   yellow = yellow,
-                   green = green,
-                   blue = blue
+            return Json(
+           new
+           {
+               title = title,
+               data = yearData,
+               red = red,
+               orange = orange,
+               yellow = yellow,
+               green = green,
+               blue = blue
 
-               });
+           });
         }
 
 
@@ -233,11 +235,11 @@ namespace rhcon.Controllers
 
             var oEmpresa = (EmpresaViewModel)Session["empresa"];
             string title = "Percepción por Apartados del Nivel Riesgos de Clima Laboral y no Discriminación ";
-            double[] blue =   { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            double[] blue = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             double[] orange = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             double[] yellow = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            double[] green =  { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            double[] red =    { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            double[] green = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            double[] red = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             int personal = 0;
             SqlConnectionStringBuilder conect = ConexionViewModel.conectar();
 
@@ -259,7 +261,7 @@ namespace rhcon.Controllers
                     while (reader.Read())
                     {
                         int punto = int.Parse(reader[0].ToString());
-                        punto = punto /  4;
+                        punto = punto / 4;
 
                         if (punto >= 2.5)
                             blue[0] += 1;
@@ -269,7 +271,7 @@ namespace rhcon.Controllers
                             orange[0] += 1;
                         else if (punto < 1)
                             red[0] += 1;
-                           personal++;
+                        personal++;
                     }
 
 
@@ -285,7 +287,7 @@ namespace rhcon.Controllers
 
                 string formacion_capacitacion = ConsultasViewModel.GraficarNom025("Formación y capacitación", oEmpresa.Id, yearData, idCentro);
                 SqlCommand command_f = new SqlCommand(formacion_capacitacion, connection);
-     
+
 
                 // categoria de ambiente de trabajo
                 using (SqlDataReader reader = command_f.ExecuteReader())
@@ -622,8 +624,8 @@ namespace rhcon.Controllers
                     foreach (var d in activo.ToList())
                     {
 
-                            intermediate_list.Add(d.year);
-                        
+                        intermediate_list.Add(d.year);
+
 
                     }
 
@@ -671,14 +673,14 @@ namespace rhcon.Controllers
             var datosEmpresa = db.empresa.Where(d => d.id == empresa).First();
             var idResponsable = db.encargadosEmpresa.Where(d => d.idEmpresa == oEmpresa.Id).First();
             var responsableNombre = db.usuario.Where(d => d.id == idResponsable.id).First();
-            
+
             if (Session["empleado"] == null & Session["centro"] == null)
             {
 
                 if (!String.IsNullOrEmpty(formCollection["centro"]))
                 {
                     int ct_id = int.Parse(formCollection["centro"].ToString());
-                    dt.comentarios = db.respuestaEmpleado.Where(d => d.idEmpresa == datosEmpresa.id & d.idCentroTrabajo == ct_id  & d.fecha.Value.Year.ToString() == year).ToList();
+                    dt.comentarios = db.respuestaEmpleado.Where(d => d.idEmpresa == datosEmpresa.id & d.idCentroTrabajo == ct_id & d.fecha.Value.Year.ToString() == year).ToList();
                     dt.isEmpresa = true;
                 }
                 else
@@ -727,7 +729,7 @@ namespace rhcon.Controllers
             }
             else
             {
-                
+
                 dt.total_empleados = db.empleado.Where(d => d.idEmpresa == empresa).Count();
                 dt.ternario = false;
                 dt.actividades = datosEmpresa.actividad.ToString();
@@ -881,7 +883,8 @@ namespace rhcon.Controllers
                         if (dt.total.estado.Equals("Muy alto"))
                         {
                             dt.estadoFavorable = "MUY DESFAVORABLE";
-                        }else if(dt.total.estado.Equals("Alto"))
+                        }
+                        else if (dt.total.estado.Equals("Alto"))
                         {
                             dt.estadoFavorable = "POCO FAVORABLE";
                         }
@@ -906,7 +909,7 @@ namespace rhcon.Controllers
                         dt.totalValue = dt.valueTotal(reader, dt.total_encuesta);
 
                     }
-                    dt.cumplimiento = dt.cumplimiento035(dt.total_empleados,dt.total_encuesta,ternario,datosEmpresa.razonc,datosCentro.nombre);
+                    dt.cumplimiento = dt.cumplimiento035(dt.total_empleados, dt.total_encuesta, ternario, datosEmpresa.razonc, datosCentro.nombre);
 
                     string _headerUrl = "";
                     if (ternario)
@@ -958,7 +961,7 @@ namespace rhcon.Controllers
                     return Redirect("~/Factores/Resultados");
                 }
             }
-            
+
         }
 
         public ActionResult Informe025(FormCollection formCollection)
@@ -1004,11 +1007,11 @@ namespace rhcon.Controllers
                 datosCentro = db.centroTrabajo.Where(d => d.id == centro).First();
                 ternario = true;
                 dt.ternario = true;
-                dt.total_empleados = db.empleado.Where(d => d.idEmpresa == empresa  & d.idCentroTrabajo == centro).Count();
+                dt.total_empleados = db.empleado.Where(d => d.idEmpresa == empresa & d.idCentroTrabajo == centro).Count();
             }
             else
             {
-                dt.total_empleados = db.empleado.Where(d => d.idEmpresa == empresa ).Count();
+                dt.total_empleados = db.empleado.Where(d => d.idEmpresa == empresa).Count();
                 dt.ternario = false;
             }
 
@@ -1083,7 +1086,7 @@ namespace rhcon.Controllers
             using (SqlConnection connection = new SqlConnection(conect.ConnectionString))
             {
                 connection.Open();
-   
+
 
 
                 string consulta_totalEncuesta = ConsultasViewModel.TotalRespuestasEmpleados(year, empresa.ToString(), cadena);
@@ -1102,7 +1105,7 @@ namespace rhcon.Controllers
 
 
 
-                    if(dt.total_encuesta > 0)
+                if (dt.total_encuesta > 0)
                 {
                     // consulta a la vista result_cabecera 
                     string consulta_cabecera = ConsultasViewModel.Cabeceras(year, empresa.ToString(), cadena);
@@ -1169,7 +1172,7 @@ namespace rhcon.Controllers
 
                     };
 
-                    
+
 
                     return pdf;
 
@@ -1186,9 +1189,10 @@ namespace rhcon.Controllers
 
 
             }
-             } 
+        }
         [ValidateInput(false)]
-        public ActionResult AddSugerencia(string tipo , string cadenaSugerencia,string rol) {
+        public ActionResult AddSugerencia(string tipo, string cadenaSugerencia, string rol)
+        {
 
             using (rhconEntities db = new rhconEntities())
             {
@@ -1201,8 +1205,8 @@ namespace rhcon.Controllers
                 db.SaveChanges();
             }
 
-                return Redirect("~/" + rol + "/Resultados");
-             }
+            return Redirect("~/" + rol + "/Resultados");
+        }
 
 
 
@@ -1252,5 +1256,21 @@ namespace rhcon.Controllers
             }
 
         }
+
+
+
+        public ActionResult AcAmbienteTrabajo(FormCollection formCollection)
+        {
+            string[] dimensiones = formCollection["dimension"].Split(',');
+            string[] estados = formCollection["estado"].Split(',');
+            string[] acciones = formCollection["acciones"].Split(',');
+            string[] medidasDePrevencion = formCollection["medidaDePrevencion"].Split(',');
+            string[] responsables = formCollection["responsable"].Split(',');
+            var date = formCollection["date"].Split(',');
+
+            return Redirect("~/Empresa/Perfil");
+        }
+
+
     }
-     }
+}

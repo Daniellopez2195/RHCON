@@ -11,6 +11,7 @@ using rhcon.utils;
 using System.IO;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using System.Data.SqlClient;
 
 namespace rhcon.Controllers
 {
@@ -1157,8 +1158,176 @@ namespace rhcon.Controllers
 
         public ActionResult Acciones()
         {
-            return View();
+
+
+
+            var oEmpresa = (EmpresaViewModel)Session["empresa"];
+            // filtros generales
+            var year = "2021";
+            int empresa = oEmpresa.Id;
+            //conexion a la bd
+            SqlConnectionStringBuilder conect = ConexionViewModel.conectar();
+            int empleados = 6;
+            DataResultadosViewModel dt = new DataResultadosViewModel();
+
+
+
+            // consulta de datos generales 
+
+            rhconEntities db = new rhconEntities();
+            var periodo = db.periodosEncuesta.Where(d => d.idEmpresa == empresa & d.year.ToString() == year.ToString() & d.cierre == 1);
+
+            bool ternario = false;
+            var datosEmpresa = db.empresa.Where(d => d.id == empresa).First();
+            var idResponsable = db.encargadosEmpresa.Where(d => d.idEmpresa == oEmpresa.Id).First();
+            var responsableNombre = db.usuario.Where(d => d.id == idResponsable.id).First();
+
+
+
+            var responsable =
+                       (from e in db.usuario
+                        join s in db.admin_perfil on e.id equals s.idUsuario
+                        where e.id == 3
+                        select new AdminViewModel
+                        {
+                            Id = e.id,
+                            Email = e.email,
+                            cedula = s.cedula,
+                            nombre = e.nombre,
+                            celular = s.celular,
+                            contacto = s.contacto,
+                            celcontacto = s.celcontacto,
+                            Password = e.password,
+
+                        }).First();
+
+            dt.responsable = responsable.nombre;
+            dt.cedula = responsable.cedula;
+            var datosCentro = new centroTrabajo();
+
+
+            dt.total_empleados = db.empleado.Where(d => d.idEmpresa == empresa).Count();
+            dt.ternario = false;
+            dt.actividades = datosEmpresa.actividad.ToString();
+            dt.nombreSelect = datosEmpresa.razonc;
+
+
+
+
+
+
+
+            using (SqlConnection connection = new SqlConnection(conect.ConnectionString))
+            {
+                connection.Open();
+
+
+                string consulta_totalEncuesta = ConsultasViewModel.TotalRespuestasEmpleados(year, empresa.ToString(), "");
+                SqlCommand command_totalEncuesta = new SqlCommand(consulta_totalEncuesta, connection);
+                using (SqlDataReader reader = command_totalEncuesta.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+                        dt.total_encuesta = int.Parse(reader[0].ToString());
+                    }
+                }
+
+
+
+
+                if (dt.total_encuesta > 0)
+                {
+                    // consulta a la vista result_categoria
+                    string consulta_categorias = ConsultasViewModel.Categorias(year, empresa.ToString(), "");
+                    SqlCommand command_categoria = new SqlCommand(consulta_categorias, connection);
+
+                    // consulta a la vista result_dominio
+                    string consulta_dominio = ConsultasViewModel.Dominios(year, empresa.ToString(), "");
+                    SqlCommand command_dominio = new SqlCommand(consulta_dominio, connection);
+
+                    // consulta a la vista result_dimension
+                    string consulta_dimension = ConsultasViewModel.Dimensiones(year, empresa.ToString(), "");
+                    SqlCommand command_dimension = new SqlCommand(consulta_dimension, connection);
+
+                    // consulta a la vista result_nom035
+                    string consulta_total = ConsultasViewModel.TotalResultado(year, empresa.ToString(), "");
+                    SqlCommand command_total = new SqlCommand(consulta_total, connection);
+
+
+
+                    // contruccion de los elementos de las categorias 
+                    using (SqlDataReader reader = command_categoria.ExecuteReader())
+                    {
+                        /*
+                          devuelve un objeto de tipo CategoriaViewModel 
+                           cada categoria contine las propiedades color,text,estado
+                         */
+                        dt.categoriasVal = dt.categorias(reader, dt.total_encuesta);
+                    }
+                    // Contruccion de los elementos de los dominios
+                    using (SqlDataReader reader = command_dominio.ExecuteReader())
+                    {
+                        /*
+                           devuelve un objeto de tipo dominioViewModel 
+                           cada dominio contine las propiedades color,text,estado
+                        */
+                        dt.dominiosVal = dt.dominios(reader, dt.total_encuesta);
+                    }
+                    // Contruccion de los elementos de los dominios
+                    using (SqlDataReader reader = command_dimension.ExecuteReader())
+                    {
+                        /*
+                           devuelve un objeto de tipo dominioViewModel 
+                           cada dominio contine las propiedades color,text,estado
+                        */
+                        dt.dimensionesVal = dt.Dimensiones(reader, dt.total_encuesta);
+                    }
+                    // Contruccion de los elementos del total
+                    using (SqlDataReader reader = command_total.ExecuteReader())
+                    {
+
+                        dt.total = dt.Total035(reader, dt.total_encuesta);
+
+                        if (dt.total.estado.Equals("Muy alto"))
+                        {
+                            dt.estadoFavorable = "MUY DESFAVORABLE";
+                        }
+                        else if (dt.total.estado.Equals("Alto"))
+                        {
+                            dt.estadoFavorable = "POCO FAVORABLE";
+                        }
+                        else if (dt.total.estado.Equals("Medio"))
+                        {
+                            dt.estadoFavorable = " MODERADO";
+                        }
+                        else if (dt.total.estado.Equals("Bajo"))
+                        {
+                            dt.estadoFavorable = "FAVORABLE";
+                        }
+                        else if (dt.total.estado.Equals("Nulo"))
+                        {
+                            dt.estadoFavorable = "ALTAMENTE FAVORABLE";
+                        }
+                    }
+
+                    // Contruccion de los elementos del total
+                    using (SqlDataReader reader = command_total.ExecuteReader())
+                    {
+
+                        dt.totalValue = dt.valueTotal(reader, dt.total_encuesta);
+
+                    }
+                    dt.cumplimiento = dt.cumplimiento035(dt.total_empleados, dt.total_encuesta, ternario, datosEmpresa.razonc, datosCentro.nombre);
+
+
+                }
+
+            }
+            return View(dt);
         }
+
+
         [HttpPost]
         public ActionResult Acciones(PlanAccionViewModel model)
         {
