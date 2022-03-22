@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using rhcon.Models;
@@ -1267,6 +1268,48 @@ namespace rhcon.Controllers
             string[] medidasDePrevencion = formCollection["medidaDePrevencion"].Split(',');
             string[] responsables = formCollection["responsable"].Split(',');
             var date = formCollection["date"].Split(',');
+
+            using (rhconEntities db = new rhconEntities())
+            {
+
+                //Envio de email al encargado de la empresa
+                string EmailORigen = "rhstackcode@gmail.com";
+                string EmailDestino = "daniellopzam1995@gmail.com";
+                string pass = "stackcode1.";
+                var body = db.correos.Where(d => d.tipo == "altact").First();
+                string mensaje = body.email.ToString();
+                mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                //mensaje = mensaje.Replace("_empleado_", model.nombre);
+                //mensaje = mensaje.Replace("_usuario_", model.Email);
+                //mensaje = mensaje.Replace("_pass_", password);
+                //mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login?IdRol=" + 2 + "&email=" + model.Email + "&password=" + password);
+                //mensaje = mensaje.Replace("_tipousuario_", "Usuario Empresa");
+                MailMessage EmailMess = new MailMessage(
+                    EmailORigen,
+                    EmailDestino,
+                    "Bienvenido a RHCON",
+                    mensaje
+                    );
+                EmailMess.IsBodyHtml = true;
+
+                SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
+                oSmtpClient.EnableSsl = true;
+                oSmtpClient.UseDefaultCredentials = false;
+                oSmtpClient.Host = "smtp.gmail.com";
+                oSmtpClient.Port = 587;
+                oSmtpClient.Credentials = new System.Net.NetworkCredential(EmailORigen, pass);
+                try
+                {
+                    oSmtpClient.Send(EmailMess);
+                    oSmtpClient.Dispose();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
 
             return Redirect("~/Empresa/Perfil");
         }
