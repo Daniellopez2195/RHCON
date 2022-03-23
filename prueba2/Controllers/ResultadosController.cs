@@ -1268,6 +1268,8 @@ namespace rhcon.Controllers
             string[] acciones = formCollection["acciones"].Split(',');
             string[] medidasDePrevencion = formCollection["medidaDePrevencion"].Split(',');
             string[] responsables = formCollection["responsable"].Split(',');
+            string[] descripcion = formCollection["descripcion"].Split(',');
+            string[] color = formCollection["color"].Split(',');
             string[] date = formCollection["date"].Split(',');
 
             using (rhconEntities db = new rhconEntities())
@@ -1289,7 +1291,9 @@ namespace rhcon.Controllers
                         accion.accion = acciones[i];
                         accion.medidasPrevencion = medidasDePrevencion[i];
                         accion.responsable = responsables[i];
+                        accion.descripcion = descripcion[i];
                         accion.date = DateTime.Parse(date[i]);
+                        accion.color = color[i];
                         accion.tipo = "NOM-035";
                         accion.registro = DateTime.Now;
                         accion.idEmpresa = oEmpresa.Id;
@@ -1302,14 +1306,11 @@ namespace rhcon.Controllers
                         string EmailORigen = "rhstackcode@gmail.com";
                         string EmailDestino = empleado.email;
                         string pass = "stackcode1.";
-                        var body = db.correos.Where(d => d.tipo == "altact").First();
+                        var body = db.correos.Where(d => d.tipo == "acciones").First();
                         string mensaje = body.email.ToString();
                         mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
-                        //mensaje = mensaje.Replace("_empleado_", model.nombre);
-                        //mensaje = mensaje.Replace("_usuario_", model.Email);
-                        //mensaje = mensaje.Replace("_pass_", password);
-                        //mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login?IdRol=" + 2 + "&email=" + model.Email + "&password=" + password);
-                        //mensaje = mensaje.Replace("_tipousuario_", "Usuario Empresa");
+                        mensaje = mensaje.Replace("_empresa_", oEmpresa.RazonComercial);
+                        mensaje = mensaje.Replace("_fecha_", DateTime.Now.ToString("DD/MM/yyyy"));
                         MailMessage EmailMess = new MailMessage(
                             EmailORigen,
                             EmailDestino,
