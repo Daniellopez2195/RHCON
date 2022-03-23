@@ -534,12 +534,14 @@
         <MappingFragment StoreEntitySet="acciones">
           <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
           <ScalarProperty Name="registro" ColumnName="registro" />
+          <ScalarProperty Name="color" ColumnName="color" />
           <ScalarProperty Name="tipo" ColumnName="tipo" />
           <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="responsable" ColumnName="responsable" />
           <ScalarProperty Name="medidasPrevencion" ColumnName="medidasPrevencion" />
           <ScalarProperty Name="accion" ColumnName="accion" />
           <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="dimension" ColumnName="dimension" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>

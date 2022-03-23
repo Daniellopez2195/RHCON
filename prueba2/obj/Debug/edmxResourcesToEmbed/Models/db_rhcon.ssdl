@@ -6,12 +6,14 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="dimension" Type="varchar" MaxLength="100" />
+    <Property Name="descripcion" Type="text" />
     <Property Name="estado" Type="varchar" MaxLength="100" />
     <Property Name="accion" Type="varchar" MaxLength="100" />
     <Property Name="medidasPrevencion" Type="varchar" MaxLength="200" />
     <Property Name="responsable" Type="varchar" MaxLength="100" />
     <Property Name="date" Type="datetime" />
     <Property Name="tipo" Type="varchar" MaxLength="100" />
+    <Property Name="color" Type="varchar" MaxLength="100" />
     <Property Name="registro" Type="datetime" />
     <Property Name="idEmpresa" Type="int" />
   </EntityType>
