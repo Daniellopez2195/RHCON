@@ -453,9 +453,9 @@ namespace rhcon.Controllers
 
 
                     //Envio de email al encargado de la empresa
-                    string EmailORigen = "bienestarlaboral@rhcon.com.mx";
+                    string EmailORigen = "rhstackcode@gmail.com";
                     string EmailDestino = oEmpleado.Email;
-                    string pass = "Bienestar2022";
+                    string pass = "stackcode1.";
                     var body = db.correos.Where(d => d.tipo == "acuse1").First();
                     string mensaje = body.email.ToString();
                     mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
@@ -541,9 +541,9 @@ namespace rhcon.Controllers
 
                     //correo de ats
                     //Envio de email al encargado de la empresa
-                    string EmailORigen = "bienestarlaboral@rhcon.com.mx";
+                    string EmailORigen = "rhstackcode@gmail.com";
                     string EmailDestino = oEmpleado.Email;
-                    string pass = "Bienestar2022";
+                    string pass = "stackcode1.";
                     var body = db.correos.Where(d => d.tipo == "acuse2").First();
 
 
@@ -615,9 +615,9 @@ namespace rhcon.Controllers
 
 
                     //Envio de email al encargado de la empresa
-                    string EmailORigen = "bienestarlaboral@rhcon.com.mx";
+                    string EmailORigen = "rhstackcode@gmail.com";
                     string EmailDestino = oEmpleado.Email;
-                    string pass = "Bienestar2022";
+                    string pass = "stackcode1.";
                     var body = db.correos.Where(d => d.tipo == "acuse3").First();
 
 

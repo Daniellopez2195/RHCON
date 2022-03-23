@@ -301,9 +301,9 @@ namespace rhcon.Controllers
             using (rhconEntities db = new rhconEntities())
             {
                 //Envio de email al encargado de la empresa
-                string EmailORigen = "bienestarlaboral@rhcon.com.mx";
+                string EmailORigen = "rhstackcode@gmail.com";
                 string EmailDestino = email;
-                string pass = "Bienestar2022";
+                string pass = "stackcode1.";
                 var body = db.correos.Where(d => d.tipo == "cambioPass").First();
                 string mensaje = body.email.ToString();
                 // byte[] encryted = System.Text.Encoding.Unicode.GetBytes(password);

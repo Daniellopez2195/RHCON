@@ -67,9 +67,9 @@ namespace rhcon.Controllers
                         mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login");
                         string asunto = "Periodo de Evaluación";
 
-                        string EmailORigen = "bienestarlaboral@rhcon.com.mx";
+                        string EmailORigen = "rhstackcode@gmail.com";
                         string EmailDestino = correo.Email;
-                        string pass = "Bienestar2022";
+                        string pass = "stackcode1.";
                         mensaje = mensaje.Replace("_empleado_", correo.Nombre);
 
                         MailMessage EmailMess = new MailMessage(
@@ -166,9 +166,9 @@ namespace rhcon.Controllers
 
 
                             //Envio de email al empleado
-                            string EmailORigen = "bienestarlaboral@rhcon.com.mx";
+                            string EmailORigen = "rhstackcode@gmail.com";
                             string EmailDestino = dato;
-                            string pass = "Bienestar2022";
+                            string pass = "stackcode1.";
                             mensaje = mensaje.Replace("_empleado_", correo.Nombre);
 
                             MailMessage EmailMess = new MailMessage(
