@@ -202,6 +202,9 @@
     <Compile Include="Controllers\CargaMasivaController.cs" />
     <Compile Include="Controllers\CentroTrabajoController.cs" />
     <Compile Include="Controllers\ResultadosController.cs" />
+    <Compile Include="Models\acciones.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\admin_perfil.cs">
       <DependentUpon>db_rhcon.tt</DependentUpon>
     </Compile>
@@ -269,9 +272,6 @@
       <DependentUpon>db_rhcon.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\periodosEncuesta.cs">
-      <DependentUpon>db_rhcon.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\plandeaccion.cs">
       <DependentUpon>db_rhcon.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\politica.cs">

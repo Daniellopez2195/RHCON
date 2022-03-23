@@ -204,7 +204,17 @@ namespace rhcon.Controllers
 
         public ActionResult MisActividades()
         {
-            return View();
+            using (rhconEntities db = new rhconEntities()) {
+
+                var oEmpresa = (EmpresaViewModel)Session["empresa"];
+                int idEmpresa = oEmpresa.Id;
+                List<acciones> acciones = db.acciones.
+                    Where(d => d.idEmpresa == idEmpresa & d.registro.Value.Year == DateTime.Now.Year).ToList();
+
+
+                return View(acciones);
+            }
+            
         }
     }
 }

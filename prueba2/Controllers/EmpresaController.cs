@@ -363,7 +363,9 @@ namespace rhcon.Controllers
                         if (model.contrato != null)
                             model.contrato.SaveAs(pathContrato);
                         //Actualizar con el SP creado en la base de datos
-                        //db.empresaUpdate(model.Id,model.RazonComercial, model.RazonSocial, model.Email, model.Telefono, model.Direccion, model.Actividad, model.Puesto, model.RFC, "logo-" + model.RFC + ".png",null,model.Responsable,model.Email,"",null,null);
+                        //db.empresaUp
+                        //
+                        //(model.Id,model.RazonComercial, model.RazonSocial, model.Email, model.Telefono, model.Direccion, model.Actividad, model.Puesto, model.RFC, "logo-" + model.RFC + ".png",null,model.Responsable,model.Email,"",null,null);
                         body = db.correos.Where(d => d.tipo == "altaempresa").First();
                         empresa datos = db.empresa.Where(d => d.id == model.Id).First();
                         string password = utilerias.RandomString(12);
@@ -1168,9 +1170,10 @@ namespace rhcon.Controllers
             //conexion a la bd
             SqlConnectionStringBuilder conect = ConexionViewModel.conectar();
             int empleados = 6;
+            
             DataResultadosViewModel dt = new DataResultadosViewModel();
 
-
+            
 
             // consulta de datos generales 
 
@@ -1181,7 +1184,7 @@ namespace rhcon.Controllers
             var datosEmpresa = db.empresa.Where(d => d.id == empresa).First();
             var idResponsable = db.encargadosEmpresa.Where(d => d.idEmpresa == oEmpresa.Id).First();
             var responsableNombre = db.usuario.Where(d => d.id == idResponsable.id).First();
-
+            dt.empleados = db.empleado.Where(d => d.idEmpresa == oEmpresa.Id & d.idEstatus == 1).ToList();
 
 
             var responsable =

@@ -276,24 +276,22 @@
                         @Model.dimensionesVal.condiciones_peligrosas_inseguras.text
                     </span>
                     <input type="hidden" name="estado" value="@Model.dimensionesVal.condiciones_peligrosas_inseguras.estado" />
-                </div>
-                <div class="col">
+                </div><div class="col">
                     <select name="acciones">
-                        <option value="value">
+                        <option value="">
                             Acciones de Mejora
                         </option>
-                        <option value="value">
+                        <option value="Prevención">
                             Prevención
                         </option>
-                        <option value="value">
+                        <option value="Control">
                             Control
                         </option>
                     </select>
-                </div>
-                <div class="col">
+                </div><div class="col">
 
                     <select name="medidaDePrevencion">
-                        <option value="value">
+                        <option value="">
                             Medidas de Prevención
                         </option>
                         <option value="Evaluar las instalaciones y el equipo del centro de trabajo">
@@ -310,14 +308,14 @@
                             Otra
                         </option>
                     </select>
-                </div>
-                <div class="col">
-                    <select name="responsable">
-                        <option value="value">Responsable</option>
-                        <option value="value">Lic Laura Gutierrez</option>
-                        <option value="value">Lic Ruben Lopez</option>
-                        <option value="value">ISC Edgar Hernandez</option>
-                    </select>
+                </div><div class="col">
+                          <select name="responsable">
+                              <option value="">Responsable</option>
+                              @foreach (var empleado in Model.empleados)
+                              {
+                                  <option value="@empleado.idUsuario">@empleado.nombre</option>
+                              }
+                          </select>
                 </div>
                 <div class="col">
                     <div>
@@ -358,7 +356,7 @@
                 </div>
                 <div class="col">
                     <select name="acciones">
-                        <option value="value">
+                        <option value="">
                             Acciones de Mejora
                         </option>
                         <option value="value">
@@ -372,7 +370,7 @@
                 <div class="col">
 
                     <select name="medidaDePrevencion">
-                        <option value="value">
+                        <option value="">
                             Medidas de prevención
                         </option>
                         <option value="value">
@@ -391,7 +389,7 @@
                 </div>
                 <div class="col">
                     <select name="responsable">
-                        <option value="value">Responsable</option>
+                        <option value="">Responsable</option>
                         <option value="value">Lic Laura Gutierrez</option>
                         <option value="value">Lic Ruben Lopez</option>
                         <option value="value">ISC Edgar Hernandez</option>
@@ -624,7 +622,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -702,7 +700,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -782,7 +780,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -822,7 +820,7 @@
 
                 <div class="col">
                     <select name="acciones">
-                        <option value="0">
+                        <option value="">
                             Acciones de Mejora
                         </option>
                         <option value="Prevención">
@@ -836,7 +834,7 @@
                 <div class="col">
 
                     <select name="medidaDePrevencion">
-                        <option value="0">
+                        <option value="">
                             Medidas de prevención
                         </option>
                         <option value="Proporcionar capacitación de inteligencia emocional">
@@ -855,7 +853,7 @@
                 </div>
                 <div class="col">
                     <select name="responsable">
-                        <option value="0">Responsable</option>
+                        <option value="">Responsable</option>
                         <option value="value">Lic Laura Gutierrez</option>
                         <option value="value">Lic Ruben Lopez</option>
                         <option value="value">ISC Edgar Hernandez</option>
@@ -863,7 +861,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -945,7 +943,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -1026,7 +1024,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -1167,7 +1165,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -1246,7 +1244,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -1327,7 +1325,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -1408,7 +1406,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -1558,7 +1556,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -1701,7 +1699,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -1782,7 +1780,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -1921,7 +1919,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
 
@@ -2007,7 +2005,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -2153,7 +2151,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -2232,7 +2230,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -2378,7 +2376,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -2517,7 +2515,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -2596,7 +2594,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -2734,7 +2732,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }
@@ -2813,7 +2811,7 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="date" name="name" value="" />
+                        <input type="date" name="date" value="" />
                     </div>
                 </div>
             }

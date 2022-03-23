@@ -1,7 +1,9 @@
-﻿
+﻿@using rhcon.Models
+@model List<acciones> 
 @{
     ViewBag.Title = "Mis Actividades";
     Layout = "~/Views/Shared/_LayoutCrud.cshtml";
+
 }
 
 <style>
@@ -91,96 +93,45 @@
             <span class="titulos">Acciones</span>
         </div>
     </div>
-    <div class="row" style="border-bottom: 1px solid #929292">
-        <div class="col">
-            sample text
-        </div>
-        <div class="col d-flex align-items-center">
-            <div class="circulo-nivel"></div><span style="margin-left:10px;">text</span>
-        </div>
-        <div class="col">
-            <select>
-                <option value="acciones">text</option>
-            </select>
-        </div>
-        <div class="col">
-            Descripción detallada
-        </div>
-        <div class="col">
-            <select>
-                <option value="acciones2">text</option>
-            </select>
-        </div>
-        <div class="col">
-            <input class="fecha" type="date" name="name" value="fecha" />
-        </div>
-        <div class="col">
-            <div class="btn-group">
-                <a class="boton-aceptar" href="~/Empleado/ReporteAcciones">Aceptar</a>
-                <a class="boton-rechazar" onclick="alerta()" href="#">Rechazar</a>
+
+
+    @foreach (var accion in Model)
+    {
+        <div class="row" style="border-bottom: 1px solid #929292">
+            <div class="col">
+                @accion.dimension
+            </div>
+            <div class="col d-flex align-items-center">
+                <div class="circulo-nivel"></div><span style="margin-left:10px;">text</span>
+            </div>
+            <div class="col">
+                <select style="">
+                    <option value="acciones3">Hola</option>
+                </select>
+            </div>
+            <div class="col">
+                Descripción detallada
+            </div>
+            <div class="col">
+                <select>
+                    <option value="acciones4">text</option>
+                </select>
+            </div>
+            <div class="col">
+                <input class="fecha" type="date" name="name" value="fecha2" />
+            </div>
+            <div class="col">
+                <div class="btn-group">
+                    <a class="boton-aceptar" href="~/Empleado/ReporteAcciones">Aceptar</a>
+                    <a class="boton-rechazar" onclick="alerta()" href="#">Rechazar</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" style="border-bottom: 1px solid #929292">
-        <div class="col">
-            sample text
-        </div>
-        <div class="col d-flex align-items-center">
-            <div class="circulo-nivel"></div><span style="margin-left:10px;">text</span>
-        </div>
-        <div class="col">
-            <select style="">
-                <option value="acciones3">Hola</option>
-            </select>
-        </div>
-        <div class="col">
-            Descripción detallada
-        </div>
-        <div class="col">
-            <select>
-                <option value="acciones4">text</option>
-            </select>
-        </div>
-        <div class="col">
-            <input class="fecha" type="date" name="name" value="fecha2" />
-        </div>
-        <div class="col">
-            <div class="btn-group">
-                <a class="boton-aceptar" href="~/Empleado/ReporteAcciones">Aceptar</a>
-                <a class="boton-rechazar" onclick="alerta()" href="#">Rechazar</a>
-            </div>
-        </div>
-    </div>
-    <div class="row" style="border-bottom: 1px solid #929292">
-        <div class="col">
-            sample text
-        </div>
-        <div class="col d-flex align-items-center">
-            <div class="circulo-nivel"></div><span style="margin-left:10px;">text</span>
-        </div>
-        <div class="col">
-            <select>
-                <option value="acciones5">text</option>
-            </select>
-        </div>
-        <div class="col">
-            Descripción detallada
-        </div>
-        <div class="col">
-            <select>
-                <option value="acciones6">text</option>
-            </select>
-        </div>
-        <div class="col">
-            <input class="fecha" type="date" name="name" value="fecha3" />
-        </div>
-        <div class="col">
-            <div class="btn-group">
-                <a class="boton-aceptar"href="~/Empleado/ReporteAcciones">Aceptar</a>
-                <a class="boton-rechazar" onclick="alerta()" href="#">Rechazar</a>
-            </div>
-        </div>
-    </div>
+    }
+
+
+
+
 </div>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

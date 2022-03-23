@@ -52,7 +52,6 @@ namespace rhcon.Models
         public virtual DbSet<respuestaEmpleado> respuestaEmpleado { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
         public virtual DbSet<cstatus> cstatus { get; set; }
-        public virtual DbSet<resultados_nom035> resultados_nom035 { get; set; }
         public virtual DbSet<empresa> empresa { get; set; }
         public virtual DbSet<resultados_nom025> resultados_nom025 { get; set; }
         public virtual DbSet<result_categoria> result_categoria { get; set; }
@@ -66,7 +65,8 @@ namespace rhcon.Models
         public virtual DbSet<Log_factores> Log_factores { get; set; }
         public virtual DbSet<admin_perfil> admin_perfil { get; set; }
         public virtual DbSet<EncuestaSugerencias> EncuestaSugerencias { get; set; }
-        public virtual DbSet<plandeaccion> plandeaccion { get; set; }
+        public virtual DbSet<resultados_nom035> resultados_nom035 { get; set; }
+        public virtual DbSet<acciones> acciones { get; set; }
     
         public virtual int userInsert(string userName, string userEmail, string userPassword, Nullable<int> userIdRol, Nullable<int> userIdStatus, ObjectParameter userID)
         {

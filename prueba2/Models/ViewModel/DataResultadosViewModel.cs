@@ -28,7 +28,7 @@ namespace rhcon.Models.ViewModel
         public string cedula { get; set; }
         public bool isEmpresa { get; set; }
         public List<respuestaEmpleado> comentarios { get; set; }
-
+        public List<empleado> empleados { get; set; }
         public int valueTotal(SqlDataReader data, int empleados)
         {
             int valor = 0;

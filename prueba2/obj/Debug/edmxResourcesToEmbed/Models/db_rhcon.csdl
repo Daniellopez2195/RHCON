@@ -383,7 +383,6 @@
       <End Role="cstatus" EntitySet="cstatus" />
       <End Role="usuario" EntitySet="usuario" />
     </AssociationSet>
-    <EntitySet Name="resultados_nom035" EntityType="rhconModel.resultados_nom035" />
     <EntitySet Name="empresa" EntityType="rhconModel.empresa" />
     <EntitySet Name="resultados_nom025" EntityType="rhconModel.resultados_nom025" />
     <AssociationSet Name="FK_centroTrabajo_empresa" Association="rhconModel.FK_centroTrabajo_empresa">
@@ -467,7 +466,8 @@
     <EntitySet Name="Log_factores" EntityType="rhconModel.Log_factores" />
     <EntitySet Name="admin_perfil" EntityType="rhconModel.admin_perfil" />
     <EntitySet Name="EncuestaSugerencias" EntityType="rhconModel.EncuestaSugerencias" />
-    <EntitySet Name="plandeaccion" EntityType="rhconModel.plandeaccion" />
+    <EntitySet Name="resultados_nom035" EntityType="rhconModel.resultados_nom035" />
+    <EntitySet Name="acciones" EntityType="rhconModel.acciones" />
   </EntityContainer>
   <EntityType Name="categoria">
     <Key>
@@ -1027,79 +1027,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="resultados_nom035">
-    <Key>
-      <PropertyRef Name="idResuestaEmpleado" />
-      <PropertyRef Name="idPregunta" />
-      <PropertyRef Name="valor" />
-      <PropertyRef Name="idCentroTrabajo" />
-      <PropertyRef Name="idEmpresa" />
-      <PropertyRef Name="id_cabecera" />
-      <PropertyRef Name="cabecera_descripcion" />
-      <PropertyRef Name="dimencion_descripcion" />
-      <PropertyRef Name="idDominio" />
-      <PropertyRef Name="dominio_descripcion" />
-      <PropertyRef Name="idCategoria" />
-      <PropertyRef Name="categoria_descripcion" />
-      <PropertyRef Name="id" />
-      <PropertyRef Name="curp" />
-      <PropertyRef Name="antiguedad" />
-      <PropertyRef Name="edad" />
-      <PropertyRef Name="escolaridad" />
-      <PropertyRef Name="estadoCivil" />
-      <PropertyRef Name="idRespuestaEmpleado" />
-      <PropertyRef Name="idCuestionario" />
-      <PropertyRef Name="realizaRotacion" />
-      <PropertyRef Name="sexo" />
-      <PropertyRef Name="tiempoExperienciaLaboral" />
-      <PropertyRef Name="tiempoPuestoActual" />
-      <PropertyRef Name="tieneDiscapacidad" />
-      <PropertyRef Name="tipoContratacion" />
-      <PropertyRef Name="tipoJornada" />
-      <PropertyRef Name="tipoPersonal" />
-    </Key>
-    <Property Name="idResuestaEmpleado" Type="Int32" Nullable="false" />
-    <Property Name="idPregunta" Type="Int32" Nullable="false" />
-    <Property Name="idRespuesta" Type="Int32" />
-    <Property Name="valor" Type="Int16" Nullable="false" />
-    <Property Name="fecha" Type="DateTime" Precision="3" />
-    <Property Name="idCentroTrabajo" Type="Int32" Nullable="false" />
-    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
-    <Property Name="id_cabecera" Type="Int32" Nullable="false" />
-    <Property Name="cabecera_descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="idDimencion" Type="Int32" />
-    <Property Name="dimencion_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="idDominio" Type="Int32" Nullable="false" />
-    <Property Name="dominio_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="idCategoria" Type="Int32" Nullable="false" />
-    <Property Name="categoria_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="curp" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="year" Type="Int32" />
-    <Property Name="antiguedad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="discapacidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="dondeTrabajo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="edad" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="escolaridad" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="estadoCivil" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="existeCodigoEtica" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="existeComite" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="existeMecanismo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="existePolitica" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="idRespuestaEmpleado" Type="Int32" Nullable="false" />
-    <Property Name="idCuestionario" Type="Int32" Nullable="false" />
-    <Property Name="parteSectores" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="realizaRotacion" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-    <Property Name="sector" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="sexo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="tiempoExperienciaLaboral" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="tiempoPuestoActual" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="tieneDiscapacidad" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-    <Property Name="tipoContratacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="tipoJornada" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="tipoPersonal" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="empresa">
     <Key>
       <PropertyRef Name="id" />
@@ -1413,16 +1340,55 @@
     <Property Name="year" Type="Int16" />
     <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="plandeaccion">
+  <EntityType Name="resultados_nom035">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="curp" />
+      <PropertyRef Name="idResuestaEmpleado" />
+      <PropertyRef Name="idPregunta" />
+      <PropertyRef Name="valor" />
+      <PropertyRef Name="idCentroTrabajo" />
+      <PropertyRef Name="idEmpresa" />
+      <PropertyRef Name="id_cabecera" />
+      <PropertyRef Name="cabecera_descripcion" />
+      <PropertyRef Name="dimencion_descripcion" />
+      <PropertyRef Name="idDominio" />
+      <PropertyRef Name="dominio_descripcion" />
+      <PropertyRef Name="idCategoria" />
+      <PropertyRef Name="categoria_descripcion" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="curp" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="idResuestaEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="idPregunta" Type="Int32" Nullable="false" />
+    <Property Name="idRespuesta" Type="Int32" />
+    <Property Name="valor" Type="Int16" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="idCentroTrabajo" Type="Int32" Nullable="false" />
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="id_cabecera" Type="Int32" Nullable="false" />
+    <Property Name="cabecera_descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="idDimencion" Type="Int32" />
+    <Property Name="dimencion_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idDominio" Type="Int32" Nullable="false" />
+    <Property Name="dominio_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idCategoria" Type="Int32" Nullable="false" />
+    <Property Name="categoria_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="acciones">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="dimension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="nivelriesgo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="accion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="responsable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="dimension" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="accion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="medidasPrevencion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="responsable" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="registro" Type="DateTime" Precision="3" />
+    <Property Name="idEmpresa" Type="Int32" />
   </EntityType>
 </Schema>
