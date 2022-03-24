@@ -1309,8 +1309,8 @@ namespace rhcon.Controllers
                         var body = db.correos.Where(d => d.tipo == "acciones").First();
                         string mensaje = body.email.ToString();
                         mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
-                        mensaje = mensaje.Replace("_empresa_", oEmpresa.RazonComercial);
-                        mensaje = mensaje.Replace("_fecha_", DateTime.Now.ToString("DD/MM/yyyy"));
+                        mensaje = mensaje.Replace("_empresa_", oEmpresa.RazonSocial);
+                        mensaje = mensaje.Replace("_fecha_", DateTime.Now.ToString("dd/MM/yyyy"));
                         MailMessage EmailMess = new MailMessage(
                             EmailORigen,
                             EmailDestino,
@@ -1343,7 +1343,14 @@ namespace rhcon.Controllers
 
             }
 
-            return Redirect("~/Empresa/Perfil");
+            return Redirect("~/Empresa/Acciones");
+        }
+
+        [HttpPost]
+        public ActionResult Example(usuario user)
+        {
+            var name = user.nombre;
+            return Redirect("~/Empresa/Resultados");
         }
 
 

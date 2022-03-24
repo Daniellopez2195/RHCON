@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "Acciones";
     Layout = "~/Views/Shared/_LayoutCrud.cshtml";
-    ViewBag.Css = "";
     string[] opcionesValidas = { "Alto", "Muy alto" };
 }
 <style>
@@ -3315,23 +3314,6 @@
         }
     })
 
-
-    var url = "@Url.Content("~/Resultados/Example")";
-    var data = {
-        user: {
-            nombre: "edgar",
-            email: "example",
-            id: "1",
-        }
-    }
-
-    fetch(url, {
-        method: "POST", 
-        body: JSON.stringify(data), // data can be `string` or {object}!
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => res.json())
 
 </script>
 

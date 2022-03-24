@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "Panel Plan De Accion";
+    Layout = "~/Views/Shared/_LayoutCrud.cshtml";
+}
+
+<style>
+
+    .col {
+        padding: 25px;
+    }
+
+    p{
+        
+    }
+    .rectangulo {
+        width: 100%;
+        height: 100px;
+        background: #D2D1D1;
+        border-radius: 7px;
+        padding: 40px;
+        text-align: center;
+        margin: 0;
+    }
+
+    .titulo {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .circulo-nivel {
+        width: 25px;
+        height: 25px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: #ff7b08;
+    }
+
+   /* select {
+        width: 100%;
+        border: 1.5px solid #CDCDCD;
+        border-radius: 4px;
+        color: #A9A7A7;
+        padding: 10px 0;
+    }*/
+
+    .fecha {
+        width: 90%;
+        border: 1.5px solid #CDCDCD;
+        border-radius: 4px;
+        color: #A9A7A7;
+        padding: 10px 0;
+    }
+</style>
+
+<div class="container-fluid" style="margin-top:15px">
+    <div class="row" style="text-align:center">
+        <h4>Plan de Acción NOM-035-STPS-2018</h4>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 ">
+        <div class="col">
+            <div class="rectangulo"><span>14 Actividades</span></div>
+        </div>
+        <div class="col">
+            <div class="rectangulo"><span>10 Realizadas</span></div>
+        </div>
+        <div class="col">
+            <div class="rectangulo"><span>4 Pendientes</span></div>
+        </div>
+        <div class="col">
+            <div class="rectangulo"><span>71.94% Pendientes</span></div>
+        </div>
+    </div>
+    <div class="row row-cols-8" style="margin-top: 20px;  border-bottom: 2px solid #e0ded7">
+        <div class="col"><p class="titulo"> Dimensión</p></div>
+        <div class="col"><p class="titulo">Nivel de riesgo</p></div>
+        <div class="col"><p class="titulo">Acción de mejora</p></div>
+        <div class="col"><p class="titulo">Descripcion Detallada</p></div>
+        <div class="col"><p class="titulo">Responsable</p></div>
+        <div class="col"><p class="titulo">Fecha Compromiso</p></div>
+        <div class="col"><p class="titulo">Status</p></div>
+        <div class="col"><p class="titulo">Acciones</p></div>
+    </div>
+    <div class="row row-cols-8" style="margin-top: 20px;  border-bottom: 2px solid #e0ded7">
+        <div class="col">
+            <p>
+                Cargas cuantitativas
+            </p>
+        </div>
+        <div class="col d-flex align-items-center"><div class="circulo-nivel"><span style="margin-left:30px;">ALTO</span></div></div>
+        <div class="col">
+            <p>Control</p>
+        </div>
+        <div class="col">
+            <p>
+                Estudiar tiempos y movimientos por área de trabajo
+            </p>
+        </div>
+        <div class="col">
+            <p>
+                ISC EDGAR ARECHEGA
+            </p>
+        </div>
+        <div class="col">
+            <p>16/03/2022</p>
+        </div>
+        <div class="col">
+            <select>
+                <option value="value">Status</option>
+                <option value="value">Pendiente</option>
+                <option value="value">En proceso</option>
+                <option value="value">Finalizado</option>
+            </select>
+        </div>
+        <div class="col">
+             <div>
+                 <a href="~/Empresa/ReporteAcciones" class="btn btn-primary">Ver</a>
+             </div>
+        </div>
+    </div>   
+</div>

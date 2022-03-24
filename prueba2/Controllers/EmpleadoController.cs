@@ -207,10 +207,19 @@ namespace rhcon.Controllers
             using (rhconEntities db = new rhconEntities()) {
 
                 var oEmpresa = (EmpresaViewModel)Session["empresa"];
+                var empleado = (EmpleadoViewModel)Session["empleado"];
                 int idEmpresa = oEmpresa.Id;
                 List<acciones> acciones = db.acciones.
                     Where(d => d.idEmpresa == idEmpresa & d.registro.Value.Year == DateTime.Now.Year).ToList();
 
+                foreach(var accion in acciones)
+                {
+                    int idUser = int.Parse(accion.responsable);
+                    var responsable = db.usuario.Where(d => d.id == idUser).First();
+                    accion.responsable = responsable.nombre;
+
+                }
+                ViewBag.idUser = empleado.Nombre;
 
                 return View(acciones);
             }

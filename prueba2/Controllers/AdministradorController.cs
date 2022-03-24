@@ -114,9 +114,9 @@ namespace rhcon.Controllers
 
 
                     //Envio de email al encargado de la empresa
-                    string EmailORigen = "bienestarlaboral@rhcon.com.mx";
+                    string EmailORigen = "rhstackcode@gmail.com";
                     string EmailDestino = model.Email;
-                    string pass = "Bienestar2022";
+                    string pass = "stackcode1.";
                     var body = db.correos.Where(d => d.tipo == "admin").First();
                     string mensaje = body.email.ToString();
                     mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");

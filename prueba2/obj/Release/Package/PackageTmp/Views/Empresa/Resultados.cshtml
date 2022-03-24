@@ -1,12 +1,23 @@
 ﻿@using rhcon.Models
 @model  List<centroTrabajo>
 @{
-    ViewBag.Title = "empresa";
+    ViewBag.Title = "Empresa";
     Layout = "~/Views/Shared/_LayoutResultados.cshtml";
 
 
 
 }
+
+<style>
+    .wraper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap:40px;
+    }
+   
+ 
+</style>
+
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -23,42 +34,59 @@
             <h5>
                 Resultados Generales
             </h5>
-            <div>
-                <label>Grupo de Población: </label>
-                <select id="selectCentros" name="centro" style="max-width:110px;">
+            <div class="wraper">
+                <div>
+                    <label>Grupo de Población: </label><br />
+                    <select id="selectCentros" name="centro" style="max-width:110px;">
 
-                    <option value="" selected>Empresa:@ViewBag.Empresa</option>
-                    @foreach (var centro in Model)
-                    {
+                        <option value="" selected>Empresa:@ViewBag.Empresa</option>
+                        @foreach (var centro in Model)
+                        {
 
-                        <option value="@centro.id">Centro:@centro.nombre</option>
+                            <option value="@centro.id">Centro:@centro.nombre</option>
 
-                    }
-                </select>
+                        }
+                    </select>
+                </div>
 
-                <label>Tipo de Análisis: </label>
-                <select id="tipoGrafica035">
-                    <option value="0">Individual</option>
-                </select>
+                <div>
+                    <label>Tipo de Análisis: </label><br />
+                    <select id="tipoGrafica035">
+                        <option value="0">Individual</option>
+                    </select>
+                </div>
 
-                <label>Norma: </label>
-                <select id="tipoNorma">
-                    <option value="nom035">NOM-035-STPS-2018</option>
-                    <option value="nom025">NMX-R-025-SCFI-2015</option>
-                </select>
-                <label id="labelYear">Año</label>
-                <span id="selectYears"></span>
-                <span class="false" id="yearHidden">
-                    <span>-</span>
-                    <span id="selectYearsReverse"></span>
-                </span>
+                <div>
+                    <label>Norma: </label><br />
+                    <select id="tipoNorma">
+                        <option value="nom035">NOM-035-STPS-2018</option>
+                        <option value="nom025">NMX-R-025-SCFI-2015</option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label id="labelYear">Año</label><br />
+                    <span id="selectYears"></span>
+                    <span class="false" id="yearHidden">
+                        <span>-</span>
+                        <span id="selectYearsReverse"></span>
+                    </span>
+                </div>
+
+
+                <div id="datosfiltros">
+                        @*<label>Datos</label><br/>*@
+                </div>
+
 
             </div>
         </div>
-        <input type="text" name="idEmpresa" hidden value="@ViewBag.idEmpresa" />
+        <input type="text" hidden name="idEmpresa"  value="@ViewBag.idEmpresa" />
     }
-    <div class="opciones_menu" id="opciones_menu">
+    <div class="d-flex justify-content-center" id="opciones_menu" style="margin-top:15px;">
         <button id="informeEmpresa" class="btn btn-primary" style="margin:0 5px;">Informe Ejecutivo</button>
+        <a href="~/Empresa/Acciones" class="btn btn-primary">Plan de Acción</a>
     </div>
     <h1 id="titleGeneral" class="titleGeneral">
     </h1>
@@ -231,7 +259,7 @@
     var tipoEstructura = false;
     var tipoNorma = "nom035"
     var CategoriaOApartados = "Categorias";
-
+    var contentDemografico = ''
 
 
 
@@ -266,9 +294,41 @@
 
     })
 
+
+
+    //metodo de grafica
+
+    var selectdatosfiltros = document.querySelector("#datosfiltros");
+
+    selectdatosfiltros.addEventListener("change", (a) => {
+        contentDemografico = a.target.value
+        var yearsData = [SelectedFechaOne, selectedFechaTwo]
+        cargar(yearsData, tipoNorma, graficaNom035)
+
+    })
+
+
+
     // evento del tipo de grafica: individual o comparativa
     var selectedtipo035 = document.querySelector("#tipoGrafica035");
     var informeEmpresa = document.querySelector("#informeEmpresa");
+    var demografico = document.querySelector("#datosfiltros");
+    var demograficoArray = [
+        { nombre: "Sexo", value: "sexo" },
+        { nombre: "Edad", value: "edad" },
+        { nombre: "Estado Civil", value: "estadoCivil" },
+        { nombre: "Antiguedad", value: "antiguedad" },
+        { nombre: "Tiempo Puesto", value: "tiempoPuestoActua" },
+        { nombre: "Tiempo Experiencia", value: "tiempoExperienciaLaboral"},
+        { nombre: "Escolaridad", value: "escolaridad" },
+        { nombre: "Tipo Jornada", value: "tipoJornada" },
+        { nombre: "Tipo Contratación", value: "tipoContratacion" },
+        { nombre: "Tipo Personal", value: "tipoPersonal" },
+        { nombre: "Tiene Discapacidad", value: "tieneDispacidad" },
+        { nombre: "Discapacidad", value: "dispacidad" },
+        { nombre: "Realiza Rotación", value:"realizaRotacion"},
+
+    ]
 
 
     var labelYear = document.querySelector("#labelYear");
@@ -293,7 +353,24 @@
             informeEmpresa.toggleAttribute("hidden")
             cargar(yearsData, tipoNorma, graficarNom035)
 
+            var select = document.createElement("select");
+            select.setAttribute("name", "demo")
+            select.setAttribute("id","demografico")
+
+            demograficoArray.map((d, index, array) => {
+                var option = document.createElement("option");
+                option.textContent = d.nombre;
+                option.setAttribute("value", d.value);
+                select.appendChild(option);
+            });
+            var option = document.createElement("option");
+            option.textContent = "year";
+            option.setAttribute("value", "year");
+            select.appendChild(option);
+            demografico.appendChild(select)
+
         }
+
 
 
     })
@@ -406,7 +483,7 @@
     })()
 
 
-    const cargar = async ([yearOne,yearTwo],norma,grafica) => {
+    const cargar = async ([yearOne,yearTwo],norma,demografico = '') => {
         try {
 
             var graficaSeleccionada = (tipoNorma == "nom035" ? graficarNom035 : graficarNom025)
@@ -451,6 +528,7 @@
     const generarData = async (year, extencion) => {
         var parametros = new FormData();
         parametros.append("yearData", year);
+        parametros.append("rango", contentDemografico);
         if (idCentro != "") {
            parametros.append("idCentro", idCentro);
         }
@@ -825,7 +903,10 @@
                     }
                 },
                 series: {
+
                     stacking: 'normal'
+                    //Sirve para dar anchura
+                    // pointWidth: '35'
                 }
             },
 
@@ -1093,7 +1174,7 @@
 
             chart: {
                 type: 'bar',
-                height: 600,
+                height: 850,
                 borderColor: 'black',
                 borderRadius: 20,
                 borderWidth: 2,
@@ -1244,7 +1325,7 @@
                     }
                 },
                 series: {
-                    stacking: 'normal'
+                    pointWidth: '35'
                 }
             },
             legend: {

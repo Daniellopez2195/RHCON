@@ -15,11 +15,10 @@ namespace rhcon.Models.ViewModel
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
             {
                 DataSource = "DESKTOP-D6P8TS9\\SQLEXPRESS",
-                //UserID = "SA",
+                //UserID = "BIENESTARLABORA",
                 //Password = "Hsyp*2020*",
                 InitialCatalog = "rhcon",
-                IntegratedSecurity = true
-
+                IntegratedSecurity = true,
 
             };
             return builder;

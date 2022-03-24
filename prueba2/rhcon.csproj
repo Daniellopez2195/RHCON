@@ -603,6 +603,7 @@
     <Content Include="Content\datatables.min.css" />
     <Content Include="Content\style\crud.css" />
     <Content Include="Content\style\cuestionario.css" />
+    <Content Include="Content\style\example.css" />
     <Content Include="Content\style\filtros.css" />
     <Content Include="Content\style\home.css" />
     <Content Include="Content\style\perfil_administrador.css" />

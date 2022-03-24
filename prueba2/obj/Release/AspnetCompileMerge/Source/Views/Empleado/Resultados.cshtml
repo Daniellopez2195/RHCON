@@ -126,7 +126,7 @@
 
 <div class="grilla">
     @* grafica nom035 *@
-    @using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data", id="form" }))
+    @using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data", id = "form" }))
     {
         <div class="filtros-grafic">
             <h5>
@@ -153,54 +153,63 @@
                 </span>
                 <input type="text" name="centro" hidden value="@Model.idCentro" />
                 <input type="text" name="idEmpresa" hidden value="@Model.idEmpresa" />
-         
+
 
             </div>
         </div>
     }
-        <h1 id="titleGeneral" class="titleGeneral">
-        </h1>
-        <h1 class="titleGeneral" id="titleNorma">nom035</h1>
-        <div class="separador">
-            <div id="containerNom035">
 
-            </div>
-            <div class="nivelesDeRiesgo" id="table">
-                <table class="categoria">
-                    <tr style="text-align:center;">
-                        <td>Niveles NOM-035-STPS-2018</td>
-
-                    </tr>
-                    <tr>
-                        <td class="azul">
-                            ENTORNO ORGANIZACIONAL ALTAMENTE FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL NULO
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="verde">
-                            ENTORNO ORGANIZACIONAL FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL BAJO
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="amarillo">
-                            ENTORNO ORGANIZACIONAL MODERADO Y NIVEL DE RIESGO PSICOSOCIAL MEDIO
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="naranja">
-                            ENTORNO ORGANIZACIONAL POCO FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL ALTO
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="rojo">
-                            ENTORNO ORGANIZACIONAL MUY DESFAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL MUY ALTO
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
+    <div class="d-flex justify-content-center" id="opciones_menu" style="margin-top:15px;">
+        <button id="informe" class="btn btn-primary" style="margin:0 5px;">Informe Ejecutivo</button>
+        <a href="~/Empleado/MisActividades" class="btn btn-primary">Plan de Acción</a>
     </div>
+
+
+
+
+    <h1 id="titleGeneral" class="titleGeneral">
+    </h1>
+    <h1 class="titleGeneral" id="titleNorma">nom035</h1>
+    <div class="separador">
+        <div id="containerNom035">
+
+        </div>
+        <div class="nivelesDeRiesgo" id="table">
+            <table class="categoria">
+                <tr style="text-align:center;">
+                    <td>Niveles NOM-035-STPS-2018</td>
+
+                </tr>
+                <tr>
+                    <td class="azul">
+                        ENTORNO ORGANIZACIONAL ALTAMENTE FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL NULO
+                    </td>
+                </tr>
+                <tr>
+                    <td class="verde">
+                        ENTORNO ORGANIZACIONAL FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL BAJO
+                    </td>
+                </tr>
+                <tr>
+                    <td class="amarillo">
+                        ENTORNO ORGANIZACIONAL MODERADO Y NIVEL DE RIESGO PSICOSOCIAL MEDIO
+                    </td>
+                </tr>
+                <tr>
+                    <td class="naranja">
+                        ENTORNO ORGANIZACIONAL POCO FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL ALTO
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rojo">
+                        ENTORNO ORGANIZACIONAL MUY DESFAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL MUY ALTO
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
 
 <template id="templateNom035">
 
@@ -317,10 +326,7 @@
 
 
 
-<div class="opciones_menu" id="opciones_menu">
-    <button id="informe" class="btn btn-primary" style="margin:0 5px;">Informe Ejecutivo</button>
-    <button id="accionesSugeridas" class="btn btn-primary" style="margin:0 5px;">Acciones Sugeridas</button>
-</div>
+
 
 
 <div id="seleccion_colores" class="categorias_seleccion" hidden>
