@@ -1170,6 +1170,7 @@ namespace rhcon.Controllers
             //conexion a la bd
             SqlConnectionStringBuilder conect = ConexionViewModel.conectar();
             int empleados = 6;
+           
             
             DataResultadosViewModel dt = new DataResultadosViewModel();
 
@@ -1185,7 +1186,7 @@ namespace rhcon.Controllers
             var idResponsable = db.encargadosEmpresa.Where(d => d.idEmpresa == oEmpresa.Id).First();
             var responsableNombre = db.usuario.Where(d => d.id == idResponsable.id).First();
             dt.empleados = db.empleado.Where(d => d.idEmpresa == oEmpresa.Id & d.idEstatus == 1).ToList();
-
+            
 
             var responsable =
                        (from e in db.usuario
@@ -1343,7 +1344,30 @@ namespace rhcon.Controllers
         }
         public ActionResult PanelPlanDeAccion()
         {
-            return View();
+            
+            using (rhconEntities db = new rhconEntities())
+            {
+                var oEmpleado = (EmpleadoViewModel)Session["empleado"];
+                var oEmpresa = (EmpresaViewModel)Session["empresa"];
+
+
+                List<acciones> lista = db.acciones
+                    .Where(d => d.registro.Value.Year == DateTime.Now.Year & d.idEmpresa == oEmpresa.Id)
+                    .ToList();
+
+                var total = db.acciones.Where(d => d.registro.Value.Year == DateTime.Now.Year & d.idEmpresa == oEmpresa.Id)
+                        .Count();
+                ViewBag.total = total;
+
+                var realizada = db.acciones.Where(d => d.registro.Value.Year == DateTime.Now.Year & d.idEmpresa == oEmpresa.Id & d.status  == true ).Count();
+                ViewBag.rel = realizada;
+
+                var norealizada = db.acciones.Where(d => d.registro.Value.Year == DateTime.Now.Year & d.idEmpresa == oEmpresa.Id & d.status == false).Count();
+                ViewBag.nrel = norealizada;
+                return View(lista);
+                
+            }
+            
         }
 
         public ActionResult ReporteAcciones()

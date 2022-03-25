@@ -67,6 +67,7 @@ namespace rhcon.Models
         public virtual DbSet<EncuestaSugerencias> EncuestaSugerencias { get; set; }
         public virtual DbSet<resultados_nom035> resultados_nom035 { get; set; }
         public virtual DbSet<acciones> acciones { get; set; }
+        public virtual DbSet<plandeaccion> plandeaccion { get; set; }
     
         public virtual int userInsert(string userName, string userEmail, string userPassword, Nullable<int> userIdRol, Nullable<int> userIdStatus, ObjectParameter userID)
         {

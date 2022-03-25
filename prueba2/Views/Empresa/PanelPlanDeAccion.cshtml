@@ -1,4 +1,5 @@
-﻿
+﻿@using rhcon.Models
+@model List<acciones>
 @{
     ViewBag.Title = "Panel Plan De Accion";
     Layout = "~/Views/Shared/_LayoutCrud.cshtml";
@@ -10,9 +11,6 @@
         padding: 25px;
     }
 
-    p{
-        
-    }
     .rectangulo {
         width: 100%;
         height: 100px;
@@ -60,16 +58,16 @@
     </div>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 ">
         <div class="col">
-            <div class="rectangulo"><span>14 Actividades</span></div>
+            <div class="rectangulo"><p>@ViewBag.total Actividades</p></div>
         </div>
         <div class="col">
-            <div class="rectangulo"><span>10 Realizadas</span></div>
+            <div class="rectangulo"><p>@ViewBag.rel Realizadas</p></div>
         </div>
         <div class="col">
-            <div class="rectangulo"><span>4 Pendientes</span></div>
+            <div class="rectangulo"><p>@ViewBag.nrel Pendientes</p></div>
         </div>
         <div class="col">
-            <div class="rectangulo"><span>71.94% Pendientes</span></div>
+            <div class="rectangulo"><p>71.94% Pendientes</p></div>
         </div>
     </div>
     <div class="row row-cols-8" style="margin-top: 20px;  border-bottom: 2px solid #e0ded7">
@@ -82,41 +80,46 @@
         <div class="col"><p class="titulo">Status</p></div>
         <div class="col"><p class="titulo">Acciones</p></div>
     </div>
-    <div class="row row-cols-8" style="margin-top: 20px;  border-bottom: 2px solid #e0ded7">
-        <div class="col">
-            <p>
-                Cargas cuantitativas
-            </p>
+    @foreach (var item in Model)
+    {
+        <div class="row row-cols-8" style="margin-top: 20px;  border-bottom: 2px solid #e0ded7">
+            <div class="col">
+                <p>
+                  @item.dimension
+                </p>
+            </div>
+            <div class="col d-flex align-items-center"><div class="circulo-nivel"><span style="margin-left:30px;">ALTO</span></div></div>
+            <div class="col">
+                <p>
+                    @item.tipo
+                </p>
+            </div>
+            <div class="col">
+                <p>
+                    @item.medidasPrevencion
+                </p>
+            </div>
+            <div class="col">
+                <p>
+                    @item.responsable
+                </p>
+            </div>
+            <div class="col">
+                @item.date
+            </div>
+            <div class="col">
+                <p>
+                    @item.estado
+                </p>
+                    
+               
+            </div>
+            <div class="col">
+                <div>
+                    <a href="~/Empresa/ReporteAcciones" class="btn btn-primary">Ver</a>
+                </div>
+            </div>
         </div>
-        <div class="col d-flex align-items-center"><div class="circulo-nivel"><span style="margin-left:30px;">ALTO</span></div></div>
-        <div class="col">
-            <p>Control</p>
-        </div>
-        <div class="col">
-            <p>
-                Estudiar tiempos y movimientos por área de trabajo
-            </p>
-        </div>
-        <div class="col">
-            <p>
-                ISC EDGAR ARECHEGA
-            </p>
-        </div>
-        <div class="col">
-            <p>16/03/2022</p>
-        </div>
-        <div class="col">
-            <select>
-                <option value="value">Status</option>
-                <option value="value">Pendiente</option>
-                <option value="value">En proceso</option>
-                <option value="value">Finalizado</option>
-            </select>
-        </div>
-        <div class="col">
-             <div>
-                 <a href="~/Empresa/ReporteAcciones" class="btn btn-primary">Ver</a>
-             </div>
-        </div>
-    </div>   
+
+    }
 </div>
