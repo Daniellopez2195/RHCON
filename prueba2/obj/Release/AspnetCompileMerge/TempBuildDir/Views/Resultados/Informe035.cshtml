@@ -1,0 +1,1282 @@
+﻿@using rhcon.Models.ViewModel
+@model DataResultadosViewModel
+<style>
+
+    @@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
+
+
+    .fecha {
+        padding-left: 120px;
+    }
+
+    * {
+        font-size: 13px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        box-sizing:border-box;
+        
+    }
+
+
+    .titulo {
+        background-color: #c2c2c2;
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .titulos {
+        background-color: #c2c2c2;
+        font-size: 11px;
+        font-weight: bold;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .egt {
+        font-size: 10px;
+        width: 100%;
+    }
+
+    .egt2 {
+        font-size: 10px;
+    }
+
+    .espacio {
+        padding-right: 15px;
+    }
+
+    .borde {
+        border: 1px solid black;
+        padding: 5px;
+        margin: 0px;
+    }
+
+    .uno {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    .dos {
+        padding-right: 70px;
+        padding-left: 70px;
+    }
+
+    .tres {
+        padding-right: 110px;
+        padding-left: 110px;
+    }
+
+    .parrafo {
+        margin: 0px;
+        padding: 0px;
+        font-size: 13px;
+    }
+
+    .parrafo2 {
+        text-align: justify;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        font-size: 13px;
+        padding: 10px 0;
+    }
+
+    .base {
+        background-color: #c2c2c2;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 11px;
+        width: 100%;
+    }
+
+
+    .base2 {
+        background-color: #c2c2c2;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-size: 11px;
+    }
+
+    #encabezado {
+        text-align: center;
+        margin-bottom: 5px;
+        font-size: 14px !important;
+    }
+
+    .azul {
+        background-color: #9ac5ed;
+        fill: #9ac5ed;
+    }
+
+
+    .verde {
+        background-color: #6bed4e;
+        fill: #6bed4e;
+    }
+
+    .amarillo {
+        background-color: #fff86b;
+        fill: #fff86b;
+    }
+
+    .naranja {
+        background-color: #e88a2c;
+        fill: #e88a2c;
+    }
+
+    .rojo {
+        background-color: #bd5151;
+        fill: #bd5151;
+    }
+
+
+    .referencia {
+        width: 98%;
+        height: 100%;
+        border: 2px black;
+    }
+
+    .info-general {
+        width: 100%;
+    }
+
+    .white {
+        border: white;
+    }
+
+    .explicacion {
+        margin-bottom: 10px;
+        font-weight: bold;
+        padding-right: 20px;
+        font-size:13px;
+    }
+
+    .aplicacion {
+        margin-top: 50px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .desc {
+        font-weight: bold;
+        padding:10px 30px;
+        width: 250px;
+        font-size:13px;
+
+    }
+
+    .val {
+        padding-left: 10px;
+    }
+
+    .cabezera-table {
+        padding: 30px 0;
+        font-weight: bold;
+    }
+
+    .tamano {
+        padding: 5px 0;
+    }
+
+    .tamano2 {
+        font-size: 10px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .generales {
+        margin-top: 150px;
+        padding: 40px !important;
+    }
+
+    .contenedor {
+        position: relative;
+    }
+
+    .valor {
+        position: absolute;
+        top: 35%;
+        width: 100%;
+        right: 0;
+        font-size: 8px !important;
+        font-weight: bold;
+        text-align:center;
+    }
+
+    .cen {
+        text-align: center;
+    }
+    .tamano{
+        font-size:13px;
+    }
+
+    .tamano2{
+        font-size:13px;
+    }
+    .tableCategoria td{
+        border:1px solid black;
+    }
+    .tamano td {
+        border: 1px solid black;
+    }
+
+    .justify {
+        text-align:justify;
+        text-justify: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        word-spacing: normal;
+        white-space:normal;
+
+    }
+
+</style>
+
+
+
+
+
+
+<div>
+    <div class="base">OBJETIVO:</div>
+
+    <p class="parrafo justify">
+        Identificar, analizar y prevenir los factores de riesgo psicosocial, así como promover un entorno organizacional favorable del centro de trabajo.
+    </p>
+</div>
+
+<div>
+    <div class="base2 justify">PRINCIPALES ACTIVIDADES REALIZADAS EN EL CENTRO DE TRABAJO</div>
+
+    <p class="parrafo">
+        @Model.actividades
+    </p>
+</div>
+
+
+<div>
+    <div class="base2"> MÉTODO UTILIZADO</div>
+
+    <p class="parrafo2 justify">
+        El presente informe, es el resultado de la evaluación que se llevó a cabo mediante la aplicación del cuestionario en línea,
+        difundido al total de las y los colaboradores de la empresa, utilizado el cuestionario de la GUÍA DE REFERENCIA III DE LA NOM-035-STPS-2018,
+        con el objetivo de identificar los factores de riesgo psicosocial y evaluar el entorno organizacional.
+
+    </p>
+
+    <p class="parrafo2 justify">
+        Para garantizar la confidencialidad no se cuenta con trazabilidad de los nombres de las personas, para fines estadísticos se 
+        utilizó la GUÍA DE REFERENCIA V DATOS DEL TRABAJADOR DE LA NOM-035-STPS-2018; se les informó a las y los        
+        trabajadores y se enfatizó en la protección de la privacidad y confidencialidad del manejo de los datos, y que el uso de la información 
+        proporcionada por el personal y sus resultados serán exclusivamente para fines de mejora del ambiente de trabajo y evitar riesgos psicosociales.
+
+    </p>
+
+    <p class="parrafo2 justify">
+        El cuestionario en línea, fue estructurado por secciones, donde todas las preguntas debían ser contestadas; se indicó dentro del cuestionario 
+        que no existen respuestas correctas o incorrectas; que es necesaria la concentración; que se consideren las condiciones de los dos últimos meses,
+        y que la opinión es lo más importante por lo que se pide que contestaran con sinceridad.
+
+    </p>
+
+</div>
+<table style="width:100%; border-collapse:collapse !important; border:white;">
+    <tr>
+
+        <td class="parte1" width="400">
+
+
+            <p class="explicacion justify">
+                A continuación, se muestra el nivel de riesgo y entorno organizacional 
+                utilizado para la interpretación de los resultados 
+                del análisis e identificación de los mismos en este centro de trabajo.
+            </p>
+
+            <table cellspacing="0" class="referencia tableCategoria">
+
+                <tr>
+
+                    <th class="entorno cabezera-table" colspan="3" width="400">Entorno Organizacional/ Nivel de Riesgo Psicosocial</th>
+                    
+                </tr>
+
+                <tr>
+                    <td width="300" class="azul bor tamano justify">
+                        ENTORNO ORGANIZACIONAL ALTAMENTE FAVORABLE, CON NIVEL
+                        DE RIESGO PSICOSOCIAL NULO
+                    </td>
+                    <td class="bor">
+                        <center>
+                            <svg height="80" width="80">
+                                <circle cx="40" cy="40" r="30" stroke-width="3" class="azul" />
+                            </svg>
+                        </center>
+                    </td>
+                    <td class="bor cen" width="70"> <center> <50 </center></td>
+                </tr>
+
+                <tr>
+                    <td width="300" class="verde bor tamano justify">
+                        ENTORNO ORGANIZACIONAL MUY FAVORABLE CON MINIMOS
+                        DOMINIOS A MEJORAR, CON NIVEL DE RIESGO PSICOSOCIAL BAJO
+                    </td>
+                    <td class="bor">
+                        <center>
+                            <svg height="80" width="80">
+                                <circle cx="40" cy="40" r="30" stroke-width="3" class="verde" />
+                            </svg>
+                        </center>
+                    </td>
+                    <td class="bor cen" width="70"><center>50>75</center></td>
+                </tr>
+
+                <tr>
+                    <td width="300" class="amarillo bor tamano justify">
+                        ENTORNO ORGANIZACIONAL FAVORABLE CON ALGUNOS DOMINIOS
+                        A MEJORAR, CON NIVEL DE RIESGO PSICOSOCIAL MEDIO
+                    </td>
+                    <td class="bor">
+                        <center>
+                            <svg height="80" width="80">
+                                <circle cx="40" cy="40" r="30" stroke-width="3" class="amarillo" />
+                            </svg>
+                        </center>
+                    </td>
+                    <td class="bor cen" width="70"><center>75>99</center></td>
+                </tr>
+
+                <tr>
+                    <td width="300" class="naranja bor tamano justify">
+                        ENTORNO POCO FAVORABLE CON GRAN PARTE DE LOS DOMINIOS
+                        A MEJORAR, CON NIVEL DE RIESGO PSICOSOCIAL ALTO
+                    </td>
+                    <td class="bor">
+                        <center>
+                            <svg height="80" width="80">
+                                <circle cx="40" cy="40" r="30" stroke-width="3" class="naranja" />
+                            </svg>
+                        </center>
+                    </td>
+                    <td class="bor cen" width="70"><center>99>140</center></td>
+                </tr>
+
+                <tr>
+                    <td width="300" class="rojo bor tamano justify">
+                        ENTORNO ORGANIZACIONAL DEFICIENTE CON AREAS DE MEJORA
+                        EN TODOS LOS DOMINIOS QUE SE MIDEN, CON NIVEL DE RIESGO
+                        PSICOSOCIAL MUY ALTO
+                    </td>
+                    <td class="bor">
+                        <center>
+                            <svg height="80" width="80">
+                                <circle cx="40" cy="40" r="30" stroke-width="3" class="rojo" />
+                            </svg>
+                        </center>
+                    </td>
+                    <td class="bor cen" width="70"><center>>140</center></td>
+                </tr>
+            </table>
+        </td>
+
+        <td class="white" width="100">
+            @*<p class="aplicacion dc">Aplicación del cuestionario</p>*@
+
+
+            <table cellspacing="0" class="info-general white">
+
+                <tr>
+                    <td class="tamano2 justify" COLSPAN="2" width="240" style="padding-top:48px;">
+                        Al convocar al total de trabajadores se cumplió
+                        con la condición que la selección de los
+                        trabajadores fuese de forma aleatoria, de esta
+                        manera todos los trabajadores fueron
+                        considerados para la aplicación de los
+                        cuestionarios, indistitamente de su turno, tipo de
+                        puesto, área de trabajo, departamento, etc.
+                        En @Model.nombreSelect, la aplicación fue como se
+                        muestra a continuación
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="200" class="desc justify">
+                        @if (Model.ternario)
+                        {
+
+
+                        <span style="font-weight:bold; font-size:13px;" class="">
+                            N: Número total de trabajadores
+                            convocados en la empresa.
+
+                        </span>
+                        }
+                        else
+                        {
+                            <span style="font-weight:bold; font-size:13px;" class="">
+                                N: Número total de trabajadores en la Empresa
+                            </span>
+                        }
+
+                    </td>
+                    <td width="40" class="val">@Model.total_empleados</td>
+                </tr>
+
+                <tr>
+                    <td width="200" class="desc justify">
+                        n: Número total de trabajadores a
+                        los que se debe de aplicar el
+                        cuestionario.
+
+                    </td>
+                    <td width="40" class="val">@Model.cumplimiento.valor</td>
+                </tr>
+
+                <tr>
+                    <td width="200" class="desc justify">
+                        E: Número total de trabajadores que
+                        contestaron el cuestionario
+                    </td>
+                    <td width="40" class="val">@Model.total_encuesta</td>
+                </tr>
+
+                <tr>
+                    <td width="200" class="desc justify" >
+                        Cumplimiento mínima de la muestra
+                    </td>
+                    <td width="40" class="val">
+                        @if (Model.cumplimiento.ternanrio)
+                        {
+                            <span style="font-weight: bold; color: #3393d4; font-size:12px;">Cumple</span>
+                        }
+                        else
+                        {
+                            <span style="font-weight: bold; color: #b32e35; font-size: 12px;">No Cumple</span>
+                        }
+                    </td>
+                </tr>
+
+
+            </table>
+
+        </td>
+    </tr>
+
+</table>
+
+<p class="tamano justify" >@Model.cumplimiento.mensaje</p>
+
+
+
+<table cellspacing="0" class="tamano generales tableCategoria" style="border-top: 5px black; page-break-before: always;">
+
+
+    <tr>
+        <td class="tamano cen neg" width="150">Categoría</td>
+        <td class="tamano cen neg" width="300">Dominio</td>
+        <td class="tamano cen neg" width="500">Dimensión/Conclusión</td>
+        <td class="tamano cen neg" width="">Nivel de riesgo</td>
+    </tr>
+
+    <tr>
+        <td class="@Model.categoriasVal.ambiente_trabajo.color" width="160" rowspan="4">Ambiente de trabajo</td>
+        <td class="@Model.dominiosVal.condiciones_ambiente_trabajo.color justify" width="190" rowspan="4">
+            Condiciones en el Ambiente de
+            Trabajo, evalúa la percepción del
+            trabajador sobre las condiciones
+            físicas, seguridad e higiene del
+            centro de trabajo; muestra si en
+            trabajador percibe un riesgo
+            psicosocial derivado de las
+            condiciones peligrosas e inseguras
+            o deficientes e insalubres, que
+            bajo ciertas circunstancias le
+            exigen un esfuerzo adicional de
+            adaptación en su puesto de trabajo
+        </td>
+        <td class="doble neg2 justify" width="270">
+            @Model.dominiosVal.condiciones_ambiente_trabajo.text
+
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dominiosVal.condiciones_ambiente_trabajo.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dominiosVal.condiciones_ambiente_trabajo.color" />
+                </svg>
+            </center>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.condiciones_peligrosas_inseguras.text
+
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.condiciones_peligrosas_inseguras.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.condiciones_peligrosas_inseguras.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+
+    <tr>
+        <td class="doble justify" width="270">
+
+            @Model.dimensionesVal.condiciones_deficientes_insalubres.text
+
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.condiciones_deficientes_insalubres.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.condiciones_deficientes_insalubres.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+
+    <tr>
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.trabajos_peligrosos.text
+
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.trabajos_peligrosos.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.trabajos_peligrosos.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellspacing="0" border="0.5" class="tamano">
+
+    <tr>
+        <td class="tamano cen neg" width="150">Categoría</td>
+        <td class="tamano cen neg" width="300">Dominio</td>
+        <td class="tamano cen neg" width="500">Dimensión/Conclusión</td>
+        <td class="tamano cen neg" width="">Nivel de riesgo</td>
+    </tr>
+
+    <tr>
+        <td class="@Model.categoriasVal.factores_actividad.color" width="160" rowspan="12">
+            Factores Propios de la
+            Actividad
+        </td>
+        <td class="@Model.dominiosVal.carga_trabajo.color esp justify" width="190" rowspan="7">
+       
+                Carga de Trabajo, se refiere a las
+                exigencias que el trabajador siente
+                le son impuestas por las funciones
+                o tareas asignadas y que exceden
+                su capacidad, pueden ser de
+                diversa naturaleza, como
+                cuantitativas, cognitivas o
+                mentales, emocionales, de
+                responsabilidad, así
+                como cargas
+                contradictorias o inconsistentes.
+           
+        </td>
+
+        <td class="neg2 justify" width="270">
+            @Model.dominiosVal.carga_trabajo.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dominiosVal.carga_trabajo.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dominiosVal.carga_trabajo.color" />
+                </svg>
+            </center>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="justify" width="270">
+            @Model.dimensionesVal.cargas_cuantitativas.text
+
+
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.cargas_cuantitativas.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.cargas_cuantitativas.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+
+    <tr>
+        <td class="justify" width="270">
+            @Model.dimensionesVal.ritmos_trabajo_acelerado.text
+
+
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.ritmos_trabajo_acelerado.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.ritmos_trabajo_acelerado.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+
+    <tr>
+        <td class="justify" width="270">
+            @Model.dimensionesVal.carga_mental.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.carga_mental.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.carga_mental.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td class="justify" width="270">
+            @Model.dimensionesVal.cargas_psicologicas_emocionales.text
+
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.cargas_psicologicas_emocionales.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.cargas_psicologicas_emocionales.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td class="justify" width="270">
+            @Model.dimensionesVal.cargas_alta_responsabilidad.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.cargas_alta_responsabilidad.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.cargas_alta_responsabilidad.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td class="justify" width="270">
+            @Model.dimensionesVal.cargas_contradictorias_inconsistentes.text
+
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.cargas_contradictorias_inconsistentes.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.cargas_contradictorias_inconsistentes.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+</table>
+
+
+
+
+<table cellspacing="0" border="0.5" style="page-break-before: always;" class="tamano">
+
+
+    <tr>
+        <td class="tamano cen neg" width="150">Categoría</td>
+        <td class="tamano cen neg" width="300">Dominio</td>
+        <td class="tamano cen neg" width="500">Dimensión/Conclusión</td>
+        <td class="tamano cen neg" width="">Nivel de riesgo</td>
+    </tr>
+
+    <tr>
+        <td class="@Model.categoriasVal.factores_actividad.color" width="160" rowspan="12">
+            Factores Propios de la
+            Actividad
+        </td>
+
+
+
+    </tr>
+
+
+
+
+
+    <tr>
+        <td class="@Model.dominiosVal.falta_control_sobre_trabajo.color esp justify" width="190" rowspan="5">
+            Control sobre el Trabajo, se
+            refiere a la posibilidad que tiene el
+            trabajador para influir y tomar
+            decisiones en la realización de sus
+            actividades. La iniciativa y
+            autonomía; elementos que cuando
+            son inexistentes o escasos, se
+            convierten en un factor de riesgo.
+            Este dominio sólo debe
+            considerarse para procesos y/o
+            actividades en los que se requiere
+            toma de decisiones y el trabajador
+            cuenta con conocimientos y
+            experiencia necesaria para tal
+            efecto.
+        </td>
+
+        <td class="neg2 justify" width="270">
+            @Model.dominiosVal.falta_control_sobre_trabajo.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dominiosVal.falta_control_sobre_trabajo.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dominiosVal.falta_control_sobre_trabajo.color" />
+                </svg>
+            </center>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="justify" width="270">
+            @Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td class="justify" width="270">
+            @Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.text
+
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td class="justify" width="270">
+            @Model.dimensionesVal.insuficiente_participacion_manejo_cambio.text
+
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.insuficiente_participacion_manejo_cambio.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.insuficiente_participacion_manejo_cambio.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td class="justify" width="270">
+            @Model.dimensionesVal.limitada_inexistente_capacitacion.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.limitada_inexistente_capacitacion.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.limitada_inexistente_capacitacion.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+</table>
+
+
+
+
+
+
+<table cellspacing="0" border="0.5" class="tamano">
+
+
+    <tr>
+        <td class="tamano cen neg" width="150">Categoría</td>
+        <td class="tamano cen neg" width="300">Dominio</td>
+        <td class="tamano cen neg" width="500">Dimensión/Conclusión</td>
+        <td class="tamano cen neg" width="">Nivel de riesgo</td>
+    </tr>
+
+    <tr>
+        <td class="@Model.categoriasVal.organizacion_trabajo.color" width="160" rowspan="3">
+            Organización del Tiempo de
+            Trabajo
+        </td>
+        <td class="@Model.dominiosVal.jornada_de_trabajo.color doble justify" width="190" rowspan="1">
+            Jornada de Trabajo, evalúa la
+            posibilidad de existencia de riesgo
+            psicosocial cuando se trabaja con
+            extensas jornadas superiores a las
+            establecidas en la LFT, con
+            frecuente rotación de turnos o
+            turnos nocturnos, sin pausas y
+            descansos periódicos claramente
+            establecidos, sin medidas de
+            prevención y sin protección del
+            trabajador, lo que puede afectar la
+            salud de manera temprana.
+        </td>
+
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.jornadas_trabajo_extensas.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.jornadas_trabajo_extensas.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.jornadas_trabajo_extensas.color" />
+                </svg>
+            </center>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="@Model.dominiosVal.interferencia_relacion_trabajo_familia.color justify" width="190" rowspan="2">
+            Trabajo-Familia, evalúa la
+            existencia de conflicto entre las
+            actividades familiares o personales
+            y las responsabilidades laborales,
+            cuando de manera constante y
+            continua se tienen que atender
+            responsabilidades laborales
+            durante el tiempo dedicado a la
+            vida familiar y personal, o se tiene
+            que laborar fuera del horario de
+            trabajo.
+
+        </td>
+
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.color" />
+                </svg>
+            </center>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.influencia_responsabilidades_familiares.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.influencia_responsabilidades_familiares.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.influencia_responsabilidades_familiares.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+</table>
+
+
+
+
+
+
+
+<table cellspacing="0" border="0.5" class="tamano" style="page-break-before: always;">
+
+    <tr>
+        <td class="tamano cen neg" width="150">Categoría</td>
+        <td class="tamano cen neg" width="300">Dominio</td>
+        <td class="tamano cen neg" width="500">Dimensión/Conclusión</td>
+        <td class="tamano cen neg" width="">Nivel de riesgo</td>
+    </tr>
+
+    <tr>
+        <td class="@Model.categoriasVal.liderazgo_trabajo.color" width="160" rowspan="5">
+            Liderazgo y Relaciones en el
+            Trabajo
+        </td>
+        <td class="@Model.dominiosVal.liderazgo.color justify" width="190" rowspan="2">
+            Trabajo
+            Liderazgo, evalúa y hace
+            referencia al tipo de relación
+            existente entre el jefes y
+            subordinado; con el objetivo de
+            evitar riesgo cuando existe actitud
+            agresiva y/o impositiva.
+        </td>
+
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.escaza_claridad_funcionales.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.escaza_claridad_funcionales.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.escaza_claridad_funcionales.color" />
+                </svg>
+            </center>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.caracteristicas_liderazgo.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.caracteristicas_liderazgo.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.caracteristicas_liderazgo.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td class="@Model.dominiosVal.relaciones_trabajo.color justify" width="190" rowspan="2">
+            Relaciones en el Trabajo, se
+            refiere a la interacción que se
+            establece en el contexto laboral
+            entre compañeros de trabajo,
+            relaciones que al ser positiva y
+            cordial contribuye al Entorno
+            Organizacional favorable; no
+            obstante al ser relaciones
+            negativas puede representar un
+            riesgo psicosocial en el centro de
+            trabajo y baja productividad
+
+        </td>
+
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.relaciones_sociales_trabajo.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative; ">
+                <p class="valor">@Model.dimensionesVal.relaciones_sociales_trabajo.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.relaciones_sociales_trabajo.color" />
+                </svg>
+            </center>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.deficiente_relacion_colaboradores_supervisa.text
+        </td>
+        <td class="contenedor">
+            <div>
+                <center style="position:relative;">
+                    <p class="valor">@Model.dimensionesVal.deficiente_relacion_colaboradores_supervisa.estado</p>
+                    <svg height="60" width="80">
+                        <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.deficiente_relacion_colaboradores_supervisa.color" />
+                    </svg>
+                </center>
+            </div>
+        </td>
+
+    </tr>
+
+
+    <tr>
+        <td class="@Model.dominiosVal.violencia.color justify" width="190" rowspan="1">
+            Violencia Laboral, evalúa la
+            existencia de actos de
+            hostigamiento, acoso o malos
+            tratos en contra del trabajador, que
+            pueden dañar su integridad o
+            salud, por ende afectar de manera
+            directa en el Entorno
+            Organizacional Favorable de la
+            empresa.
+
+        </td>
+
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.violencia_laboral.text
+        </td>
+        <td class="contenedor">
+
+            <center style="position: relative;">
+                <p class="valor">@Model.dimensionesVal.violencia_laboral.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.violencia_laboral.color" />
+                </svg>
+            </center>
+        </td>
+    </tr>
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellspacing="0" class="tamano" style="page-break-before: always; margin-bottom:40px; border:1px solid black;">
+
+
+    <tr>
+        <td class="tamano cen neg" width="150">Categoría</td>
+        <td class="tamano cen neg" width="300">Dominio</td>
+        <td class="tamano cen neg" width="500">Dimensión/Conclusión</td>
+        <td class="tamano cen neg" width="">Nivel de riesgo</td>
+    </tr>
+
+    <tr>
+        <td class="@Model.categoriasVal.entorno_organizacional.color" width="160" rowspan="4">
+            Desempeño y Estabilidad
+            laboral (Entorno
+            Organizacional)
+        </td>
+
+        <td class="@Model.dominiosVal.reconocimiento_desempeno.color justify" width="190" rowspan="2">
+            Reconocimiento del Desempeño, evalúa como el trabajador recibe
+            retroalimentación sobre el
+            rendimiento en el trabajo y el
+            reconocimiento del mismo,
+            principalmente del jefe inmediato.
+        </td>
+
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.escasa_nula_retroalimentacion_desempeno.text
+        </td>
+        <td class="contenedor">
+
+            <center style="position: relative;">
+                <p class="valor">@Model.dimensionesVal.escasa_nula_retroalimentacion_desempeno.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.escasa_nula_retroalimentacion_desempeno.color" />
+                </svg>
+            </center>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.escasa_nulo_reconocimiento_compensacion.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.escasa_nulo_reconocimiento_compensacion.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.escasa_nulo_reconocimiento_compensacion.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td class="@Model.dominiosVal.insuficiente_sentido_pertenencia_inestabilidad.color justify" width="190" rowspan="2">
+            Sentido de Pertenencia, muestra
+            el compromiso que la persona
+            siente hacia la empresa, los
+            vínculos y lazos que se han creado
+            como consecuencia de las
+            condiciones del entorno
+            organizacional, así como la
+            estabilidad que la empresa brinda y
+            el trabajador percibe que tiene
+            sobre su continuidad dentro de la
+            misma.
+
+
+        </td>
+
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.limitado_sentido_pertencia.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.limitado_sentido_pertencia.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.limitado_sentido_pertencia.color" />
+                </svg>
+            </center>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="doble justify" width="270">
+            @Model.dimensionesVal.limitado_sentido_pertencia.text
+        </td>
+        <td class="contenedor">
+            <center style="position:relative;">
+                <p class="valor">@Model.dimensionesVal.limitado_sentido_pertencia.estado</p>
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.dimensionesVal.limitado_sentido_pertencia.color" />
+                </svg>
+            </center>
+        </td>
+
+    </tr>
+
+
+
+
+</table>
+
+
+<table cellspacing="0">
+
+    <tr>
+        <td class="tamano bor neg" style="text-align:center; font-weight:bold;" width="430">Entorno Organizacional </td>
+        <td class="tamano bor neg" style="text-align:center; font-weight:bold;" width="250">@Model.estadoFavorable</td>
+        <td class="tamano bor">
+            <center style="position:relative;">
+                <svg height="60" width="80">
+                    <circle cx="40" cy="30" r="25" stroke-width="3" class="@Model.total.color" />
+                </svg>
+            </center>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="tamano bor nivel" style="text-align:center; font-weight:bold;">Nivel de Riesgo</td>
+        <td class="tamano bor nivel" style="text-align:center; font-weight:bold;">@Model.total.estado</td>
+        <td class="tamano bor nivel" style="text-align:center; font-weight:bold;">
+            @Model.totalValue
+        </td>
+    </tr>
+
+</table>
+
+<div class="base">RECOMENDACIONES Y CONCLUSIONES:</div>
+
+<p class="tamano justify">@Model.total.text</p>
+
+
+
+
+<div class="base" style="margin-top:30px;">EVALUACION REALIZADA POR :</div>
+<table class="" style="border:white;">
+
+    <tr>
+        <td><b> </b></td>
+        <td></td>
+        <td class="fecha"></td>
+    </tr>
+
+    <tr>
+        <td>Recursos Humanos Mediante Cuestionario en Linea</td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td><b>Responsable:</b></td>
+        <td>@Model.responsable</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td><b>Cedula Profecional</b></td>
+        <td>@Model.cedula</td>
+        <td></td>
+    </tr>
+
+    @*<tr>
+            <td class="espacio"><b>Fecha:</b></td>
+            <td>'.$fechaC.'</td>
+            <td></td>
+        </tr>*@
+
+
+
+
+</table>
+
+@if(Model.isEmpresa){
+
+
+<div class="base" style="page-break-before: always;">COMENTARIOS:</div> 
+    var i = 1;
+    foreach(var data in Model.comentarios){
+
+                    if (!String.IsNullOrEmpty(data.comentario))
+                    {
+                            <div style="text-align: justify; padding: 10px 10px; margin: 5px 0; font-size: 16px; border: 1px solid #c7c7c7; "> @data.comentario </div>
+                    }
+        i += 1;
+    }
+}

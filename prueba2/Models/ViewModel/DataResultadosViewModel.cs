@@ -252,12 +252,13 @@ namespace rhcon.Models.ViewModel
                     {
                         double[] limites = { 2, 3.6 , 4.4 , 5.6 };
                         string[] cadenas =
-                        {   "En específico en los dominios, observan el centro de trabajo como  un lugar muy seguro con condiciones excelentes de higiene.",
-                            "En específico en los dominios, observan el centro de trabajo como  un lugar seguro con buenas condiciones  de higiene.",
-                            "En específico en los dominios, observan el centro de trabajo como  un lugar seguro con  condiciones  de higiene promedio.",
-                            "En específico en los dominios,  observan el centro de trabajo como  un lugar inseguro con  condiciones  insalubres.",
-                            "En específico en los dominios,  observan el centro de trabajo como  un lugar muy inseguro con  condiciones  insalubres."
-                        };
+{
+                            "Las personas reconocen que  las actividades que desempeñan no requieren el uso de esfuerzo físico  mayor, ya que conocen  y aplican las normas de seguridad  y salud.",
+                            "Las personas reconocen que  las actividades que desempeñan no requieren el uso de esfuerzo físico, ya que conocen  y aplican las normas de seguridad  y salud;",
+                            "Las personas reconocen que  las actividades que desempeñan en ocasiones requieren el uso de esfuerzo físico,  que  parcialmente conocen  y  aplican las normas de seguridad  y salud;",
+                            "Las personas reconocen que  las actividades que desempeñan  requieren el uso de esfuerzo físico,  dicen desconocer  las normas de seguridad  y salud;",
+                            "Las personas reconocen que  las actividades que desempeñan  requieren el uso continuo de un muy alto esfuerzo físico,  que  desconocen  completamente, no aplican  normas de seguridad  y salud;"
+                            };
                         cv.condiciones_peligrosas_inseguras = condicionales(valor, limites, cadenas);
                     }
 
@@ -266,13 +267,12 @@ namespace rhcon.Models.ViewModel
                     {
                         double[] limites = { 2, 3.6, 4.4, 5.6 };
                         string[] cadenas =
-                            {
-                            "Las personas reconocen que  las actividades que desempeñan no requieren el uso de esfuerzo físico  mayor, ya que conocen  y aplican las normas de seguridad  y salud.",
-                            "Las personas reconocen que  las actividades que desempeñan no requieren el uso de esfuerzo físico, ya que conocen  y aplican las normas de seguridad  y salud;",
-                            "Las personas reconocen que  las actividades que desempeñan en ocasiones requieren el uso de esfuerzo físico,  que  parcialmente conocen  y  aplican las normas de seguridad  y salud;",
-                            "Las personas reconocen que  las actividades que desempeñan  requieren el uso de esfuerzo físico,  dicen desconocer  las normas de seguridad  y salud;",
-                            "Las personas reconocen que  las actividades que desempeñan  requieren el uso continuo de un muy alto esfuerzo físico,  que  desconocen  completamente, no aplican  normas de seguridad  y salud;"
-                            };
+{                           "En específico en los dominios, observan el centro de trabajo como  un lugar muy seguro con condiciones excelentes de higiene.",
+                            "En específico en los dominios, observan el centro de trabajo como  un lugar seguro con buenas condiciones  de higiene.",
+                            "En específico en los dominios, observan el centro de trabajo como  un lugar seguro con  condiciones  de higiene promedio.",
+                            "En específico en los dominios,  observan el centro de trabajo como  un lugar inseguro con  condiciones  insalubres.",
+                            "En específico en los dominios,  observan el centro de trabajo como  un lugar muy inseguro con  condiciones  insalubres."
+                        };
                         cv.condiciones_deficientes_insalubres = condicionales(valor, limites, cadenas);
                     }
 
@@ -281,13 +281,14 @@ namespace rhcon.Models.ViewModel
                     {
                         double[] limites = { 1, 1.8, 2.2, 2.8 };
                         string[] cadenas =
-                            {
+{
                               "Consideran que las actividades que realizan son  muy seguras, por lo que se sienten sumamente tranquilos al  desempeñar las actividades diarias.",
                               "consideran que las actividades que realizan son seguras, por lo que se sienten  tranquilos al  desempeñar las actividades diarias.",
                               "consideran que las actividades que realizan son ocasionalmente poco seguras, por lo que en momentos se sienten  intranquilos al  desempeñar las actividades diarias.",
                               "consideran que las actividades que realizan son inseguras, por lo que  se sienten intranquilos al  desempeñar las actividades diarias.",
                               "consideran que las actividades que realizan son muy inseguras, por lo que  se sienten  muy intranquilos al  desempeñar las actividades diarias."
                             };
+
                         cv.trabajos_peligrosos = condicionales(valor, limites, cadenas);
                     }
 

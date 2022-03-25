@@ -1260,87 +1260,49 @@ namespace rhcon.Controllers
 
 
 
-        public ActionResult AcAmbienteTrabajo(FormCollection formCollection)
+        public ActionResult AddAcciones(acciones[] acciones)
         {
+           
             var oEmpresa = (EmpresaViewModel)Session["empresa"];
-            string[] dimensiones = formCollection["dimension"].Split(',');
-            string[] estados = formCollection["estado"].Split(',');
-            string[] acciones = formCollection["acciones"].Split(',');
-            string[] medidasDePrevencion = formCollection["medidaDePrevencion"].Split(',');
-            string[] responsables = formCollection["responsable"].Split(',');
-            string[] descripcion = formCollection["descripcion"].Split(',');
-            string[] color = formCollection["color"].Split(',');
-            string[] date = formCollection["date"].Split(',');
+ 
 
             using (rhconEntities db = new rhconEntities())
             {
 
-                for (int i = 0; i < responsables.Length; i++)
-                {
-                    if (dimensiones[i] != ""
-                        & estados[i] != "" 
-                        & acciones[i] != ""
-                        & medidasDePrevencion[i] != ""
-                        & responsables[i] != ""
-                        & date[i] != ""
-                        )
-                    {
-                        acciones accion = new acciones();
-                        accion.dimension = dimensiones[i];
-                        accion.estado = estados[i];
-                        accion.accion = acciones[i];
-                        accion.medidasPrevencion = medidasDePrevencion[i];
-                        accion.responsable = responsables[i];
-                        accion.descripcion = descripcion[i];
-                        accion.date = DateTime.Parse(date[i]);
-                        accion.color = color[i];
-                        accion.tipo = "NOM-035";
-                        accion.registro = DateTime.Now;
-                        accion.idEmpresa = oEmpresa.Id;
-                        db.acciones.Add(accion);
-                        db.SaveChanges();
-                        int idUser = int.Parse(accion.responsable);
-                        var empleado = db.usuario.Where(d => d.id == idUser).First();
+                ////Envio de email al encargado de la empresa
+                //string EmailORigen = "rhstackcode@gmail.com";
+                //string EmailDestino = empleado.email;
+                //string pass = "stackcode1.";
+                //var body = db.correos.Where(d => d.tipo == "acciones").First();
+                //string mensaje = body.email.ToString();
+                //mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                //mensaje = mensaje.Replace("_empresa_", oEmpresa.RazonSocial);
+                //mensaje = mensaje.Replace("_fecha_", DateTime.Now.ToString("dd/MM/yyyy"));
+                //MailMessage EmailMess = new MailMessage(
+                //    EmailORigen,
+                //    EmailDestino,
+                //    "Bienvenido a RHCON",
+                //    mensaje
+                //    );
+                //EmailMess.IsBodyHtml = true;
 
-                        //Envio de email al encargado de la empresa
-                        string EmailORigen = "rhstackcode@gmail.com";
-                        string EmailDestino = empleado.email;
-                        string pass = "stackcode1.";
-                        var body = db.correos.Where(d => d.tipo == "acciones").First();
-                        string mensaje = body.email.ToString();
-                        mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
-                        mensaje = mensaje.Replace("_empresa_", oEmpresa.RazonSocial);
-                        mensaje = mensaje.Replace("_fecha_", DateTime.Now.ToString("dd/MM/yyyy"));
-                        MailMessage EmailMess = new MailMessage(
-                            EmailORigen,
-                            EmailDestino,
-                            "Bienvenido a RHCON",
-                            mensaje
-                            );
-                        EmailMess.IsBodyHtml = true;
+                //SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
+                //oSmtpClient.EnableSsl = true;
+                //oSmtpClient.UseDefaultCredentials = false;
+                //oSmtpClient.Host = "smtp.gmail.com";
+                //oSmtpClient.Port = 587;
+                //oSmtpClient.Credentials = new System.Net.NetworkCredential(EmailORigen, pass);
+                //try
+                //{
+                //    oSmtpClient.Send(EmailMess);
+                //    oSmtpClient.Dispose();
 
-                        SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
-                        oSmtpClient.EnableSsl = true;
-                        oSmtpClient.UseDefaultCredentials = false;
-                        oSmtpClient.Host = "smtp.gmail.com";
-                        oSmtpClient.Port = 587;
-                        oSmtpClient.Credentials = new System.Net.NetworkCredential(EmailORigen, pass);
-                        try
-                        {
-                            oSmtpClient.Send(EmailMess);
-                            oSmtpClient.Dispose();
+                //}
+                //catch (Exception)
+                //{
 
-                        }
-                        catch (Exception)
-                        {
-
-                            throw;
-                        }
-                    }
-
-                }
-
-
+                //    throw;
+                //}
             }
 
             return Redirect("~/Empresa/Acciones");

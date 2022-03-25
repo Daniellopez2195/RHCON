@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Acciones";
     Layout = "~/Views/Shared/_LayoutCrud.cshtml";
+    ViewBag.Css = "";
     string[] opcionesValidas = { "Alto", "Muy alto" };
 }
 <style>
@@ -266,7 +267,7 @@
 
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.condiciones_peligrosas_inseguras.estado))
                 {
-                    <input type="hidden" name="dimension" value="Condiciones peligrosas e inseguras" />
+                    <input type="hidden" class="agregar" name="dimension" id="dimension" value="Condiciones peligrosas e inseguras" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.condiciones_peligrosas_inseguras.color"></div>
@@ -275,13 +276,13 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.condiciones_peligrosas_inseguras.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.condiciones_peligrosas_inseguras.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.condiciones_peligrosas_inseguras.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.condiciones_peligrosas_inseguras.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.condiciones_peligrosas_inseguras.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.condiciones_peligrosas_inseguras.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.condiciones_peligrosas_inseguras.color" />
                     </div>
                     <div class="col">
-                        <select name="acciones" id="mejora" class="acc">
-                            <option value="value">
+                        <select name="acciones" id="acciones" class="acc">
+                            <option value="">
                                 Acciones de Mejora
                             </option>
                             <option value="Prevención">
@@ -294,7 +295,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion" id="prevencion" class="med">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion" class="med">
                             <option value="">
                                 Medidas de Prevención
                             </option>
@@ -314,7 +315,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable" id="resp" class="resp">
+                        <select name="responsable" id="responsable" class="resp">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -325,7 +326,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" id="fecha" />
+                            <input type="date" name="date" value="" id="date" />
                         </div>
                     </div>
                 }
@@ -361,7 +362,7 @@
                 </div>
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.condiciones_deficientes_insalubres.estado))
                 {
-                    <input type="hidden" name="dimension" value="Condiciones deficientes e insalubres" />
+                    <input type="hidden" name="dimension" id="dimension" value="Condiciones deficientes e insalubres" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.condiciones_deficientes_insalubres.color"></div>
@@ -370,13 +371,13 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.condiciones_deficientes_insalubres.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.condiciones_deficientes_insalubres.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.condiciones_deficientes_insalubres.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.condiciones_deficientes_insalubres.color" />
+                        <input type="hidden" name="estado" id="estado" value="@Model.dimensionesVal.condiciones_deficientes_insalubres.estado" />
+                        <input type="hidden" name="descripcion" id="descripcion" value="@Model.dimensionesVal.condiciones_deficientes_insalubres.text" />
+                        <input type="hidden" name="color" id="color" value="@Model.dimensionesVal.condiciones_deficientes_insalubres.color" />
 
                     </div>
                     <div class="col">
-                        <select name="acciones" class="acc">
+                        <select name="acciones" id="acciones" class="acc">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -390,7 +391,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion" class="med">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion" class="med">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -409,7 +410,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable" class="resp">
+                        <select name="responsable" id="responsable" class="resp">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -420,7 +421,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" name="date" id="date" value="" />
                         </div>
                     </div>
                 }
@@ -460,7 +461,7 @@
 
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.trabajos_peligrosos.estado))
                 {
-                    <input type="hidden" name="dimension" value="Trabajos peligrosos" />
+                    <input type="hidden" name="dimension" id="dimension" value="Trabajos peligrosos" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.trabajos_peligrosos.color"></div>
@@ -469,15 +470,15 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.trabajos_peligrosos.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.trabajos_peligrosos.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.trabajos_peligrosos.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.trabajos_peligrosos.color" />
+                        <input type="hidden" name="estado" id="estado" value="@Model.dimensionesVal.trabajos_peligrosos.estado" />
+                        <input type="hidden" name="descripcion" id="descripcion" value="@Model.dimensionesVal.trabajos_peligrosos.text" />
+                        <input type="hidden" name="color" id="color" value="@Model.dimensionesVal.trabajos_peligrosos.color" />
                     </div>
 
 
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -493,7 +494,7 @@
 
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion"  id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -514,7 +515,7 @@
 
 
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="reponsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -527,7 +528,7 @@
 
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" name="date" id="date" value="" />
                         </div>
                     </div>
                 }
@@ -619,7 +620,7 @@
                 </div>
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_cuantitativas.estado))
                 {
-                    <input type="hidden" name="dimension" value="cargas cuantitativas" />
+                    <input type="hidden" id="dimension" name="dimension" value="cargas cuantitativas" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.cargas_cuantitativas.color"></div>
@@ -628,13 +629,13 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.cargas_cuantitativas.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.cargas_cuantitativas.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.cargas_cuantitativas.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.cargas_cuantitativas.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.cargas_cuantitativas.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.cargas_cuantitativas.text" />
+                        <input type="hidden" name="color" id="color" value="@Model.dimensionesVal.cargas_cuantitativas.color" />
                     </div>
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -647,7 +648,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -666,7 +667,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -677,7 +678,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="date" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -712,7 +713,7 @@
                 </div>
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.ritmos_trabajo_acelerado.estado))
                 {
-                    <input type="hidden" name="dimension" value="ritmos de trabajo acelerado" />
+                    <input type="hidden" name="dimension" id="dimension" value="ritmos de trabajo acelerado" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.ritmos_trabajo_acelerado.color"></div>
@@ -721,13 +722,13 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.ritmos_trabajo_acelerado.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.ritmos_trabajo_acelerado.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.ritmos_trabajo_acelerado.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.ritmos_trabajo_acelerado.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.ritmos_trabajo_acelerado.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.ritmos_trabajo_acelerado.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.ritmos_trabajo_acelerado.color" />
                     </div>
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -741,7 +742,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -760,7 +761,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -771,7 +772,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="date" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -808,7 +809,7 @@
 
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.carga_mental.estado))
                 {
-                    <input type="hidden" name="dimension" value="carga mental" />
+                    <input type="hidden" id="dimension" name="dimension" value="carga mental" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.carga_mental.color"></div>
@@ -817,14 +818,14 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.carga_mental.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.carga_mental.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.carga_mental.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.carga_mental.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.carga_mental.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.carga_mental.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.carga_mental.color" />
 
                     </div>
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -838,7 +839,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -857,7 +858,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -868,7 +869,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="date" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -904,7 +905,7 @@
 
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_psicologicas_emocionales.estado))
                 {
-                    <input type="hidden" name="dimension" value="Cargas psicológicas emocionales" />
+                    <input type="hidden" id="dimension" name="dimension" value="Cargas psicológicas emocionales" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.cargas_psicologicas_emocionales.color"></div>
@@ -913,15 +914,15 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.cargas_psicologicas_emocionales.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.cargas_psicologicas_emocionales.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.cargas_psicologicas_emocionales.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.cargas_psicologicas_emocionales.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.cargas_psicologicas_emocionales.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.cargas_psicologicas_emocionales.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.cargas_psicologicas_emocionales.color" />
                     </div>
 
 
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -935,7 +936,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -954,7 +955,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -964,7 +965,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="date" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -1003,7 +1004,7 @@
 
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_alta_responsabilidad.estado))
                 {
-                    <input type="hidden" name="dimension" value="Cargas de alta responsabilidad" />
+                    <input type="hidden" id="dimension" name="dimension" value="Cargas de alta responsabilidad" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.cargas_alta_responsabilidad.color"></div>
@@ -1012,13 +1013,13 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.cargas_alta_responsabilidad.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.cargas_alta_responsabilidad.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.cargas_alta_responsabilidad.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.cargas_alta_responsabilidad.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.cargas_alta_responsabilidad.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.cargas_alta_responsabilidad.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.cargas_alta_responsabilidad.color" />
                     </div>
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="accion">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -1032,7 +1033,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -1051,7 +1052,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -1062,7 +1063,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="date" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -1098,7 +1099,7 @@
 
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_contradictorias_inconsistentes.estado))
                 {
-                    <input type="hidden" name="dimension" value="Cargas contradictorias e inconsistentes" />
+                    <input type="hidden" id="dimension" name="dimension" value="Cargas contradictorias e inconsistentes" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.cargas_contradictorias_inconsistentes.color"></div>
@@ -1107,15 +1108,15 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.cargas_contradictorias_inconsistentes.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.cargas_contradictorias_inconsistentes.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.cargas_contradictorias_inconsistentes.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.cargas_contradictorias_inconsistentes.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.cargas_contradictorias_inconsistentes.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.cargas_contradictorias_inconsistentes.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.cargas_contradictorias_inconsistentes.color" />
                     </div>
 
 
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -1129,7 +1130,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -1148,7 +1149,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -1159,7 +1160,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="date" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -1257,7 +1258,7 @@
                 </div>
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.estado))
                 {
-                    <input type="hidden" name="dimension" value=" Falta de control y autonomía sobre el trabajo" />
+                    <input type="hidden" id="dimension" name="dimension" value=" Falta de control y autonomía sobre el trabajo" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.color"></div>
@@ -1266,13 +1267,13 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.color" />
                     </div>
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -1286,7 +1287,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -1305,7 +1306,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="0">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -1316,7 +1317,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="date" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -1352,7 +1353,7 @@
                 </div>
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.estado))
                 {
-                    <input type="hidden" name="dimension" value="Limitada o nula posibilidad de desarrollo" />
+                    <input type="hidden" id="dimension" name="dimension" value="Limitada o nula posibilidad de desarrollo" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.color"></div>
@@ -1361,9 +1362,9 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.color" />
                     </div>
 
                     <div class="col">
@@ -1381,7 +1382,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -1400,7 +1401,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -1411,7 +1412,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="date" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -1448,7 +1449,7 @@
                 </div>
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.insuficiente_participacion_manejo_cambio.estado))
                 {
-                    <input type="hidden" name="dimension" value="Insuficiente participación y manejo del cambio" />
+                    <input type="hidden" id="dimension" name="dimension" value="Insuficiente participación y manejo del cambio" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.insuficiente_participacion_manejo_cambio.color"></div>
@@ -1457,14 +1458,14 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.insuficiente_participacion_manejo_cambio.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.insuficiente_participacion_manejo_cambio.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.insuficiente_participacion_manejo_cambio.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.insuficiente_participacion_manejo_cambio.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.insuficiente_participacion_manejo_cambio.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.insuficiente_participacion_manejo_cambio.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.insuficiente_participacion_manejo_cambio.color" />
                     </div>
 
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -1478,7 +1479,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -1497,7 +1498,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -1508,7 +1509,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="date" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -1544,7 +1545,7 @@
 
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_inexistente_capacitacion.estado))
                 {
-                    <input type="hidden" name="dimension" value="Limitada o inexistente capacitación" />
+                    <input type="hidden" id="dimension" name="dimension" value="Limitada o inexistente capacitación" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.limitada_inexistente_capacitacion.color"></div>
@@ -1553,15 +1554,15 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.limitada_inexistente_capacitacion.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.limitada_inexistente_capacitacion.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.limitada_inexistente_capacitacion.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.limitada_inexistente_capacitacion.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.limitada_inexistente_capacitacion.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.limitada_inexistente_capacitacion.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.limitada_inexistente_capacitacion.color" />
                     </div>
 
 
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -1575,7 +1576,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -1594,7 +1595,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -1605,7 +1606,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="table" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -1708,7 +1709,7 @@
                 </div>
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.jornadas_trabajo_extensas.estado))
                 {
-                    <input type="hidden" name="dimension" value="Jornadas de trabajo extensas" />
+                    <input type="hidden" id="dimension" name="dimension" value="Jornadas de trabajo extensas" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.jornadas_trabajo_extensas.color"></div>
@@ -1717,9 +1718,9 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.jornadas_trabajo_extensas.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.jornadas_trabajo_extensas.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.jornadas_trabajo_extensas.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.jornadas_trabajo_extensas.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.jornadas_trabajo_extensas.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.jornadas_trabajo_extensas.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.jornadas_trabajo_extensas.color" />
                     </div>
 
 
@@ -1727,7 +1728,7 @@
 
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -1741,7 +1742,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -1760,7 +1761,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -1771,7 +1772,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="date" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -1870,7 +1871,7 @@
 
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.estado))
                 {
-                    <input type="hidden" name="dimension" value="Influencia del trabajo fuera del centro laboral" />
+                    <input type="hidden" id="dimension" name="dimension" value="Influencia del trabajo fuera del centro laboral" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.color"></div>
@@ -1879,14 +1880,14 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.color" />
                     </div>
 
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -1900,7 +1901,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -1919,7 +1920,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -1930,7 +1931,7 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" name="date" value="" />
+                            <input type="date" id="date" name="date" value="" />
                         </div>
                     </div>
                 }
@@ -1965,7 +1966,7 @@
 
                 @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.influencia_responsabilidades_familiares.estado))
                 {
-                    <input type="hidden" name="dimension" value="Influencia de las responsabilidades familiares" />
+                    <input type="hidden" id="dimension" name="dimension" value="Influencia de las responsabilidades familiares" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.influencia_responsabilidades_familiares.color"></div>
@@ -1974,16 +1975,16 @@
                         <span class="tooltipD">
                             @Model.dimensionesVal.influencia_responsabilidades_familiares.text
                         </span>
-                        <input type="hidden" name="estado" value="@Model.dimensionesVal.influencia_responsabilidades_familiares.estado" />
-                        <input type="hidden" name="descripcion" value="@Model.dimensionesVal.influencia_responsabilidades_familiares.text" />
-                        <input type="hidden" name="color" value="@Model.dimensionesVal.influencia_responsabilidades_familiares.color" />
+                        <input type="hidden" id="estado" name="estado" value="@Model.dimensionesVal.influencia_responsabilidades_familiares.estado" />
+                        <input type="hidden" id="descripcion" name="descripcion" value="@Model.dimensionesVal.influencia_responsabilidades_familiares.text" />
+                        <input type="hidden" id="color" name="color" value="@Model.dimensionesVal.influencia_responsabilidades_familiares.color" />
                     </div>
 
 
 
 
                     <div class="col">
-                        <select name="acciones">
+                        <select name="acciones" id="acciones">
                             <option value="">
                                 Acciones de Mejora
                             </option>
@@ -1997,7 +1998,7 @@
                     </div>
                     <div class="col">
 
-                        <select name="medidaDePrevencion">
+                        <select name="medidaDePrevencion" id="medidaDePrevencion">
                             <option value="">
                                 Medidas de prevención
                             </option>
@@ -2016,7 +2017,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="responsable">
+                        <select name="responsable" id="responsable">
                             <option value="">Responsable</option>
                             @foreach (var empleado in Model.empleados)
                             {
@@ -3233,7 +3234,7 @@
         <br />
         <div class="row">
             <div>
-                <input type="submit" name="name" onclick="alerta()" class="btn btn-primary boton-enviar" value="Guardar y enviar por email" style="margin-right:20px" />
+                <input type="submit" name="name" id="save"  class="btn btn-primary boton-enviar" value="Guardar y enviar por email" style="margin-right:20px" />
                 <a class="btn btn-warning" href="~/Empresa/Resultados">Salir</a>
             </div>
         </div>
@@ -3244,6 +3245,29 @@
 
 <script>
 
+    var filtro = document.querySelector("#filtros");
+
+    var categoria1 = document.querySelector("#categoria1");
+    var categoria2 = document.querySelector("#categoria2");
+    var categoria3 = document.querySelector("#categoria3");
+    var categoria4 = document.querySelector("#categoria4");
+    var categoria5 = document.querySelector("#categoria5");
+
+
+
+    categoria2.className = "disabled"
+    categoria3.className = "disabled"
+    categoria4.className = "disabled"
+    categoria5.className = "disabled"
+
+
+    const component = {
+        "0": categoria1,
+        "1": categoria2,
+        "3": categoria3,
+        "4": categoria4,
+        "5": categoria5,
+    }
 
     function alerta() {
         Swal.fire({
@@ -3256,18 +3280,18 @@
 
     }
 
-    var filtro = document.querySelector("#filtros");
+    var save = document.querySelector("#save");
+    save.addEventListener("click", (event) => { 
+        event.preventDefault()
 
-    var categoria1 = document.querySelector("#categoria1");
-    var categoria2 = document.querySelector("#categoria2");
-    var categoria3 = document.querySelector("#categoria3");
-    var categoria4 = document.querySelector("#categoria4");
-    var categoria5 = document.querySelector("#categoria5");
+        console.log(filtro.value)
+        console.log(categoria1.querySelectorAll("input"))
+    })
 
-    categoria2.className = "disabled"
-    categoria3.className = "disabled"
-    categoria4.className = "disabled"
-    categoria5.className = "disabled"
+    const validarCampos = (categoria) => {
+        
+    }
+
 
     filtro.addEventListener("change", (event) => {
         let dato = event.target.value;
@@ -3313,6 +3337,26 @@
             default:
         }
     })
+
+
+    var url = "@Url.Content("~/Resultados/Example")";
+    var data = {
+        user: {
+            nombre: "edgar",
+            email: "example",
+            id: "1",
+        }
+    }
+
+    fetch(url, {
+        method: "POST", 
+        body: JSON.stringify(data), // data can be `string` or {object}!
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json())
+
+
 
 
 </script>
