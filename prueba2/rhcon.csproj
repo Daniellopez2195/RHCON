@@ -274,9 +274,6 @@
     <Compile Include="Models\periodosEncuesta.cs">
       <DependentUpon>db_rhcon.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\plandeaccion.cs">
-      <DependentUpon>db_rhcon.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\politica.cs">
       <DependentUpon>db_rhcon.tt</DependentUpon>
     </Compile>
