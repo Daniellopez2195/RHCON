@@ -308,9 +308,9 @@
                         <select name="accion" id="acciones" class="acc">
                             @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.condiciones_peligrosas_inseguras.estado))
                             {
-                                <option value="0" class="alert">
-                                    no requiere acciones 
-                                </option>
+                            <option value="0" class="alert">
+                                No requiere acciones a realizar
+                            </option>
                             }
                             else
                             {
@@ -332,9 +332,9 @@
                         <select name="medidasPrevencion" id="medidaDePrevencion" class="med">
                             @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.condiciones_peligrosas_inseguras.estado))
                             {
-                                <option value="0" class="alert">
-                                    no requiere acciones
-                                </option>
+                            <option value="0" class="alert">
+                                No requiere acciones a realizar
+                            </option>
                             }
                             else
                             {
@@ -362,7 +362,7 @@
                             @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.condiciones_peligrosas_inseguras.estado))
                             {
                                 <option value="0" class="alert">
-                                    no requiere acciones
+                                    No requiere acciones a realizar
                                 </option>
                             }
                             else
@@ -380,28 +380,23 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" value="" id="date" />
+
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.condiciones_peligrosas_inseguras.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+
+                            <input type="hidden" name="dominio" value="Condiciones en el ambiente de trabajo" />
+                            <input type="hidden" name="dimension" value="Condiciones peligrosas e inseguras" />
+
                         </div>
                     </div>
                 
-                @*else
-                {
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
+            
             </div>
             <br />
 
@@ -434,7 +429,7 @@
                             @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.condiciones_deficientes_insalubres.estado))
                             {
                                 <option value="0" class="alert">
-                                    no requiere acciones
+                                    No requiere acciones a realizar
                                 </option>
                             }
                             else
@@ -457,7 +452,7 @@
                             @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.condiciones_deficientes_insalubres.estado))
                             {
                                 <option value="0" class="alert">
-                                    no requiere acciones
+                                    No requiere acciones a realizar
                                 </option>
                             }
                             else
@@ -486,7 +481,7 @@
                             @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.condiciones_deficientes_insalubres.estado))
                             {
                                 <option value="0" class="alert">
-                                    no requiere acciones
+                                    No requiere acciones a realizar
                                 </option>
                             }
                             else
@@ -504,29 +499,22 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" id="date" value="" />
+
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.condiciones_deficientes_insalubres.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+
+                            <input type="hidden" name="dominio" value="Condiciones en el ambiente de trabajo" />
+                            <input type="hidden" name="dimension" value="Condiciones deficientes e insalubres" />
                         </div>
                     </div>
                 
-                @*else
-                {
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-
-                }*@
+         
             </div>
 
             <br />
@@ -564,7 +552,7 @@
                             @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.trabajos_peligrosos.estado))
                             {
                                 <option value="0" class="alert">
-                                    no requiere acciones
+                                    No requiere acciones a realizar
                                 </option>
                             }
                             else
@@ -589,7 +577,7 @@
                             @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.trabajos_peligrosos.estado))
                             {
                                 <option value="0" class="alert">
-                                    no requiere acciones
+                                    No requiere acciones a realizar
                                 </option>
                             }
                             else
@@ -619,7 +607,7 @@
                             @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.trabajos_peligrosos.estado))
                             {
                                 <option value="0" class="alert">
-                                    no requiere acciones
+                                    No requiere acciones a realizar
                                 </option>
                             }
                             else
@@ -628,6 +616,7 @@
                                     Responsable
                                 </option>
                             }
+
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -647,27 +636,13 @@
                             {
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
-                          
+
+                            <input type="hidden" name="dominio" value="Condiciones en el ambiente de trabajo" />
+                            <input type="hidden" name="dimension" value="Trabajos peligrosos" />
                         </div>
                     </div>
                 
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div> <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
+      
             </div>
 
 
@@ -737,8 +712,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_cuantitativas.estado))
-                {
+               
                     <input type="hidden" id="dimension" name="dimension" value="cargas cuantitativas" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -755,9 +729,18 @@
 
                     <div class="col">
                         <select name="accion" id="acciones">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_cuantitativas.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -768,9 +751,18 @@
                     </div>
                     <div class="col">
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_cuantitativas.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Estudiar tiempos y movimientos por área de trabajo">
                                 Estudiar tiempos y movimientos por área de trabajo
                             </option>
@@ -787,7 +779,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_cuantitativas.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -797,28 +800,18 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="date" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_cuantitativas.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Carga de trabajo" />
+                            <input type="hidden" name="dimension" value="Cargas cuantitativas" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
             </div>
 
             <br />
@@ -830,8 +823,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.ritmos_trabajo_acelerado.estado))
-                {
+              
                     <input type="hidden" name="dimension" id="dimension" value="ritmos de trabajo acelerado" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -848,9 +840,18 @@
 
                     <div class="col">
                         <select name="accion" id="acciones">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.ritmos_trabajo_acelerado.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -862,9 +863,19 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.ritmos_trabajo_acelerado.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
+
                             <option value="Realizar pausas activas durante la jornada laboral">
                                 Realizar pausas activas durante la jornada laboral
                             </option>
@@ -881,7 +892,19 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.ritmos_trabajo_acelerado.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
+
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -891,28 +914,21 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="date" name="date" value="" />
+
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.ritmos_trabajo_acelerado.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Carga de trabajo" />
+                            <input type="hidden" name="dimension" value="Ritmos de trabajo acelerado" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
+                
+            
             </div>
 
 
@@ -926,8 +942,7 @@
                     </div>
                 </div>
 
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.carga_mental.estado))
-                {
+               
                     <input type="hidden" id="dimension" name="dimension" value="carga mental" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -945,9 +960,19 @@
 
                     <div class="col">
                         <select name="accion" id="acciones">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.carga_mental.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
+
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -959,9 +984,19 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.carga_mental.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
+
                             <option value="Crear/Actualizar los perfiles de puesto">
                                 Crear/Actualizar los perfiles de puesto
                             </option>
@@ -978,7 +1013,19 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.carga_mental.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
+
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -988,29 +1035,19 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="date" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.carga_mental.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Carga de trabajo" />
+                            <input type="hidden" name="dimension" value="Carga mental" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
-
+                
             </div>
             <br />
             <div class="row dimension row-cols-6">
@@ -1022,8 +1059,7 @@
                     </div>
                 </div>
 
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_psicologicas_emocionales.estado))
-                {
+                
                     <input type="hidden" id="dimension" name="dimension" value="Cargas psicológicas emocionales" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -1042,9 +1078,18 @@
 
                     <div class="col">
                         <select name="accion" id="acciones">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_psicologicas_emocionales.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -1056,9 +1101,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_psicologicas_emocionales.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Proporcionar capacitación de inteligencia emocional">
                                 Proporcionar capacitación de inteligencia emocional
                             </option>
@@ -1075,7 +1129,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_psicologicas_emocionales.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -1084,32 +1149,20 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="date" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_psicologicas_emocionales.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Carga de trabajo" />
+                            <input type="hidden" name="dimension" value="Cargas psicológicas emocionales" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
 
             </div>
-
-
 
             <br />
             <div class="row dimension row-cols-6">
@@ -1121,8 +1174,7 @@
                     </div>
                 </div>
 
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_alta_responsabilidad.estado))
-                {
+               
                     <input type="hidden" id="dimension" name="dimension" value="Cargas de alta responsabilidad" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -1139,9 +1191,18 @@
 
                     <div class="col">
                         <select name="accion" id="accion">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_alta_responsabilidad.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -1153,9 +1214,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_alta_responsabilidad.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Colocar solamente personal competente y capacitado para puestos de alta responsabilidad">
                                 Colocar solamente personal competente y capacitado para puestos de alta responsabilidad
                             </option>
@@ -1172,7 +1242,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_alta_responsabilidad.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -1182,28 +1263,18 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="date" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_alta_responsabilidad.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Carga de trabajo" />
+                            <input type="hidden" name="dimension" value="Cargas de alta responsabilidad" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
 
             </div>
             <br />
@@ -1216,8 +1287,6 @@
                     </div>
                 </div>
 
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_contradictorias_inconsistentes.estado))
-                {
                     <input type="hidden" id="dimension" name="dimension" value="Cargas contradictorias e inconsistentes" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -1236,9 +1305,18 @@
 
                     <div class="col">
                         <select name="accion" id="acciones">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_contradictorias_inconsistentes.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -1250,9 +1328,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_contradictorias_inconsistentes.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Definir organigrama y jerarquias de autoridad">
                                 Definir organigrama y jerarquias de autoridad
                             </option>
@@ -1269,7 +1356,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_contradictorias_inconsistentes.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -1279,28 +1377,19 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="date" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.cargas_contradictorias_inconsistentes.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Carga de trabajo" />
+                            <input type="hidden" name="dimension" value="Cargas contradictorias o inconsistentes" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
+                
 
             </div>
 
@@ -1375,8 +1464,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.estado))
-                {
+               
                     <input type="hidden" id="dimension" name="dimension" value=" Falta de control y autonomía sobre el trabajo" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -1393,9 +1481,18 @@
 
                     <div class="col">
                         <select name="accion" id="acciones">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -1407,9 +1504,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Fomentar una cultura de autonomía del personal en relación a sus funciones o actividades">
                                 Fomentar una cultura de autonomía del personal en relación a sus funciones o actividades
                             </option>
@@ -1426,7 +1532,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="0">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -1436,28 +1553,18 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="date" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Falta de control sobre el trabajo" />
+                            <input type="hidden" name="dimension" value="Falta de control y autonomía sobre el trabajo" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
 
             </div>
 
@@ -1470,8 +1577,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.estado))
-                {
+                
                     <input type="hidden" id="dimension" name="dimension" value="Limitada o nula posibilidad de desarrollo" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -1488,9 +1594,18 @@
 
                     <div class="col">
                         <select name="accion">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -1502,9 +1617,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Generar retos que motiven al personal demanera continua">
                                 Generar retos que motiven al personal demanera continua
                             </option>
@@ -1521,7 +1645,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -1531,29 +1666,18 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="date" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Falta de control sobre el trabajo" />
+                            <input type="hidden" name="dimension" value="Limitada o nula posibilidad de desarrollo" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
-
 
             </div>
 
@@ -1566,8 +1690,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.insuficiente_participacion_manejo_cambio.estado))
-                {
+               
                     <input type="hidden" id="dimension" name="dimension" value="Insuficiente participación y manejo del cambio" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -1585,9 +1708,18 @@
 
                     <div class="col">
                         <select name="accion" id="acciones">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.insuficiente_participacion_manejo_cambio.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -1599,9 +1731,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.insuficiente_participacion_manejo_cambio.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Hacer uso de un medio formal de comunicación para mantener informado al personal de próximos cambios">
                                 Hacer uso de un medio formal de comunicación para mantener informado al personal de próximos cambios
                             </option>
@@ -1618,7 +1759,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.insuficiente_participacion_manejo_cambio.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -1628,28 +1780,18 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="date" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.insuficiente_participacion_manejo_cambio.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Falta de control sobre el trabajo" />
+                            <input type="hidden" name="dimension" value="Insuficiente participación y manejo del cambio" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
             </div>
 
             <br />
@@ -1662,8 +1804,6 @@
                     </div>
                 </div>
 
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_inexistente_capacitacion.estado))
-                {
                     <input type="hidden" id="dimension" name="dimension" value="Limitada o inexistente capacitación" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -1682,9 +1822,18 @@
 
                     <div class="col">
                         <select name="accion" id="acciones">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_inexistente_capacitacion.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -1696,9 +1845,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_inexistente_capacitacion.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Realizar detección de necesidades para identificar temas útiles y actuales">
                                 Realizar detección de necesidades para identificar temas útiles y actuales
                             </option>
@@ -1715,7 +1873,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_inexistente_capacitacion.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -1725,30 +1894,19 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="table" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitada_inexistente_capacitacion.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Falta de control sobre el trabajo" />
+                            <input type="hidden" name="dimension" value="Limitada o inexistente capacitación" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
-
-
+     
             </div>
 
         </div>
@@ -1826,8 +1984,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.jornadas_trabajo_extensas.estado))
-                {
+               
                     <input type="hidden" id="dimension" name="dimension" value="Jornadas de trabajo extensas" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -1844,9 +2001,18 @@
 
                     <div class="col">
                         <select name="accion" id="acciones">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.jornadas_trabajo_extensas.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -1859,9 +2025,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.jornadas_trabajo_extensas.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Adecuar el número de personal a las exigencias reales del área">
                                 Adecuar el número de personal a las exigencias reales del área
                             </option>
@@ -1878,7 +2053,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.jornadas_trabajo_extensas.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -1888,29 +2074,18 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="date" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.jornadas_trabajo_extensas.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Jornada de trabajo" />
+                            <input type="hidden" name="dimension" value="Jornadas de trabajo extensas" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
-
             </div>
 
 
@@ -1985,8 +2160,7 @@
                     </div>
                 </div>
 
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.estado))
-                {
+                
                     <input type="hidden" id="dimension" name="dimension" value="Influencia del trabajo fuera del centro laboral" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -2018,9 +2192,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Adoptar una cultura de responsabilidad social">
                                 Adoptar una cultura de responsabilidad social
                             </option>
@@ -2037,7 +2220,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -2047,28 +2241,19 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" id="date" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Interferencia en la relación trabajo-familia" />
+                            <input type="hidden" name="dimension" value="Influencia del trabajo fuera del centro laboral" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
+           
             </div>
             <br />
             <div class="row dimension row-cols-6">
@@ -2080,8 +2265,7 @@
                     </div>
                 </div>
 
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.influencia_responsabilidades_familiares.estado))
-                {
+                
                     <input type="hidden" id="dimension" name="dimension" value="Influencia de las responsabilidades familiares" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -2101,9 +2285,18 @@
 
                     <div class="col">
                         <select name="accion" id="acciones">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.influencia_responsabilidades_familiares.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -2115,9 +2308,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion" id="medidaDePrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.influencia_responsabilidades_familiares.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Otorgar flexibilidad y apoyo al personal en temas familiares de emergencia">
                                 Otorgar flexibilidad y apoyo al personal en temas familiares de emergencia
                             </option>
@@ -2134,7 +2336,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable" id="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.influencia_responsabilidades_familiares.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -2144,29 +2357,19 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.influencia_responsabilidades_familiares.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Interferencia en la relación trabajo-familia" />
+                            <input type="hidden" name="dimension" value="Influencia de las responsabilidades familiares" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
-
+                
             </div>
 
 
@@ -2237,9 +2440,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escaza_claridad_funcionales.estado))
-                {
-                    <input type="hidden" name="dimension" value="Escaza claridad de las funciones" />
+                  <input type="hidden" name="dimension" value="Escaza claridad de las funciones" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.escaza_claridad_funcionales.color"></div>
@@ -2256,9 +2457,18 @@
 
                     <div class="col">
                         <select name="accion">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escaza_claridad_funcionales.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -2270,9 +2480,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escaza_claridad_funcionales.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Informar sobre el perfil de puesto, jefe inmediato y objetivos al personal durante su contratación">
                                 Informar sobre el perfil de puesto, jefe inmediato y objetivos al personal durante su contratación
                             </option>
@@ -2289,7 +2508,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escaza_claridad_funcionales.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -2299,31 +2529,18 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escaza_claridad_funcionales.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Liderazgo" />
+                            <input type="hidden" name="dimension" value="Escaza claridad de funciones" />
                         </div>
                     </div>
-
-
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
-
 
             </div>
 
@@ -2338,9 +2555,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.caracteristicas_liderazgo.estado))
-                {
-                    <input type="hidden" name="dimension" value="Características de liderazgo" />
+                  <input type="hidden" name="dimension" value="Características de liderazgo" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
                         <div class="circulo-nivel @Model.dimensionesVal.caracteristicas_liderazgo.color"></div>
@@ -2358,9 +2573,18 @@
 
                     <div class="col">
                         <select name="accion">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.caracteristicas_liderazgo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -2373,9 +2597,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.caracteristicas_liderazgo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Capacitar a jefes directos sobre estilos de liderazgo">
                                 Capacitar a jefes directos sobre estilos de liderazgo
                             </option>
@@ -2393,7 +2626,19 @@
 
                     <div class="col">
                         <select name="responsable">
-                            <option value="">Responsable</option>
+
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.caracteristicas_liderazgo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -2403,36 +2648,20 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.caracteristicas_liderazgo.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Liderazgo" />
+                            <input type="hidden" name="dimension" value="Características del liderazgo" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
-
-
+                
             </div>
-
-
-
-
-
 
             <div class="row" style="margin-top:15px;">
                 <table class="default">
@@ -2504,9 +2733,7 @@
                         </p>
                     </div>
                 </div>
-
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.relaciones_sociales_trabajo.estado))
-                {
+                   
                     <input type="hidden" name="dimension" value="Relaciones sociales en el trabajo" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -2522,9 +2749,18 @@
                     </div>
                     <div class="col">
                         <select name="accion">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.relaciones_sociales_trabajo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -2536,9 +2772,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.relaciones_sociales_trabajo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Capacitar sobre el trabajo en equipo">
                                 Capacitar sobre el trabajo en equipo
                             </option>
@@ -2555,7 +2800,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.relaciones_sociales_trabajo.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -2565,28 +2821,19 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" value="" />
+
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.relaciones_sociales_trabajo.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Relaciones en el trabajo" />
+                            <input type="hidden" name="dimension" value="Relaciones sociales en el trabajo" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
             </div>
 
             <br />
@@ -2598,8 +2845,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.deficiente_relacion_colaboradores_supervisa.estado))
-                {
+               
                     <input type="hidden" name="dimension" value=" Deficiente  relación con los colaboradores que supervisa" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -2615,13 +2861,20 @@
 
                     </div>
 
-
-
                     <div class="col">
                         <select name="accion">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.deficiente_relacion_colaboradores_supervisa.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -2633,9 +2886,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.deficiente_relacion_colaboradores_supervisa.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Capacitar sobre el trabajo en equipo">
                                 Capacitar sobre el trabajo en equipo
                             </option>
@@ -2652,7 +2914,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.deficiente_relacion_colaboradores_supervisa.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -2662,29 +2935,18 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.deficiente_relacion_colaboradores_supervisa.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Relaciones en el trabajo" />
+                            <input type="hidden" name="dimension" value="Deficiente relación con los colaboradores que supervisa" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon">
-                        <i class='bx bx-check'></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
-
             </div>
 
 
@@ -2762,9 +3024,7 @@
                         </p>
                     </div>
                 </div>
-
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.violencia_laboral.estado))
-                {
+        
                     <input type="hidden" name="dimension" value="Violencia Laboral" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -2781,9 +3041,18 @@
 
                     <div class="col">
                         <select name="accion">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.violencia_laboral.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -2795,9 +3064,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.violencia_laboral.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Implementar y difundir una política de igualdad laboral y no discriminación">
                                 Implementar y difundir una política de igualdad laboral y no discriminación
                             </option>
@@ -2814,7 +3092,19 @@
                     </div>
                     <div class="col">
                         <select name="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.violencia_laboral.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
+
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -2824,30 +3114,19 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.violencia_laboral.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Violencia" />
+                            <input type="hidden" name="dimension" value="Violencia laboral" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
-
-
+                
             </div>
         </div>
 
@@ -2918,8 +3197,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escasa_nula_retroalimentacion_desempeno.estado))
-                {
+                
                     <input type="hidden" name="dimension" value="Escasa o nula retroalimentación del desempeño" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -2936,9 +3214,19 @@
 
                     <div class="col">
                         <select name="accion">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escasa_nula_retroalimentacion_desempeno.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
+
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -2950,9 +3238,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escasa_nula_retroalimentacion_desempeno.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Realizar evaluación de desempeño">
                                 Realizar evaluación de desempeño
                             </option>
@@ -2969,7 +3266,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escasa_nula_retroalimentacion_desempeno.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -2979,28 +3287,18 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escasa_nula_retroalimentacion_desempeno.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Reconocimiento del desempeño" />
+                            <input type="hidden" name="dimension" value="Escasa o nula retroalimentación del desempeño" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
             </div>
 
 
@@ -3013,8 +3311,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escasa_nulo_reconocimiento_compensacion.estado))
-                {
+                
                     <input type="hidden" name="dimension" value="Escaso o nulo reconocimiento y compensación" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -3031,9 +3328,18 @@
 
                     <div class="col">
                         <select name="accion">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escasa_nulo_reconocimiento_compensacion.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -3045,9 +3351,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escasa_nulo_reconocimiento_compensacion.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Incentivar al personal con valoraciones altas en su evaluación del desempeño">
                                 Incentivar al personal con valoraciones altas en su evaluación del desempeño
                             </option>
@@ -3064,7 +3379,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escasa_nulo_reconocimiento_compensacion.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -3074,29 +3400,20 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.escasa_nulo_reconocimiento_compensacion.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Reconocimiento del desempeño" />
+                            <input type="hidden" name="dimension" value="Escaso o nulo reconocimiento y compensación" />
+
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
-
+            
             </div>
 
 
@@ -3169,8 +3486,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitado_sentido_pertencia.estado))
-                {
+                
                     <input type="hidden" name="dimension" value="Limitado sentido de pertenencia" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -3186,9 +3502,18 @@
                     </div>
                     <div class="col">
                         <select name="accion">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitado_sentido_pertencia.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -3199,9 +3524,18 @@
                     </div>
                     <div class="col">
                         <select name="medidasPrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitado_sentido_pertencia.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Promover el sentido de pertenencia">
                                 Promover el sentido de pertenencia
                             </option>
@@ -3218,7 +3552,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitado_sentido_pertencia.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -3228,29 +3573,20 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" value="" />
+
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.limitado_sentido_pertencia.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Insuficiente sentido de pertenencia e, inestabilidad" />
+                            <input type="hidden" name="dimension" value="Limitado sentido de pertenencia" />
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
-
+            
             </div>
 
             <br />
@@ -3262,8 +3598,7 @@
                         </p>
                     </div>
                 </div>
-                @if (Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.inestabilidad_laboral.estado))
-                {
+               
                     <input type="hidden" name="dimension" value="Inestabilidad laboral" />
 
                     <div class="col d-flex align-items-center nivelRiesgo">
@@ -3280,9 +3615,18 @@
 
                     <div class="col">
                         <select name="accion">
-                            <option value="">
-                                Acciones de Mejora
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.inestabilidad_laboral.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Acciones de Mejora
+                                </option>
+                            }
                             <option value="Prevención">
                                 Prevención
                             </option>
@@ -3294,9 +3638,18 @@
                     <div class="col">
 
                         <select name="medidasPrevencion">
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.inestabilidad_laboral.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
+                            }
                             <option value="Realizar análisis de la rotación mediante entrevistas o encuesta de salida">
                                 Realizar análisis de la rotación mediante entrevistas o encuesta de salida
                             </option>
@@ -3313,7 +3666,18 @@
                     </div>
                     <div class="col">
                         <select name="responsable">
-                            <option value="">Responsable</option>
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.inestabilidad_laboral.estado))
+                            {
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="">
+                                    Responsable
+                                </option>
+                            }
                             @foreach (var empleado in Model.empleados)
                             {
                                 <option value="@empleado.idUsuario">@empleado.nombre</option>
@@ -3323,29 +3687,20 @@
                     </div>
                     <div class="col">
                         <div>
-                            <input type="date" class="fecha" name="date" value="" />
+                            @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.inestabilidad_laboral.estado))
+                            {
+                                <input type="date" class="fecha" name="date" id="opcional" value="" />
+                            }
+                            else
+                            {
+                                <input type="date" class="fecha" name="date" id="date" value="" />
+                            }
+                            <input type="hidden" name="dominio" value="Insuficiente sentido de pertenencia e, inestabilidad" />
+                            <input type="hidden" name="dimension" value="Inestabilidad laboral" />
 
                         </div>
                     </div>
-                }
-                @*else
-                {
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                    <div class="checkIcon col">
-                        <i class='bx bx-check '></i> <span>no existen acciones a realizar</span>
-                    </div>
-                }*@
+        
             </div>
         </div>
 
