@@ -271,20 +271,6 @@
     <Property Name="responsable" Type="varchar" MaxLength="100" />
     <Property Name="cierre" Type="int" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'rhcon.dbo.plandeaccion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-  <EntityType Name="plandeaccion">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="dimension" Type="varchar" MaxLength="50" />
-    <Property Name="nivelriesgo" Type="varchar" MaxLength="50" />
-    <Property Name="accion" Type="varchar" MaxLength="50" />
-    <Property Name="descripcion" Type="varchar" MaxLength="50" />
-    <Property Name="responsable" Type="varchar" MaxLength="50" />
-    <Property Name="fecha" Type="date" />
-  </EntityType>
   <EntityType Name="politica">
     <Key>
       <PropertyRef Name="id" />
@@ -464,6 +450,8 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_nom035' no tiene defini
       <PropertyRef Name="idResuestaEmpleado" />
       <PropertyRef Name="idPregunta" />
       <PropertyRef Name="valor" />
+      <PropertyRef Name="idCentroTrabajo" />
+      <PropertyRef Name="idEmpresa" />
       <PropertyRef Name="id_cabecera" />
       <PropertyRef Name="cabecera_descripcion" />
       <PropertyRef Name="dimencion_descripcion" />
@@ -471,22 +459,6 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_nom035' no tiene defini
       <PropertyRef Name="dominio_descripcion" />
       <PropertyRef Name="idCategoria" />
       <PropertyRef Name="categoria_descripcion" />
-      <PropertyRef Name="antiguedad" />
-      <PropertyRef Name="edad" />
-      <PropertyRef Name="escolaridad" />
-      <PropertyRef Name="estadoCivil" />
-      <PropertyRef Name="idRespuestaEmpleado" />
-      <PropertyRef Name="idCentroTrabajo" />
-      <PropertyRef Name="idCuestionario" />
-      <PropertyRef Name="idEmpresa" />
-      <PropertyRef Name="realizaRotacion" />
-      <PropertyRef Name="sexo" />
-      <PropertyRef Name="tiempoExperienciaLaboral" />
-      <PropertyRef Name="tiempoPuestoActual" />
-      <PropertyRef Name="tieneDiscapacidad" />
-      <PropertyRef Name="tipoContratacion" />
-      <PropertyRef Name="tipoJornada" />
-      <PropertyRef Name="tipoPersonal" />
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="curp" Type="varchar" MaxLength="20" Nullable="false" />
@@ -494,7 +466,10 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_nom035' no tiene defini
     <Property Name="idPregunta" Type="int" Nullable="false" />
     <Property Name="idRespuesta" Type="int" />
     <Property Name="valor" Type="smallint" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
     <Property Name="year" Type="int" />
+    <Property Name="idCentroTrabajo" Type="int" Nullable="false" />
+    <Property Name="idEmpresa" Type="int" Nullable="false" />
     <Property Name="id_cabecera" Type="int" Nullable="false" />
     <Property Name="cabecera_descripcion" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="idDimencion" Type="int" />
@@ -503,32 +478,6 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_nom035' no tiene defini
     <Property Name="dominio_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="idCategoria" Type="int" Nullable="false" />
     <Property Name="categoria_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="antiguedad" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="comentario" Type="text" />
-    <Property Name="discapacidad" Type="varchar" MaxLength="20" />
-    <Property Name="dondeTrabajo" Type="varchar" MaxLength="100" />
-    <Property Name="edad" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="escolaridad" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="estadoCivil" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="existeCodigoEtica" Type="varchar" MaxLength="10" />
-    <Property Name="existeComite" Type="varchar" MaxLength="20" />
-    <Property Name="existeMecanismo" Type="varchar" MaxLength="10" />
-    <Property Name="existePolitica" Type="varchar" MaxLength="10" />
-    <Property Name="fecha" Type="datetime" />
-    <Property Name="idRespuestaEmpleado" Type="int" Nullable="false" />
-    <Property Name="idCentroTrabajo" Type="int" Nullable="false" />
-    <Property Name="idCuestionario" Type="int" Nullable="false" />
-    <Property Name="idEmpresa" Type="int" Nullable="false" />
-    <Property Name="parteSectores" Type="varchar" MaxLength="10" />
-    <Property Name="realizaRotacion" Type="varchar" MaxLength="5" Nullable="false" />
-    <Property Name="sector" Type="varchar" MaxLength="50" />
-    <Property Name="sexo" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="tiempoExperienciaLaboral" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="tiempoPuestoActual" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="tieneDiscapacidad" Type="varchar" MaxLength="5" Nullable="false" />
-    <Property Name="tipoContratacion" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="tipoJornada" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="tipoPersonal" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_025' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -1219,17 +1168,6 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
     <EntitySet Name="rol_operacion" EntityType="Self.rol_operacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="plandeaccion" EntityType="Self.plandeaccion" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [plandeaccion].[id] AS [id], 
-    [plandeaccion].[dimension] AS [dimension], 
-    [plandeaccion].[nivelriesgo] AS [nivelriesgo], 
-    [plandeaccion].[accion] AS [accion], 
-    [plandeaccion].[descripcion] AS [descripcion], 
-    [plandeaccion].[responsable] AS [responsable], 
-    [plandeaccion].[fecha] AS [fecha]
-    FROM [dbo].[plandeaccion] AS [plandeaccion]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="result_categoria" EntityType="Self.result_categoria" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [result_categoria].[idResuestaEmpleado] AS [idResuestaEmpleado], 
@@ -1278,7 +1216,10 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
     [resultados_nom035].[idPregunta] AS [idPregunta], 
     [resultados_nom035].[idRespuesta] AS [idRespuesta], 
     [resultados_nom035].[valor] AS [valor], 
+    [resultados_nom035].[fecha] AS [fecha], 
     [resultados_nom035].[year] AS [year], 
+    [resultados_nom035].[idCentroTrabajo] AS [idCentroTrabajo], 
+    [resultados_nom035].[idEmpresa] AS [idEmpresa], 
     [resultados_nom035].[id_cabecera] AS [id_cabecera], 
     [resultados_nom035].[cabecera_descripcion] AS [cabecera_descripcion], 
     [resultados_nom035].[idDimencion] AS [idDimencion], 
@@ -1286,33 +1227,7 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
     [resultados_nom035].[idDominio] AS [idDominio], 
     [resultados_nom035].[dominio_descripcion] AS [dominio_descripcion], 
     [resultados_nom035].[idCategoria] AS [idCategoria], 
-    [resultados_nom035].[categoria_descripcion] AS [categoria_descripcion], 
-    [resultados_nom035].[antiguedad] AS [antiguedad], 
-    [resultados_nom035].[comentario] AS [comentario], 
-    [resultados_nom035].[discapacidad] AS [discapacidad], 
-    [resultados_nom035].[dondeTrabajo] AS [dondeTrabajo], 
-    [resultados_nom035].[edad] AS [edad], 
-    [resultados_nom035].[escolaridad] AS [escolaridad], 
-    [resultados_nom035].[estadoCivil] AS [estadoCivil], 
-    [resultados_nom035].[existeCodigoEtica] AS [existeCodigoEtica], 
-    [resultados_nom035].[existeComite] AS [existeComite], 
-    [resultados_nom035].[existeMecanismo] AS [existeMecanismo], 
-    [resultados_nom035].[existePolitica] AS [existePolitica], 
-    [resultados_nom035].[fecha] AS [fecha], 
-    [resultados_nom035].[idRespuestaEmpleado] AS [idRespuestaEmpleado], 
-    [resultados_nom035].[idCentroTrabajo] AS [idCentroTrabajo], 
-    [resultados_nom035].[idCuestionario] AS [idCuestionario], 
-    [resultados_nom035].[idEmpresa] AS [idEmpresa], 
-    [resultados_nom035].[parteSectores] AS [parteSectores], 
-    [resultados_nom035].[realizaRotacion] AS [realizaRotacion], 
-    [resultados_nom035].[sector] AS [sector], 
-    [resultados_nom035].[sexo] AS [sexo], 
-    [resultados_nom035].[tiempoExperienciaLaboral] AS [tiempoExperienciaLaboral], 
-    [resultados_nom035].[tiempoPuestoActual] AS [tiempoPuestoActual], 
-    [resultados_nom035].[tieneDiscapacidad] AS [tieneDiscapacidad], 
-    [resultados_nom035].[tipoContratacion] AS [tipoContratacion], 
-    [resultados_nom035].[tipoJornada] AS [tipoJornada], 
-    [resultados_nom035].[tipoPersonal] AS [tipoPersonal]
+    [resultados_nom035].[categoria_descripcion] AS [categoria_descripcion]
     FROM [dbo].[resultados_nom035] AS [resultados_nom035]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="resultados_por_usuario_025" EntityType="Self.resultados_por_usuario_025" store:Type="Views" store:Schema="dbo">

@@ -505,53 +505,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="resultados_nom035">
-      <EntityTypeMapping TypeName="rhconModel.resultados_nom035">
-        <MappingFragment StoreEntitySet="resultados_nom035">
-          <ScalarProperty Name="tipoPersonal" ColumnName="tipoPersonal" />
-          <ScalarProperty Name="tipoJornada" ColumnName="tipoJornada" />
-          <ScalarProperty Name="tipoContratacion" ColumnName="tipoContratacion" />
-          <ScalarProperty Name="tieneDiscapacidad" ColumnName="tieneDiscapacidad" />
-          <ScalarProperty Name="tiempoPuestoActual" ColumnName="tiempoPuestoActual" />
-          <ScalarProperty Name="tiempoExperienciaLaboral" ColumnName="tiempoExperienciaLaboral" />
-          <ScalarProperty Name="sexo" ColumnName="sexo" />
-          <ScalarProperty Name="sector" ColumnName="sector" />
-          <ScalarProperty Name="realizaRotacion" ColumnName="realizaRotacion" />
-          <ScalarProperty Name="parteSectores" ColumnName="parteSectores" />
-          <ScalarProperty Name="idCuestionario" ColumnName="idCuestionario" />
-          <ScalarProperty Name="idRespuestaEmpleado" ColumnName="idRespuestaEmpleado" />
-          <ScalarProperty Name="existePolitica" ColumnName="existePolitica" />
-          <ScalarProperty Name="existeMecanismo" ColumnName="existeMecanismo" />
-          <ScalarProperty Name="existeComite" ColumnName="existeComite" />
-          <ScalarProperty Name="existeCodigoEtica" ColumnName="existeCodigoEtica" />
-          <ScalarProperty Name="estadoCivil" ColumnName="estadoCivil" />
-          <ScalarProperty Name="escolaridad" ColumnName="escolaridad" />
-          <ScalarProperty Name="edad" ColumnName="edad" />
-          <ScalarProperty Name="dondeTrabajo" ColumnName="dondeTrabajo" />
-          <ScalarProperty Name="discapacidad" ColumnName="discapacidad" />
-          <ScalarProperty Name="comentario" ColumnName="comentario" />
-          <ScalarProperty Name="antiguedad" ColumnName="antiguedad" />
-          <ScalarProperty Name="categoria_descripcion" ColumnName="categoria_descripcion" />
-          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
-          <ScalarProperty Name="dominio_descripcion" ColumnName="dominio_descripcion" />
-          <ScalarProperty Name="idDominio" ColumnName="idDominio" />
-          <ScalarProperty Name="dimencion_descripcion" ColumnName="dimencion_descripcion" />
-          <ScalarProperty Name="idDimencion" ColumnName="idDimencion" />
-          <ScalarProperty Name="cabecera_descripcion" ColumnName="cabecera_descripcion" />
-          <ScalarProperty Name="id_cabecera" ColumnName="id_cabecera" />
-          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
-          <ScalarProperty Name="idCentroTrabajo" ColumnName="idCentroTrabajo" />
-          <ScalarProperty Name="year" ColumnName="year" />
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="valor" ColumnName="valor" />
-          <ScalarProperty Name="idRespuesta" ColumnName="idRespuesta" />
-          <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
-          <ScalarProperty Name="idResuestaEmpleado" ColumnName="idResuestaEmpleado" />
-          <ScalarProperty Name="curp" ColumnName="curp" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="acciones">
       <EntityTypeMapping TypeName="rhconModel.acciones">
         <MappingFragment StoreEntitySet="acciones">
@@ -571,15 +524,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="plandeaccion">
-      <EntityTypeMapping TypeName="rhconModel.plandeaccion">
-        <MappingFragment StoreEntitySet="plandeaccion">
+    <EntitySetMapping Name="resultados_nom035">
+      <EntityTypeMapping TypeName="rhconModel.resultados_nom035">
+        <MappingFragment StoreEntitySet="resultados_nom035">
+          <ScalarProperty Name="categoria_descripcion" ColumnName="categoria_descripcion" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="dominio_descripcion" ColumnName="dominio_descripcion" />
+          <ScalarProperty Name="idDominio" ColumnName="idDominio" />
+          <ScalarProperty Name="dimencion_descripcion" ColumnName="dimencion_descripcion" />
+          <ScalarProperty Name="idDimencion" ColumnName="idDimencion" />
+          <ScalarProperty Name="cabecera_descripcion" ColumnName="cabecera_descripcion" />
+          <ScalarProperty Name="id_cabecera" ColumnName="id_cabecera" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="idCentroTrabajo" ColumnName="idCentroTrabajo" />
+          <ScalarProperty Name="year" ColumnName="year" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="responsable" ColumnName="responsable" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="accion" ColumnName="accion" />
-          <ScalarProperty Name="nivelriesgo" ColumnName="nivelriesgo" />
-          <ScalarProperty Name="dimension" ColumnName="dimension" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="idRespuesta" ColumnName="idRespuesta" />
+          <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
+          <ScalarProperty Name="idResuestaEmpleado" ColumnName="idResuestaEmpleado" />
+          <ScalarProperty Name="curp" ColumnName="curp" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

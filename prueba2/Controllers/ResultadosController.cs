@@ -1260,52 +1260,91 @@ namespace rhcon.Controllers
 
 
 
-        public ActionResult AddAcciones(acciones[] acciones)
+        public ActionResult AddAcciones(acciones[] elements)
         {
-           
+
             var oEmpresa = (EmpresaViewModel)Session["empresa"];
- 
+            Dictionary<string, int> wordsCount = new Dictionary<string, int>();
+            var ejemeplo = elements[0].dimension;
 
             using (rhconEntities db = new rhconEntities())
             {
+                foreach (var element in elements)
+                {
+                        acciones addAccion = new acciones();
 
-                ////Envio de email al encargado de la empresa
-                //string EmailORigen = "rhstackcode@gmail.com";
-                //string EmailDestino = empleado.email;
-                //string pass = "stackcode1.";
-                //var body = db.correos.Where(d => d.tipo == "acciones").First();
-                //string mensaje = body.email.ToString();
-                //mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
-                //mensaje = mensaje.Replace("_empresa_", oEmpresa.RazonSocial);
-                //mensaje = mensaje.Replace("_fecha_", DateTime.Now.ToString("dd/MM/yyyy"));
-                //MailMessage EmailMess = new MailMessage(
-                //    EmailORigen,
-                //    EmailDestino,
-                //    "Bienvenido a RHCON",
-                //    mensaje
-                //    );
-                //EmailMess.IsBodyHtml = true;
+       
+                        addAccion.accion = element.accion;
+                        addAccion.color = element.color;
+                        addAccion.date = element.date;
+                        addAccion.descripcion = element.descripcion;
+                        addAccion.dimension = element.dimension;
+                        addAccion.estado = element.estado;
+                        addAccion.idEmpresa = oEmpresa.Id;
+                        addAccion.medidasPrevencion = element.medidasPrevencion;
+                        addAccion.registro = DateTime.Now;
+                        addAccion.responsable = element.responsable;
+                        addAccion.status = false;
+                        addAccion.tipo = "Nom-035-stps";
+                        var idUser = int.Parse(element.responsable);
+                        var correo = db.usuario.Where(d => d.id == idUser).First().email;
 
-                //SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
-                //oSmtpClient.EnableSsl = true;
-                //oSmtpClient.UseDefaultCredentials = false;
-                //oSmtpClient.Host = "smtp.gmail.com";
-                //oSmtpClient.Port = 587;
-                //oSmtpClient.Credentials = new System.Net.NetworkCredential(EmailORigen, pass);
-                //try
-                //{
-                //    oSmtpClient.Send(EmailMess);
-                //    oSmtpClient.Dispose();
+                        if (wordsCount.ContainsKey(correo))
+                        {
+                            wordsCount[correo] = wordsCount[correo] + 1;
+                        }
+                        else
+                        {
+                            wordsCount.Add(correo, 1);
+                        }
 
-                //}
-                //catch (Exception)
-                //{
 
-                //    throw;
-                //}
+
+                }
+
+                foreach (var usuario in wordsCount)
+                {
+                 
+
+                    //Envio de email al encargado de la empresa
+                    string EmailORigen = "rhstackcode@gmail.com";
+                    string EmailDestino = usuario.Key.ToString();
+                    string pass = "stackcode1.";
+                    var body = db.correos.Where(d => d.tipo == "acciones").First();
+                    string mensaje = body.email.ToString();
+                    mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                    mensaje = mensaje.Replace("_empresa_", oEmpresa.RazonSocial);
+                    mensaje = mensaje.Replace("_fecha_", DateTime.Now.ToString("dd/MM/yyyy"));
+                    MailMessage EmailMess = new MailMessage(
+                        EmailORigen,
+                        EmailDestino,
+                        "Bienvenido a RHCON",
+                        mensaje
+                        );
+                    EmailMess.IsBodyHtml = true;
+
+                    SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
+                    oSmtpClient.EnableSsl = true;
+                    oSmtpClient.UseDefaultCredentials = false;
+                    oSmtpClient.Host = "smtp.gmail.com";
+                    oSmtpClient.Port = 587;
+                    oSmtpClient.Credentials = new System.Net.NetworkCredential(EmailORigen, pass);
+                    try
+                    {
+                        oSmtpClient.Send(EmailMess);
+                        oSmtpClient.Dispose();
+
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+
+                }
+
+                return Redirect("~/Empresa/Acciones");
             }
-
-            return Redirect("~/Empresa/Acciones");
         }
 
         [HttpPost]
