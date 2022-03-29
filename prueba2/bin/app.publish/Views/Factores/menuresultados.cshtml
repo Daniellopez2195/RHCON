@@ -1,0 +1,103 @@
+﻿@model rhcon.Models.ViewModel.EmpresaViewModel
+@{
+    ViewBag.Title = "MenuResultados";
+    Layout = "~/Views/Shared/_LayoutEmpresa.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row perfil">
+        <div class="col-lg-4 col-md-4 col-12 d-flex align-items-center justify-content-center pt-2 justify-content-md-start logo">
+            <img src="~/Assets/img/SVG/LOGO/rhlogo.png" class="log" alt="Alternate Text" style="width:160px; height:60px"/>
+        </div>
+        <div class="col-lg-6 col-md-4 col-12  d-flex align-items-center pt-2 justify-content-center">
+            @{string infodisplay = Session["infoDisplay"].ToString();}
+            @infodisplay
+        </div>
+        <div class="col-lg-3 col-md-5 col-12  d-flex justify-content-center justify-content-md-end pt-2 align-items-center">
+            @* agregar logo de la empresa *@
+            @{
+                if (Session["empresa"] != null)
+                {
+                    var oEmpresa = (rhcon.Models.ViewModel.EmpresaViewModel)Session["empresa"];
+
+                    <img src="~/Assets/logos/@oEmpresa.strlogotipo" alt="Alternate Text" class="log" />
+                }
+            }
+
+        </div>
+    </div>
+    <br />
+
+    <div class="row pt-2 pb-2 d-flex justify-content-center">
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0  col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Factores/MenuEncuesta" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/GESTIONAMIENTO.SVG" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+                <h2>Gestionamiento de encuesta</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/Resultados" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/EMPLEADO/SVG resul.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+                <h2>Gráfica de resultados por participación</h2>
+            </a>
+        </div>
+
+        @*<div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Factores/Resultados" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/DATOSDELEMPLEADO.SVG" style="width:120px; height:120px" type="image/svg+xml" />
+                </span>
+
+                <h2>Informe ejecutivo de resultados</h2>
+            </a>
+        </div>*@
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/empresa/ReporteResultados" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/LOGO/Registro.svg" style="width:80px; height:80px" type="image/svg+xml" />
+                </span>
+
+                <h2>Registro de resultados</h2>
+            </a>
+        </div>
+
+        <div class="mt-2 mb-2 mt-lg-0 mb-lg-0 col-6 col-lg-2 d-flex justify-content-center">
+            <a href="~/Empresa/PanelPlanDeAccion" class="btn_option d-flex justify-content-center flex-column align-items-center">
+                <span>
+                    <embed src="~/Assets/img/SVG/ACTIVIDAD.SVG" style="width:120px; height:120px" type="image/svg+xml" />
+                </span>
+
+                <h2>Plan de acción</h2>
+            </a>
+        </div>
+
+
+
+
+    </div>
+    <br />
+    <a href="~/Empresa/Perfil" class="btn btn-primary">Regresar</a>
+
+    <div class="row">
+
+        <div class="col-8 col-lg-9 offset-lg-3 d-flex justify-content-end" style="padding-top:20px;">
+            <a href="https://rhcon.com.mx/" target="_blank">
+                <span>
+                    <embed src="~/Assets/img/SVG/LOGO/SVGLOGO.svg" style="width:400px; height:60px" type="image/svg+xml" />
+                </span>
+            </a>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+

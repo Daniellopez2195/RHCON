@@ -1,0 +1,287 @@
+﻿body {
+    background-color: #f5f5f5;
+}
+.grilla-resultados {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    margin: 0px 50px;
+
+
+}
+
+.grilla-resultadosX {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    margin: 0px 50px;
+}
+
+.grilla-resultadosy {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    margin: 0px 50px;
+}
+
+    .grilla-resultadosy section {
+        grid-column: 2 / 3;
+        width: 60%;
+        justify-self: center;
+    }
+
+.filtros-description{
+    display:flex;
+    justify-content:center;
+    padding: .5rem 0;
+    
+}
+
+.filtros-description h2{
+    font-size:18px;
+    position:relative;
+}
+
+    .filtros-description h2::after {
+        content: "";
+        position: absolute;
+        padding: .5px 80px;
+        background: #999999;
+        top: 40%;
+        margin: 0 10px;
+    }
+
+    .filtros-description h2::before {
+        content: "";
+        position: absolute;
+        padding: .5px 80px;
+        background: #999999;
+        top: 40%;
+        right:100%;
+        margin: 0 10px;
+    }
+
+.select_Content {
+    display: inline-block;
+    border-radius: 14px;
+    background: #f5f5f5;
+    box-shadow: 10px 10px 20px #d5d5d5, -10px -10px 20px #ffffff;
+    padding: .5rem 2rem;
+    width:100%;
+
+}
+.grilla-resultadosX section {
+    justify-self: center;
+    min-width: 40%;
+}
+
+
+.grilla-resultados section {
+    justify-self: center;
+    min-width:70%;
+}
+
+.select_label {
+    display: block;
+    font-weight: bold;
+    font-size:12px;
+}
+
+select {
+    display: block;
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    cursor:pointer;
+    padding:5px 0;
+}
+
+.marcado {
+    background-color: #92bcea;
+    border-radius: 5px;
+    color:white;
+}
+
+.marcadoX {
+    background-color: #cd8987;
+    border-radius: 5px;
+    color: white;
+}
+
+    select option {
+        padding: 40px 60px !important;
+        background: transparent;
+        font-size: 12px;
+    }
+
+
+    .centrar-seccion{
+        display:flex;
+        justify-content:center;
+    }
+
+        .centrar-seccion button {
+            background-color: #4287f5;
+            color:white;
+            padding:.5rem 2rem;
+            border-radius:.2rem;
+            outline:none;
+            border:none;
+        }
+
+
+
+        .margenX{
+            margin-top:30px;
+        }
+
+
+
+
+
+@media(max-width:1200px) {
+    .grilla-resultados {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+        margin: 0px 20px;
+    }
+
+    .grilla-resultadosX {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+        margin: 0px 20px;
+    }
+
+    .grilla-resultadosy {
+        margin: 0px 20px;
+    }
+
+    .select_Content {
+        display: block;
+        border-radius: 14px;
+        background: #f5f5f5;
+        box-shadow: 10px 10px 20px #d5d5d5, -10px -10px 20px #ffffff;
+        padding: .5rem 2rem;
+        width: 100%;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    .grilla-resultadosy section {
+        grid-column: 2 / 3;
+        width: 100%;
+        justify-self: center;
+    }
+}
+
+
+
+
+
+        @media(max-width:900px){
+            .grilla-resultados {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+                grid-auto-rows: minmax(100px, auto);
+                margin: 0px 20px;
+            }
+
+            .grilla-resultadosX {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+                grid-auto-rows: minmax(100px, auto);
+                margin: 0px 20px;
+            }
+
+            .grilla-resultadosy {
+
+                margin: 0px 20px;
+            }
+
+            .select_Content {
+                display: block;
+                border-radius: 14px;
+                background: #f5f5f5;
+                box-shadow: 10px 10px 20px #d5d5d5, -10px -10px 20px #ffffff;
+                padding: .5rem 2rem;
+                width:100%;
+            }
+            section{
+                width:100%;
+            }
+
+            .grilla-resultadosy section {
+                grid-column: 1 / 4;
+                width: 100%;
+                justify-self: center;
+            }
+        }
+
+        @media(max-width:600px) {
+            .grilla-resultados {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: 10px;
+                grid-auto-rows: minmax(100px, auto);
+                margin: 0px 20px;
+            }
+
+            .grilla-resultadosX {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: 10px;
+                grid-auto-rows: minmax(100px, auto);
+                margin: 0px 20px;
+            }
+
+            .grilla-resultadosy {
+                margin: 0px 20px;
+            }
+
+            .grilla-resultadosy section {
+                grid-column: 1 / 5;
+                width: 100%;
+                justify-self: center;
+            }
+
+            .select_Content {
+                display: block;
+                border-radius: 14px;
+                background: #f5f5f5;
+                box-shadow: 10px 10px 20px #d5d5d5, -10px -10px 20px #ffffff;
+                padding: .5rem 2rem;
+                width: 100%;
+            }
+
+            section {
+                width: 100%;
+            }
+
+            .filtros-description h2::after {
+                padding: .5px 40px;
+                top: 40%;
+                margin: 0 10px;
+            }
+
+            .filtros-description h2::before {
+                padding: .5px 40px;
+                background: #999999;
+                top: 40%;
+                right: 100%;
+                margin: 0 10px;
+            }
+
+        }

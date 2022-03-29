@@ -1,0 +1,220 @@
+﻿@using rhcon.Models.ViewModel
+@model rhcon.Models.ViewModel.CuestionarioViewModel
+@{
+    var oEmpresa = (EmpresaViewModel)Session["empresa"];
+    var oEmpleado = (EmpleadoViewModel)Session["empleado"];
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCuestionario.cshtml";
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>InformePdf</title>
+</head>
+<body>
+    <style>
+        label {
+            margin: 0px;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .archiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: wrap row;
+            width: 100%;
+        }
+
+            .archiv div input {
+                display: none;
+            }
+
+            .archiv label {
+                background-color: #f5af4e;
+                padding: 10px 20px;
+                color: white;
+                cursor: pointer;
+            }
+
+            .archiv a {
+                color: white;
+                background-color: #4e7df5;
+                padding: 10px 20px;
+                margin: 10px 0;
+            }
+
+        .contenedor {
+            background: white;
+            padding: 40px 60px;
+        }
+    </style>
+
+
+
+    @if (Model.Tipo == 3)
+    {
+
+        <div class="contenedor">
+
+            <p style="padding:10px 20px">
+                Gracias
+            </p>
+
+            <p style="padding: 10px 20px; text-align: center;">
+                Hemos recibido tu informe con fecha @DateTime.Now.ToString("dd/MM/yyyy") donde declaras bajo protesta de decir verdad que el día @Model.FechaO.ToString("dd/MM/yyyy"), @Model.Traumatico en la empresa @oEmpresa.RazonComercial.
+            </p>
+            <p style="padding: 10px 20px; text-align: center;">
+                Lamentamos tal acontecimiento y observamos que con base  al cuestionario que respondiste, se requieren  llevar a cabo acciones de seguimiento de conformidad con la NOM-035-STPS-2018; es importante que acudas a tu Unidad de Medicina Familiar (UFM) del IMSS para valoración clínica, te practiquen exámenes médicos y/o evaluaciones psicológicas correspondientes, puedes solicitar una cita mediante la aplicación IMSS Digital o acudiendo de manera presencial.
+            </p>
+            <p style="padding: 10px 20px; text-align: center;">
+                Así mismo debes ratificar tu informe realizando los siguientes pasos, en los botones de abajo:   descarga, firma y sube el informe; en caso de no poder imprimir en este momento, da clic en continuar.
+            </p>
+
+
+
+            <div class="archiv">
+                <a href="~/Files/@ViewBag.informe" download="informe.pdf">Descargar Informe </a>
+                <form method="post" id="reg" enctype="multipart/form-data">
+                    <div>
+                        <input type="hidden" name="nombre" value="@ViewBag.informe" />
+                        <input type="file" name="informe" id="informe" value="" />
+                        <label for="informe">Subir Informe</label>
+                    </div>
+                </form>
+                <a href="#" id="ratificar">Ratificar</a>
+                <a href="~/Empleado/">Continuar</a>
+
+
+
+            </div>
+
+            <p style="padding: 10px 20px; text-align: center;">
+                Para ratificar tu informe en fecha posterior, debes entrar en el módulo "Acontecimiento Traumático"  <span class="d-flex justify-content-center">
+                    <embed src="~/Assets/img/SVG/EMPRESA/indentificacióndeacontecimientotraumaticosevero.svg" style="width:40px; height:40px" type="image/svg+xml" />
+                </span>
+            </p>
+            <p style="text-align:center; margin-top:10px;">
+                seleccionando “Historial”, pulsar sobre “Pendiente de ratificar”.
+            </p>
+
+        </div>
+
+    }
+    else if (Model.Tipo == 2)
+    {
+
+        <div class="contenedor">
+            <p>
+                Gracias
+            </p>
+            <p style="padding: 10px 20px; text-align: center;">
+                Hemos recibido tu informe en fecha @DateTime.Now.ToString("dd/MM/yyyy") donde declaras bajo protesta de decir verdad que el día
+                @Model.FechaO.ToString("dd/MM/yyyy"), @Model.Traumatico en la empresa @oEmpresa.RazonComercial.
+            </p>
+            <p style="padding: 10px 20px; text-align: center;">
+                Lamentamos tal acontecimiento, no obstante, observamos que con base  al cuestionario que respondiste, no se requieren  llevar a cabo acciones de seguimiento de conformidad con la NOM-035-STPS-2018.
+            </p>
+
+            <p style="padding: 10px 20px; text-align: center;">
+                Te pedimos ratificar tu informe realizando los siguientes pasos, en los botones de abajo:   descarga, firma y sube el informe; en caso de no poder imprimir en este momento, da clic en continuar.
+            </p>
+            <div class="archiv">
+                <a href="~/Files/@ViewBag.informe" download="informe.pdf">Descargar Informe </a>
+                <form method="post" id="reg" enctype="multipart/form-data">
+                    <div>
+                        <input type="hidden" name="nombre" value="@ViewBag.informe" />
+                        <input type="file" name="informe" id="informe" value="" />
+                        <label for="informe">Subir Informe</label>
+                    </div>
+                </form>
+                <a href="#" id="ratificar">Ratificar</a>
+                <a href="~/Empleado/">Continuar</a>
+
+
+
+            </div>
+            <p style="padding: 10px 20px; text-align: center;">
+                Para ratificar tu informe en fecha posterior, debes entrar en el módulo "Acontecimiento Traumático"  <span class="d-flex justify-content-center">
+                    <embed src="~/Assets/img/SVG/EMPRESA/indentificacióndeacontecimientotraumaticosevero.svg" style="width:40px; height:40px" type="image/svg+xml" />
+                </span>
+            </p>
+            <p style="text-align:center; margin-top:10px;">
+                seleccionando “Historial”, pulsar sobre “Pendiente de ratificar”.
+            </p>
+        </div>
+
+    }
+    else
+    {
+        <div class="contenedor">
+
+            <p>
+                Gracias
+            </p>
+            <p style="padding: 10px 20px; text-align: center;">
+                Hemos recibido tu informe donde declaras bajo protesta de decir verdad que durante los últimos 3 meses a la fecha @DateTime.Now.ToString("dd/MM/yyyy"), no has sufrido o presenciado durante o con motivo de trabajo ningún Acontecimiento Traumático Severo o Violencia Laboral en la empresa @oEmpresa.RazonComercial.
+            </p>
+            <p style="padding: 10px 20px; text-align: center;">
+                Por lo anterior se concluye, que no se requiere acciones de seguimiento de conformidad con la NOM-035-STPS-2018, recuerda que tu participación, conducta y cumplimiento son fundamentales para mantener un Entorno Organizacional Favorable y prevenir riesgos psicosociales en tu centro de trabajo.
+            </p>
+            <p style="padding: 10px 20px; text-align: center;">
+                Para finalizar debes ratificar tu informe, para ello por favor descarga, firma y sube el mismo en los botones de abajo; en caso de no poder imprimir en este momento, da clic en continuar.
+            </p>
+
+            <div class="archiv">
+                <a href="~/Files/@ViewBag.informe" download="informe.pdf">Descargar Informe </a>
+                <form method="post" id="reg" enctype="multipart/form-data">
+                    <div>
+                        <input type="hidden" name="nombre" value="@ViewBag.informe" />
+                        <input type="file" name="informe" id="informe" value="" />
+                        <label for="informe">Subir Informe</label>
+                    </div>
+                </form>
+                <a href="#" id="ratificar">Ratificar</a>
+                <a href="~/Empleado/">Continuar</a>
+
+
+
+            </div>
+            <p style="padding: 10px 20px; text-align: center;">
+                Para ratificar tu informe en fecha posterior, debes entrar en el módulo "Acontecimiento Traumático"  <span class="d-flex justify-content-center">
+                    <embed src="~/Assets/img/SVG/EMPRESA/indentificacióndeacontecimientotraumaticosevero.svg" style="width:40px; height:40px" type="image/svg+xml" />
+                </span>
+            </p>
+            <p style="text-align:center; margin-top:10px;">
+                seleccionando “Historial”, pulsar sobre “Pendiente de ratificar”.
+            </p>
+        </div>
+    }
+
+
+
+
+
+
+    @section scripts
+    {
+        <script>
+            $("#ratificar").click(function () {
+                var informe = $("#informe").val();
+                if (!informe) {
+
+                    alert("Campo de informe vacío");
+                } else {
+                    $("#reg").submit();
+                }
+                
+            });
+        </script>
+    }
+</body>
+</html>

@@ -22,6 +22,8 @@
           <Property Name="registro" Type="datetime" />
           <Property Name="idEmpresa" Type="int" />
           <Property Name="status" Type="bit" />
+          <Property Name="categoria" Type="varchar" MaxLength="200" />
+          <Property Name="dominio" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="admin_perfil">
           <Key>
@@ -1862,8 +1864,8 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
           <EntitySet Name="Log_factores" EntityType="rhconModel.Log_factores" />
           <EntitySet Name="admin_perfil" EntityType="rhconModel.admin_perfil" />
           <EntitySet Name="EncuestaSugerencias" EntityType="rhconModel.EncuestaSugerencias" />
-          <EntitySet Name="acciones" EntityType="rhconModel.acciones" />
           <EntitySet Name="resultados_nom035" EntityType="rhconModel.resultados_nom035" />
+          <EntitySet Name="acciones" EntityType="rhconModel.acciones" />
           </EntityContainer>
         <EntityType Name="categoria">
           <Key>
@@ -2736,24 +2738,6 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
           <Property Name="year" Type="Int16" />
           <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="acciones">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="dimension" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="accion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="medidasPrevencion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="responsable" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="date" Type="DateTime" Precision="3" />
-          <Property Name="tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="registro" Type="DateTime" Precision="3" />
-          <Property Name="idEmpresa" Type="Int32" />
-          <Property Name="status" Type="Boolean" />
-        </EntityType>
         <EntityType Name="resultados_nom035">
           <Key>
             <PropertyRef Name="id" />
@@ -2789,6 +2773,26 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
           <Property Name="dominio_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="idCategoria" Type="Int32" Nullable="false" />
           <Property Name="categoria_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="acciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dimension" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="accion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="medidasPrevencion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="responsable" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="registro" Type="DateTime" Precision="3" />
+          <Property Name="idEmpresa" Type="Int32" />
+          <Property Name="status" Type="Boolean" />
+          <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="dominio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3300,25 +3304,6 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="acciones">
-            <EntityTypeMapping TypeName="rhconModel.acciones">
-              <MappingFragment StoreEntitySet="acciones">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
-                <ScalarProperty Name="registro" ColumnName="registro" />
-                <ScalarProperty Name="color" ColumnName="color" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="responsable" ColumnName="responsable" />
-                <ScalarProperty Name="medidasPrevencion" ColumnName="medidasPrevencion" />
-                <ScalarProperty Name="accion" ColumnName="accion" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="dimension" ColumnName="dimension" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="resultados_nom035">
             <EntityTypeMapping TypeName="rhconModel.resultados_nom035">
               <MappingFragment StoreEntitySet="resultados_nom035">
@@ -3339,6 +3324,27 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
                 <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
                 <ScalarProperty Name="idResuestaEmpleado" ColumnName="idResuestaEmpleado" />
                 <ScalarProperty Name="curp" ColumnName="curp" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="acciones">
+            <EntityTypeMapping TypeName="rhconModel.acciones">
+              <MappingFragment StoreEntitySet="acciones">
+                <ScalarProperty Name="dominio" ColumnName="dominio" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="registro" ColumnName="registro" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="responsable" ColumnName="responsable" />
+                <ScalarProperty Name="medidasPrevencion" ColumnName="medidasPrevencion" />
+                <ScalarProperty Name="accion" ColumnName="accion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="dimension" ColumnName="dimension" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -1,0 +1,34 @@
+﻿@model rhcon.Models.ViewModel.AdminViewModel
+@{
+    ViewBag.Title = "Perfil Administrador";
+    Layout = "~/Views/Shared/_LayoutCrud.cshtml";
+}
+
+<h4 style="text-align:center">DATOS DEL ADMINISTRADOR</h4>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <table id="" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>CEDULA</th>
+                    <th>CORREO ELECTRONICO</th>
+                    <th>ACTIVIDAD</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th>@Model.nombre</th>
+                    <th>@Model.cedula</th>
+                    <th>@Model.Email</th>
+                    <th> <a class="btn btn-primary" href="~/Administrador/datosadmin">Detalles</a>  </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <a href="~/Administrador" class="btn btn-primary">Regresar</a>
+    </div>
+</div>
+

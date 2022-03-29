@@ -1,0 +1,37 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <style>
+
+        .right {
+            position: relative;
+            float: right;
+        }
+
+
+        .left {
+            position: relative;
+            float: left;
+            font-size: 20px;
+        }
+        img{
+            max-height:100px;
+        }
+    </style>
+
+
+
+    <div class="left">
+        @Request.Params["nombre"].ToString()
+    </div>
+    <div class="right">
+        <img src="~/Assets/logos/@Request.Params["logo"].ToString()" alt="Alternate Text" />
+    </div>
+
+
+
+</body>
+</html>

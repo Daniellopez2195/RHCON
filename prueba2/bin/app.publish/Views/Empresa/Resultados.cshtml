@@ -1,0 +1,1386 @@
+﻿@using rhcon.Models
+@model  List<centroTrabajo>
+@{
+    ViewBag.Title = "Empresa";
+    Layout = "~/Views/Shared/_LayoutResultados.cshtml";
+
+
+
+}
+
+<style>
+    .wraper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap:40px;
+    }
+   
+ 
+</style>
+
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+@*<script src="https://code.highcharts.com/themes/dark-unica.js"></script>*@
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<div class="grilla">
+    @* grafica nom035 *@
+    @using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data", id = "form" }))
+    {
+        <div class="filtros-grafic">
+            <h5>
+                Resultados Generales
+            </h5>
+            <div class="wraper">
+                <div>
+                    <label>Grupo de Población: </label><br />
+                    <select id="selectCentros" name="centro" style="max-width:110px;">
+
+                        <option value="" selected>Empresa:@ViewBag.Empresa</option>
+                        @foreach (var centro in Model)
+                        {
+
+                            <option value="@centro.id">Centro:@centro.nombre</option>
+
+                        }
+                    </select>
+                </div>
+
+                <div>
+                    <label>Tipo de Análisis: </label><br />
+                    <select id="tipoGrafica035">
+                        <option value="0">Individual</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Norma: </label><br />
+                    <select id="tipoNorma">
+                        <option value="nom035">NOM-035-STPS-2018</option>
+                        <option value="nom025">NMX-R-025-SCFI-2015</option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label id="labelYear">Año</label><br />
+                    <span id="selectYears"></span>
+                    <span class="false" id="yearHidden">
+                        <span>-</span>
+                        <span id="selectYearsReverse"></span>
+                    </span>
+                </div>
+
+
+                <div id="datosfiltros">
+                        @*<label>Datos</label><br/>*@
+                </div>
+
+
+            </div>
+        </div>
+        <input type="text" hidden name="idEmpresa"  value="@ViewBag.idEmpresa" />
+    }
+    <div class="d-flex justify-content-center" id="opciones_menu" style="margin-top:15px;">
+        <button id="informeEmpresa" class="btn btn-primary" style="margin:0 5px;">Informe Ejecutivo</button>
+        <a href="~/Empresa/Acciones" class="btn btn-primary">Plan de Acción</a>
+    </div>
+    <h1 id="titleGeneral" class="titleGeneral">
+    </h1>
+    <h1 class="titleGeneral" id="titleNorma">nom035</h1>
+    <div class="separador">
+        <div id="containerNom035">
+
+        </div>
+        <div class="nivelesDeRiesgo" id="table">
+            <table class="categoria">
+                <tr style="text-align:center;">
+                    <td>Niveles NOM-035-STPS-2018</td>
+
+                </tr>
+                <tr>
+                    <td class="azul">
+                        ENTORNO ORGANIZACIONAL ALTAMENTE FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL NULO
+                    </td>
+                </tr>
+                <tr>
+                    <td class="verde">
+                        ENTORNO ORGANIZACIONAL FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL BAJO
+                    </td>
+                </tr>
+                <tr>
+                    <td class="amarillo">
+                        ENTORNO ORGANIZACIONAL MODERADO Y NIVEL DE RIESGO PSICOSOCIAL MEDIO
+                    </td>
+                </tr>
+                <tr>
+                    <td class="naranja">
+                        ENTORNO ORGANIZACIONAL POCO FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL ALTO
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rojo">
+                        ENTORNO ORGANIZACIONAL MUY DESFAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL MUY ALTO
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="d-flex justify-content-end">
+    <a href="~/Factores/Menuresultados" class="btn btn-primary">Salir</a>
+</div>
+<template id="templateNom035">
+
+
+
+
+    <figure class="highcharts-figure">
+        <div id="nom035"></div>
+        <p class="highcharts-description">
+
+        </p>
+    </figure>
+
+</template>
+
+
+<template id="templateNom025">
+
+
+    <div class="buttons" id="buttons">
+
+    </div>
+
+    <figure class="highcharts-figure">
+        <div id="nom025"></div>
+        <p class="highcharts-description">
+
+        </p>
+    </figure>
+
+</template>
+
+
+<template id="null_grafica">
+    <div>
+        <img src="~/Assets/img/botones/grafic.png" class="img_grafica" alt="grafica" />
+        <h3>
+            <span>
+                Grafica en construcción
+            </span>
+        </h3>
+    </div>
+</template>
+
+
+<template id="tableNom035">
+    <table class="categoria">
+        <tr style="text-align:center;">
+            <td>Niveles NOM-035-STPS-2018</td>
+
+        </tr>
+        <tr>
+            <td class="azul">
+                ENTORNO ORGANIZACIONAL ALTAMENTE FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL NULO
+            </td>
+        </tr>
+        <tr>
+            <td class="verde">
+                ENTORNO ORGANIZACIONAL FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL BAJO
+            </td>
+        </tr>
+        <tr>
+            <td class="amarillo">
+                ENTORNO ORGANIZACIONAL MODERADO Y NIVEL DE RIESGO PSICOSOCIAL MEDIO
+            </td>
+        </tr>
+        <tr>
+            <td class="naranja">
+                ENTORNO ORGANIZACIONAL POCO FAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL ALTO
+            </td>
+        </tr>
+        <tr>
+            <td class="rojo">
+                ENTORNO ORGANIZACIONAL MUY DESFAVORABLE Y NIVEL DE RIESGO PSICOSOCIAL MUY ALTO
+            </td>
+        </tr>
+    </table>
+</template>
+
+<template id="tableNom025">
+
+    <table class="categoria">
+        <tr stye="text-align:center;">
+            <td>NIVEL DE PERCEPCIÓN DEL CLIMA LABORAL</td>
+
+        </tr>
+        <tr>
+            <td class="azul">
+                EXCELENTE
+            </td>
+        </tr>
+        <tr>
+            <td class="verde">
+                BUENO
+            </td>
+        </tr>
+        <tr>
+            <td class="naranja">
+                REGULAR
+            </td>
+        </tr>
+        <tr>
+            <td class="rojo">
+                MALO
+            </td>
+        </tr>
+        <tr>
+        </tr>
+    </table>
+</template>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    var fechas;
+    let estructura035,estructura025;
+    var chartNom035, chartNom025;
+    var idCentro = "";
+    var SelectedFechaOne = "", toYear = "" , selectedFechaTwo = ""
+    var TitleNom035 = ""
+    var tipoEstructura = false;
+    var tipoNorma = "nom035"
+    var CategoriaOApartados = "Categorias";
+    var contentDemografico = ''
+
+
+
+    // HTML de la grafica nom035 y nom025
+    const graficaNom035 = document.querySelector("#templateNom035").content;
+
+    // div contenedor de la grafica
+    const contentNom035 = document.querySelector("#containerNom035");
+    // main de la pagina
+    const grilla = document.querySelector(".grilla");
+
+    // HTML del diseño cuando no hay periodos de evaluacion
+    const null_grafica = document.querySelector("#null_grafica").content;
+    const yearHidden = document.querySelector("#yearHidden")
+    const title = document.querySelector("#titleGeneral");
+
+
+
+
+
+
+    // metodos de la grafica
+    var selectedCentros035 = document.querySelector("#selectCentros");
+    // rango de la consulta de datos:
+    //opcion 1: Empresa
+    // opcion 2: centro de trabajo
+    selectedCentros035.addEventListener("change", (e) => {
+        idCentro = e.target.value
+        var yearsData = [SelectedFechaOne, selectedFechaTwo]
+        cargar(yearsData, tipoNorma, graficarNom035)
+
+
+    })
+
+
+
+    //metodo de grafica
+
+    var selectdatosfiltros = document.querySelector("#datosfiltros");
+
+    selectdatosfiltros.addEventListener("change", (a) => {
+        contentDemografico = a.target.value
+        var yearsData = [SelectedFechaOne, selectedFechaTwo]
+        cargar(yearsData, tipoNorma, graficaNom035)
+
+    })
+
+
+
+    // evento del tipo de grafica: individual o comparativa
+    var selectedtipo035 = document.querySelector("#tipoGrafica035");
+    var informeEmpresa = document.querySelector("#informeEmpresa");
+    var demografico = document.querySelector("#datosfiltros");
+    var demograficoArray = [
+        { nombre: "Sexo", value: "sexo" },
+        { nombre: "Edad", value: "edad" },
+        { nombre: "Estado Civil", value: "estadoCivil" },
+        { nombre: "Antiguedad", value: "antiguedad" },
+        { nombre: "Tiempo Puesto", value: "tiempoPuestoActua" },
+        { nombre: "Tiempo Experiencia", value: "tiempoExperienciaLaboral"},
+        { nombre: "Escolaridad", value: "escolaridad" },
+        { nombre: "Tipo Jornada", value: "tipoJornada" },
+        { nombre: "Tipo Contratación", value: "tipoContratacion" },
+        { nombre: "Tipo Personal", value: "tipoPersonal" },
+        { nombre: "Tiene Discapacidad", value: "tieneDispacidad" },
+        { nombre: "Discapacidad", value: "dispacidad" },
+        { nombre: "Realiza Rotación", value:"realizaRotacion"},
+
+    ]
+
+
+    var labelYear = document.querySelector("#labelYear");
+    selectedtipo035.addEventListener("change", (e) => {
+        var tipo035 = e.target.value
+
+        if (tipo035 == 0) {
+            tipoEstructura = false
+            yearHidden.className = "false"
+            labelYear.textContent = "Año"
+            var yearsData = [SelectedFechaOne, selectedFechaTwo]
+            title.textContent = TitleNom035;
+            informeEmpresa.toggleAttribute("hidden")
+            cargar(yearsData, tipoNorma, graficarNom035)
+
+        } else {
+            tipoEstructura = true
+            yearHidden.className = ""
+            labelYear.textContent = "Años"
+            var yearsData = [SelectedFechaOne, selectedFechaTwo]
+            title.textContent = TitleNom035;
+            informeEmpresa.toggleAttribute("hidden")
+            cargar(yearsData, tipoNorma, graficarNom035)
+
+            var select = document.createElement("select");
+            select.setAttribute("name", "demo")
+            select.setAttribute("id","demografico")
+
+            demograficoArray.map((d, index, array) => {
+                var option = document.createElement("option");
+                option.textContent = d.nombre;
+                option.setAttribute("value", d.value);
+                select.appendChild(option);
+            });
+            var option = document.createElement("option");
+            option.textContent = "year";
+            option.setAttribute("value", "year");
+            select.appendChild(option);
+            demografico.appendChild(select)
+
+        }
+
+
+
+    })
+
+
+    var selectedtipoNorma = document.querySelector("#tipoNorma");
+    // tablas
+    var tableContent = document.querySelector("#table");
+    const tableNom035 = document.querySelector("#tableNom035").content;
+    const tableNom025 = document.querySelector("#tableNom025").content;
+    const titleNorma = document.querySelector("#titleNorma");
+    titleNorma.textContent = "NOM-035-STPS-2018"
+
+    selectedtipoNorma.addEventListener("change", (e) => {
+        tipoNorma = e.target.value
+        var yearsData = [SelectedFechaOne, selectedFechaTwo]
+        cargar(yearsData, tipoNorma, graficarNom025)
+        if (tipoNorma == "nom035") {
+            CategoriaOApartados = "Categorias"
+            tableContent.innerHTML = ""
+            tableContent.appendChild(tableNom035.cloneNode(true))
+            titleNorma.textContent = "NOM-035-STPS-2018"
+        } else {
+            CategoriaOApartados = "Apartados"
+            console.log(tableNom025)
+            tableContent.innerHTML = ""
+            tableContent.appendChild(tableNom025.cloneNode(true))
+            titleNorma.textContent = "NMX-R-025-SCFI-2015"
+        }
+
+    })
+
+
+    const existDate = async () => {
+         var url = "@Url.Content("~/Resultados/activar")";
+        const res = await axios.post(url);
+        // validacion = true o false dependiendo de la respuesta del servidor
+        // fecha = ultimo periodo de evaluacion de la empresa
+        // { validacion, fecha, fechas }
+        data = await res.data;
+
+        return data
+
+    }
+
+    const generateSelect = (contentSelect, fechas, norma, estado) => {
+        var select = document.createElement("select");
+        estado == 0 ? select.setAttribute("id", "selected_one") : select.setAttribute("id", "selected_two")
+        estado == 0 && select.setAttribute("name", "fecha")
+        console.log(fechas)
+        var base = fechas.slice()
+        var fechaReverse = base.reverse()
+        fechaReverse.map((d, index, array) => {
+            var option = document.createElement("option");
+            option.textContent = d;
+            option.setAttribute("value", d);
+            select.appendChild(option);
+        });
+
+
+
+        contentSelect.appendChild(select)
+        if (estado == 0) {
+            eventosOne(fechas, norma, contentSelect);
+        } else {
+            eventosTwo(fechas, norma, contentSelect);
+        }
+
+
+    }
+
+
+
+    (async () => {
+
+        const { validacion, fecha, fechas } = await existDate()
+        SelectedFechaOne = fecha
+        toYear = fecha
+        selectedFechaTwo = fecha
+        if (validacion == "true") {
+
+            if (fechas.length > 1) {
+                var option = document.createElement("option")
+                option.setAttribute("value", "1")
+                option.textContent = "Comparativa"
+                selectedtipo035.appendChild(option)
+            }
+
+            contentNom035.appendChild(graficaNom035);
+            var select_section_one = document.querySelector("#selectYears");
+            generateSelect(select_section_one, fechas, "Nom035", 0)
+            var select_section_two = document.querySelector("#selectYearsReverse");
+            generateSelect(select_section_two, fechas, "Nom035", 1)
+
+
+
+            var yearsData = [SelectedFechaOne, selectedFechaTwo]
+            cargar(yearsData, tipoNorma , graficarNom035)
+
+
+
+        } else {
+            //modificar el dom
+
+            grilla.innerHTML = "";
+            grilla.appendChild(null_grafica);
+            grilla.classList.remove("grilla");
+            grilla.classList.add("no_grafic");
+        }
+    })()
+
+
+    const cargar = async ([yearOne,yearTwo],norma,demografico = '') => {
+        try {
+
+            var graficaSeleccionada = (tipoNorma == "nom035" ? graficarNom035 : graficarNom025)
+            if (tipoEstructura) {
+
+                var dataOne = await generarData(yearOne, "json" + norma[0].toUpperCase() + norma.slice(1));
+                var dataTwo = await generarData(yearTwo, "json" + norma[0].toUpperCase() + norma.slice(1));
+                var estructuraOne = desestructurar(norma, dataOne);
+                var estructuraTwo = desestructurar(norma, dataTwo);
+                if (yearOne > yearTwo) {
+                    var newData = [...estructuraOne, ...estructuraTwo]
+                } else {
+                    var newData = [...estructuraTwo, ...estructuraOne]
+                }
+
+
+                TitleNom035 = dataOne["title"];
+
+
+                title.textContent = TitleNom035;
+                graficaSeleccionada(newData)
+
+            } else {
+
+                var dataOne = await generarData(yearOne, "json" + norma[0].toUpperCase() + norma.slice(1));
+                estructura = desestructurar(norma, dataOne);
+
+                 TitleNom035 = dataOne["title"];
+
+                title.textContent = TitleNom035;
+                graficaSeleccionada(estructura);
+
+            }
+
+        } catch (e) {
+            Swal.fire('No existe datos para mostrar')
+        }
+    }
+
+
+
+    const generarData = async (year, extencion) => {
+        var parametros = new FormData();
+        parametros.append("yearData", year);
+        parametros.append("rango", contentDemografico);
+        if (idCentro != "") {
+           parametros.append("idCentro", idCentro);
+        }
+        var url = "@Url.Content("~/Resultados/")" + extencion;
+        const res = await axios.post(url, parametros);
+        const data = res.data;
+        return data;
+
+    }
+
+    const desestructurar = (norma, data) => {
+        var dataSeries;
+
+                dataSeries =
+                [
+                    {
+                        name: 'Muy alto ',
+                        data: data["red"],
+                        color: '#bd5151',
+                        stack: data["data"] + data,
+                        fecha: data["data"]
+                       /* pointWidth: 40*/
+
+                    },
+                    {
+                        name: 'Alto ' ,
+                        data: data["orange"],
+                        color: '#e88a2c',
+                        stack: data["data"] + data,
+                        fecha: data["data"]
+                    },
+                    {
+                        name: 'Medio ' ,
+                        data: data["yellow"],
+                        color: '#fff86b',
+                        stack: data["data"] + data,
+                        fecha: data["data"]
+                    },
+                    {
+                        name: 'Bajo ' ,
+                        data: data["green"],
+                        color: '#6bed4e',
+                        stack: data["data"] + data,
+                        fecha: data["data"]
+                    },
+                    {
+                        name: 'Nulo ' ,
+                        data: data["blue"],
+                        color: '#9ac5ed',
+                        stack: data["data"] + data,
+                        fecha: data["data"]
+                    }
+                ];
+
+
+
+        return dataSeries;
+    }
+
+
+
+
+
+
+
+    const tooltips_035 = {
+
+        'Ambiente de trabajo': {
+            "Nulo": `
+                      El % de las personas encuestadas sobre "Ambiente de trabajo" es altamente favorable;
+                      expresaron que cuentan con las condiciones  propicias de salud e higiene permitiendo cumplir siempre con sus
+                      actividades diarias
+                    `,
+            "Bajo": `
+                      El % de las personas encuestadas sobre "Ambiente de trabajo" es favorable; expresaron que  casi siempre cuentan
+                      con las condiciones adecuadas de salud e higiene y que su trabajo no requiere el uso de esfuerzo físico
+
+                    `,
+            "Medio": `
+                     El % de las personas encuestadas sobre "Ambiente de trabajo" es moderado; expresaron que las actividades que realizan
+                     son ocasionalmente poco seguras y que algunas veces se sienten intranquilos al cumplir con sus actividades diarias
+                     `,
+            "Alto": `
+                     El % de las personas encuestadas sobre "Ambiente de trabajo" es poco favorable; expresaron  que casi nunca cuentan con
+                     condiciones  adecuadas de salud e higiene que permitan cumplir con sus actividades diarias
+                    `,
+            "Muy alto": `
+                    El % de las personas encuestadas sobre "Ambiente de trabajo" es muy desfavorable; expresaron que las condiciones en el
+                    ambiente de trabajo son deficientes y que no aplican normas de seguridad y salud
+                        `
+        },
+        'Factores propios de la actividad': {
+
+            'Nulo': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Factores propios de la Actividad" es altamente favorable;
+                    expresaron que siempre cuentan con condiciones  propicias de horario, ambiente laboral y carga de trabajo permitiendo cumplir con sus
+                    actividades diarias.
+                    `,
+            'Bajo': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Factores propios de la actividad" es favorable; expresaron que
+                    casi siempre cuentan con condiciones  propicias de horario, ambiente laboral y carga de trabajo permitiendo cumplir con sus actividades diarias.
+                    `,
+            'Medio': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Factores propios de la actividad" es moderado; expresaron que algunas
+                    veces cuentan con las condiciones necesarias de  carga, horario y ambiente laboral permitiendo cumplir con sus actividades diarias.
+                     `,
+            'Alto': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Factores propios de la actividad" es poco favorable; expresaron que casi nunca
+                    tienen control sobre su horario de trabajo y que su carga mental está casi siempre por arriba de su capacidad personal.
+                    `,
+            'Muy alto': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Factores propios de la actividad" es muy desfavorable; expresaron que nunca
+                    se sienten tranquilos, no tienen control sobre su horario de trabajo y que las responsabilidades que les son conferidas sobrepasan su capacidad personal.
+                        `
+        },
+        'Organización del tiempo de trabajo': {
+
+            'Nulo': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Organización del Tiempo de Trabajo" es altamente favorable; expresaron que
+                    siempre pueden tener actividades familiares y personales sin atender asuntos de trabajo cuando ya salieron de su centro de trabajo.
+                    `,
+            'Bajo': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Organización del Tiempo de Trabajo" es favorable; expresaron que casi siempre
+                    cuentan con jornadas de trabajo  adecuadas y que casi nunca tiene que trabajar en sus días de descanso o  días festivos.
+                    `,
+            'Medio': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Organización del Tiempo de Trabajo" es moderado; expresaron que algunas veces
+                    se sienten preocupados durante su jornada de trabajo y en ocasiones deben de trabajar en días de descanso o días festivos.
+                     `,
+            'Alto': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Organización del Tiempo de Trabajo" es poco favorable; expresaron que casi nunca
+                    pueden tener actividades personales y familiares porque deben trabajar tiempo extraordinario.
+
+                    `,
+            'Muy alto': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Organización del Tiempo de Trabajo" es muy desfavorable; expresaron que cuentan
+                    con jornadas de trabajo exhaustivas y que nunca pueden desarrollar activiades familiares y personales.
+                        `
+        },
+        'Liderazgo y relaciones en el trabajo': {
+
+            'Nulo': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Liderazgo y Relaciones en el Trabajo" es altamente favorable; expresaron
+                    que siempre cuentan con las condiciones propicias de liderazgo y reciben de manera oportuna comunicación sobre asuntos de trabajo.
+
+                    `,
+            'Bajo': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Liderazgo y Relaciones en el Trabajo" es favorable;
+                    expresaron que sus jefes inmediatos casi siempre toman en cuenta sus opiniones y que casi nunca han presenciado actos de
+                    violencia laboral en contra de ellos mismos u otra persona.
+                    `,
+            'Medio': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Liderazgo y Relaciones en el Trabajo" es moderado;
+                    expresaron que algunas veces son informados sobre sus funciones y que solo algunas veces sienten parte del grupo de trabajo.
+                     `,
+            'Alto': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Liderazgo y Relaciones en el Trabajo" es poco favorable,
+                    expresaron que el jefe casi nunca les ayuda a la organización de sus tareas diarias y que sienten casi nada de confianza en relación
+                    a sus compañeros y compañeras de trabajo.
+                    `,
+            'Muy alto': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Liderazgo y Relaciones en el Trabajo" es muy desfavorable;
+                    expresaron que cuentan con  condiciones perjudiciales de liderazgo que no permite un balance de trabajo entre colaboradores y jefe
+                        `
+        },
+        'Entorno organizacional': {
+            'Nulo': `
+                     El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Desempeño y Estabilidad Laboral" es altamente favorable,
+                    expresaron que el pago del salario siempre es puntual y se sienten reconocidos
+
+                    `,
+            'Bajo': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Desempeño y Estabilidad Laboral" es favorable; expresaron
+                    que reciben retroalimentación sobre lo que hacen bien en su trabajo y eso casi siempre les ayuda a mejorar.
+
+                    `,
+            'Medio': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Desempeño y Estabilidad Laboral" es moderado, expresaron
+                    que algunas veces se sienten orgullosos de pertenecer a su empresa y que el pago del salario es parcialmente puntual.
+                     `,
+            'Alto': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Desempeño y Estabilidad Laboral" es poco favorable;
+                    expresaron que casi nunca reciben retroalimentación sobre su desempeño y casi nunca son puntuales.
+                    `,
+            'Muy alto': `
+                    El % de las personas encuestadas sobre el nivel de riesgo psicosocial en "Desempeño y Estabilidad Laboral" es muy desfavorable;
+                    expresaron que nunca reciben salarios a tiempo o retroalimentación sobre las tareas que desempeñan; además, perciben que su trabajo es muy inestable.
+                        `
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+    const graficarNom035 = (estructura) => {
+
+
+        chartNom035 = Highcharts.chart('nom035', {
+
+            chart: {
+                type: 'bar',
+                height: 600,
+                borderColor: 'black',
+                borderRadius: 20,
+                borderWidth: 2,
+
+
+
+            },
+
+            lang: {
+                downloadCSV: "Descarga CSV",
+                printChart: "Imprimir",
+                viewFullscreen: "Ver en pantalla completa",
+                downloadPNG: "Descargar imagen en formato PNG",
+                downloadJPEG: "Descargar imagen en formato JPEG",
+                downloadPDF: "Descargar imagen en formato PDF",
+                downloadSVG: "Descargar imagen en formato SVG",
+                downloadXLS: "Descargar Excel",
+                viewData: "Ver tabla de valores"
+    
+            },
+            //exporting: {
+            //    enabled: false
+            //},
+
+            title: {
+                text: '',
+                align: 'center',
+            },
+
+            xAxis: {
+                categories:
+                    [
+                        'Ambiente de trabajo',
+                        'Factores propios de la actividad',
+                        'Organización del tiempo de trabajo',
+                        'Liderazgo y relaciones en el trabajo',
+                        'Entorno organizacional'
+                    ],
+
+
+                lineColor: 'black',
+                lineWidth: 1,
+                useHTML: true,
+                labels: {
+                    useHTML: true,
+                    formatter: function () {
+                        var yearElements = [0, 0]
+                        var ternario = tipoEstructura;
+                        if (SelectedFechaOne > selectedFechaTwo) {
+                            yearElements[0] = SelectedFechaOne
+                            yearElements[1] = selectedFechaTwo
+                        } else if (SelectedFechaOne == selectedFechaTwo) {
+                            ternario = false;
+                        }
+                        else {
+                            yearElements[0] = selectedFechaTwo
+                            yearElements[1] = SelectedFechaOne
+                        }
+                        if (ternario) {
+                            return `
+                              <table BORDER="1" style=" font-size:16px;  width:200px;">
+                              <tr>
+                              <th ROWSPAN="2" width:"200px"; style="font-weight: normal; padding:0 5px;">
+                              ${this.value}
+                              </th>
+                              <td style = "padding:5px 0; text-align:right;">
+                               ${yearElements[0]}
+                              </td>
+                              </tr>
+                              <tr>
+                              <td style = "padding:5px 0; text-align:right;">
+                               ${yearElements[1]}
+                              </td>
+                              </tr>
+                              </table>
+                            `
+                        } else {
+                            return `<h5 style="font-size:16px; text-align:left;">${this.value}</h5>`
+                        }
+
+                    },
+                    align: 'left',
+                    reserveSpace: true,
+                    style: {
+                        fontSize: 14,
+                        color: "black",
+                        width: 200
+
+
+                    }
+                },
+                title: {
+                    text: 'Categorias',
+                    margin: 20,
+                    style: {
+                        fontSize: 20,
+                        color: "black",
+                        paddingButton:40
+                    }
+                }
+            },
+
+            yAxis: {
+                allowDecimals: true,
+                min: 0,
+                max:100,
+                title: {
+                    text: '',
+                    style: {
+                        fontSize: 20,
+                        color:"black"
+                    }
+                    },
+                    labels: {
+                        formatter: function () {
+                            return '';
+                        }
+
+                },
+            },
+
+            legend: {
+                reversed: true
+            },
+
+            tooltip: {
+                /*                enabled: false*/
+
+                style: {
+                    width: 200,
+                },
+                formatter: function () {
+                    var nivel = this.point.series.userOptions.name.trim();
+                    var categoria = this.x;
+                    var mensaje = tooltips_035[categoria][nivel]
+                    var porcentaje = Number.isInteger(this.y) ? this.y + "%" : this.y.toFixed(2) + "%";
+                    var tooltip = mensaje.replace('%', porcentaje)
+
+
+                    return `<div style="width:50px;">${tooltip}</div>`
+
+
+                }
+            },
+
+            plotOptions: {
+
+                bar: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+
+                        formatter: function () {
+                            if (this.y != 0) {
+                                var fechaPlotOptions = this.point.series.userOptions.fecha;
+                                var porcentajePlotOptions = Number.isInteger(this.y) ? this.y + "%" : this.y.toFixed(2) + "%";
+
+                                return `<span style="font-size:12px;">${porcentajePlotOptions}</span>`
+
+                            }
+
+
+                        }
+                    }
+                },
+                series: {
+
+                    stacking: 'normal'
+                    //Sirve para dar anchura
+                    // pointWidth: '35'
+                }
+            },
+
+            legend: {
+                enabled: false
+
+            },
+            series: estructura
+        });
+    }
+
+
+
+
+
+
+
+
+
+    const tooltips_025 = {
+        'Reclutamiento y Selección de Personal': {
+            'Nulo': `
+                        El % de la población encuestada percibe excelente "Reclutamiento y seleccion de personal";
+                        expresaron que durante la selección  se les dio total prioridad a sus habilidades y
+                        competencias para su contratación.
+
+                    `,
+            'Bajo': `
+                        El % de la población encuestada percibe  bien "Reclutamiento y seleccion de personaL";
+                        expresaron que durante la  selección frecuentemente se les dio  prioridad a sus habilidades
+                        y competencias para su contratación.
+
+                    `,
+            'Alto': `
+                        El % de la población encuestada percibe  regular "Reclutamiento y seleccion de personal";
+                        expresaron que durante la  selección rara vez se les dio  prioridad a sus habilidades
+                        y competencias para su contratación.
+
+                    `,
+            'Muy alto': `
+                        El % de la población encuestada percibe mal  "Reclutamiento y seleccion de personal";
+                        expresaron que durante la  selección no se les dio  prioridad a sus habilidades y
+                        competencias para su contratación.
+                        `
+        },
+        'Formación y Capacitación ': {
+            'Nulo': `
+                        El % de la población encuestada percibe excelente "Formación y capacitación";
+                        indicaron que hay igualdad de oportunidades para su desarrollo laboral,
+                        ascenso y capacitación sin ningún tipo de consideración personal
+                    `,
+            'Bajo': `
+                        El % de la población encuestada percibe bien "Formación y capacitación";
+                        indicaron que hay igualdad de oportunidades para su desarrollo laboral,
+                        ascenso y capacitación la mayoría de las veces.
+
+                    `,
+            'Alto': `
+                        El % de la población encuestada percibe regular "Formación y capacitación";
+                        indicaron que para obtener oportunidades para su desarrollo laboral, ascenso
+                        y capacitación se contemplaron aspectos personales como sexo, edad o rasgos físicos
+                    `,
+            'Muy alto': `
+                        El % de la población encuestada percibe mal "Formación y capacitación";
+                        indicaron que hay desigualdad de oportunidades para el desarrollo laboral
+                        y ascenso, tampoco se cuentan con programas de capacitación
+                        `
+        },
+        'Permanencia y Ascenso': {
+            'Nulo': `
+                        El % de la población encuestada percibe excelente "Permanencia y acenso";
+                        expresaron que la competencia por mejoras laborales, siempre, se obtienen a
+                        través de evaluaciones de desempeño justas y equitativas.
+
+                    `,
+            'Bajo': `
+                        El % de la población encuestada percibe buena "Permanencia y acenso";
+                        expresaron que la competencia por mejoras laborales , frecuentemente,
+                        se obtienen a través de evaluaciones de desempeño justas y equitativas.
+
+                    `,
+            'Alto': `
+                        El % de la población  encuestada percibe regular "Permanencia y acenso";
+                        expresaron que la competencia por mejoras laborales, algunas veces,
+                        se obtienen a través de evaluaciones de desempeño justas y equitativas.
+
+                    `,
+            'Muy alto': `
+                        El % de la población encuestada percibe mal "Permanencia y acenso";
+                        expresaron que hay injusticia o inequidad en la obtención de ascensos
+                        y mejoras laborales,ya que estas se obtienen por preferencias personales
+                        o privilegios.
+                        `
+        },
+        'Corresponsabilidad en la Vida Laboral, Familiar y Personal': {
+            'Nulo': `
+                        El % de la población encuestada percibe excelente "Corresponsabilidad en la vida personal,
+                        familiar y laboral"; indicaron  que siempre se les brinda apoyo y flexibilidad por parte de
+                        sus autoridades inmediatas con situaciones familiares y personales de emergencia.
+                    `,
+            'Bajo': `
+                        El % de la población encuestada percibe bien "Corresponsabilidad en la vida personal,
+                        familiar y laboral"; indicaron que frecuentemente se les brinda apoyo y flexibilidad por
+                        parte de sus autoridades inmediatas con situaciones familiares y personales de emergencia.
+
+                    `,
+            'Alto': `
+                        El % de la población encuestada  percibe regular "Corresponsabilidad en la vida personal,
+                        familiar y laboral"; indicaron que algunas veces se les brinda apoyo y flexibilidad por parte
+                        de sus autoridades inmediatas con situaciones familiares y personales de emergencia.
+
+                    `,
+            'Muy alto': `
+                        El % de la población encuestada  percibe mal "Corresponsabilidad en la vida personal,
+                        familiar y laboral"; indicaron que  nunca  se les brinda apoyo y flexibilidad por parte
+                        de sus autoridades inmediatas con situaciones familiares y personales de emergencia.
+                        `
+        },
+        'Clima Laboral Libre de Violencia': {
+            'Nulo': `
+                        El % de la población encuestada percibe excelente "Clima laboral libre de violencia";
+                        expresaron que siempre se les brinda trato digno, respetuoso y su valoración depende
+                        de su calidad y responsabilidad sin importar el perfil de puesto o jerarquía.
+
+                    `,
+            'Bajo': `
+                        El % de la población encuestada percibe bien "Clima laboral libre de violencia";
+                        expresaron que frecuentemente se les brinda trato digno, respetuoso y su valoración
+                        depende de su calidad y responsabilidad sin importar el perfil de puesto o jerarquía.
+                    `,
+            'Alto': `
+                        El % de la población encuestada percibe regular "Clima laboral libre de violencia";
+                        expresaron que algunas veces se les brinda trato digno, respetuoso y su valoración
+                        depende de su calidad y responsabilidad sin importar el perfil de puesto o jerarquía.
+
+                    `,
+            'Muy alto': `
+                        El % de la población encuestada percibe mal "Clima laboral libre de violencia";
+                        expresaron que nunca se les brinda trato digno, respetuoso y su valoración
+                        no depende de su calidad y responsabilidad.
+                        `
+        },
+        'Acoso y Hostigamiento': {
+            'Nulo': `
+                        El % de la población encuestada percibe excelente "Acoso y hostigamiento";
+                        expresaron que en su centro de trabajo siempre hay un clima libre de acoso y
+                        hostigamiento sexual. Además, indicaron que conocen a las autoridades pertinentes para
+                        resolver situaciones relacionadas con acoso y hostigamiento sexual si se llegasen a presentar.
+
+                    `,
+            'Bajo': `
+                        El % de la población encuestada percibe  bien "Acoso y hostigamiento"; expresaron que en su
+                        centro de trabajo frecuentemente hay un clima libre de acoso y hostigamiento sexual. Además,
+                        indicaron que conocen a las autoridades pertinentes para resolver situaciones relacionadas con
+                        acoso y hostigamiento sexual si se llegasen a presentar.
+
+                    `,
+            'Alto': `
+                        El % de la población encuestada percibe como regular "Acoso y hostigamiento"; expresaron que
+                        en su centro de trabajo algunas veces hay un clima libre de acoso y hostigamiento sexual.
+                        Además, indicaron que conocen  poco sobre las autoridades pertinentes para resolver situaciones
+                        relacionadas con acoso y hostigamiento sexual si se llegasen a presentar.
+
+
+                    `,
+            'Muy alto': `
+                        El % de la población encuestada percibe mal "Acoso y hostigamiento"; expresaron que en su centro
+                        de trabajo nunca hay un clima libre de acoso y hostigamiento sexual. Además, indicaron que desconocen
+                        a las autoridades pertinentes para resolver situaciones relacionadas con acoso y hostigamiento
+                        sexual cuando se presentan.
+
+                        `
+        },
+        'Accesibilidad': {
+            'Nulo': `
+                        El % de la población encuestada percibe excelente "Accesibilidad"; expresaron que su centro de trabajo
+                        siempre es inclusivo y accesible al contar con espacios, instalaciones, recursos y medios tecnológicos
+                        y de comunicación adecuados para el desempeño óptimo de las personas con discapacidad.
+
+                    `,
+            'Bajo': `
+                        El % de la población encuestada percibe bien "Accesibilidad"; expresaron que su centro de trabajo
+                        frecuentemente es inclusivo y accesible al contar con espacios, instalaciones, recursos y medios tecnológicos
+                        y de comunicación adecuados para el desempeño óptimo de las personas con discapacidad.
+
+                    `,
+            'Alto': `
+                        El % de la población encuestada percibe regular "Accesibilidad"; expresaron que su centro de trabajo algunas
+                        veces es inclusivo y accesible al contar con algunos espacios, instalaciones, recursos y medios tecnológicos
+                        y de comunicación adecuados para el desempeño óptimo de las personas con discapacidad.
+
+                    `,
+            'Muy alto': `
+                        El % de la población encuestada percibe mal "Accesibilidad"; expresaron que su centro de trabajo nunca es inclusivo,
+                        no cuenta con espacios, instalaciones, recursos y medios tecnológicos y de comunicación adecuados para el desempeño
+                        óptimo de las personas con discapacidad.
+                        `
+        },
+        'Respeto a la Diversidad': {
+            'Nulo': `
+                        El % de la población encuestada percibe excelente "Respeto y diversidad"; expresaron que en su centro de trabajo
+                        siempre hay un clima libre de discriminación, malos tratos o poco dignos en materia de diversidad sexual,
+                        discapacidad y respeto a las diferencias individuales.
+                    `,
+            'Bajo': `
+                        El % de la población encuestada percibe bien "Respeto y diversidad"; expresaron que en su centro de
+                        trabajo frecuentemente hay un clima libre de discriminación, malos tratos o poco dignos en materia de
+                        diversidad sexual, discapacidad y respeto a las diferencias individuales.
+
+
+                    `,
+            'Alto': `
+                        El % de la población encuestada percibe regular "Respeto y diversidad"; expresaron que su centro de
+                        trabajo algunas veces hay un clima libre de discriminación, malos tratos o poco dignos en materia de
+                        diversidad sexual, discapacidad y respeto a las diferencias individuales.
+
+
+                    `,
+            'Muy alto': `
+                        El % de la población encuestada percibe mal "Respeto y diversidad"; expresaron que su centro de trabajo
+                        nunca hay discriminación, malos tratos o indignos en materia de diversidad sexual, discapacidad y respeto
+                        a las diferencias individuales.
+
+                        `
+        },
+        'Condiciones Generales de Trabajo': {
+            'Nulo': `
+                        El % de la población encuestada percibe excelente "Condiciones generales de trabajo"; expresaron que su centro
+                        de trabajo, al igual que las y los directivos, siempre realizan esfuerzos para asegurar la igualdad y no discriminación,
+                        así como brindar las prestaciones de ley a todo el personal de manera justa y equitativa sin importar ser hombre o mujer,
+                        edad o apariencia física.
+
+                    `,
+            'Bajo': `
+                        El % de la población encuestada percibe bien "Condiciones generales de trabajo"; expresaron que su centro de trabajo,
+                        al igual que las y los directivos, frecuentemente realizan esfuerzos para asegurar la igualdad y no discriminación,
+                        así como brindar las prestaciones de ley a todo el personal de manera justa y equitativa sin importar ser hombre
+                        o mujer, edad o apariencia física.
+
+                    `,
+            'Alto': `
+                        El % de la población encuestada percibe regular "Condiciones generales de trabajo"; expresaron que su centro de
+                        trabajo, al igual que las y los directivos, algunas veces realizan esfuerzos para asegurar la igualdad y no discriminación,
+                        así como brindar las prestaciones de ley a todo el personal de manera justa y equitativa sin importar ser hombre o mujer,
+                        edad o apariencia física
+
+                    `,
+            'Muy alto': `
+                        El % de la población encuestada percibe mal "Condiciones generales de trabajo"; expresaron que su centro de trabajo,
+                        al igual que las y los directivos, nunca realizan esfuerzos para asegurar la igualdad y no discriminación, así como tampoco
+                        brindar las prestaciones de ley a todo el personal de manera justa y equitativa sin importar ser hombre o mujer, edad o apariencia física
+
+                        `
+        }
+    }
+
+
+
+
+
+    const graficarNom025 = (estructura) => {
+
+
+        chartNom035 = Highcharts.chart('nom035', {
+
+            chart: {
+                type: 'bar',
+                height: 850,
+                borderColor: 'black',
+                borderRadius: 20,
+                borderWidth: 2,
+            },
+
+
+            title: {
+                text: '',
+                align: 'center',
+            },
+
+            lang: {
+                downloadCSV: "Descarga CSV",
+                printChart: "Imprimir",
+                viewFullscreen: "Ver en pantalla completa",
+                downloadPNG: "Descargar imagen en formato PNG",
+                downloadJPEG: "Descargar imagen en formato JPEG",
+                downloadPDF: "Descargar imagen en formato PDF",
+                downloadSVG: "Descargar imagen en formato SVG",
+                downloadXLS: "Descargar Excel",
+                viewData: "Ver tabla de valores"
+            },
+
+            //exporting: {
+            //    enabled: false
+            //},
+
+            xAxis: {
+                categories: ['Reclutamiento y Selección de Personal', 'Formación y Capacitación ', 'Permanencia y Ascenso', 'Corresponsabilidad en la Vida Laboral, Familiar y Personal',
+                    'Clima Laboral Libre de Violencia', 'Acoso y Hostigamiento', 'Accesibilidad', 'Respeto a la Diversidad', 'Condiciones Generales de Trabajo'],
+
+                lineColor: 'black',
+                lineWidth: 1,
+                useHTML: true,
+                labels: {
+                    useHTML: true,
+                    formatter: function () {
+                        var yearElements = [0, 0]
+                        var ternario = tipoEstructura;
+                        if (SelectedFechaOne > selectedFechaTwo) {
+                            yearElements[0] = SelectedFechaOne
+                            yearElements[1] = selectedFechaTwo
+                        } else if (SelectedFechaOne == selectedFechaTwo) {
+                            ternario = false;
+                        }
+                        else {
+                            yearElements[0] = selectedFechaTwo
+                            yearElements[1] = SelectedFechaOne
+                        }
+                        if (ternario) {
+                            return `
+                              <table BORDER="1" style=" font-size:16px;  width:250px;">
+                              <tr>
+                              <th ROWSPAN="2" width:"200px"; style="font-weight: normal; padding:0 5px;">
+                              ${this.value}
+                              </th>
+                              <td style = "padding:5px 0; text-align:right;">
+                               ${yearElements[0]}
+                              </td>
+                              </tr>
+                              <tr>
+                              <td style = "padding:5px 0; text-align:right;">
+                               ${yearElements[1]}
+                              </td>
+                              </tr>
+                              </table>
+                            `
+                        } else {
+                            return `<h5 style="font-size:16px; text-align:left;">${this.value}</h5>`
+                        }
+
+                    },
+                    align: 'left',
+                    reserveSpace: true,
+                    style: {
+                        fontSize: 14,
+                        color: "black",
+                        width: 250
+
+
+                    }
+                },
+                title: {
+                    text: 'Apartados',
+                    margin: 20,
+                    style: {
+                        fontSize: 20,
+                        color: "black",
+                        paddingButton: 40
+                    }
+                }
+            },
+
+            yAxis: {
+                allowDecimals: true,
+                min: 0,
+                max: 100,
+                title: {
+                    text: '',
+                    style: {
+                        fontSize: 20,
+                        color: "black"
+                    }
+                },
+                labels: {
+                    formatter: function () {
+                        return '';
+                    }
+
+                },
+            },
+
+            legend: {
+                reversed: true
+            },
+
+            tooltip: {
+                style: {
+                    width: 200,
+                },
+                formatter: function () {
+                    var nivel = this.point.series.userOptions.name.trim();
+                    var categoria = this.x;
+                    var mensaje = tooltips_025[categoria][nivel]
+                    var porcentaje = Number.isInteger(this.y) ? this.y + "%" : this.y.toFixed(2) + "%";
+                    var tooltip = mensaje.replace('%', porcentaje)
+
+
+                    return `<div style="width:50px;">${tooltip}</div>`
+
+
+                }
+            },
+
+
+            plotOptions: {
+                bar: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function () {
+                            if (this.y != 0) {
+                                return Number.isInteger(this.y) ? this.y + "%" : this.y.toFixed(2) + "%"
+                            }
+
+
+                        }
+                    }
+                },
+                series: {
+                    pointWidth: '35'
+                }
+            },
+            legend: {
+                enabled: false
+
+            },
+            series: estructura
+        });
+    }
+
+
+
+
+    const eventosOne = (fechasNom035, norma) => {
+        var selec = document.getElementById("selected_one");
+        selec.addEventListener("change", (e) => {
+            var year = e.target.value
+            SelectedFechaOne = year;
+            var yearsData = [SelectedFechaOne, selectedFechaTwo]
+            var grafica = (tipoNorma == "nom035" ? graficarNom035 : graficarNom025)
+            cargar(yearsData, tipoNorma, grafica)
+
+        })
+
+    }
+
+    const eventosTwo = (fechasNom035, norma, contentBoton) => {
+        var selec = document.getElementById("selected_two");
+        selec.addEventListener("change", (e) => {
+            var year = e.target.value
+            selectedFechaTwo = year;
+            var yearsData = [SelectedFechaOne, selectedFechaTwo]
+            var grafica = (tipoNorma == "nom035" ? graficarNom035 : graficarNom025)
+            cargar(yearsData, tipoNorma, grafica)
+
+        })
+    }
+
+
+        //Acciones del boton de Descargar Informe Ejecutivo
+    var opciones_menu = document.querySelector("#opciones_menu");
+    var form = document.querySelector("#form")
+    const informeEjecutivo = document.querySelector("#informeEmpresa");
+
+
+        informeEjecutivo.addEventListener("click", () => {
+        if (tipoNorma == "nom035") {
+            var url = "@Url.Content("~/Resultados/Informe035")"
+            form.setAttribute("action", url)
+            form.submit();
+        } else {
+            var url = "@Url.Content("~/Resultados/Informe025")"
+            form.setAttribute("action", url)
+            form.submit();
+        }
+    })
+
+</script>
