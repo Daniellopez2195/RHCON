@@ -27,5 +27,7 @@ namespace rhcon.Models
         public Nullable<System.DateTime> registro { get; set; }
         public Nullable<int> idEmpresa { get; set; }
         public Nullable<bool> status { get; set; }
+        public string categoria { get; set; }
+        public string dominio { get; set; }
     }
 }

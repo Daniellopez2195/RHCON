@@ -1,0 +1,286 @@
+﻿@using rhcon.Models
+@model List<acciones> 
+@{
+    ViewBag.Title = "Mis Actividades";
+    Layout = "~/Views/Shared/_LayoutCrud.cshtml";
+}
+
+<style>
+    .col {
+        padding: 20px;
+    }
+
+    select {
+        width: 100%;
+        border: 1.5px solid #CDCDCD;
+        border-radius: 4px;
+        color: #A9A7A7;
+        padding: 10px 0;
+    }
+
+    .fecha {
+        width: 100%;
+        border: 1.5px solid #CDCDCD;
+        border-radius: 4px;
+        color: #A9A7A7;
+        padding: 10px 0;
+    }
+
+    .circulo-nivel {
+        width: 25px;
+        height: 25px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: #5cb85c;
+    }
+
+    .boton-aceptar {
+        background-color: #000000;
+        color: #ffffff;
+        padding: 10px 17px;
+        margin-top: 10px;
+        font-size: 12px;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: .4px;
+        text-align: center;
+        border: none;
+        box-shadow: none;
+    }
+
+    .boton-rechazar {
+        background-color: #ff0000;
+        color: #ffffff;
+        padding: 10px 17px;
+        margin-top: 10px;
+        font-size: 12px;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: .4px;
+        text-align: center;
+        border: none;
+        box-shadow: none;
+    }
+
+
+    .disabled {
+        display: none;
+    }
+
+    .nivelRiesgo {
+        position: relative;
+    }
+
+    .descripcion {
+        color: #1886f4;
+        text-decoration-line: underline;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+
+    .tooltipD {
+        position: absolute;
+        top: 100%;
+        background-color: white;
+        z-index: 100;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        padding: 2px 4px;
+        display: none;
+        border-radius: 10px;
+        transition: 2s ease;
+    }
+
+    .descripcion:hover ~ .tooltipD {
+        display: block;
+        transition: 1s ease;
+    }
+
+    .estado {
+        padding-left: 10px;
+    }
+
+    .azul {
+        background-color: #9ac5ed;
+        fill: #9ac5ed;
+    }
+
+
+    .verde {
+        background-color: #6bed4e;
+        fill: #6bed4e;
+    }
+
+    .amarillo {
+        background-color: #fff86b;
+        fill: #fff86b;
+    }
+
+    .naranja {
+        background-color: #e88a2c;
+        fill: #e88a2c;
+    }
+
+    .rojo {
+        background-color: #bd5151;
+        fill: #bd5151;
+    }
+
+    .checkIcon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #40ad63;
+        font-size: 16px;
+    }
+
+        .checkIcon span {
+            padding: 0 10px;
+        }
+</style>
+
+<h4 style="text-align:center; margin-top:20px">Plan de Acción NOM 035-STPS-2018</h4>
+
+<h4 style="text-align:right; margin-top:20px; margin-right:80px;">Mis actividades</h4>
+
+<div class="container-fluid" style="margin-top:20px">
+    <div class="row" style="border-bottom: 1px solid #929292">
+        <div class="col">
+            <span class="titulos">Dimensión</span>
+        </div>
+        <div class="col">
+            <span class="titulos"> Nivel de riesgo</span>
+        </div>
+        <div class="col">
+            <span class="titulos espacio">Acción de mejora</span>
+        </div>
+        <div class="col">
+            <span class="titulos">Descripción detallada</span>
+        </div>
+        <div class="col">
+            <span class="titulos">Responsable</span>
+        </div>
+        <div class="col">
+            <span class="titulos">Fecha compromiso</span>
+        </div>
+        <div class="col">
+            <span class="titulos">Acciones</span>
+        </div>
+    </div>
+
+
+    @foreach (var accion in Model)
+    {
+<div class="row" style="border-bottom: 1px solid #929292">
+    <div class="col">
+        @accion.dimension
+    </div>
+    <div class="col d-flex align-items-center nivelRiesgo">
+        <div class="circulo-nivel @accion.color"></div>
+        <span class="estado">@accion.estado</span>
+        <span class="descripcion">ver descripción...</span>
+        <span class="tooltipD">
+            @accion.descripcion
+        </span>
+
+    </div>
+    <div class="col">
+        <select style="">
+            <option value="acciones3">@accion.accion</option>
+        </select>
+    </div>
+    <div class="col nivelRiesgo">
+        <span class="descripcion">ver descripción...</span>
+        <span class="tooltipD">
+            @accion.medidasPrevencion
+        </span>
+    </div>
+    <div class="col">
+        <select>
+            <option value="acciones4">@accion.responsable</option>
+        </select>
+    </div>
+    <div class="col">
+        
+        <input class="fecha" type="date" name="name" value="@accion.date.Value.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="col">
+        @if (ViewBag.idUser == accion.responsable)
+        {
+            <div class="btn-group">
+                <a class="boton-aceptar" href="~/Empleado/ReporteAcciones">Aceptar</a>
+                <a class="boton-rechazar" onclick="alerta()" href="#">Rechazar</a>
+            </div>
+        }
+    </div>
+</div>
+    }
+
+
+
+
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function alerta() {
+        Swal.fire({
+            title: 'Plan de Acción NOM 035',
+            background: '#e0e0e0',
+            html: `
+                  <style>
+                    label{
+                        text-align:left;
+                        margin-left: 22px;
+
+                        display:block;
+                        }
+                    textarea,input{
+                            background-color:#FFFFFF;
+                            width:90%;
+                            outline:none;
+                            border:1px solid #e2e2e2;
+                     }
+                        input{
+                        padding:10px 20px;
+
+                        }
+
+                    hr{
+                            border: 3px solid #black;
+                        }
+
+
+
+                  </style>
+                 <form>
+                            <label class"formato" >Folio</label><br>
+                            <input class"" type="text"></input><br><br>
+                            <label class"formato">Tipo</label><br>
+                            <input class"" type="text"></input><br><br>
+                            <label class"formato">Actividad</label><br>
+                            <textarea class""></textarea><br>
+                            <hr>
+                            <label class"formato">¿Cuál es el motivo por el cuál rechaza la actividad?</label><br>
+                            <textarea class""></textarea>
+                </form>
+               `,
+            confirmButtonColor: '#000000',
+            confirmButtonText: 'Guardar y Enviar',
+            focusConfirm: false,
+            preConfirm: () => {
+                var path = Swal.getPopup().querySelector('#informe').value
+                if (!path) {
+                    Swal.showValidationMessage(`Error campos vacios`)
+                } else {
+                    $("#reg").submit();
+                }
+                return { parametros: parametros }
+            }
+        });
+    }
+
+
+
+</script>
+

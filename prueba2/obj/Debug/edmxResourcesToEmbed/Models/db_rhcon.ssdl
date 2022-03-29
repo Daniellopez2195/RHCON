@@ -17,6 +17,8 @@
     <Property Name="registro" Type="datetime" />
     <Property Name="idEmpresa" Type="int" />
     <Property Name="status" Type="bit" />
+    <Property Name="categoria" Type="varchar" MaxLength="200" />
+    <Property Name="dominio" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="admin_perfil">
     <Key>

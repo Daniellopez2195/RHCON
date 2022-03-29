@@ -39,12 +39,12 @@ namespace rhcon.Controllers
                 connection.Open();
 
                 // categoria de ambiente de trabajo
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlDataReader readers = command.ExecuteReader())
                 {
 
-                    while (reader.Read())
+                    while (readers.Read())
                     {
-                        int punto = int.Parse(reader[0].ToString());
+                        int punto = int.Parse(readers[0].ToString());
 
                         if (punto < 5)
                             blue[0] += 1;
@@ -1259,7 +1259,7 @@ namespace rhcon.Controllers
         }
 
 
-
+        [HttpPost]
         public ActionResult AddAcciones(acciones[] elements)
         {
 
@@ -1285,7 +1285,12 @@ namespace rhcon.Controllers
                         addAccion.registro = DateTime.Now;
                         addAccion.responsable = element.responsable;
                         addAccion.status = false;
+                        addAccion.categoria = element.categoria;
+                        addAccion.dominio = element.dominio;
                         addAccion.tipo = "Nom-035-stps";
+                        db.acciones.Add(addAccion);
+                        db.SaveChanges();
+
                         var idUser = int.Parse(element.responsable);
                         var correo = db.usuario.Where(d => d.id == idUser).First().email;
 

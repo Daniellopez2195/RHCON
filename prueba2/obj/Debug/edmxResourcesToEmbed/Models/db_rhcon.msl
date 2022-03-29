@@ -505,25 +505,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="acciones">
-      <EntityTypeMapping TypeName="rhconModel.acciones">
-        <MappingFragment StoreEntitySet="acciones">
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
-          <ScalarProperty Name="registro" ColumnName="registro" />
-          <ScalarProperty Name="color" ColumnName="color" />
-          <ScalarProperty Name="tipo" ColumnName="tipo" />
-          <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="responsable" ColumnName="responsable" />
-          <ScalarProperty Name="medidasPrevencion" ColumnName="medidasPrevencion" />
-          <ScalarProperty Name="accion" ColumnName="accion" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="dimension" ColumnName="dimension" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="resultados_nom035">
       <EntityTypeMapping TypeName="rhconModel.resultados_nom035">
         <MappingFragment StoreEntitySet="resultados_nom035">
@@ -544,6 +525,27 @@
           <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
           <ScalarProperty Name="idResuestaEmpleado" ColumnName="idResuestaEmpleado" />
           <ScalarProperty Name="curp" ColumnName="curp" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="acciones">
+      <EntityTypeMapping TypeName="rhconModel.acciones">
+        <MappingFragment StoreEntitySet="acciones">
+          <ScalarProperty Name="dominio" ColumnName="dominio" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="registro" ColumnName="registro" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="responsable" ColumnName="responsable" />
+          <ScalarProperty Name="medidasPrevencion" ColumnName="medidasPrevencion" />
+          <ScalarProperty Name="accion" ColumnName="accion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="dimension" ColumnName="dimension" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
