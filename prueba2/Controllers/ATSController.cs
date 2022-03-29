@@ -82,7 +82,7 @@ namespace rhcon.Controllers
 
                         SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
                         oSmtpClient.EnableSsl = true;
-                        oSmtpClient.UseDefaultCredentials = false;
+                        //oSmtpClient.UseDefaultCredentials = false;
                         oSmtpClient.Host = "smtp.gmail.com";
                         oSmtpClient.Port = 587;
                         oSmtpClient.Credentials = new System.Net.NetworkCredential(EmailORigen, pass);
@@ -181,7 +181,7 @@ namespace rhcon.Controllers
 
                             SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
                             oSmtpClient.EnableSsl = true;
-                            oSmtpClient.UseDefaultCredentials = false;
+                            //oSmtpClient.UseDefaultCredentials = false;
                             oSmtpClient.Host = "smtp.gmail.com";
                             oSmtpClient.Port = 587;
                             oSmtpClient.Credentials = new System.Net.NetworkCredential(EmailORigen, pass);
