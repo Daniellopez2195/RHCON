@@ -1317,17 +1317,18 @@ namespace rhcon.Controllers
                     string pass = "stackcode1.";
                     var body = db.correos.Where(d => d.tipo == "acciones").First();
                     string mensaje = body.email.ToString();
-                    mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                    mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/logos/"+oEmpresa.strlogotipo);
                     mensaje = mensaje.Replace("_empresa_", oEmpresa.RazonSocial);
+                    mensaje = mensaje.Replace("_x_", usuario.Value.ToString());
                     mensaje = mensaje.Replace("_fecha_", DateTime.Now.ToString("dd/MM/yyyy"));
                     MailMessage EmailMess = new MailMessage(
                         EmailORigen,
                         EmailDestino,
-                        "Bienvenido a RHCON",
+                        "Plan de acción NOM 035 STPS-2018 del periodo 2022",
                         mensaje
                         );
                     EmailMess.IsBodyHtml = true;
-
+                    
                     SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
                     oSmtpClient.EnableSsl = true;
                     //oSmtpClient.UseDefaultCredentials = false;
