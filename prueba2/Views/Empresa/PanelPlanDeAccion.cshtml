@@ -50,6 +50,10 @@
         color: #A9A7A7;
         padding: 10px 0;
     }
+
+    .contenido{
+        text-align:justify;
+    }
 </style>
 
 <div class="container-fluid" style="margin-top:15px">
@@ -67,7 +71,7 @@
             <div class="rectangulo"><p>@ViewBag.nrel Pendientes</p></div>
         </div>
         <div class="col">
-            <div class="rectangulo"><p>@ViewBag.porcentaje% Pendientes</p></div>
+            <div class="rectangulo"><p>@ViewBag.porcentaje% Completado</p></div>
         </div>
     </div>
     <div class="row row-cols-8" style="margin-top: 20px;  border-bottom: 2px solid #e0ded7">
@@ -84,42 +88,59 @@
     {
         <div class="row row-cols-8" style="margin-top: 20px;  border-bottom: 2px solid #e0ded7">
             <div class="col">
-                <p>
-                  @item.dimension
-                </p>
-            </div>
-            <div class="col d-flex align-items-center"><div class="circulo-nivel"><span style="margin-left:30px;">ALTO</span></div></div>
-            <div class="col">
-                <p>
-                    @item.tipo
+                <p class="contenido">
+                    @item.dimension
                 </p>
             </div>
             <div class="col">
-                <p>
+                <p class="contenido">
+                    @item.color
+                </p>
+            </div>
+            <div class="col">
+                <p class="contenido">
+                    @item.accion
+                </p>
+            </div>
+            <div class="col">
+                <p class="contenido">
                     @item.medidasPrevencion
                 </p>
             </div>
             <div class="col">
-                <p>
+                <p class="contenido">
                     @item.responsable
                 </p>
             </div>
             <div class="col">
-                @item.date
+                <p class="contenido">
+                    @item.date
+                </p>
             </div>
             <div class="col">
-                <p>
-                    @item.estado
+                <p class="contenido">
+                    @item.status
                 </p>
-                    
-               
+
+
             </div>
             <div class="col">
                 <div>
                     <a href="~/Empresa/ReporteAcciones" class="btn btn-primary">Ver</a>
+
                 </div>
+
             </div>
         </div>
 
     }
+
+    @using (Html.BeginForm("ExcelPlan", "Resultados", FormMethod.Post,
+   new { enctype = "multipart/form-data" }))
+
+    {
+        <input type="submit" name="name" class="btn btn-success" value="Descargar Plan(Excel)" />
+        <input type="hidden" name="year" value="2022" />
+    }
+
 </div>
