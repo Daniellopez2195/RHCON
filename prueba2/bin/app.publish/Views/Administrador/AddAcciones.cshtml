@@ -1,0 +1,58 @@
+﻿@using rhcon.Models
+@model List<dimencion>
+@{
+    ViewBag.Title = "AddAcciones";
+    Layout = "~/Views/Shared/_LayoutCrud.cshtml";
+}
+
+<style>
+    section {
+        width: 100px;
+    }
+
+    .bloque {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+        .bloque section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: wrap column;
+            width: 100%;
+        }
+
+            .bloque section select {
+                width: 100%;
+            }
+
+    textarea {
+        width: 100%;
+    }
+
+    .title-acciones {
+        margin-bottom: auto;
+    }
+</style>
+@using (Html.BeginForm("addPrevenciones", "Resultados", FormMethod.Post,
+    new { id = "form" } /*new { enctype = "multipart/form-data" }*/))
+{
+    <div class="bloque">
+        <section>
+            <select name="id">
+                <option value="" disabled selected>Dimensiónes</option>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.id">@item.descripcion</option>
+                }
+            </select>
+            <textarea name="accion"></textarea>
+            <button class="btn btn-primary mt-3">Publicar</button>
+        </section>
+
+        <section>
+            <h5 class="title-acciones">Acciones Generadas</h5>
+        </section>
+    </div>
+}

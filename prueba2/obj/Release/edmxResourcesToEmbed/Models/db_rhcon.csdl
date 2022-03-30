@@ -467,6 +467,11 @@
     <EntitySet Name="admin_perfil" EntityType="rhconModel.admin_perfil" />
     <EntitySet Name="EncuestaSugerencias" EntityType="rhconModel.EncuestaSugerencias" />
     <EntitySet Name="acciones" EntityType="rhconModel.acciones" />
+    <EntitySet Name="prevenciones" EntityType="rhconModel.prevenciones" />
+    <AssociationSet Name="fk_dimencion" Association="rhconModel.fk_dimencion">
+      <End Role="dimencion" EntitySet="dimencion" />
+      <End Role="prevenciones" EntitySet="prevenciones" />
+    </AssociationSet>
     <EntitySet Name="resultados_nom035" EntityType="rhconModel.resultados_nom035" />
   </EntityContainer>
   <EntityType Name="categoria">
@@ -1233,6 +1238,7 @@
     <NavigationProperty Name="categoria" Relationship="rhconModel.FK_dimencion_categoria" FromRole="dimencion" ToRole="categoria" />
     <NavigationProperty Name="cuestionarioDetalle" Relationship="rhconModel.FK_cuestionarioDetalle_dimencion" FromRole="dimencion" ToRole="cuestionarioDetalle" />
     <NavigationProperty Name="dominio" Relationship="rhconModel.FK_dimencion_dominio" FromRole="dimencion" ToRole="dominio" />
+    <NavigationProperty Name="prevenciones" Relationship="rhconModel.fk_dimencion" FromRole="dimencion" ToRole="prevenciones" />
   </EntityType>
   <Association Name="FK_dimencion_categoria">
     <End Type="rhconModel.categoria" Role="categoria" Multiplicity="1" />
@@ -1357,7 +1363,30 @@
     <Property Name="registro" Type="DateTime" Precision="3" />
     <Property Name="idEmpresa" Type="Int32" />
     <Property Name="status" Type="Boolean" />
+    <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="dominio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="prevenciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prevencion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idDimencion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="dimencion" Relationship="rhconModel.fk_dimencion" FromRole="prevenciones" ToRole="dimencion" />
+  </EntityType>
+  <Association Name="fk_dimencion">
+    <End Type="rhconModel.dimencion" Role="dimencion" Multiplicity="1" />
+    <End Type="rhconModel.prevenciones" Role="prevenciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dimencion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="prevenciones">
+        <PropertyRef Name="idDimencion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="resultados_nom035">
     <Key>
       <PropertyRef Name="id" />

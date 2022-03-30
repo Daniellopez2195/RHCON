@@ -12,14 +12,12 @@ namespace rhcon.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class plandeaccion
+    public partial class prevenciones
     {
-        public int id { get; set; }
-        public string dimension { get; set; }
-        public string nivelriesgo { get; set; }
-        public string accion { get; set; }
-        public string descripcion { get; set; }
-        public string responsable { get; set; }
-        public Nullable<System.DateTime> fecha { get; set; }
+        public int Id { get; set; }
+        public string prevencion { get; set; }
+        public int idDimencion { get; set; }
+    
+        public virtual dimencion dimencion { get; set; }
     }
 }

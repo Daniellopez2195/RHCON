@@ -508,6 +508,8 @@
     <EntitySetMapping Name="acciones">
       <EntityTypeMapping TypeName="rhconModel.acciones">
         <MappingFragment StoreEntitySet="acciones">
+          <ScalarProperty Name="dominio" ColumnName="dominio" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
           <ScalarProperty Name="registro" ColumnName="registro" />
@@ -521,6 +523,15 @@
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="dimension" ColumnName="dimension" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prevenciones">
+      <EntityTypeMapping TypeName="rhconModel.prevenciones">
+        <MappingFragment StoreEntitySet="prevenciones">
+          <ScalarProperty Name="idDimencion" ColumnName="idDimencion" />
+          <ScalarProperty Name="prevencion" ColumnName="prevencion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

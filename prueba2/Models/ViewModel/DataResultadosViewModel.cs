@@ -17,7 +17,7 @@ namespace rhcon.Models.ViewModel
         public int total_empleados { get; set; }
         public int total_encuesta { get; set; }
         public string actividades { get; set; }
-        public string nombreSelect  { get; set; }
+        public string nombreSelect { get; set; }
         public OpcionesViewModel total { get; set; }
 
         public int totalValue { get; set; }
@@ -38,7 +38,7 @@ namespace rhcon.Models.ViewModel
 
             }
 
-          return  valor = valor / empleados;
+            return valor = valor / empleados;
         }
         public OpcionesViewModel Total035(SqlDataReader data, int empleados)
         {
@@ -46,26 +46,26 @@ namespace rhcon.Models.ViewModel
             double valor = 0;
             while (data.Read())
             {
-               valor = int.Parse(data[0].ToString());
-                
+                valor = int.Parse(data[0].ToString());
+
             }
 
             valor = valor / empleados;
 
             double[] limites = { 50, 75, 99, 140 };
-            string[] cadenas = 
+            string[] cadenas =
                 {
                 "Los resultados de la encuesta muestran un Entorno Organizacional altamente favorable y un  nivel  nulo de Riesgo Psicosocial en el centro de  trabajo;   por lo que no se requieren medidas adicionales, siempre que se mantengan las acciones que se realizan actualmente.",
                 "Los resultados de la encuesta muestran un Entorno Organizacional favorable y un  nivel bajo de Riesgo Psicosocial  en el centro de  trabajo; no obstante se considera necesario una mayor difusión de la política de prevención de riesgos psicosociales y programas para: la prevención de los factores de riesgo psicosocial, la promoción de un entorno organizacional favorable y la prevención de la violencia laboral. ",
                 "Los resultados de la encuesta muestran un Entorno Organizacional moderadamente favorable y un  nivel  medio de Riesgo Psicosocial  en el centro de  trabajo; por lo que se requiere revisar la política de prevención de riesgos psicosociales y programas para la prevención de los mismos, realizar promoción de un entorno organizacional favorable y la prevención de la violencia laboral, así como reforzar su aplicación y difusión, mediante un programa de intervención. ",
                 "Los resultados de la encuesta muestran un Entorno Organizacional poco favorable y un  nivel  alto de Riesgo Psicosocial en el centro de  trabajo. Se requiere realizar un análisis de cada categoría y dominio, de manera que se puedan determinar las acciones de intervención apropiadas a través de un programa específico para cada una  de estas según corresponda, que podrá incluir  evaluación específica y deberá contar con  una campaña de sensibilización,  se debe revisar la política de prevención de riesgos psicosociales y los  programas para la prevención de los factores de riesgo psicosocial en el trabajo, es necesario  la promoción de un entorno organizacional favorable y tomar acciones para  prevenir y eliminar  la violencia laboral, así como reforzar las aplicaciones  y difusión de las mismas.",
-                "Los resultados de la encuesta muestran un Entorno Organizacional muy desfavorable y un  nivel  muy Alto de Riesgo Psicosocial en el centro de  trabajo.   Se requiere realizar un análisis de cada categoría y dominio, de manera que se puedan determinar las acciones de intervención apropiadas a través de un programa específico para cada una según corresponda, que podrá incluir una evaluación específica y deberá incluir una campaña de sensibilización,  se debe revisar la política de prevención de riesgos psicosociales y programas para la prevención de los factores de riesgo psicosocial, es necesario  la promoción de un entorno organizacional favorable y tomar acciones para  la prevenición y eliminar  la violencia laboral, así como reforzar las aplicaciones y difusión de las mismas." 
+                "Los resultados de la encuesta muestran un Entorno Organizacional muy desfavorable y un  nivel  muy Alto de Riesgo Psicosocial en el centro de  trabajo.   Se requiere realizar un análisis de cada categoría y dominio, de manera que se puedan determinar las acciones de intervención apropiadas a través de un programa específico para cada una según corresponda, que podrá incluir una evaluación específica y deberá incluir una campaña de sensibilización,  se debe revisar la política de prevención de riesgos psicosociales y programas para la prevención de los factores de riesgo psicosocial, es necesario  la promoción de un entorno organizacional favorable y tomar acciones para  la prevenición y eliminar  la violencia laboral, así como reforzar las aplicaciones y difusión de las mismas."
                 };
             total = condicionales(valor, limites, cadenas, "");
             return total;
         }
 
-        public CategoriasViewModel categorias(SqlDataReader data,int empleados)
+        public CategoriasViewModel categorias(SqlDataReader data, int empleados)
         {
             CategoriasViewModel cv = new CategoriasViewModel();
             using (data)
@@ -81,15 +81,15 @@ namespace rhcon.Models.ViewModel
                     {
                         double[] limites = { 5, 9, 11, 14 };
                         string[] cadenas = { "", "", "", "", "" };
-                        cv.ambiente_trabajo = condicionales(valor, limites, cadenas,cat);
+                        cv.ambiente_trabajo = condicionales(valor, limites, cadenas, cat);
                     }
-                    
+
                     //factores propios de la actividad 
                     else if (cat.Equals("Factores propios de la actividad"))
                     {
                         double[] limites = { 15, 30, 45, 60 };
                         string[] cadenas = { "", "", "", "", "" };
-                        cv.factores_actividad = condicionales(valor, limites, cadenas,cat);
+                        cv.factores_actividad = condicionales(valor, limites, cadenas, cat);
                     }
 
                     //Organizacion del tiempo de trabajo
@@ -97,7 +97,7 @@ namespace rhcon.Models.ViewModel
                     {
                         double[] limites = { 5, 7, 10, 13 };
                         string[] cadenas = { "", "", "", "", "" };
-                        cv.organizacion_trabajo = condicionales(valor, limites, cadenas,cat);
+                        cv.organizacion_trabajo = condicionales(valor, limites, cadenas, cat);
                     }
 
 
@@ -106,14 +106,14 @@ namespace rhcon.Models.ViewModel
                     {
                         double[] limites = { 14, 29, 42, 58 };
                         string[] cadenas = { "", "", "", "", "" };
-                        cv.liderazgo_trabajo = condicionales(valor, limites, cadenas,cat);
+                        cv.liderazgo_trabajo = condicionales(valor, limites, cadenas, cat);
                     }
                     //Entorno organizacional
                     else if (cat.Equals("Entorno organizacional"))
                     {
                         double[] limites = { 10, 14, 18, 23 };
                         string[] cadenas = { "", "", "", "", "" };
-                        cv.entorno_organizacional = condicionales(valor, limites, cadenas,cat);
+                        cv.entorno_organizacional = condicionales(valor, limites, cadenas, cat);
                     }
                 }
             }
@@ -137,7 +137,7 @@ namespace rhcon.Models.ViewModel
 
                     {
                         double[] limites = { 5, 9, 11, 14 };
-                        string[] cadenas = 
+                        string[] cadenas =
                         {   "La encuesta muestra que las  personas perciben la categoría de  condiciones en el ambiente de trabajo muy adecuadas.",
                             "La encuesta muestra que las  personas  perciben la categoría de  condiciones en el ambiente de trabajo adecuadas.",
                             "La encuesta muestra que las  personas  perciben la categoría de  condiciones en el ambiente de trabajo medianamente adecuadas.",
@@ -151,7 +151,7 @@ namespace rhcon.Models.ViewModel
                     else if (cat.Equals("Carga de trabajo"))
                     {
                         double[] limites = { 15, 21, 27, 37 };
-                        string[] cadenas = 
+                        string[] cadenas =
                             {
                             "Referente a la categoría de carga de trabajo, el personal percibe  fuerte eficiencia en la asignación de la misma.",
                             "Referente a la categoría de carga de trabajo, el personal percibe  eficiencia en la asignación de la misma.",
@@ -166,8 +166,8 @@ namespace rhcon.Models.ViewModel
                     else if (cat.Equals("Falta de control sobre el trabajo"))
                     {
                         double[] limites = { 11, 16, 21, 25 };
-                        string[] cadenas = 
-                            { 
+                        string[] cadenas =
+                            {
                               "El personal  indica que se siente altamente autónomo y libre referente al  control que puede tener sobre el trabajo que desempeña.",
                               "El personal  indica que se siente  autónomo y libre referente al  control que puede tener sobre el trabajo que desempeña. ",
                               "El personal  indica que se siente  poco autónomo y un tanto limitado referente al  control que puede tener sobre el trabajo que desempeña.",
@@ -238,19 +238,21 @@ namespace rhcon.Models.ViewModel
         {
 
             DimensionesViewModel cv = new DimensionesViewModel();
+            rhconEntities db = new rhconEntities();
             using (data)
             {
                 while (data.Read())
                 {
                     string cat = data[1].ToString();
                     double valor = double.Parse(data[0].ToString()) / empleados;
-                    
+                    int idDimension = int.Parse(data[2].ToString());
+
 
                     // Condiciones peligrosas e inseguras
                     if (cat.Equals("Condiciones peligrosas e inseguras"))
 
                     {
-                        double[] limites = { 2, 3.6 , 4.4 , 5.6 };
+                        double[] limites = { 2, 3.6, 4.4, 5.6 };
                         string[] cadenas =
 {
                             "Las personas reconocen que  las actividades que desempeñan no requieren el uso de esfuerzo físico  mayor, ya que conocen  y aplican las normas de seguridad  y salud.",
@@ -260,6 +262,9 @@ namespace rhcon.Models.ViewModel
                             "Las personas reconocen que  las actividades que desempeñan  requieren el uso continuo de un muy alto esfuerzo físico,  que  desconocen  completamente, no aplican  normas de seguridad  y salud;"
                             };
                         cv.condiciones_peligrosas_inseguras = condicionales(valor, limites, cadenas);
+
+                        cv.condiciones_peligrosas_inseguras.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
+
                     }
 
                     //condiciones deficientes e insalubres
@@ -274,6 +279,7 @@ namespace rhcon.Models.ViewModel
                             "En específico en los dominios,  observan el centro de trabajo como  un lugar muy inseguro con  condiciones  insalubres."
                         };
                         cv.condiciones_deficientes_insalubres = condicionales(valor, limites, cadenas);
+                        cv.condiciones_deficientes_insalubres.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     //Trabajos peligrosos
@@ -290,6 +296,7 @@ namespace rhcon.Models.ViewModel
                             };
 
                         cv.trabajos_peligrosos = condicionales(valor, limites, cadenas);
+                        cv.trabajos_peligrosos.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
 
@@ -306,6 +313,7 @@ namespace rhcon.Models.ViewModel
                             "El personal indica que los tiempos nunca son respetados, por lo que no  tiene control sobre su horario de trabajo."
                         };
                         cv.cargas_cuantitativas = condicionales(valor, limites, cadenas);
+                        cv.cargas_cuantitativas.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Ritmos de trabajo acelerado
@@ -321,6 +329,7 @@ namespace rhcon.Models.ViewModel
                             "que la cantidad de actividades  les sobrepasa,  por lo que debe  mantener un ritmo muy acelerado en el desempeño diario."
                         };
                         cv.ritmos_trabajo_acelerado = condicionales(valor, limites, cadenas);
+                        cv.ritmos_trabajo_acelerado.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
 
@@ -337,6 +346,7 @@ namespace rhcon.Models.ViewModel
                             "que  su trabajo le  exige  una carga mental muy por arriba de la capacidad personal."
                         };
                         cv.carga_mental = condicionales(valor, limites, cadenas);
+                        cv.carga_mental.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Cargas psicológicas emocionales
@@ -352,6 +362,7 @@ namespace rhcon.Models.ViewModel
                             "que las personas con las que se relaciona por motivo de su trabajo  siempre están enojados, por lo que todo el tiempo se  siente emocionalmente  a disgusto  al tratar con ellos."
                         };
                         cv.cargas_psicologicas_emocionales = condicionales(valor, limites, cadenas);
+                        cv.cargas_psicologicas_emocionales.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Condiciones peligrosas e inseguras
@@ -367,6 +378,7 @@ namespace rhcon.Models.ViewModel
                             "En cuanto a  la responsabilidad conferida,  considera que  tiene una exigencia mayor a las capacidades propias, por lo que  se siente siempre estresado en todo momento."
                         };
                         cv.cargas_alta_responsabilidad = condicionales(valor, limites, cadenas);
+                        cv.cargas_alta_responsabilidad.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Cargas contradictorias o inconsistentes
@@ -382,6 +394,7 @@ namespace rhcon.Models.ViewModel
                             "además que siente que las instrucciones que recibe en su trabajo continuamente   son confusas,  por lo que en todo momento piensa que hace actividades innecesarias o de poco valor para la empresa."
                         };
                         cv.cargas_contradictorias_inconsistentes = condicionales(valor, limites, cadenas);
+                        cv.cargas_contradictorias_inconsistentes.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Falta de control y autonomía sobre el trabajo
@@ -397,6 +410,7 @@ namespace rhcon.Models.ViewModel
                             "Expone que nunca puede  adecuar las actividades a su propio ritmo y orden,  que no  puede tomar pausas cuando lo necesita, así mismo que  no tienen poder de  decidir sobre cuanto trabajo realiza durante la jornada laboral."
                         };
                         cv.falta_control_autonomia_sobre_trabajo = condicionales(valor, limites, cadenas);
+                        cv.falta_control_autonomia_sobre_trabajo.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Limitada o nula posibilidad de desarrollo
@@ -412,6 +426,7 @@ namespace rhcon.Models.ViewModel
                             "Siente que en su trabajo NO tiene  la oportunidad de desarrollar nuevas habilidades y NO tiene la oportunidad de aspirar a  crecimiento profesional para ocupar un puesto de mayor jerarquía."
                         };
                         cv.limitada_nula_posibilidad_desarrollo = condicionales(valor, limites, cadenas);
+                        cv.limitada_nula_posibilidad_desarrollo.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Insuficiente participación y manejo del cambio
@@ -427,6 +442,7 @@ namespace rhcon.Models.ViewModel
                             "Expresa que NO es tomado en cuenta para realizar cambios e implementar ideas en su trabajo y que los cambios son una  dificultad  para el desempeño de sus labores."
                         };
                         cv.insuficiente_participacion_manejo_cambio = condicionales(valor, limites, cadenas);
+                        cv.insuficiente_participacion_manejo_cambio.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Limitada o inexistente capacitación
@@ -442,6 +458,7 @@ namespace rhcon.Models.ViewModel
                             "Manifiesta que nunca se le permite  asistir a capacitaciones relacionadas con su trabajo, al mismo tiempo expresa que NO recibe  capacitación útil por parte de la empresa para el desempeño de su funciones."
                         };
                         cv.limitada_inexistente_capacitacion = condicionales(valor, limites, cadenas);
+                        cv.limitada_inexistente_capacitacion.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     //Jornadas de trabajo extensas
@@ -457,13 +474,14 @@ namespace rhcon.Models.ViewModel
                             "Las y los trabajadores manifiestan que referente a las jornadas de trabajo son exhaustivas, que todas  las semanas tienen que trabajar mas de 3 días tiempo extraordinario, por más de 3 horas cada día y/o  que siempre tienen que laborar en días de descanso festivos y fines de semana."
                         };
                         cv.jornadas_trabajo_extensas = condicionales(valor, limites, cadenas);
+                        cv.jornadas_trabajo_extensas.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Influencia del trabajo fuera del centro laboral
                     if (cat.Equals("Influencia del trabajo fuera del centro laboral"))
 
                     {
-                  
+
 
                         double[] limites = { 2, 3, 4, 5 };
                         string[] cadenas =
@@ -474,6 +492,7 @@ namespace rhcon.Models.ViewModel
                             "Con relación  a la categoría de balance trabajo- familia, consideran que dado que la jornada de trabajo es  deficiente,  nunca pueden tener actividades familiares y personales y  siempre tienen que atender asuntos de trabajo cuando ya salieron de su centro de trabajo, es decir desde casa."
                         };
                         cv.influencia_trabajo_fuera_centro_laboral = condicionales(valor, limites, cadenas);
+                        cv.influencia_trabajo_fuera_centro_laboral.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Influencia del trabajo fuera del centro laboral
@@ -489,6 +508,7 @@ namespace rhcon.Models.ViewModel
                             "El personal se siente siempre  muy preocupado  y pensando en las responsabilidades familiares/ personales durante su jornada de trabajo y considera que estas responsabilidades afectan el trabajo que desempeña."
                         };
                         cv.influencia_responsabilidades_familiares = condicionales(valor, limites, cadenas);
+                        cv.influencia_responsabilidades_familiares.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     //Escaza claridad de funciones
@@ -504,6 +524,7 @@ namespace rhcon.Models.ViewModel
                             "Las y los colaboradores, manifiestan que el liderazgo del jefe inmediato es sumamente negativo; que nunca son informados  con claridad y oportunamente sobre cuales son sus funciones, los resultados  y objetivos a lograr."
                         };
                         cv.escaza_claridad_funcionales = condicionales(valor, limites, cadenas);
+                        cv.escaza_claridad_funcionales.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Características del liderazgo
@@ -519,6 +540,7 @@ namespace rhcon.Models.ViewModel
                             "Expresan que el jefe  no les ayuda en la organización de las actividades, no  les toma en cuenta su punto de vista, no  les informa sobre las situaciones de trabajo con las que están relacionados, no les orienta y  nunca les ayuda a solucionar problemas que se presentan."
                         };
                         cv.caracteristicas_liderazgo = condicionales(valor, limites, cadenas);
+                        cv.caracteristicas_liderazgo.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
 
@@ -535,6 +557,7 @@ namespace rhcon.Models.ViewModel
                             "En relación con los compañeros y compañeras de trabajo expresan que sienten desconfianza  y  falta de respeto total  entre ellos, no se sienten parte de un grupo y  no existe trabajo en equipo, que no  se ayudan entre sí cuando tienen dificultades en el desempeño de sus funciones."
                         };
                         cv.relaciones_sociales_trabajo = condicionales(valor, limites, cadenas);
+                        cv.relaciones_sociales_trabajo.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
 
@@ -551,6 +574,7 @@ namespace rhcon.Models.ViewModel
                             "Las y los supervisores del centro de trabajo es decir los jefes inmediatos, expresan que el personal a su cargo, nunca  les comunica en forma oportuna los asuntos de trabajo, que no cumplen con los resultados que se les establecen, no cooperan cuando se les requiere,  no les hacen caso y no  toman en cuenta las sugerencias que ellos les dan. "
                         };
                         cv.deficiente_relacion_colaboradores_supervisa = condicionales(valor, limites, cadenas);
+                        cv.deficiente_relacion_colaboradores_supervisa.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
 
@@ -567,6 +591,7 @@ namespace rhcon.Models.ViewModel
                             "Las personas en el centro de trabajo sienten que no se les permite  expresar su punto de vista, que siempre son  criticadas de manera personal, que no existe  respeto; que nunca se les  toma en cuenta tanto para las reuniones de trabajo como en la toma de decisiones; que  se siente no reconocidos sobre sus  éxitos laborales;  manifiestan que son  nulas las  oportunidades para mejorar en el trabajo y tomar puestos de mayor jerarquía; y que todo el tiempo existen actos de violencia laboral como hostigamiento,  burlas, acoso o malos tratos en contra de ellos mismos u otra persona."
                         };
                         cv.violencia_laboral = condicionales(valor, limites, cadenas);
+                        cv.violencia_laboral.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Escasa o nula retroalimentación del desempeño
@@ -582,6 +607,7 @@ namespace rhcon.Models.ViewModel
                             "Las y los colaboradores reconocen que nunca reciben retroalimentación sobre lo que hacen bien en el trabajo y que su desempeño no es evaluado, por lo que no reciben  ayuda para mejorar."
                         };
                         cv.escasa_nula_retroalimentacion_desempeno = condicionales(valor, limites, cadenas);
+                        cv.escasa_nula_retroalimentacion_desempeno.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Escaso o nulo reconocimiento y compensación
@@ -597,6 +623,7 @@ namespace rhcon.Models.ViewModel
                             "Que el pago del salario nunca es puntual y que no se sienten  reconocidos y que la compensación que reciben es injusta porque trabajan más de lo que se les paga; igualmente perciben que no existen oportunidades  de crecimiento laboral  para las personas que hacen bien su trabajo."
                         };
                         cv.escasa_nulo_reconocimiento_compensacion = condicionales(valor, limites, cadenas);
+                        cv.escasa_nulo_reconocimiento_compensacion.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Limitado sentido de pertenencia
@@ -612,6 +639,7 @@ namespace rhcon.Models.ViewModel
                             "Los empleados expresan que no están orgullosos de pertenecer a la empresa y que no tienen compromiso con su trabajo."
                         };
                         cv.limitado_sentido_pertencia = condicionales(valor, limites, cadenas);
+                        cv.limitado_sentido_pertencia.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                     // Inestabilidad laboral
@@ -627,6 +655,7 @@ namespace rhcon.Models.ViewModel
                             "Perciben que su trabajo es muy  inestable, que la gente todo el tiempo se va de la empresa en periodos muy cortos."
                         };
                         cv.inestabilidad_laboral = condicionales(valor, limites, cadenas);
+                        cv.inestabilidad_laboral.prevenciones = db.prevenciones.Where(d => d.idDimencion == idDimension).ToList();
                     }
 
                 }
@@ -635,9 +664,9 @@ namespace rhcon.Models.ViewModel
         }
 
 
-        public Cumplimiento035ViewModel cumplimiento035(int total_empleados , int total_encuenta, bool ternario,string empresa, string centro)
+        public Cumplimiento035ViewModel cumplimiento035(int total_empleados, int total_encuenta, bool ternario, string empresa, string centro)
         {
-            Cumplimiento035ViewModel data =  new Cumplimiento035ViewModel();
+            Cumplimiento035ViewModel data = new Cumplimiento035ViewModel();
             string rango = "empresa";
 
 
@@ -647,13 +676,13 @@ namespace rhcon.Models.ViewModel
                 data.ternanrio = true;
                 if (ternario)
                 {
-                    data.mensaje = "La empresa "+empresa+" en este centro de trabajo no está obligada a realizar la Identificación y " +
+                    data.mensaje = "La empresa " + empresa + " en este centro de trabajo no está obligada a realizar la Identificación y " +
                     "análisis de los factores de riesgo psicosocial y la evaluación de entorno organizacional, " +
                     "dado que cuenta con 15 o menos personas laborando en el mismo..";
                 }
                 else
                 {
-                    data.mensaje = "La empresa "+empresa+" no está obligada a realizar la Identificación y " +
+                    data.mensaje = "La empresa " + empresa + " no está obligada a realizar la Identificación y " +
                     "análisis de los factores de riesgo psicosocial y la evaluación de entorno organizacional, " +
                     "dado que cuenta con 15 o menos personas laborando en el mismo..";
                 }
@@ -671,7 +700,7 @@ namespace rhcon.Models.ViewModel
                     data.ternanrio = false;
                     if (ternario)
                     {
-                        data.mensaje = "La empresa "+empresa+" en este centro de trabajo está obligada a realizar la Identificación" +
+                        data.mensaje = "La empresa " + empresa + " en este centro de trabajo está obligada a realizar la Identificación" +
                             " y análisis de los factores de riesgo psicosocial, dado que cuenta con 16 a 50 personas laborando en el mismo.";
                     }
                     else
@@ -681,7 +710,8 @@ namespace rhcon.Models.ViewModel
                     }
                 }
 
-            }else if(total_empleados < 50)
+            }
+            else if (total_empleados < 50)
             {
 
                 double muestra_G = Math.Round((0.9604 * total_empleados) / (0.0025 * (total_empleados - 1) + 0.9604));
@@ -697,7 +727,7 @@ namespace rhcon.Models.ViewModel
                     data.ternanrio = false;
                     if (ternario)
                     {
-                        data.mensaje = "La empresa "+empresa+" en este centro de trabajo está obligada a realizar la Identificación" +
+                        data.mensaje = "La empresa " + empresa + " en este centro de trabajo está obligada a realizar la Identificación" +
                             " y análisis de los factores de riesgo psicosocial y la evaluación de entorno organizacional," +
                             " dado que cuenta con 51 o más personas laborando en el mismo.";
                     }
@@ -726,7 +756,7 @@ namespace rhcon.Models.ViewModel
                 {
                     string cat = data[1].ToString();
                     double divicion = int.Parse(data[0].ToString()) / empleados;
-                    double[] limites = { 2.5, 1.5, 1};
+                    double[] limites = { 2.5, 1.5, 1 };
                     int totalPuntos = 168;
                     total += int.Parse(data[0].ToString());
                     // Para responder las siguientes preguntas considera tu percepción sobre accesibilidad"
@@ -735,7 +765,7 @@ namespace rhcon.Models.ViewModel
                     {
                         using (rhconEntities db = new rhconEntities())
                         {
-                           var consulta =  db.EncabezadoCuestionario.Where(d => d.descripcion.Equals(cat)).First();
+                            var consulta = db.EncabezadoCuestionario.Where(d => d.descripcion.Equals(cat)).First();
 
                             int maximo = consulta.maximo.Value;
                             double resultado = divicion / maximo;
@@ -876,14 +906,14 @@ namespace rhcon.Models.ViewModel
                 "Muy buena percepción del clima laboral y no discriminación del centro de trabajo con apartados de referencia que conforman el entorno laboral, que propician productividad en el desempeño de las y los trabajadores, con mínimas áreas de oportunidad en algunos de los apartados de referencia.",
                 "Aceptable percepción del clima laboral y no discriminación del centro de trabajo con varios apartados de referencia que conforman el entorno laboral y que muestran áreas de oportunidad por lo que en ocasiones puede dificultar el desempeño de las y los trabajadores",
                 "Deficiente percepción del clima laboral y no discriminación del centro de trabajo con un número considerable de apartados de referencia que conforman el entorno laboral, que muestran áreas de oportunidad por lo que puede ser continuamente difícil el desempeño de las y los trabajadores ",
-                "Muy mala percepción del clima laboral y no discriminación del centro de trabajo con gran número de apartados de referencia que conforman el entorno laboral, mostrando áreas de oportunidad por lo que puede ser muy difícil el desempeño de las y los trabajadores" 
+                "Muy mala percepción del clima laboral y no discriminación del centro de trabajo con gran número de apartados de referencia que conforman el entorno laboral, mostrando áreas de oportunidad por lo que puede ser muy difícil el desempeño de las y los trabajadores"
                 };
             double resultado_general = total / 56;
-            cv.resultado_general = condicionales025(resultado_general,limites_generales,cadenas_generales);
+            cv.resultado_general = condicionales025(resultado_general, limites_generales, cadenas_generales);
             return cv;
         }
 
-        public OpcionesViewModel condicionales(double valor, double[] limites, string[] cadenas,string tipo = "")
+        public OpcionesViewModel condicionales(double valor, double[] limites, string[] cadenas, string tipo = "")
         {
             string[] colores = { "azul", "verde", "amarillo", "naranja", "rojo" };
             string[] estado = { "Nulo", "Bajo", "Medio", "Alto", "Muy alto" };
@@ -932,7 +962,7 @@ namespace rhcon.Models.ViewModel
 
         public OpcionesViewModel condicionales025(double valor, double[] limites, string[] cadenas)
         {
-            string[] colores = { "azul", "verde", "naranja",  "rojo" };
+            string[] colores = { "azul", "verde", "naranja", "rojo" };
             string[] estado = { "Excelente", "Bueno", "Regular", "Malo" };
             OpcionesViewModel opciones = new OpcionesViewModel();
 

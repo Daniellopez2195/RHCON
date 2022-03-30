@@ -32,28 +32,5 @@ namespace rhcon.Models
         public string dominio_descripcion { get; set; }
         public int idCategoria { get; set; }
         public string categoria_descripcion { get; set; }
-        public string antiguedad { get; set; }
-        public string comentario { get; set; }
-        public string discapacidad { get; set; }
-        public string dondeTrabajo { get; set; }
-        public string edad { get; set; }
-        public string escolaridad { get; set; }
-        public string estadoCivil { get; set; }
-        public string existeCodigoEtica { get; set; }
-        public string existeComite { get; set; }
-        public string existeMecanismo { get; set; }
-        public string existePolitica { get; set; }
-        public int idRespuestaEmpleado { get; set; }
-        public int idCuestionario { get; set; }
-        public string parteSectores { get; set; }
-        public string realizaRotacion { get; set; }
-        public string sector { get; set; }
-        public string sexo { get; set; }
-        public string tiempoExperienciaLaboral { get; set; }
-        public string tiempoPuestoActual { get; set; }
-        public string tieneDiscapacidad { get; set; }
-        public string tipoContratacion { get; set; }
-        public string tipoJornada { get; set; }
-        public string tipoPersonal { get; set; }
     }
 }

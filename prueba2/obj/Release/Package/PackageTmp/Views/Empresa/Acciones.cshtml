@@ -76,7 +76,7 @@
     }
 
     .boton-enviar {
-        width: 210px;
+        width: 110px;
     }
 
     .boton-personalizado {
@@ -332,9 +332,9 @@
                         <select name="medidasPrevencion" id="medidaDePrevencion" class="med">
                             @if (!Array.Exists(opcionesValidas, x => x == Model.dimensionesVal.condiciones_peligrosas_inseguras.estado))
                             {
-                            <option value="0" class="alert">
-                                No requiere acciones a realizar
-                            </option>
+                                <option value="0" class="alert">
+                                    No requiere acciones a realizar
+                                </option>
                             }
                             else
                             {
@@ -342,16 +342,14 @@
                                     Medidas de Prevención
                                 </option>
                             }
-                            <option value="Evaluar las instalaciones y el equipo del centro de trabajo">
-                                Evaluar las instalaciones y el equipo del centro de trabajo
-                            </option>
-                            <option value=" Establecer un mecanismo de comunicación para reportar las condiciones peligrosas e inseguras dentro del centro de trabajo">
-                                Establecer un mecanismo de comunicación para reportar las condiciones
-                                peligrosas e inseguras dentro del centro de trabajo
-                            </option>
-                            <option value="Crear un manual de seguridad por área de trabajo">
-                                Crear un manual de seguridad por área de trabajo
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.condiciones_peligrosas_inseguras.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                   @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -391,7 +389,7 @@
                             }
 
                             <input type="hidden" name="dominio" value="Condiciones en el ambiente de trabajo" />
-                            <input type="hidden" name="dimension" value="Condiciones peligrosas e inseguras" />
+                            <input type="hidden" name="categoria" value="Ambiente de trabajo" />
 
                         </div>
                     </div>
@@ -458,19 +456,18 @@
                             else
                             {
 
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
                             }
-                            <option value="Crear/Revisar los programas de capacitación en seguridad y salud en el trabajo">
-                                Crear/Revisar los programas de capacitación en seguridad y salud en el trabajo
-                            </option>
-                            <option value="Crear/Revisar los programas de capacitación en el puesto de trabajo">
-                                Crear/Revisar los programas de capacitación en el puesto de trabajo
-                            </option>
-                            <option value="Proporcionar a los empleados las herramientas y equipo requerido para sus labores">
-                                Proporcionar a los empleados las herramientas y equipo requerido para sus labores
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.condiciones_deficientes_insalubres.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -510,7 +507,7 @@
                             }
 
                             <input type="hidden" name="dominio" value="Condiciones en el ambiente de trabajo" />
-                            <input type="hidden" name="dimension" value="Condiciones deficientes e insalubres" />
+                            <input type="hidden" name="categoria" value="Ambiente de trabajo" />
                         </div>
                     </div>
                 
@@ -582,19 +579,18 @@
                             }
                             else
                             {
-                            <option value="">
-                                Medidas de prevención
-                            </option>
+                                <option value="">
+                                    Medidas de prevención
+                                </option>
                             }
-                            <option value="Seguir los protocolos normativos que regulan las actividades consideradas peligrosas">
-                                Seguir los protocolos normativos que regulan las actividades consideradas peligrosas
-                            </option>
-                            <option value="Sistematizar los procesos y actividades para minimizar el factor de riesgo">
-                                Sistematizar los procesos y actividades para minimizar el factor de riesgo
-                            </option>
-                            <option value="Asignar solamente personal capacitado para el cumplimiento de las tareas con cierto nivel  de peligro">
-                                Asignar solamente personal capacitado para el cumplimiento de las tareas con cierto nivel  de peligro
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.trabajos_peligrosos.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -638,7 +634,7 @@
                             }
 
                             <input type="hidden" name="dominio" value="Condiciones en el ambiente de trabajo" />
-                            <input type="hidden" name="dimension" value="Trabajos peligrosos" />
+                            <input type="hidden" name="categoria" value="Ambiente de trabajo" />
                         </div>
                     </div>
                 
@@ -763,15 +759,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Estudiar tiempos y movimientos por área de trabajo">
-                                Estudiar tiempos y movimientos por área de trabajo
-                            </option>
-                            <option value="Promover el respeto e importancia a la vida familiar">
-                                Promover el respeto e importancia a la vida familiar
-                            </option>
-                            <option value="Disponer del recurso humano necesario por área para la correcta  carga de trabajo">
-                                Disponer del recurso humano necesario por área para la correcta  carga de trabajo
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.cargas_cuantitativas.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -809,7 +804,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Carga de trabajo" />
-                            <input type="hidden" name="dimension" value="Cargas cuantitativas" />
+                            <input type="hidden" name="categoria" value="Factores propios de la actividad" />
                         </div>
                     </div>
             </div>
@@ -876,15 +871,14 @@
                                 </option>
                             }
 
-                            <option value="Realizar pausas activas durante la jornada laboral">
-                                Realizar pausas activas durante la jornada laboral
-                            </option>
-                            <option value="Adaptar la carga de trabajo a la demanda real">
-                                Adaptar la carga de trabajo a la demanda real
-                            </option>
-                            <option value="Capacitar al personal sobre los procesos adecuados para la realización de sus funciones">
-                                Capacitar al personal sobre los procesos adecuados para la realización de sus funciones
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.ritmos_trabajo_acelerado.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -924,7 +918,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Carga de trabajo" />
-                            <input type="hidden" name="dimension" value="Ritmos de trabajo acelerado" />
+                            <input type="hidden" name="categoria" value="Factores propios de la actividad" />
                         </div>
                     </div>
                 
@@ -997,15 +991,14 @@
                                 </option>
                             }
 
-                            <option value="Crear/Actualizar los perfiles de puesto">
-                                Crear/Actualizar los perfiles de puesto
-                            </option>
-                            <option value="Orientar el reclutamiento y selección de personal al enfoque por competencias">
-                                Orientar el reclutamiento y selección de personal al enfoque por competencias
-                            </option>
-                            <option value="Agregar a la política un apartado de pausas activas">
-                                Agregar a la política un apartado de pausas activas
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.carga_mental.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -1044,7 +1037,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Carga de trabajo" />
-                            <input type="hidden" name="dimension" value="Carga mental" />
+                            <input type="hidden" name="categoria" value="Factores propios de la actividad" />
                         </div>
                     </div>
                 
@@ -1113,15 +1106,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Proporcionar capacitación de inteligencia emocional">
-                                Proporcionar capacitación de inteligencia emocional
-                            </option>
-                            <option value="Crear/Actualizar protocolos de atención a clientes">
-                                Crear/Actualizar protocolos de atención a clientes
-                            </option>
-                            <option value="Promover el cuidado de la salud mental y emocional">
-                                Promover el cuidado de la salud mental y emocional
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.cargas_psicologicas_emocionales.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -1158,7 +1150,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Carga de trabajo" />
-                            <input type="hidden" name="dimension" value="Cargas psicológicas emocionales" />
+                            <input type="hidden" name="categoria" value="Factores propios de la actividad" />
                         </div>
                     </div>
 
@@ -1226,15 +1218,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Colocar solamente personal competente y capacitado para puestos de alta responsabilidad">
-                                Colocar solamente personal competente y capacitado para puestos de alta responsabilidad
-                            </option>
-                            <option value="Capacitar sobre el manejo del estrés">
-                                Capacitar sobre el manejo del estrés
-                            </option>
-                            <option value="Generar estrategias eficaces para el cumplimiento de las metas y objetivos">
-                                Generar estrategias eficaces para el cumplimiento de las metas y objetivos
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.cargas_alta_responsabilidad.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -1272,7 +1263,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Carga de trabajo" />
-                            <input type="hidden" name="dimension" value="Cargas de alta responsabilidad" />
+                            <input type="hidden" name="categoria" value="Factores propios de la actividad" />
                         </div>
                     </div>
 
@@ -1340,15 +1331,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Definir organigrama y jerarquias de autoridad">
-                                Definir organigrama y jerarquias de autoridad
-                            </option>
-                            <option value="Capacitar sobre comunicación asertiva por área de trabajo">
-                                Capacitar sobre comunicación asertiva por área de trabajo
-                            </option>
-                            <option value="Capacitar sobre estilos de liderazgo a los puestos con person a la su cargo">
-                                Capacitar sobre estilos de liderazgo a los puestos con person a la su cargo
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.cargas_contradictorias_inconsistentes.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -1386,7 +1376,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Carga de trabajo" />
-                            <input type="hidden" name="dimension" value="Cargas contradictorias o inconsistentes" />
+                            <input type="hidden" name="categoria" value="Factores propios de la actividad" />
                         </div>
                     </div>
                 
@@ -1516,15 +1506,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Fomentar una cultura de autonomía del personal en relación a sus funciones o actividades">
-                                Fomentar una cultura de autonomía del personal en relación a sus funciones o actividades
-                            </option>
-                            <option value="Crear/Actualizar una evaluación de desempeño donde se pueda hablar de las áreas de oportunidad del puesto">
-                                Crear/Actualizar una evaluación de desempeño donde se pueda hablar de las áreas de oportunidad del puesto
-                            </option>
-                            <option value="Una propuesta de calendarización por parte del personal">
-                                Una propuesta de calendarización por parte del personal
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.falta_control_autonomia_sobre_trabajo.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -1562,7 +1551,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Falta de control sobre el trabajo" />
-                            <input type="hidden" name="dimension" value="Falta de control y autonomía sobre el trabajo" />
+                            <input type="hidden" name="categoria" value="Factores propios de la actividad" />
                         </div>
                     </div>
 
@@ -1629,15 +1618,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Generar retos que motiven al personal demanera continua">
-                                Generar retos que motiven al personal demanera continua
-                            </option>
-                            <option value="Facilitarle el acceso a plataformas o sitios de formación en las áreas de interés">
-                                Facilitarle el acceso a plataformas o sitios de formación en las áreas de interés
-                            </option>
-                            <option value="Crear y/o difundir de manera interna convocatorias para promoción de puestos o ascensos">
-                                Crear y/o difundir de manera interna convocatorias para promoción de puestos o ascensos
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.limitada_nula_posibilidad_desarrollo.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -1675,7 +1663,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Falta de control sobre el trabajo" />
-                            <input type="hidden" name="dimension" value="Limitada o nula posibilidad de desarrollo" />
+                            <input type="hidden" name="categoria" value="Factores propios de la actividad" />
                         </div>
                     </div>
 
@@ -1743,15 +1731,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Hacer uso de un medio formal de comunicación para mantener informado al personal de próximos cambios">
-                                Hacer uso de un medio formal de comunicación para mantener informado al personal de próximos cambios
-                            </option>
-                            <option value="Crear un comité integrado por personal colaborador y representantes de la empresa para la toma de decisiones">
-                                Crear un comité integrado por personal colaborador y representantes de la empresa para la toma de decisiones
-                            </option>
-                            <option value="Capacitar al personal sobre los cambios o actualizaciones de sus funciones nuevas">
-                                Capacitar al personal sobre los cambios o actualizaciones de sus funciones nuevas
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.insuficiente_participacion_manejo_cambio.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -1789,7 +1776,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Falta de control sobre el trabajo" />
-                            <input type="hidden" name="dimension" value="Insuficiente participación y manejo del cambio" />
+                            <input type="hidden" name="categoria" value="Factores propios de la actividad" />
                         </div>
                     </div>
             </div>
@@ -1857,15 +1844,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Realizar detección de necesidades para identificar temas útiles y actuales">
-                                Realizar detección de necesidades para identificar temas útiles y actuales
-                            </option>
-                            <option value="Crear /Actualizar los programas de capacitación">
-                                Crear /Actualizar los programas de capacitación
-                            </option>
-                            <option value="Fomentar la participación en las actividades de capacitación">
-                                Fomentar la participación en las actividades de capacitación
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.limitada_inexistente_capacitacion.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -1903,7 +1889,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Falta de control sobre el trabajo" />
-                            <input type="hidden" name="dimension" value="Limitada o inexistente capacitación" />
+                            <input type="hidden" name="categoria" value="Factores propios de la actividad" />
                         </div>
                     </div>
      
@@ -2037,15 +2023,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Adecuar el número de personal a las exigencias reales del área">
-                                Adecuar el número de personal a las exigencias reales del área
-                            </option>
-                            <option value="Apegarse a las dispociciones de ley en relación a las jornadas de trabajo justas y dignas">
-                                Apegarse a las dispociciones de ley en relación a las jornadas de trabajo justas y dignas
-                            </option>
-                            <option value="Difundir información al personal y altos mandos sobre los riesgos de laborar jornadas excesivas">
-                                Difundir información al personal y altos mandos sobre los riesgos de laborar jornadas excesivas
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.jornadas_trabajo_extensas.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -2083,7 +2068,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Jornada de trabajo" />
-                            <input type="hidden" name="dimension" value="Jornadas de trabajo extensas" />
+                            <input type="hidden" name="categoria" value="Organización del tiempo de trabajo" />
                         </div>
                     </div>
             </div>
@@ -2204,15 +2189,14 @@
                                     Acciones de Mejora
                                 </option>
                             }
-                            <option value="Adoptar una cultura de responsabilidad social">
-                                Adoptar una cultura de responsabilidad social
-                            </option>
-                            <option value="Definir de manera clara y precisa los horarios de trabajo">
-                                Definir de manera clara y precisa los horarios de trabajo
-                            </option>
-                            <option value="Apegarse a las dispociciones de ley en relación a las jornadas de trabajo justas y dignas">
-                                Apegarse a las dispociciones de ley en relación a las jornadas de trabajo justas y dignas
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.influencia_trabajo_fuera_centro_laboral.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -2250,7 +2234,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Interferencia en la relación trabajo-familia" />
-                            <input type="hidden" name="dimension" value="Influencia del trabajo fuera del centro laboral" />
+                            <input type="hidden" name="categoria" value="Organización del tiempo de trabajo" />
                         </div>
                     </div>
            
@@ -2320,15 +2304,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Otorgar flexibilidad y apoyo al personal en temas familiares de emergencia">
-                                Otorgar flexibilidad y apoyo al personal en temas familiares de emergencia
-                            </option>
-                            <option value="Sensibilizar sobre Empatía a jefes directos">
-                                Sensibilizar sobre Empatía a jefes directos
-                            </option>
-                            <option value="Capacitar al personal sobre estrategias de organización">
-                                Capacitar al personal sobre estrategias de organización
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.influencia_responsabilidades_familiares.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -2366,7 +2349,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Interferencia en la relación trabajo-familia" />
-                            <input type="hidden" name="dimension" value="Influencia de las responsabilidades familiares" />
+                            <input type="hidden" name="categoria" value="Organización del tiempo de trabajo" />
                         </div>
                     </div>
                 
@@ -2492,15 +2475,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Informar sobre el perfil de puesto, jefe inmediato y objetivos al personal durante su contratación">
-                                Informar sobre el perfil de puesto, jefe inmediato y objetivos al personal durante su contratación
-                            </option>
-                            <option value="Capacitar al personal sobre sus funciones y actividades del puesto">
-                                Capacitar al personal sobre sus funciones y actividades del puesto
-                            </option>
-                            <option value="Programar juntas mensuales, quincenales o semanales uno a uno">
-                                Programar juntas mensuales, quincenales o semanales uno a uno
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.escaza_claridad_funcionales.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -2538,7 +2520,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Liderazgo" />
-                            <input type="hidden" name="dimension" value="Escaza claridad de funciones" />
+                            <input type="hidden" name="categoria" value="Liderazgo y relaciones en el trabajo" />
                         </div>
                     </div>
 
@@ -2609,15 +2591,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Capacitar a jefes directos sobre estilos de liderazgo">
-                                Capacitar a jefes directos sobre estilos de liderazgo
-                            </option>
-                            <option value="Establecer un medio formal para la comunicación directa entre jefes directos y el personal colaborador">
-                                Establecer un medio formal para la comunicación directa entre jefes directos y el personal colaborador
-                            </option>
-                            <option value="Programar juntas mensuales, quincenales o semanales uno a uno">
-                                Programar juntas mensuales, quincenales o semanales uno a uno
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.caracteristicas_liderazgo.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -2657,7 +2638,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Liderazgo" />
-                            <input type="hidden" name="dimension" value="Características del liderazgo" />
+                            <input type="hidden" name="categoria" value="Liderazgo y relaciones en el trabajo" />
                         </div>
                     </div>
                 
@@ -2784,15 +2765,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Capacitar sobre el trabajo en equipo">
-                                Capacitar sobre el trabajo en equipo
-                            </option>
-                            <option value="Realizar actividades o eventos de integración y cohesión grupal">
-                                Realizar actividades o eventos de integración y cohesión grupal
-                            </option>
-                            <option value="Promover un clima laboral favorable a traves de un política oficial">
-                                Promover un clima laboral favorable a traves de un política oficial
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.relaciones_sociales_trabajo.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -2831,7 +2811,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Relaciones en el trabajo" />
-                            <input type="hidden" name="dimension" value="Relaciones sociales en el trabajo" />
+                            <input type="hidden" name="categoria" value="Liderazgo y relaciones en el trabajo" />
                         </div>
                     </div>
             </div>
@@ -2898,15 +2878,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Capacitar sobre el trabajo en equipo">
-                                Capacitar sobre el trabajo en equipo
-                            </option>
-                            <option value="Motivar al personal colaborador al logro de sus objetivos mediante bonos economicos o prestaciones emocionales">
-                                Motivar al personal colaborador al logro de sus objetivos mediante bonos economicos o prestaciones emocionales
-                            </option>
-                            <option value="Capacitar a jefes directos sobre estilos de liderazgo">
-                                Capacitar a jefes directos sobre estilos de liderazgo
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.condiciones_peligrosas_inseguras.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -2944,7 +2923,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Relaciones en el trabajo" />
-                            <input type="hidden" name="dimension" value="Deficiente relación con los colaboradores que supervisa" />
+                            <input type="hidden" name="categoria" value="Liderazgo y relaciones en el trabajo" />
                         </div>
                     </div>
             </div>
@@ -3076,15 +3055,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Implementar y difundir una política de igualdad laboral y no discriminación">
-                                Implementar y difundir una política de igualdad laboral y no discriminación
-                            </option>
-                            <option value="Establecer un mecanismo de comunicación para reportar">
-                                Establecer un mecanismo de comunicación para reportar
-                            </option>
-                            <option value="Crear una entidad de autoridad responsable de atender casos relacionados con violencia laboral">
-                                Crear una entidad de autoridad responsable de atender casos relacionados con violencia laboral
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.violencia_laboral.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -3123,7 +3101,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Violencia" />
-                            <input type="hidden" name="dimension" value="Violencia laboral" />
+                            <input type="hidden" name="categoria" value="Liderazgo y relaciones en el trabajo" />
                         </div>
                     </div>
                 
@@ -3250,15 +3228,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Realizar evaluación de desempeño">
-                                Realizar evaluación de desempeño
-                            </option>
-                            <option value="Implementar feed-back (retroalimentación)">
-                                Implementar feed-back (retroalimentación)
-                            </option>
-                            <option value="Capacitar a jefes directos sobre estilos de liderazgo">
-                                Capacitar a jefes directos sobre estilos de liderazgo
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.escasa_nula_retroalimentacion_desempeno.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -3296,7 +3273,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Reconocimiento del desempeño" />
-                            <input type="hidden" name="dimension" value="Escasa o nula retroalimentación del desempeño" />
+                            <input type="hidden" name="categoria" value="Entorno organizacional" />
                         </div>
                     </div>
             </div>
@@ -3363,15 +3340,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Incentivar al personal con valoraciones altas en su evaluación del desempeño">
-                                Incentivar al personal con valoraciones altas en su evaluación del desempeño
-                            </option>
-                            <option value="Implementar personal colaborador del mes">
-                                Implementar "personal colaborador del mes"
-                            </option>
-                            <option value="Implementar convocatorias para desarrollo laboral (promoción interna)">
-                                Implementar convocatorias para desarrollo laboral (promoción interna)
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.escasa_nulo_reconocimiento_compensacion.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -3409,7 +3385,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Reconocimiento del desempeño" />
-                            <input type="hidden" name="dimension" value="Escaso o nulo reconocimiento y compensación" />
+                            <input type="hidden" name="categoria" value="Entorno organizacional" />
 
                         </div>
                     </div>
@@ -3536,15 +3512,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Promover el sentido de pertenencia">
-                                Promover el sentido de pertenencia
-                            </option>
-                            <option value="Realizar juntas o seguimiento programado para apoyar al personal en sus metas u objetivos">
-                                Realizar juntas o seguimiento programado para apoyar al personal en sus metas u objetivos
-                            </option>
-                            <option value="Realizar eventos grupales  o actividades de integración y cohesión por área o centro de trabajo">
-                                Realizar eventos grupales  o actividades de integración y cohesión por área o centro de trabajo
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.limitado_sentido_pertencia.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -3583,7 +3558,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Insuficiente sentido de pertenencia e, inestabilidad" />
-                            <input type="hidden" name="dimension" value="Limitado sentido de pertenencia" />
+                            <input type="hidden" name="categoria" value="Entorno organizacional" />
                         </div>
                     </div>
             
@@ -3650,15 +3625,14 @@
                                     Medidas de prevención
                                 </option>
                             }
-                            <option value="Realizar análisis de la rotación mediante entrevistas o encuesta de salida">
-                                Realizar análisis de la rotación mediante entrevistas o encuesta de salida
-                            </option>
-                            <option value="Adecuar o complementar las prestaciones o beneficios percibidos">
-                                Adecuar o complementar las prestaciones o beneficios percibidos
-                            </option>
-                            <option value="Evaluación de desempeño a jefes directos">
-                                Evaluación de desempeño a jefes directos
-                            </option>
+                            @foreach (var item in Model.dimensionesVal.inestabilidad_laboral.prevenciones)
+                            {
+                                <option value="@item.prevencion">
+                                    @item.prevencion
+                                </option>
+
+
+                            }
                             <option value="Otra">
                                 Otra
                             </option>
@@ -3696,7 +3670,7 @@
                                 <input type="date" class="fecha" name="date" id="date" value="" />
                             }
                             <input type="hidden" name="dominio" value="Insuficiente sentido de pertenencia e, inestabilidad" />
-                            <input type="hidden" name="dimension" value="Inestabilidad laboral" />
+                            <input type="hidden" name="categoria" value="Entorno organizacional" />
 
                         </div>
                     </div>
@@ -3707,9 +3681,9 @@
         <br />
         <div class="row">
             <div>
-                <input type="submit" name="name" id="save"  class="btn btn-primary boton-enviar" value="Guardar y enviar por email" style="margin-right:20px" />
-                <a class="btn btn-primary" id="send" href="#">Enviar</a>
-                <a class="btn btn-warning" href="~/Empresa/Resultados">Salir</a>
+                <input type="submit" name="name" id="save"  class="btn btn-primary boton-enviar" value="Guardar y Continuar" style="margin-right:20px" />
+                <a class="btn btn-primary disabled" onclick="alerta()" id="send" href="#">Generar plan de acción y notificar</a>
+                <a class="btn btn-warning" href="~/Empresa/Resultados">Guardar y salir</a>
             </div>
         </div>
     </div>
@@ -3801,7 +3775,7 @@
             icon: 'success',
             title: 'NOM-035-STPS-2018 "Plan de Acción para la Intervención de Riesgo Psicosocial y Entorno Organizacional favorable generado y enviado correctamente',
             showConfirmButton: false,
-            timer: 9500
+            timer: 3500
         })
 
     }
@@ -3819,7 +3793,7 @@
             row.forEach((d) => {
 
                 const item = [...d.querySelectorAll("select, input")]
-
+                console.log(item)
                 const data = item.map(d => d.value)
 
                 arreglo = {
@@ -3832,6 +3806,8 @@
                     medidasPrevencion: data[5],
                     responsable: data[6],
                     date: data[7],
+                    categoria: data[9],
+                    dominio:data[8],
                 }
 
                 add.push(arreglo)
@@ -3848,6 +3824,17 @@
             }
         } else {
             alert_p("Error campos vacios")
+        }
+
+        var info1 = JSON.parse(localStorage.getItem("1")) || null;
+        var info2 = JSON.parse(localStorage.getItem("2")) || null;
+        var info3 = JSON.parse(localStorage.getItem("3")) || null;
+        var info4 = JSON.parse(localStorage.getItem("4")) || null;
+        var info5 = JSON.parse(localStorage.getItem("5")) || null;
+        console.log(!!info2)
+        if (!!info1 & !!info2 & !!info3 & !!info4 & !!info5) {
+            send.className = 'btn btn-primary';
+
         }
 
     })

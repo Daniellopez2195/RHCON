@@ -274,9 +274,6 @@
     <Compile Include="Models\periodosEncuesta.cs">
       <DependentUpon>db_rhcon.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\plandeaccion.cs">
-      <DependentUpon>db_rhcon.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\politica.cs">
       <DependentUpon>db_rhcon.tt</DependentUpon>
     </Compile>
@@ -284,6 +281,9 @@
       <DependentUpon>db_rhcon.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\posiblesRespuestas.cs">
+      <DependentUpon>db_rhcon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\prevenciones.cs">
       <DependentUpon>db_rhcon.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\respuestaEmpDetalle.cs">
@@ -804,6 +804,7 @@
     <Content Include="Views\Empleado\ReporteAcciones.cshtml" />
     <Content Include="Views\Empleado\MisActividades.cshtml" />
     <Content Include="Views\Empresa\SinAcciones.cshtml" />
+    <Content Include="Views\Administrador\AddAcciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
