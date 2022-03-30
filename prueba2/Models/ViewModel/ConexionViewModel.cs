@@ -17,8 +17,7 @@ namespace rhcon.Models.ViewModel
                 DataSource = "DESKTOP-D6P8TS9\\SQLEXPRESS",
                 UserID = "BIENESTARLABORA",
                 Password = "Hsyp*2020*",
-                InitialCatalog = "rhcon",
-              
+                InitialCatalog = "rhcon",    
 
             };
             return builder;

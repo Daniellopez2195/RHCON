@@ -252,7 +252,7 @@ namespace rhcon.Models.ViewModel
                     {
                         double[] limites = { 2, 3.6 , 4.4 , 5.6 };
                         string[] cadenas =
-{
+                            {
                             "Las personas reconocen que  las actividades que desempeñan no requieren el uso de esfuerzo físico  mayor, ya que conocen  y aplican las normas de seguridad  y salud.",
                             "Las personas reconocen que  las actividades que desempeñan no requieren el uso de esfuerzo físico, ya que conocen  y aplican las normas de seguridad  y salud;",
                             "Las personas reconocen que  las actividades que desempeñan en ocasiones requieren el uso de esfuerzo físico,  que  parcialmente conocen  y  aplican las normas de seguridad  y salud;",

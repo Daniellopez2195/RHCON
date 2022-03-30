@@ -167,6 +167,16 @@ namespace rhcon.Controllers
             return Redirect("~/Administrador/perfiladmin");
         }
 
+        public ActionResult AddAcciones()
+        {
+            using (rhconEntities db = new rhconEntities())
+            {
+                var dimensiones = db.dimencion.ToList();
+
+                return View(dimensiones);
+            }
+        }
+
 
     }
 }

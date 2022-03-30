@@ -58,9 +58,9 @@ namespace rhcon.Models.ViewModel
 
         public static string Dimensiones(string year, string idEmpresa, string filtros = "")
         {
-            string queryString = "select sum(suma) valor, dimencion_descripcion from dbo.result_dimension  where " +
+            string queryString = "select sum(suma) valor, dimencion_descripcion,idDimencion from dbo.result_dimension  where " +
                 "idResuestaEmpleado in  (select distinct(t1.id) from dbo.respuestaEmpleado t1 join dbo.resultados_nom035 t2 on t1.id = t2.idResuestaEmpleado  " +
-                "where t1.idEmpresa = " + idEmpresa + " and t2.year = " + year + filtros + ") and year = " + year + "  group by dimencion_descripcion";
+                "where t1.idEmpresa = " + idEmpresa + " and t2.year = " + year + filtros + ") and year = " + year + "  group by dimencion_descripcion,idDimencion";
 
 
             return queryString;

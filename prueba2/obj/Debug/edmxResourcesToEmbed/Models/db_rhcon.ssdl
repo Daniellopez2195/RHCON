@@ -300,6 +300,14 @@
     <Property Name="grupo" Type="varchar" MaxLength="4" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="prevenciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prevencion" Type="text" Nullable="false" />
+    <Property Name="idDimencion" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="respuestaEmpDetalle">
     <Key>
       <PropertyRef Name="id" />
@@ -606,6 +614,18 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
       </Principal>
       <Dependent Role="cuestionarioDetalle">
         <PropertyRef Name="idPosiblesResp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_dimencion">
+    <End Role="dimencion" Type="Self.dimencion" Multiplicity="1" />
+    <End Role="prevenciones" Type="Self.prevenciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dimencion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="prevenciones">
+        <PropertyRef Name="idDimencion" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1164,6 +1184,7 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
     <EntitySet Name="politica" EntityType="Self.politica" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="posiblesRespDetalle" EntityType="Self.posiblesRespDetalle" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="posiblesRespuestas" EntityType="Self.posiblesRespuestas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="prevenciones" EntityType="Self.prevenciones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="respuestaEmpDetalle" EntityType="Self.respuestaEmpDetalle" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="respuestaEmpleado" EntityType="Self.respuestaEmpleado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
@@ -1283,6 +1304,10 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
     <AssociationSet Name="FK_cuestionarioDetalle_posiblesRespuestas" Association="Self.FK_cuestionarioDetalle_posiblesRespuestas">
       <End Role="posiblesRespuestas" EntitySet="posiblesRespuestas" />
       <End Role="cuestionarioDetalle" EntitySet="cuestionarioDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="fk_dimencion" Association="Self.fk_dimencion">
+      <End Role="dimencion" EntitySet="dimencion" />
+      <End Role="prevenciones" EntitySet="prevenciones" />
     </AssociationSet>
     <AssociationSet Name="FK_dimencion_categoria" Association="Self.FK_dimencion_categoria">
       <End Role="categoria" EntitySet="categoria" />

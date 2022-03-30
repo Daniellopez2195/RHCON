@@ -12,5 +12,7 @@ namespace rhcon.Models.ViewModel
         public string text { get; set; }
         public string estado { get; set; }
         public string tipo { get; set; }
+
+        public List<prevenciones> prevenciones { get; set; }
     }
 }

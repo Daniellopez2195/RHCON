@@ -18,6 +18,7 @@ namespace rhcon.Models
         public dimencion()
         {
             this.cuestionarioDetalle = new HashSet<cuestionarioDetalle>();
+            this.prevenciones = new HashSet<prevenciones>();
         }
     
         public int id { get; set; }
@@ -30,5 +31,7 @@ namespace rhcon.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cuestionarioDetalle> cuestionarioDetalle { get; set; }
         public virtual dominio dominio { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<prevenciones> prevenciones { get; set; }
     }
 }
