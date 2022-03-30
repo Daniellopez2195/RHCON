@@ -1,15 +1,14 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using rhcon.Models;
+using rhcon.Models.ViewModel;
+using Rotativa;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Mail;
-using System.Web;
 using System.Web.Mvc;
-using rhcon.Models;
-using rhcon.Models.ViewModel;
-using Rotativa;
-using OfficeOpenXml;
-using OfficeOpenXml.Style;
 
 namespace rhcon.Controllers
 {
@@ -1273,37 +1272,37 @@ namespace rhcon.Controllers
             {
                 foreach (var element in elements)
                 {
-                        acciones addAccion = new acciones();
+                    acciones addAccion = new acciones();
 
-       
-                        addAccion.accion = element.accion;
-                        addAccion.color = element.color;
-                        addAccion.date = element.date;
-                        addAccion.descripcion = element.descripcion;
-                        addAccion.dimension = element.dimension;
-                        addAccion.estado = element.estado;
-                        addAccion.idEmpresa = oEmpresa.Id;
-                        addAccion.medidasPrevencion = element.medidasPrevencion;
-                        addAccion.registro = DateTime.Now;
-                        addAccion.responsable = element.responsable;
-                        addAccion.status = false;
-                        addAccion.categoria = element.categoria;
-                        addAccion.dominio = element.dominio;
-                        addAccion.tipo = "Nom-035-stps";
-                        db.acciones.Add(addAccion);
-                        db.SaveChanges();
 
-                        var idUser = int.Parse(element.responsable);
-                        var correo = db.usuario.Where(d => d.id == idUser).First().email;
+                    addAccion.accion = element.accion;
+                    addAccion.color = element.color;
+                    addAccion.date = element.date;
+                    addAccion.descripcion = element.descripcion;
+                    addAccion.dimension = element.dimension;
+                    addAccion.estado = element.estado;
+                    addAccion.idEmpresa = oEmpresa.Id;
+                    addAccion.medidasPrevencion = element.medidasPrevencion;
+                    addAccion.registro = DateTime.Now;
+                    addAccion.responsable = element.responsable;
+                    addAccion.status = false;
+                    addAccion.categoria = element.categoria;
+                    addAccion.dominio = element.dominio;
+                    addAccion.tipo = "Nom-035-stps";
+                    db.acciones.Add(addAccion);
+                    db.SaveChanges();
 
-                        if (wordsCount.ContainsKey(correo))
-                        {
-                            wordsCount[correo] = wordsCount[correo] + 1;
-                        }
-                        else
-                        {
-                            wordsCount.Add(correo, 1);
-                        }
+                    var idUser = int.Parse(element.responsable);
+                    var correo = db.usuario.Where(d => d.id == idUser).First().email;
+
+                    if (wordsCount.ContainsKey(correo))
+                    {
+                        wordsCount[correo] = wordsCount[correo] + 1;
+                    }
+                    else
+                    {
+                        wordsCount.Add(correo, 1);
+                    }
 
 
 
@@ -1311,7 +1310,7 @@ namespace rhcon.Controllers
 
                 foreach (var usuario in wordsCount)
                 {
-                 
+
 
                     //Envio de email al encargado de la empresa
                     string EmailORigen = "rhstackcode@gmail.com";
@@ -1319,7 +1318,7 @@ namespace rhcon.Controllers
                     string pass = "stackcode1.";
                     var body = db.correos.Where(d => d.tipo == "acciones").First();
                     string mensaje = body.email.ToString();
-                    mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/logos/"+oEmpresa.strlogotipo);
+                    mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/logos/" + oEmpresa.strlogotipo);
                     mensaje = mensaje.Replace("_empresa_", oEmpresa.RazonSocial);
                     mensaje = mensaje.Replace("_x_", usuario.Value.ToString());
                     mensaje = mensaje.Replace("_fecha_", DateTime.Now.ToString("dd/MM/yyyy"));
@@ -1330,7 +1329,7 @@ namespace rhcon.Controllers
                         mensaje
                         );
                     EmailMess.IsBodyHtml = true;
-                    
+
                     SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
                     oSmtpClient.EnableSsl = true;
                     //oSmtpClient.UseDefaultCredentials = false;
@@ -1375,14 +1374,14 @@ namespace rhcon.Controllers
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 ExcelPackage pck = new ExcelPackage();
                 ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Plan De Accion " + oEmpresa.RazonSocial);
-               
-                
+
+
                 //Titulo
                 ws.Cells["A1:I1"].Merge = true;
                 ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                 ws.Cells["A1"].Value = " Plan de Acción de la NOM 035 STPS-2018 - ";
-                
-                
+
+
                 //Encabezados de columnas
                 ws.Cells["A2"].Value = "Categoria";
                 ws.Cells["B2"].Value = "Dominio";
@@ -1398,9 +1397,9 @@ namespace rhcon.Controllers
                 //ws.Cells["L2"].Value = "Fecha de carga";
                 //ws.Cells["M2"].Value = "Status";
 
-              
-                
-                
+
+
+
                 //Contenido
                 int rowStart = 3;
                 foreach (var item in excel)
@@ -1452,7 +1451,6 @@ namespace rhcon.Controllers
             var name = user.nombre;
             return Redirect("~/Empresa/Resultados");
         }
-
 
     }
 }
