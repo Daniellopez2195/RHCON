@@ -1367,7 +1367,7 @@ namespace rhcon.Controllers
                 var norealizada = db.acciones.Where(d => d.registro.Value.Year == DateTime.Now.Year & d.idEmpresa == oEmpresa.Id & d.status == false).Count();
                 ViewBag.nrel = norealizada;
 
-                var porcentaje = (norealizada * 100) / total;
+                var porcentaje = (realizada * 100) / total;
                 ViewBag.porcentaje = porcentaje;
 
 
