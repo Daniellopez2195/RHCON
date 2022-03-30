@@ -1377,7 +1377,7 @@ namespace rhcon.Controllers
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 ExcelPackage pck = new ExcelPackage();
                 ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Plan De Accion " + oEmpresa.RazonSocial);
-               
+                
                 
                 //Titulo
                 ws.Cells["A1:I1"].Merge = true;
@@ -1407,6 +1407,8 @@ namespace rhcon.Controllers
                 int rowStart = 3;
                 foreach (var item in excel)
                 {
+                    var idResponsable = int.Parse(item.responsable);
+                    var responsable = db.usuario.Where(d => d.id == idResponsable).First();
 
                     ws.Cells[string.Format("A{0}", rowStart)].Value = item.categoria;
                     ws.Cells[string.Format("B{0}", rowStart)].Value = item.dominio;
@@ -1414,8 +1416,8 @@ namespace rhcon.Controllers
                     ws.Cells[string.Format("D{0}", rowStart)].Value = item.color;
                     ws.Cells[string.Format("E{0}", rowStart)].Value = item.accion;
                     ws.Cells[string.Format("F{0}", rowStart)].Value = item.medidasPrevencion;
-                    ws.Cells[string.Format("G{0}", rowStart)].Value = item.responsable;
-                    ws.Cells[string.Format("H{0}", rowStart)].Value = item.date;
+                    ws.Cells[string.Format("G{0}", rowStart)].Value = responsable.nombre;
+                    ws.Cells[string.Format("H{0}", rowStart)].Value = item.date.Value.ToString("dd/MM/yyyy");
                     ws.Cells[string.Format("I{0}", rowStart)].Value = item.status;
                     //ws.Cells[string.Format("J{0}", rowStart)].Value = item;
                     //ws.Cells[string.Format("k{0}", rowStart)].Value = item;

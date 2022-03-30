@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\bin\app.publish\</_PublishTargetUrl>
-    <History>True|2022-03-29T19:00:54.3059449Z;True|2022-03-28T23:57:05.0012108-06:00;True|2022-03-28T23:39:52.2291668-06:00;</History>
+    <History>True|2022-03-30T18:37:59.9811288Z;True|2022-03-30T11:27:29.5183405-06:00;True|2022-03-29T13:00:54.3059449-06:00;True|2022-03-28T23:57:05.0012108-06:00;True|2022-03-28T23:39:52.2291668-06:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Browsers/qt.browser">
@@ -594,10 +594,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/26/2022 04:43:32</publishTime>
     </File>
     <File Include="bin/rhcon.dll">
-      <publishTime>03/29/2022 13:00:44</publishTime>
+      <publishTime>03/30/2022 13:51:33</publishTime>
     </File>
     <File Include="bin/rhcon.pdb">
-      <publishTime>03/29/2022 13:00:44</publishTime>
+      <publishTime>03/30/2022 13:51:33</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>03/26/2022 04:43:32</publishTime>
@@ -933,7 +933,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/26/2022 04:43:42</publishTime>
     </File>
     <File Include="Models/db_rhcon.edmx.diagram">
-      <publishTime>03/29/2022 12:58:02</publishTime>
+      <publishTime>03/29/2022 15:52:40</publishTime>
     </File>
     <File Include="Rotativa/help-wkhtmltoimage.txt">
       <publishTime>03/26/2022 04:43:39</publishTime>
@@ -1073,11 +1073,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>03/26/2022 04:43:40</publishTime>
     </File>
+    <File Include="Views/Administrador/AddAcciones.cshtml">
+      <publishTime>03/30/2022 10:52:45</publishTime>
+    </File>
     <File Include="Views/Administrador/datosadmin.cshtml">
       <publishTime>03/26/2022 04:43:40</publishTime>
     </File>
     <File Include="Views/Administrador/Index.cshtml">
-      <publishTime>03/26/2022 04:43:40</publishTime>
+      <publishTime>03/30/2022 10:51:20</publishTime>
     </File>
     <File Include="Views/Administrador/PaginaConstruccion.cshtml">
       <publishTime>03/26/2022 04:43:40</publishTime>
@@ -1173,7 +1176,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/26/2022 04:43:40</publishTime>
     </File>
     <File Include="Views/Empresa/Acciones.cshtml">
-      <publishTime>03/29/2022 12:58:02</publishTime>
+      <publishTime>03/30/2022 11:16:56</publishTime>
     </File>
     <File Include="Views/Empresa/Editar.cshtml">
       <publishTime>03/26/2022 04:43:40</publishTime>
@@ -1200,7 +1203,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/26/2022 04:43:40</publishTime>
     </File>
     <File Include="Views/Empresa/PanelPlanDeAccion.cshtml">
-      <publishTime>03/28/2022 18:08:23</publishTime>
+      <publishTime>03/30/2022 13:51:20</publishTime>
     </File>
     <File Include="Views/Empresa/Perfil.cshtml">
       <publishTime>03/26/2022 04:43:40</publishTime>
