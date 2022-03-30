@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using rhcon.Models;
 using rhcon.Models.ViewModel;
 using Rotativa;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 
 namespace rhcon.Controllers
 {
@@ -1352,6 +1354,97 @@ namespace rhcon.Controllers
                 return Redirect("~/Empresa/Acciones");
             }
         }
+
+
+        [HttpPost]
+        public ActionResult ExcelPlan(string year)
+        {
+
+            using (rhconEntities db = new rhconEntities())
+            {
+                var oEmpleado = (EmpleadoViewModel)Session["empleado"];
+                var oEmpresa = (EmpresaViewModel)Session["empresa"];
+
+                var excel = db.acciones.Where(d => d.registro.Value.Year.ToString() == year & d.idEmpresa == oEmpresa.Id).ToList();
+                //var encuesta = db.periodosEncuesta.Where(d =>).ToList();
+
+
+
+                // If you use EPPlus in a noncommercial context
+                // according to the Polyform Noncommercial license:
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                ExcelPackage pck = new ExcelPackage();
+                ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Plan De Accion " + oEmpresa.RazonSocial);
+               
+                
+                //Titulo
+                ws.Cells["A1:I1"].Merge = true;
+                ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                ws.Cells["A1"].Value = " Plan de Acción de la NOM 035 STPS-2018 - ";
+                
+                
+                //Encabezados de columnas
+                ws.Cells["A2"].Value = "Categoria";
+                ws.Cells["B2"].Value = "Dominio";
+                ws.Cells["C2"].Value = "Dimensión";
+                ws.Cells["D2"].Value = "Nivel de riesgo";
+                ws.Cells["E2"].Value = "Tipo de Acción";
+                ws.Cells["F2"].Value = "Descripción detallada";
+                ws.Cells["G2"].Value = "Responsable";
+                ws.Cells["H2"].Value = "Fecha compromiso";
+                ws.Cells["I2"].Value = "Status";
+                //ws.Cells["J2"].Value = "Comentarios";
+                //ws.Cells["k2"].Value = "Archivos cargados";
+                //ws.Cells["L2"].Value = "Fecha de carga";
+                //ws.Cells["M2"].Value = "Status";
+
+              
+                
+                
+                //Contenido
+                int rowStart = 3;
+                foreach (var item in excel)
+                {
+
+                    ws.Cells[string.Format("A{0}", rowStart)].Value = item.categoria;
+                    ws.Cells[string.Format("B{0}", rowStart)].Value = item.dominio;
+                    ws.Cells[string.Format("C{0}", rowStart)].Value = item.dimension;
+                    ws.Cells[string.Format("D{0}", rowStart)].Value = item.color;
+                    ws.Cells[string.Format("E{0}", rowStart)].Value = item.accion;
+                    ws.Cells[string.Format("F{0}", rowStart)].Value = item.medidasPrevencion;
+                    ws.Cells[string.Format("G{0}", rowStart)].Value = item.responsable;
+                    ws.Cells[string.Format("H{0}", rowStart)].Value = item.date;
+                    ws.Cells[string.Format("I{0}", rowStart)].Value = item.status;
+                    //ws.Cells[string.Format("J{0}", rowStart)].Value = item;
+                    //ws.Cells[string.Format("k{0}", rowStart)].Value = item;
+                    //ws.Cells[string.Format("L{0}", rowStart)].Value = item.status;
+                    //ws.Cells[string.Format("M{0}", rowStart)].Value = item.status;
+                    if (item.status == true)
+                    {
+                        ws.Cells[string.Format("I{0}", rowStart)].Value = "Completado";
+                    }
+                    else
+                    {
+                        ws.Cells[string.Format("I{0}", rowStart)].Value = "No Completado";
+                    }
+
+                    rowStart++;
+                }
+
+                ws.Cells["A:AZ"].AutoFitColumns();
+                Response.Clear();
+                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                Response.AddHeader("content-disposition", "attachment: filename=\"Empleados_export.xlsx\"");
+                Response.BinaryWrite(pck.GetAsByteArray());
+                Response.End();
+
+
+
+
+                return Redirect("~/Empresa/PanelPlanDeAccion");
+            }
+        }
+
 
         [HttpPost]
         public ActionResult addPrevenciones(string id, string accion)
