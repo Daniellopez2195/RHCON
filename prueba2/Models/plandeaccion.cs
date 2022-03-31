@@ -12,15 +12,14 @@ namespace rhcon.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EncuestaSugerencias
+    public partial class plandeaccion
     {
         public int id { get; set; }
-        public string sugerencia { get; set; }
-        public string categoria { get; set; }
-        public Nullable<short> year { get; set; }
-        public string rol { get; set; }
-        public string color { get; set; }
-        public string dominio { get; set; }
         public string dimension { get; set; }
+        public string nivelriesgo { get; set; }
+        public string accion { get; set; }
+        public string descripcion { get; set; }
+        public string responsable { get; set; }
+        public Nullable<System.DateTime> fecha { get; set; }
     }
 }

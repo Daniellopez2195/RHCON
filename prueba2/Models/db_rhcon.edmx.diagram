@@ -82,6 +82,7 @@
         <EntityTypeShape EntityType="rhconModel.prevenciones" Width="1.5" PointX="11.875" PointY="24.375" />
         <AssociationConnector Association="rhconModel.fk_dimencion" />
         <EntityTypeShape EntityType="rhconModel.resultados_nom035" Width="1.5" PointX="17.375" PointY="16.75" />
+        <EntityTypeShape EntityType="rhconModel.plandeaccion" Width="1.5" PointX="19.375" PointY="15.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

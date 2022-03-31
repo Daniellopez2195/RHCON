@@ -1376,13 +1376,7 @@ namespace rhcon.Controllers
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 ExcelPackage pck = new ExcelPackage();
                 ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Plan De Accion " + oEmpresa.RazonSocial);
-<<<<<<< HEAD
 
-
-=======
-                
-                
->>>>>>> dab33c1fd223fa5d67194d5c3ba9ce1e0ded4c10
                 //Titulo
                 ws.Cells["A1:I1"].Merge = true;
                 ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
