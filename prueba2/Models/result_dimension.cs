@@ -18,5 +18,6 @@ namespace rhcon.Models
         public string dimencion_descripcion { get; set; }
         public Nullable<int> suma { get; set; }
         public Nullable<int> year { get; set; }
+        public Nullable<int> idDimencion { get; set; }
     }
 }

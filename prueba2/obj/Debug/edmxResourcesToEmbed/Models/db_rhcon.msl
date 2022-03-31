@@ -390,6 +390,7 @@
     <EntitySetMapping Name="result_dimension">
       <EntityTypeMapping TypeName="rhconModel.result_dimension">
         <MappingFragment StoreEntitySet="result_dimension">
+          <ScalarProperty Name="idDimencion" ColumnName="idDimencion" />
           <ScalarProperty Name="year" ColumnName="year" />
           <ScalarProperty Name="suma" ColumnName="suma" />
           <ScalarProperty Name="dimencion_descripcion" ColumnName="dimencion_descripcion" />
@@ -497,6 +498,9 @@
     <EntitySetMapping Name="EncuestaSugerencias">
       <EntityTypeMapping TypeName="rhconModel.EncuestaSugerencias">
         <MappingFragment StoreEntitySet="EncuestaSugerencias">
+          <ScalarProperty Name="dimension" ColumnName="dimension" />
+          <ScalarProperty Name="dominio" ColumnName="dominio" />
+          <ScalarProperty Name="color" ColumnName="color" />
           <ScalarProperty Name="rol" ColumnName="rol" />
           <ScalarProperty Name="year" ColumnName="year" />
           <ScalarProperty Name="categoria" ColumnName="categoria" />
@@ -538,6 +542,29 @@
     <EntitySetMapping Name="resultados_nom035">
       <EntityTypeMapping TypeName="rhconModel.resultados_nom035">
         <MappingFragment StoreEntitySet="resultados_nom035">
+          <ScalarProperty Name="tipoPersonal" ColumnName="tipoPersonal" />
+          <ScalarProperty Name="tipoJornada" ColumnName="tipoJornada" />
+          <ScalarProperty Name="tipoContratacion" ColumnName="tipoContratacion" />
+          <ScalarProperty Name="tieneDiscapacidad" ColumnName="tieneDiscapacidad" />
+          <ScalarProperty Name="tiempoPuestoActual" ColumnName="tiempoPuestoActual" />
+          <ScalarProperty Name="tiempoExperienciaLaboral" ColumnName="tiempoExperienciaLaboral" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="sector" ColumnName="sector" />
+          <ScalarProperty Name="realizaRotacion" ColumnName="realizaRotacion" />
+          <ScalarProperty Name="parteSectores" ColumnName="parteSectores" />
+          <ScalarProperty Name="idCuestionario" ColumnName="idCuestionario" />
+          <ScalarProperty Name="idRespuestaEmpleado" ColumnName="idRespuestaEmpleado" />
+          <ScalarProperty Name="existePolitica" ColumnName="existePolitica" />
+          <ScalarProperty Name="existeMecanismo" ColumnName="existeMecanismo" />
+          <ScalarProperty Name="existeComite" ColumnName="existeComite" />
+          <ScalarProperty Name="existeCodigoEtica" ColumnName="existeCodigoEtica" />
+          <ScalarProperty Name="estadoCivil" ColumnName="estadoCivil" />
+          <ScalarProperty Name="escolaridad" ColumnName="escolaridad" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="dondeTrabajo" ColumnName="dondeTrabajo" />
+          <ScalarProperty Name="discapacidad" ColumnName="discapacidad" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="antiguedad" ColumnName="antiguedad" />
           <ScalarProperty Name="categoria_descripcion" ColumnName="categoria_descripcion" />
           <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
           <ScalarProperty Name="dominio_descripcion" ColumnName="dominio_descripcion" />

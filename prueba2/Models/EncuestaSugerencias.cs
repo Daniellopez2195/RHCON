@@ -19,5 +19,8 @@ namespace rhcon.Models
         public string categoria { get; set; }
         public Nullable<short> year { get; set; }
         public string rol { get; set; }
+        public string color { get; set; }
+        public string dominio { get; set; }
+        public string dimension { get; set; }
     }
 }
