@@ -382,6 +382,7 @@
     <Compile Include="Models\ViewModel\EmpresaEditViewModel.cs" />
     <Compile Include="Models\ViewModel\EmpresaViewModel.cs" />
     <Compile Include="Models\ViewModel\EncargadoEmpresaViewModel.cs" />
+    <Compile Include="Models\ViewModel\EmailViewModel.cs" />
     <Compile Include="Models\ViewModel\FiltrosResultados.cs" />
     <Compile Include="Models\ViewModel\graficaViewModel.cs" />
     <Compile Include="Models\ViewModel\HistorialATSViewModel.cs" />

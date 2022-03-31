@@ -13,12 +13,18 @@ namespace rhcon.Models.ViewModel
         {
             //string conect = "SERVER=BIENESTARLABORA;DATABASE=rhcon;User Id=SA;Password=Hsyp*2020*;Integrated security=true";
             //VMI823465
-            //DESKTOP-D6P8TS9\SQLEXPRESS
+            //DESKTOP-D6P8TS9\\SQLEXPRESS
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
             {
+
                 DataSource = "DESKTOP-PK2CDF5\\SQLEXPRESS",
                 //UserID = "BIENESTARLABORA",
                 //Password = "Hsyp*2020*",
+
+              
+                UserID = "BIENESTARLABORA",
+                Password = "Hsyp*2020*",
+
                 InitialCatalog = "rhcon",    
                 IntegratedSecurity = true
 
