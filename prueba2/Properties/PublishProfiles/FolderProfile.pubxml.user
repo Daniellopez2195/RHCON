@@ -270,7 +270,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Assets/img/botones/grafica.png">
-      <publishTime>06/12/2021 18:08:15</publishTime>
+      <publishTime>12/06/2021 18:08:15</publishTime>
     </File>
     <File Include="Assets/img/carrusel/apoyoSocial.jpg">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -468,7 +468,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Assets/img/SVG/LOGO/Evaluación %281%29.svg">
-      <publishTime>09/11/2021 15:01:58</publishTime>
+      <publishTime>11/09/2021 15:01:58</publishTime>
     </File>
     <File Include="Assets/img/SVG/LOGO/Registro.svg">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -480,10 +480,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Assets/img/SVG/LOGO/SVG BIENESTAR.svg">
-      <publishTime>09/01/2021 16:40:20</publishTime>
+      <publishTime>01/09/2021 16:40:20</publishTime>
     </File>
     <File Include="Assets/img/SVG/LOGO/SVG LOGO.svg">
-      <publishTime>09/01/2021 16:40:20</publishTime>
+      <publishTime>01/09/2021 16:40:20</publishTime>
     </File>
     <File Include="Assets/img/SVG/LOGO/SVGBIENESTAR.svg">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -507,13 +507,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Assets/logos/logo-CUCC860808NS4.png">
-      <publishTime>07/09/2021 08:46:01</publishTime>
+      <publishTime>09/07/2021 08:46:01</publishTime>
     </File>
     <File Include="Assets/logos/logo-LOZD951212CH9.jpg">
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Assets/logos/logo-SCO890622BT5.png">
-      <publishTime>09/07/2021 08:46:01</publishTime>
+      <publishTime>07/09/2021 08:46:01</publishTime>
     </File>
     <File Include="Assets/logos/rh.png">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -765,187 +765,190 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.min.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.rtl.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.rtl.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.rtl.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.rtl.min.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.min.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.rtl.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.rtl.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.rtl.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.rtl.min.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-utilities.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-utilities.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-utilities.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-utilities.min.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-utilities.rtl.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-utilities.rtl.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-utilities.rtl.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap-utilities.rtl.min.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap.rtl.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap.rtl.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap.rtl.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/bootstrap.rtl.min.css.map">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.bootstrap.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.bootstrap.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.bootstrap4.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.bootstrap4.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.bootstrap5.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.bootstrap5.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.bulma.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.bulma.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.dataTables.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.dataTables.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.foundation.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.foundation.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.jqueryui.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.jqueryui.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.semanticui.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/dataTables.semanticui.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/jquery.dataTables.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/jquery.dataTables.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/datatables.min.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/style/crud.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/style/cuestionario.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/style/example.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/style/filtros.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/style/home.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/style/perfil_administrador.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/style/perfil_empleado.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/style/perfil_empresa.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/style/resultados.css">
-      <publishTime>03/26/2022 04:43:38</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Controllers/ResultadosApiController.cs">
+      <publishTime>04/02/2022 01:39:27</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -969,7 +972,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Models/ViewModel/EmpleadoViewModel.cs">
-      <publishTime>11/08/2021 09:42:43</publishTime>
+      <publishTime>08/11/2021 09:42:43</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -1302,7 +1305,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Factores/PaginaContruccion.cshtml">
-      <publishTime>09/06/2021 19:48:34</publishTime>
+      <publishTime>06/09/2021 19:48:34</publishTime>
     </File>
     <File Include="Views/Factores/Reforzamiento.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>

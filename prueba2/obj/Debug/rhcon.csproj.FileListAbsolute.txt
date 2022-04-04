@@ -1749,3 +1749,12 @@ C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\obj\Debug\rhcon.csproj.C
 C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\obj\Debug\rhcon.csproj.CopyComplete
 C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\obj\Debug\rhcon.dll
 C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\obj\Debug\rhcon.pdb
+C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\bin\System.Net.Http.Formatting.dll
+C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\bin\System.Web.Http.dll
+C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\bin\System.Web.Http.WebHost.dll
+C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\bin\System.Net.Http.Formatting.xml
+C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\bin\System.Web.Http.xml
+C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\bin\System.Web.Http.WebHost.xml
+C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\bin\es\System.Net.Http.Formatting.resources.dll
+C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\bin\es\System.Web.Http.resources.dll
+C:\Users\Practicas RH\Documents\stackcode\RHCON\prueba2\bin\es\System.Web.Http.WebHost.resources.dll

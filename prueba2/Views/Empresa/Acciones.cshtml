@@ -3681,7 +3681,7 @@
         <br />
         <div class="row">
             <div>
-                <input type="submit" name="name" id="save"  class="btn btn-primary boton-enviar" value="Guardar y Continuar" style="margin-right:20px" />
+                <a href="#"  type="submit" name="name" id="save"  class="btn btn-primary boton-enviar"  style="margin-right:20px">Guardar y Continuar</a>
                 <a class="btn btn-primary disabled" onclick="alerta()" id="send" href="#">Generar plan de acción y notificar</a>
                 <a class="btn btn-warning" href="~/Empresa/Resultados">Guardar y salir</a>
             </div>
@@ -3690,6 +3690,7 @@
 }
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
 
@@ -3700,6 +3701,13 @@
     var categoria3 = document.querySelector("#categoria3");
     var categoria4 = document.querySelector("#categoria4");
     var categoria5 = document.querySelector("#categoria5");
+    var year = "@ViewBag.year";
+    var idCentro = "@ViewBag.idCentro";
+    var idEmpresa = "@ViewBag.idEmpresa";
+    const saltos = [false, false, false, false, false]
+
+    
+   
 
     const component = {
         "1": categoria1,
@@ -3716,142 +3724,8 @@
     categoria5.className = "disabled"
 
 
-
-    function recup(value,status) {
-        const section = component[status];
-        let row = [...section.querySelectorAll(".dimension")];
-        row.forEach((d,index) => {
-
-            const item = [...d.querySelectorAll("select, input")]
-            const result = value[index];
-
-            item.map((d, index) => {
-
-                d.value = result[d.name]
-            })
-
-
-        })
-
-
-        filtro.querySelector(`option[value="${status}"]`).textContent += " (Acciones guardadas)"
-    }
-
-    var data1 = JSON.parse(localStorage.getItem("1")) || null;
-    var data2 = JSON.parse(localStorage.getItem("2")) || null;
-    var data3 = JSON.parse(localStorage.getItem("3")) || null;
-    var data4 = JSON.parse(localStorage.getItem("4")) || null;
-    var data5 = JSON.parse(localStorage.getItem("5")) || null;
-
-    if (data1) {
-        recup(data1, "1")
-    }
-    if (data2) {
-        recup(data2, "2")
-    }
-    if (data3) {
-        recup(data3,"3")
-    }
-    if (data4) {
-        recup(data4,"4")
-    }
-    if (data5) {
-        recup(data5, "5")
-    }
-
-
-
-
-    function alert_p(text) {
-        Swal.fire(text);
-    }
-
-
-
-
-    function alerta() {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'NOM-035-STPS-2018 "Plan de Acción para la Intervención de Riesgo Psicosocial y Entorno Organizacional favorable generado y enviado correctamente',
-            showConfirmButton: false,
-            timer: 3500
-        })
-
-    }
-
-    var save = document.querySelector("#save");
-    save.addEventListener("click", (event) => {
-        event.preventDefault()
-        const section = component[filtro.value];
-        const ternario = validarCampos(section);
-
-
-        if (ternario) {
-            let add = []
-            let row = [...section.querySelectorAll(".dimension")];
-            row.forEach((d) => {
-
-                const item = [...d.querySelectorAll("select, input")]
-                console.log(item)
-                const data = item.map(d => d.value)
-
-                arreglo = {
-
-                    accion: data[4],
-                    color: data[3],
-                    dimension: data[0],
-                    estado: data[1],
-                    descripcion: data[2],
-                    medidasPrevencion: data[5],
-                    responsable: data[6],
-                    date: data[7],
-                    categoria: data[9],
-                    dominio:data[8],
-                }
-
-                add.push(arreglo)
-
-
-
-            })
-
-            localStorage.setItem(filtro.value, JSON.stringify(add))
-            var exist = localStorage.getItem(filtro.value)
-            if (exist) {
-                alert_p("acciones guardadas exitosamente")
-                filtro.querySelector(`option[value="${filtro.value}"]`).textContent += " (Acciones guardadas)"
-            }
-        } else {
-            alert_p("Error campos vacios")
-        }
-
-        var info1 = JSON.parse(localStorage.getItem("1")) || null;
-        var info2 = JSON.parse(localStorage.getItem("2")) || null;
-        var info3 = JSON.parse(localStorage.getItem("3")) || null;
-        var info4 = JSON.parse(localStorage.getItem("4")) || null;
-        var info5 = JSON.parse(localStorage.getItem("5")) || null;
-        console.log(!!info2)
-        if (!!info1 & !!info2 & !!info3 & !!info4 & !!info5) {
-            send.className = 'btn btn-primary';
-
-        }
-
-    })
-
-    const validarCampos = (categoria) => {
-
-        const element = [...categoria.querySelectorAll("select ,input")]
-
-        let filt = element.filter(item => item.value == "");
-        filt = filt.filter(item => item.id != "opcional");
-        if (filt.length != 0) { return false } else { return true}
-    }
-
-
-    filtro.addEventListener("change", (event) => {
-        let dato = event.target.value;
-
+     const nextDisplay = (dato) => {
+        console.log(dato)
         switch (dato) {
 
             case "1":
@@ -3896,18 +3770,298 @@
 
             default:
         }
+    }
+
+
+    const info = async () => {
+
+        var url = `@Url.Content("~/Resultados/apiCat")?year=${year}&idCentro=${idCentro}&idEmpresa=${idEmpresa}`;
+        const res = await axios.post(url);
+        const data = res.data;
+        return data;
+
+    }
+
+
+
+
+
+    var data = JSON.parse(localStorage.getItem(year));
+
+    (async () => {
+       
+
+        if (data) {
+            console.log("dentro")
+            var ubicacion = idCentro || "empresa";
+            var rango = data[ubicacion];
+
+            if (rango) {
+
+
+                var data1 = rango["1"] || null;
+                var data2 = rango["2"] || null;
+                var data3 = rango["3"] || null;
+                var data4 = rango["4"] || null;
+                var data5 = rango["5"] || null;
+
+                if (data1) {
+                    recup(data1, "1")
+                    saltos[0] = true;
+                }
+                if (data2) {
+                    recup(data2, "2")
+                    saltos[1] = true;
+                }
+                if (data3) {
+                    recup(data3, "3")
+                    saltos[2] = true;
+                }
+                if (data4) {
+                    recup(data4, "4")
+                    saltos[3] = true;
+                }
+                if (data5) {
+                    recup(data5, "5")
+                    saltos[4] = true;
+                }
+
+                var index = saltos.indexOf(false)
+                if (index + 1 != 0) {
+                    filtro.value = index + 1;
+                    nextDisplay(filtro.value);
+                }
+
+            } 
+        } else {
+            data = await info();
+            if (data.length != 0) {
+                var { categoria1: data1, categoria2: data2, categoria3: data3, categoria4: data4, categoria5: data5 } = data;
+                console.log(data1)
+
+                //if (data1) {
+                //    recup(data1, "1")
+                //    saltos[0] = true;
+                //}
+                //if (data2) {
+                //    recup(data2, "2")
+                //    saltos[1] = true;
+                //}
+                //if (data3) {
+                //    recup(data3, "3")
+                //    saltos[2] = true;
+                //}
+                //if (data4) {
+                //    recup(data4, "4")
+                //    saltos[3] = true;
+                //}
+                //if (data5) {
+                //    recup(data5, "5")
+                //    saltos[4] = true;
+                //}
+
+                //var index = saltos.indexOf(false)
+                //if (index + 1 != 0) {
+                //    filtro.value = index + 1;
+                //    nextDisplay(filtro.value);
+                //}
+                
+            }
+
+        }
+
+
+    }) ()
+
+
+
+
+    //colocar valores al formulario
+    function recup(value, status) {
+        const section = component[status];
+        let row = [...section.querySelectorAll(".dimension")];
+        row.forEach((d, index) => {
+
+            const item = [...d.querySelectorAll("select, input")]
+            const result = value[index];
+
+            item.map((d, index) => {
+
+                d.value = result[d.name]
+            })
+
+
+        })
+
+
+        filtro.querySelector(`option[value="${status}"]`).textContent += " (Acciones guardadas)"
+    }
+
+
+
+    function alert_p(text) {
+        Swal.fire(text);
+    }
+
+
+
+
+    function alerta() {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'NOM-035-STPS-2018 "Plan de Acción para la Intervención de Riesgo Psicosocial y Entorno Organizacional favorable generado y enviado correctamente',
+            showConfirmButton: false,
+            timer: 3500
+        })
+
+    }
+
+    var save = document.querySelector("#save");
+    save.addEventListener("click", (event) => {
+        event.preventDefault()
+        const section = component[filtro.value];
+        const ternario = validarCampos(section);
+
+
+        if (ternario) {
+            let add = []
+            let row = [...section.querySelectorAll(".dimension")];
+            let objectCategoriaLocal;
+            row.forEach((d) => {
+
+                const item = [...d.querySelectorAll("select, input")]
+
+                const data = item.map(d => d.value)
+
+                arreglo = {
+
+                    accion: data[4],
+                    color: data[3],
+                    dimension: data[0],
+                    estado: data[1],
+                    descripcion: data[2],
+                    medidasPrevencion: data[5],
+                    responsable: data[6],
+                    date: data[7],
+                    categoria: data[9],
+                    dominio: data[8],
+                    idCentro: idCentro,
+                    year: year,
+                }
+
+                add.push(arreglo)
+
+            })
+
+
+            objectCategoriaLocal = JSON.parse(localStorage.getItem(year))
+
+            if (objectCategoriaLocal) {
+                selector = idCentro || "empresa";
+
+                var arreglo = objectCategoriaLocal[selector];
+
+                objectCategoriaLocal = {
+                    ...objectCategoriaLocal,
+                    [selector]: {
+                        ...arreglo,
+                        [filtro.value]: add
+                    }
+
+                }
+
+            } else {
+
+                selector = idCentro || "empresa";
+                objectCategoriaLocal = {
+                    [selector]: {
+                        [filtro.value]: add
+                    }
+
+                }
+
+            }
+            var poblacion = idCentro || "empresa";
+            localStorage.setItem(year, JSON.stringify(objectCategoriaLocal))
+            var exist = JSON.parse(localStorage.getItem(year))
+            if (exist[poblacion][filtro.value]) {
+                alert_p("acciones guardadas exitosamente")
+
+                var concatenar = filtro.querySelector(`option[value="${filtro.value}"]`).textContent
+                if (!concatenar.includes("(Acciones guardadas)")) {
+                    filtro.querySelector(`option[value="${filtro.value}"]`).textContent += " (Acciones guardadas)"
+
+                }
+
+
+                saltos[filtro.value - 1] = true;
+                var index = saltos.indexOf(false)
+                if (index + 1 != 0) {
+                    filtro.value = index + 1;
+                    nextDisplay(filtro.value);
+                }
+            }
+            } else {
+                 alert_p("Error campos vacios")
+             }
+
+        var datax = JSON.parse(localStorage.getItem(year))
+        if (datax) {
+            var ubicacion = idCentro || "empresa";
+            var rango = datax[ubicacion];
+            var info1 = rango["1"] || null;
+            var info2 = rango["2"] || null;
+            var info3 = rango["3"] || null;
+            var info4 = rango["4"] || null;
+            var info5 = rango["5"] || null;
+
+        if (!!info1 & !!info2 & !!info3 & !!info4 & !!info5) {
+
+            send.className = 'btn btn-primary';
+
+        }
+        }
+
+
+
+
     })
 
 
 
 
+
+    const validarCampos = (categoria) => {
+
+        const element = [...categoria.querySelectorAll("select ,input")]
+
+        let filt = element.filter(item => item.value == "");
+        filt = filt.filter(item => item.id != "opcional");
+        if (filt.length != 0) { return false } else { return true}
+    }
+
+
+    filtro.addEventListener("change", (event) => {
+        let dato = event.target.value;
+        nextDisplay(dato);
+
+    })
+
+
+
+
+
     send.addEventListener("click", () => {
-        var info1 = JSON.parse(localStorage.getItem("1")) || null;
-        var info2 = JSON.parse(localStorage.getItem("2")) || null;
-        var info3 = JSON.parse(localStorage.getItem("3")) || null;
-        var info4 = JSON.parse(localStorage.getItem("4")) || null;
-        var info5 = JSON.parse(localStorage.getItem("5")) || null;
-        console.log(!!info2)
+        var datax = JSON.parse(localStorage.getItem(year))
+        var ubicacion = idCentro || "empresa";
+        var rango = datax[ubicacion];
+        var info1 = rango["1"] || null;
+        var info2 = rango["2"] || null;
+        var info3 = rango["3"] || null;
+        var info4 = rango["4"] || null;
+        var info5 = rango["5"] || null;
+
         if (!!info1 & !!info2 & !!info3 & !!info4 & !!info5) {
 
             let elements = [

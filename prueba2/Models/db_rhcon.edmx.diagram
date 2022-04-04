@@ -77,11 +77,13 @@
         <AssociationConnector Association="rhconModel.FK_cuestionarioDetalle_categoriaCuestionario" />
         <EntityTypeShape EntityType="rhconModel.Log_factores" Width="1.5" PointX="19.375" PointY="8.75" />
         <EntityTypeShape EntityType="rhconModel.admin_perfil" Width="1.5" PointX="19.375" PointY="12.75" />
-        <EntityTypeShape EntityType="rhconModel.EncuestaSugerencias" Width="1.5" PointX="5.375" PointY="19.75" />
-        <EntityTypeShape EntityType="rhconModel.acciones" Width="1.5" PointX="20.375" PointY="0.75" />
         <EntityTypeShape EntityType="rhconModel.prevenciones" Width="1.5" PointX="11.875" PointY="24.375" />
         <AssociationConnector Association="rhconModel.fk_dimencion" />
-        <EntityTypeShape EntityType="rhconModel.resultados_nom035" Width="1.5" PointX="17.375" PointY="16.75" />
+        <EntityTypeShape EntityType="rhconModel.evidencia_acciones" Width="1.5" PointX="21.625" PointY="16.625" />
+        <EntityTypeShape EntityType="rhconModel.resultados_nom035" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="rhconModel.EncuestaSugerencias" Width="1.5" PointX="5.375" PointY="19.75" />
+        <EntityTypeShape EntityType="rhconModel.acciones" Width="1.5" PointX="19.375" PointY="17" />
+        <AssociationConnector Association="rhconModel.fk_evidencias" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

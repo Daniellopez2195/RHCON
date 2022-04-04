@@ -465,14 +465,19 @@
     </AssociationSet>
     <EntitySet Name="Log_factores" EntityType="rhconModel.Log_factores" />
     <EntitySet Name="admin_perfil" EntityType="rhconModel.admin_perfil" />
-    <EntitySet Name="EncuestaSugerencias" EntityType="rhconModel.EncuestaSugerencias" />
-    <EntitySet Name="acciones" EntityType="rhconModel.acciones" />
     <EntitySet Name="prevenciones" EntityType="rhconModel.prevenciones" />
     <AssociationSet Name="fk_dimencion" Association="rhconModel.fk_dimencion">
       <End Role="dimencion" EntitySet="dimencion" />
       <End Role="prevenciones" EntitySet="prevenciones" />
     </AssociationSet>
+    <EntitySet Name="acciones" EntityType="rhconModel.acciones" />
+    <EntitySet Name="evidencia_acciones" EntityType="rhconModel.evidencia_acciones" />
+    <AssociationSet Name="fk_evidencias" Association="rhconModel.fk_evidencias">
+      <End Role="acciones" EntitySet="acciones" />
+      <End Role="evidencia_acciones" EntitySet="evidencia_acciones" />
+    </AssociationSet>
     <EntitySet Name="resultados_nom035" EntityType="rhconModel.resultados_nom035" />
+    <EntitySet Name="EncuestaSugerencias" EntityType="rhconModel.EncuestaSugerencias" />
   </EntityContainer>
   <EntityType Name="categoria">
     <Key>
@@ -1173,6 +1178,7 @@
     <Property Name="dimencion_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="suma" Type="Int32" />
     <Property Name="year" Type="Int32" />
+    <Property Name="idDimencion" Type="Int32" />
   </EntityType>
   <EntityType Name="result_dominio">
     <Key>
@@ -1336,16 +1342,27 @@
     <Property Name="contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="idUsuario" Type="Int32" />
   </EntityType>
-  <EntityType Name="EncuestaSugerencias">
+  <EntityType Name="prevenciones">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="sugerencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="year" Type="Int16" />
-    <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prevencion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idDimencion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="dimencion" Relationship="rhconModel.fk_dimencion" FromRole="prevenciones" ToRole="dimencion" />
   </EntityType>
+  <Association Name="fk_dimencion">
+    <End Type="rhconModel.dimencion" Role="dimencion" Multiplicity="1" />
+    <End Type="rhconModel.prevenciones" Role="prevenciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dimencion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="prevenciones">
+        <PropertyRef Name="idDimencion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="acciones">
     <Key>
       <PropertyRef Name="id" />
@@ -1365,25 +1382,36 @@
     <Property Name="status" Type="Boolean" />
     <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="dominio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="year" Type="Int16" />
+    <Property Name="idCentro" Type="Int32" />
+    <NavigationProperty Name="evidencia_acciones" Relationship="rhconModel.fk_evidencias" FromRole="acciones" ToRole="evidencia_acciones" />
   </EntityType>
-  <EntityType Name="prevenciones">
+  <EntityType Name="evidencia_acciones">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="prevencion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="idDimencion" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="dimencion" Relationship="rhconModel.fk_dimencion" FromRole="prevenciones" ToRole="dimencion" />
+    <Property Name="folio" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="actividad" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="linked" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="regitro" Type="DateTime" Precision="3" />
+    <Property Name="idAccion" Type="Int32" />
+    <NavigationProperty Name="acciones" Relationship="rhconModel.fk_evidencias" FromRole="evidencia_acciones" ToRole="acciones" />
   </EntityType>
-  <Association Name="fk_dimencion">
-    <End Type="rhconModel.dimencion" Role="dimencion" Multiplicity="1" />
-    <End Type="rhconModel.prevenciones" Role="prevenciones" Multiplicity="*" />
+  <Association Name="fk_evidencias">
+    <End Type="rhconModel.acciones" Role="acciones" Multiplicity="0..1" />
+    <End Type="rhconModel.evidencia_acciones" Role="evidencia_acciones" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dimencion">
+      <Principal Role="acciones">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="prevenciones">
-        <PropertyRef Name="idDimencion" />
+      <Dependent Role="evidencia_acciones">
+        <PropertyRef Name="idAccion" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1422,5 +1450,15 @@
     <Property Name="dominio_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="idCategoria" Type="Int32" Nullable="false" />
     <Property Name="categoria_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EncuestaSugerencias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sugerencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="year" Type="Int16" />
+    <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

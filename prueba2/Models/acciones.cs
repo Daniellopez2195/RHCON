@@ -14,6 +14,12 @@ namespace rhcon.Models
     
     public partial class acciones
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public acciones()
+        {
+            this.evidencia_acciones = new HashSet<evidencia_acciones>();
+        }
+    
         public int id { get; set; }
         public string dimension { get; set; }
         public string descripcion { get; set; }
@@ -21,7 +27,7 @@ namespace rhcon.Models
         public string accion { get; set; }
         public string medidasPrevencion { get; set; }
         public string responsable { get; set; }
-        public Nullable<System.DateTime> date { get; set; }
+        public Nullable<System.DateTime> fecha_compromiso { get; set; }
         public string tipo { get; set; }
         public string color { get; set; }
         public Nullable<System.DateTime> registro { get; set; }
@@ -29,5 +35,11 @@ namespace rhcon.Models
         public Nullable<bool> status { get; set; }
         public string categoria { get; set; }
         public string dominio { get; set; }
+        public Nullable<short> year { get; set; }
+        public Nullable<int> idCentro { get; set; }
+        public string date { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<evidencia_acciones> evidencia_acciones { get; set; }
     }
 }

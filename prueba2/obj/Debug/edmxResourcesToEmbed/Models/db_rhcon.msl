@@ -390,6 +390,7 @@
     <EntitySetMapping Name="result_dimension">
       <EntityTypeMapping TypeName="rhconModel.result_dimension">
         <MappingFragment StoreEntitySet="result_dimension">
+          <ScalarProperty Name="idDimencion" ColumnName="idDimencion" />
           <ScalarProperty Name="year" ColumnName="year" />
           <ScalarProperty Name="suma" ColumnName="suma" />
           <ScalarProperty Name="dimencion_descripcion" ColumnName="dimencion_descripcion" />
@@ -494,20 +495,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EncuestaSugerencias">
-      <EntityTypeMapping TypeName="rhconModel.EncuestaSugerencias">
-        <MappingFragment StoreEntitySet="EncuestaSugerencias">
-          <ScalarProperty Name="rol" ColumnName="rol" />
-          <ScalarProperty Name="year" ColumnName="year" />
-          <ScalarProperty Name="categoria" ColumnName="categoria" />
-          <ScalarProperty Name="sugerencia" ColumnName="sugerencia" />
-          <ScalarProperty Name="id" ColumnName="id" />
+    <EntitySetMapping Name="prevenciones">
+      <EntityTypeMapping TypeName="rhconModel.prevenciones">
+        <MappingFragment StoreEntitySet="prevenciones">
+          <ScalarProperty Name="idDimencion" ColumnName="idDimencion" />
+          <ScalarProperty Name="prevencion" ColumnName="prevencion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="acciones">
       <EntityTypeMapping TypeName="rhconModel.acciones">
         <MappingFragment StoreEntitySet="acciones">
+          <ScalarProperty Name="idCentro" ColumnName="idCentro" />
+          <ScalarProperty Name="year" ColumnName="year" />
           <ScalarProperty Name="dominio" ColumnName="dominio" />
           <ScalarProperty Name="categoria" ColumnName="categoria" />
           <ScalarProperty Name="status" ColumnName="status" />
@@ -526,11 +527,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="prevenciones">
-      <EntityTypeMapping TypeName="rhconModel.prevenciones">
-        <MappingFragment StoreEntitySet="prevenciones">
-          <ScalarProperty Name="idDimencion" ColumnName="idDimencion" />
-          <ScalarProperty Name="prevencion" ColumnName="prevencion" />
+    <EntitySetMapping Name="evidencia_acciones">
+      <EntityTypeMapping TypeName="rhconModel.evidencia_acciones">
+        <MappingFragment StoreEntitySet="evidencia_acciones">
+          <ScalarProperty Name="idAccion" ColumnName="idAccion" />
+          <ScalarProperty Name="regitro" ColumnName="regitro" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="linked" ColumnName="linked" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="actividad" ColumnName="actividad" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="folio" ColumnName="folio" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -555,6 +564,17 @@
           <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
           <ScalarProperty Name="idResuestaEmpleado" ColumnName="idResuestaEmpleado" />
           <ScalarProperty Name="curp" ColumnName="curp" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EncuestaSugerencias">
+      <EntityTypeMapping TypeName="rhconModel.EncuestaSugerencias">
+        <MappingFragment StoreEntitySet="EncuestaSugerencias">
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="sugerencia" ColumnName="sugerencia" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

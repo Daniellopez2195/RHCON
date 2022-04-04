@@ -10,6 +10,7 @@ using rhcon.Models.ViewModel;
 using Rotativa;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using rhcon.Models.ApiModel;
 
 namespace rhcon.Controllers
 {
@@ -488,8 +489,6 @@ namespace rhcon.Controllers
                             red[6] += 1;
                         personal++;
                     }
-
-
 
 
                     blue[6] = (blue[6] * 100) / personal;
@@ -1289,13 +1288,15 @@ namespace rhcon.Controllers
                         addAccion.status = false;
                         addAccion.categoria = element.categoria;
                         addAccion.dominio = element.dominio;
+                        addAccion.year = element.year;
+                        addAccion.idCentro = element.idCentro;
                         addAccion.tipo = "Nom-035-stps";
                         db.acciones.Add(addAccion);
                         db.SaveChanges();
 
                         var idUser = int.Parse(element.responsable);
                         var correo = db.usuario.Where(d => d.id == idUser).First().email;
-
+                         
                         if (wordsCount.ContainsKey(correo))
                         {
                             wordsCount[correo] = wordsCount[correo] + 1;
@@ -1466,6 +1467,72 @@ namespace rhcon.Controllers
                 return Redirect("~/Administrador/addAcciones");
         }
 
+
+        public ActionResult apiCat(string year, string idCentro, string idEmpresa)
+        {
+            rhconEntities db = new rhconEntities();
+
+            AccionesXcategoriaApiModel acciones = new AccionesXcategoriaApiModel();
+
+            string[] categorias =
+            {
+                    "Ambiente de trabajo",
+                    "Factores propios de la actividad",
+                    "Organización del tiempo de trabajo",
+                    "Liderazgo y relaciones en el trabajo",
+                    "Entorno organizacional"
+                };
+
+            var cat1 = categorias[0];
+            var cat2 = categorias[1];
+            var cat3 = categorias[2];
+            var cat4 = categorias[3];
+            var cat5 = categorias[4];
+            int empresa  = int.Parse(idEmpresa);
+
+
+
+            var data1 = db.acciones.Where(d => d.year.ToString() == year & d.categoria.Equals(cat1) & d.idEmpresa == empresa).ToList();
+            var data2 = db.acciones.Where(d => d.year.ToString() == year & d.categoria.Equals(cat2) & d.idEmpresa == empresa).ToList();
+            var data3 = db.acciones.Where(d => d.year.ToString() == year & d.categoria.Equals(cat3) & d.idEmpresa == empresa).ToList();
+            var data4 = db.acciones.Where(d => d.year.ToString() == year & d.categoria.Equals(cat4) & d.idEmpresa == empresa).ToList();
+            var data5 = db.acciones.Where(d => d.year.ToString() == year & d.categoria.Equals(cat5) & d.idEmpresa == empresa).ToList();
+
+
+            bool item = false;
+
+            if (!string.IsNullOrEmpty(idCentro))
+            {
+                var filt = int.Parse(idCentro);
+                data1 = data1.FindAll(d => d.idCentro == filt).ToList();
+                data2 = data2.FindAll(d => d.idCentro == filt).ToList();
+                data3 = data3.FindAll(d => d.idCentro == filt).ToList();
+                data4 = data4.FindAll(d => d.idCentro == filt).ToList();
+                data5 = data5.FindAll(d => d.idCentro == filt).ToList();
+                item = true;
+            }
+            else
+            {
+                data1 = data1.FindAll(d => d.idCentro == null).ToList();
+                data2 = data2.FindAll(d => d.idCentro == null).ToList();
+                data3 = data3.FindAll(d => d.idCentro == null).ToList();
+                data4 = data4.FindAll(d => d.idCentro == null).ToList();
+                data5 = data5.FindAll(d => d.idCentro == null).ToList();
+            }
+
+            acciones.categoria1 = data1;
+            acciones.categoria2 = data2;
+            acciones.categoria3 = data3;
+            acciones.categoria4 = data4;
+            acciones.categoria5 = data5;
+
+
+            return Json(acciones);
+
+        }
+
+
+      
 
     }
 }

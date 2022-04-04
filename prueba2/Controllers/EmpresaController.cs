@@ -12,6 +12,8 @@ using System.IO;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.Data.SqlClient;
+using rhcon.Models.ApiModel;
+using Newtonsoft.Json;
 
 namespace rhcon.Controllers
 {
@@ -229,11 +231,11 @@ namespace rhcon.Controllers
                     string pass = "stackcode1.";
                     var body = db.correos.Where(d => d.tipo == "altaempresa").First();
                     string mensaje = body.email.ToString();
-                    mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                    mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                     mensaje = mensaje.Replace("_razonsocial_", empresa.RazonSocial);
                     mensaje = mensaje.Replace("_usuario_", empresa.Email);
                     mensaje = mensaje.Replace("_pass_", password);
-                    mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login?IdRol=" + rol.Id + "&email=" + empresa.Email + "&password=" + password);
+                    mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login?IdRol=" + rol.Id + "&email=" + empresa.Email + "&password=" + password);
                     mensaje = mensaje.Replace("_tipousuario_", "Usuario Empresa");
                     MailMessage EmailMess = new MailMessage(
                         EmailORigen,
@@ -386,11 +388,11 @@ namespace rhcon.Controllers
                             string EmailDestino = model.Email;
                             string pass = "stackcode1.";
                             string mensaje = body.email.ToString();
-                            mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                            mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                             mensaje = mensaje.Replace("_razonsocial_", model.RazonSocial);
                             mensaje = mensaje.Replace("_usuario_", model.Email);
                             mensaje = mensaje.Replace("_pass_", password);
-                            mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login?IdRol=" + rol.Id + "&email=" + model.Email + "&password=" + password);
+                            mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login?IdRol=" + rol.Id + "&email=" + model.Email + "&password=" + password);
                             mensaje = mensaje.Replace("_tipousuario_", "Usuario Empresa");
                             MailMessage EmailMess = new MailMessage(
                                 EmailORigen,
@@ -677,11 +679,11 @@ namespace rhcon.Controllers
                     string pass = "stackcode1.";
                     var body = db.correos.Where(d => d.tipo == "altaEmp").First();
                     string mensaje = body.email.ToString();
-                    mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                    mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                     mensaje = mensaje.Replace("_razonsocial_", RazonSocial);
                     mensaje = mensaje.Replace("_usuario_", empleado.Email);
                     mensaje = mensaje.Replace("_pass_", password);
-                    mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login?IdRol=" + rol.Id + "&email=" + empleado.Email + "&password=" + password);
+                    mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login?IdRol=" + rol.Id + "&email=" + empleado.Email + "&password=" + password);
                     mensaje = mensaje.Replace("_tipousuario_", "Usuario Empleado(a)");
                     MailMessage EmailMess = new MailMessage(
                         EmailORigen,
@@ -864,11 +866,11 @@ namespace rhcon.Controllers
                             string EmailDestino = empleado.Email;
                             string pass = "stackcode1.";
                             string mensaje = body.email.ToString();
-                            mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                            mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                             mensaje = mensaje.Replace("_razonsocial_", oEmpresa.RazonSocial);
                             mensaje = mensaje.Replace("_usuario_", empleado.Email);
                             mensaje = mensaje.Replace("_pass_", password);
-                            mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login?IdRol=" + rol.Id + "&email=" + empleado.Email + "&password=" + password);
+                            mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login?IdRol=" + rol.Id + "&email=" + empleado.Email + "&password=" + password);
                             mensaje = mensaje.Replace("_tipousuario_", "Usuario Empleado(a)");
                             MailMessage EmailMess = new MailMessage(
                                 EmailORigen,
@@ -1158,176 +1160,199 @@ namespace rhcon.Controllers
 
         }
 
-        public ActionResult Acciones()
+        public ActionResult Acciones(string idCentro = "" , string year = "")
         {
 
 
-
-            var oEmpresa = (EmpresaViewModel)Session["empresa"];
             // filtros generales
-            var year = "2021";
+            string filtro = "";
+            var oEmpresa = (EmpresaViewModel)Session["empresa"];
             int empresa = oEmpresa.Id;
-            //conexion a la bd
-            SqlConnectionStringBuilder conect = ConexionViewModel.conectar();
-            int empleados = 6;
-           
-            
             DataResultadosViewModel dt = new DataResultadosViewModel();
-
-            
-
-            // consulta de datos generales 
-
             rhconEntities db = new rhconEntities();
-            var periodo = db.periodosEncuesta.Where(d => d.idEmpresa == empresa & d.year.ToString() == year.ToString() & d.cierre == 1);
-
-            bool ternario = false;
-            var datosEmpresa = db.empresa.Where(d => d.id == empresa).First();
-            var idResponsable = db.encargadosEmpresa.Where(d => d.idEmpresa == oEmpresa.Id).First();
-            var responsableNombre = db.usuario.Where(d => d.id == idResponsable.id).First();
-            dt.empleados = db.empleado.Where(d => d.idEmpresa == oEmpresa.Id & d.idEstatus == 1).ToList();
-            
-
-            var responsable =
-                       (from e in db.usuario
-                        join s in db.admin_perfil on e.id equals s.idUsuario
-                        where e.id == 3
-                        select new AdminViewModel
-                        {
-                            Id = e.id,
-                            Email = e.email,
-                            cedula = s.cedula,
-                            nombre = e.nombre,
-                            celular = s.celular,
-                            contacto = s.contacto,
-                            celcontacto = s.celcontacto,
-                            Password = e.password,
-
-                        }).First();
-
-            dt.responsable = responsable.nombre;
-            dt.cedula = responsable.cedula;
-            var datosCentro = new centroTrabajo();
+            SqlConnectionStringBuilder conect = ConexionViewModel.conectar();
+            var periodo = new periodosEncuesta();
 
 
-            dt.total_empleados = db.empleado.Where(d => d.idEmpresa == empresa).Count();
-            dt.ternario = false;
-            dt.actividades = datosEmpresa.actividad.ToString();
-            dt.nombreSelect = datosEmpresa.razonc;
+            ViewBag.year = year;
+            ViewBag.idCentro = idCentro;
+            ViewBag.idEmpresa = oEmpresa.Id;
 
 
 
-
-
-
-
-            using (SqlConnection connection = new SqlConnection(conect.ConnectionString))
+            if (string.IsNullOrEmpty(year))
             {
-                connection.Open();
+                year = DateTime.Now.Year.ToString();
+            }
+            if (!string.IsNullOrEmpty(idCentro))
+            {
+                    
+                    filtro = " AND t1.idCentroTrabajo =" + idCentro;
+            }
+           
+            short conver = short.Parse(year);
+   
+            periodo = db.periodosEncuesta.Where(d => d.year == conver & d.cierre == 1 & d.idEmpresa == oEmpresa.Id).First();
+            var existPeriodo = db.periodosEncuesta.Where(d => d.year == conver & d.cierre == 1 & d.idEmpresa == oEmpresa.Id).Any();
+            ViewBag.exist = existPeriodo;
+            if(existPeriodo)
+            {
+
+                //var json = JsonConvert.SerializeObject(acciones, Formatting.Indented);
+                //ViewBag.json = json;
+
+                bool ternario = false;
+                var datosEmpresa = db.empresa.Where(d => d.id == empresa).First();
+                var idResponsable = db.encargadosEmpresa.Where(d => d.idEmpresa == oEmpresa.Id).First();
+                var responsableNombre = db.usuario.Where(d => d.id == idResponsable.id).First();
+                dt.empleados = db.empleado.Where(d => d.idEmpresa == oEmpresa.Id & d.idEstatus == 1).ToList();
 
 
-                string consulta_totalEncuesta = ConsultasViewModel.TotalRespuestasEmpleados(year, empresa.ToString(), "");
-                SqlCommand command_totalEncuesta = new SqlCommand(consulta_totalEncuesta, connection);
-                using (SqlDataReader reader = command_totalEncuesta.ExecuteReader())
+                var responsable =
+                           (from e in db.usuario
+                            join s in db.admin_perfil on e.id equals s.idUsuario
+                            where e.id == 3
+                            select new AdminViewModel
+                            {
+                                Id = e.id,
+                                Email = e.email,
+                                cedula = s.cedula,
+                                nombre = e.nombre,
+                                celular = s.celular,
+                                contacto = s.contacto,
+                                celcontacto = s.celcontacto,
+                                Password = e.password,
+
+                            }).First();
+
+                dt.responsable = responsable.nombre;
+                dt.cedula = responsable.cedula;
+                var datosCentro = new centroTrabajo();
+
+
+                dt.total_empleados = db.empleado.Where(d => d.idEmpresa == empresa).Count();
+                dt.ternario = false;
+                dt.actividades = datosEmpresa.actividad.ToString();
+                dt.nombreSelect = datosEmpresa.razonc;
+
+
+
+
+
+
+
+                using (SqlConnection connection = new SqlConnection(conect.ConnectionString))
                 {
-
-                    while (reader.Read())
-                    {
-                        dt.total_encuesta = int.Parse(reader[0].ToString());
-                    }
-                }
+                    connection.Open();
 
 
-
-
-                if (dt.total_encuesta > 0)
-                {
-                    // consulta a la vista result_categoria
-                    string consulta_categorias = ConsultasViewModel.Categorias(year, empresa.ToString(), "");
-                    SqlCommand command_categoria = new SqlCommand(consulta_categorias, connection);
-
-                    // consulta a la vista result_dominio
-                    string consulta_dominio = ConsultasViewModel.Dominios(year, empresa.ToString(), "");
-                    SqlCommand command_dominio = new SqlCommand(consulta_dominio, connection);
-
-                    // consulta a la vista result_dimension
-                    string consulta_dimension = ConsultasViewModel.Dimensiones(year, empresa.ToString(), "");
-                    SqlCommand command_dimension = new SqlCommand(consulta_dimension, connection);
-
-                    // consulta a la vista result_nom035
-                    string consulta_total = ConsultasViewModel.TotalResultado(year, empresa.ToString(), "");
-                    SqlCommand command_total = new SqlCommand(consulta_total, connection);
-
-
-
-                    // contruccion de los elementos de las categorias 
-                    using (SqlDataReader reader = command_categoria.ExecuteReader())
-                    {
-                        /*
-                          devuelve un objeto de tipo CategoriaViewModel 
-                           cada categoria contine las propiedades color,text,estado
-                         */
-                        dt.categoriasVal = dt.categorias(reader, dt.total_encuesta);
-                    }
-                    // Contruccion de los elementos de los dominios
-                    using (SqlDataReader reader = command_dominio.ExecuteReader())
-                    {
-                        /*
-                           devuelve un objeto de tipo dominioViewModel 
-                           cada dominio contine las propiedades color,text,estado
-                        */
-                        dt.dominiosVal = dt.dominios(reader, dt.total_encuesta);
-                    }
-                    // Contruccion de los elementos de los dominios
-                    using (SqlDataReader reader = command_dimension.ExecuteReader())
-                    {
-                        /*
-                           devuelve un objeto de tipo dominioViewModel 
-                           cada dominio contine las propiedades color,text,estado
-                        */
-                        dt.dimensionesVal = dt.Dimensiones(reader, dt.total_encuesta);
-                    }
-                    // Contruccion de los elementos del total
-                    using (SqlDataReader reader = command_total.ExecuteReader())
+                    string consulta_totalEncuesta = ConsultasViewModel.TotalRespuestasEmpleados(year, empresa.ToString(), filtro);
+                    SqlCommand command_totalEncuesta = new SqlCommand(consulta_totalEncuesta, connection);
+                    using (SqlDataReader reader = command_totalEncuesta.ExecuteReader())
                     {
 
-                        dt.total = dt.Total035(reader, dt.total_encuesta);
-
-                        if (dt.total.estado.Equals("Muy alto"))
+                        while (reader.Read())
                         {
-                            dt.estadoFavorable = "MUY DESFAVORABLE";
-                        }
-                        else if (dt.total.estado.Equals("Alto"))
-                        {
-                            dt.estadoFavorable = "POCO FAVORABLE";
-                        }
-                        else if (dt.total.estado.Equals("Medio"))
-                        {
-                            dt.estadoFavorable = " MODERADO";
-                        }
-                        else if (dt.total.estado.Equals("Bajo"))
-                        {
-                            dt.estadoFavorable = "FAVORABLE";
-                        }
-                        else if (dt.total.estado.Equals("Nulo"))
-                        {
-                            dt.estadoFavorable = "ALTAMENTE FAVORABLE";
+                            dt.total_encuesta = int.Parse(reader[0].ToString());
                         }
                     }
 
-                    // Contruccion de los elementos del total
-                    using (SqlDataReader reader = command_total.ExecuteReader())
-                    {
 
-                        dt.totalValue = dt.valueTotal(reader, dt.total_encuesta);
+
+
+                    if (dt.total_encuesta > 0)
+                    {
+                        // consulta a la vista result_categoria
+                        string consulta_categorias = ConsultasViewModel.Categorias(year, empresa.ToString(), filtro);
+                        SqlCommand command_categoria = new SqlCommand(consulta_categorias, connection);
+
+                        // consulta a la vista result_dominio
+                        string consulta_dominio = ConsultasViewModel.Dominios(year, empresa.ToString(), filtro);
+                        SqlCommand command_dominio = new SqlCommand(consulta_dominio, connection);
+
+                        // consulta a la vista result_dimension
+                        string consulta_dimension = ConsultasViewModel.Dimensiones(year, empresa.ToString(), filtro);
+                        SqlCommand command_dimension = new SqlCommand(consulta_dimension, connection);
+
+                        // consulta a la vista result_nom035
+                        string consulta_total = ConsultasViewModel.TotalResultado(year, empresa.ToString(), filtro);
+                        SqlCommand command_total = new SqlCommand(consulta_total, connection);
+
+
+
+                        // contruccion de los elementos de las categorias 
+                        using (SqlDataReader reader = command_categoria.ExecuteReader())
+                        {
+                            /*
+                              devuelve un objeto de tipo CategoriaViewModel 
+                               cada categoria contine las propiedades color,text,estado
+                             */
+                            dt.categoriasVal = dt.categorias(reader, dt.total_encuesta);
+                        }
+                        // Contruccion de los elementos de los dominios
+                        using (SqlDataReader reader = command_dominio.ExecuteReader())
+                        {
+                            /*
+                               devuelve un objeto de tipo dominioViewModel 
+                               cada dominio contine las propiedades color,text,estado
+                            */
+                            dt.dominiosVal = dt.dominios(reader, dt.total_encuesta);
+                        }
+                        // Contruccion de los elementos de los dominios
+                        using (SqlDataReader reader = command_dimension.ExecuteReader())
+                        {
+                            /*
+                               devuelve un objeto de tipo dominioViewModel 
+                               cada dominio contine las propiedades color,text,estado
+                            */
+                            dt.dimensionesVal = dt.Dimensiones(reader, dt.total_encuesta);
+                        }
+                        // Contruccion de los elementos del total
+                        using (SqlDataReader reader = command_total.ExecuteReader())
+                        {
+
+                            dt.total = dt.Total035(reader, dt.total_encuesta);
+
+                            if (dt.total.estado.Equals("Muy alto"))
+                            {
+                                dt.estadoFavorable = "MUY DESFAVORABLE";
+                            }
+                            else if (dt.total.estado.Equals("Alto"))
+                            {
+                                dt.estadoFavorable = "POCO FAVORABLE";
+                            }
+                            else if (dt.total.estado.Equals("Medio"))
+                            {
+                                dt.estadoFavorable = " MODERADO";
+                            }
+                            else if (dt.total.estado.Equals("Bajo"))
+                            {
+                                dt.estadoFavorable = "FAVORABLE";
+                            }
+                            else if (dt.total.estado.Equals("Nulo"))
+                            {
+                                dt.estadoFavorable = "ALTAMENTE FAVORABLE";
+                            }
+                        }
+
+                        // Contruccion de los elementos del total
+                        using (SqlDataReader reader = command_total.ExecuteReader())
+                        {
+
+                            dt.totalValue = dt.valueTotal(reader, dt.total_encuesta);
+
+                        }
+                        dt.cumplimiento = dt.cumplimiento035(dt.total_empleados, dt.total_encuesta, ternario, datosEmpresa.razonc, datosCentro.nombre);
+
 
                     }
-                    dt.cumplimiento = dt.cumplimiento035(dt.total_empleados, dt.total_encuesta, ternario, datosEmpresa.razonc, datosCentro.nombre);
-
 
                 }
 
             }
+
+
+
             return View(dt);
            
         }

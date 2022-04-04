@@ -19,6 +19,8 @@
     <Property Name="status" Type="bit" />
     <Property Name="categoria" Type="varchar" MaxLength="200" />
     <Property Name="dominio" Type="varchar" MaxLength="200" />
+    <Property Name="year" Type="smallint" />
+    <Property Name="idCentro" Type="int" />
   </EntityType>
   <EntityType Name="admin_perfil">
     <Key>
@@ -203,6 +205,22 @@
     <Property Name="categoria" Type="varchar" MaxLength="200" />
     <Property Name="year" Type="smallint" />
     <Property Name="rol" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="evidencia_acciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folio" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="actividad" Type="text" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="100" />
+    <Property Name="comentario" Type="text" />
+    <Property Name="linked" Type="varchar" MaxLength="100" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="regitro" Type="datetime" />
+    <Property Name="idAccion" Type="int" />
   </EntityType>
   <EntityType Name="Log_factores">
     <Key>
@@ -411,6 +429,7 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.result_dimension' no tiene definid
     <Property Name="dimencion_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="suma" Type="int" />
     <Property Name="year" Type="int" />
+    <Property Name="idDimencion" Type="int" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'rhcon.dbo.result_dominio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -746,6 +765,18 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
       </Principal>
       <Dependent Role="encargadosEmpresa">
         <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_evidencias">
+    <End Role="acciones" Type="Self.acciones" Multiplicity="0..1" />
+    <End Role="evidencia_acciones" Type="Self.evidencia_acciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="acciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="evidencia_acciones">
+        <PropertyRef Name="idAccion" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1175,6 +1206,7 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
     <EntitySet Name="EncabezadoCuestionario" EntityType="Self.EncabezadoCuestionario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="encargadosEmpresa" EntityType="Self.encargadosEmpresa" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EncuestaSugerencias" EntityType="Self.EncuestaSugerencias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="evidencia_acciones" EntityType="Self.evidencia_acciones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Log_factores" EntityType="Self.Log_factores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="logCuestionarioATS" EntityType="Self.logCuestionarioATS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="logRespuestaEmpleado" EntityType="Self.logRespuestaEmpleado" Schema="dbo" store:Type="Tables" />
@@ -1204,7 +1236,8 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
     [result_dimension].[idResuestaEmpleado] AS [idResuestaEmpleado], 
     [result_dimension].[dimencion_descripcion] AS [dimencion_descripcion], 
     [result_dimension].[suma] AS [suma], 
-    [result_dimension].[year] AS [year]
+    [result_dimension].[year] AS [year], 
+    [result_dimension].[idDimencion] AS [idDimencion]
     FROM [dbo].[result_dimension] AS [result_dimension]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="result_dominio" EntityType="Self.result_dominio" store:Type="Views" store:Schema="dbo">
@@ -1348,6 +1381,10 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
     <AssociationSet Name="FK_encargadosEmpresa_usuario" Association="Self.FK_encargadosEmpresa_usuario">
       <End Role="usuario" EntitySet="usuario" />
       <End Role="encargadosEmpresa" EntitySet="encargadosEmpresa" />
+    </AssociationSet>
+    <AssociationSet Name="fk_evidencias" Association="Self.fk_evidencias">
+      <End Role="acciones" EntitySet="acciones" />
+      <End Role="evidencia_acciones" EntitySet="evidencia_acciones" />
     </AssociationSet>
     <AssociationSet Name="FK_logRespuestaEmpleado_empleado" Association="Self.FK_logRespuestaEmpleado_empleado">
       <End Role="empleado" EntitySet="empleado" />
