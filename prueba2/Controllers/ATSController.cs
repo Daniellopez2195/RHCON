@@ -61,10 +61,10 @@ namespace rhcon.Controllers
                         //Envio de email al empleado
 
                         string mensaje = body.email.ToString();
-                        mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                        mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                         mensaje = mensaje.Replace("_empresa_", empresa.RazonSocial);
-                        mensaje = mensaje.Replace("_logo_", "http://www.nom035.sistemascontino.com.mx/img/iconosp/at.png");
-                        mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login");
+                        mensaje = mensaje.Replace("_logo_", "http://38.242.215.98/img/iconosp/at.png");
+                        mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login");
                         string asunto = "Periodo de Evaluación";
 
                         string EmailORigen = "rhstackcode@gmail.com";
@@ -143,12 +143,12 @@ namespace rhcon.Controllers
 
                             correos body = db.correos.Where(d => d.tipo == "personal").First();
                             string mensaje = body.email.ToString();
-                            mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                            mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                             mensaje = mensaje.Replace("_empresa_", empresa.RazonSocial);
                             mensaje = mensaje.Replace("_inicio_", inicio.ToString());
                             mensaje = mensaje.Replace("_fin_", final.ToString());
-                            mensaje = mensaje.Replace("_logo_", "http://www.nom035.sistemascontino.com.mx/img/iconosp/at.png");
-                            mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login");
+                            mensaje = mensaje.Replace("_logo_", "http://38.242.215.98/img/iconosp/at.png");
+                            mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login");
                             string asunto = "Periodo de Evaluación";
 
 

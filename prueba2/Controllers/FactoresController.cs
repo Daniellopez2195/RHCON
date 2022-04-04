@@ -139,22 +139,22 @@ namespace rhcon.Controllers
 
                                     body = db.correos.Where(d => d.tipo == "extender").First();
                                     mensaje = body.email.ToString();
-                                    mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                                    mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                                     mensaje = mensaje.Replace("_empresa_", empresa.RazonSocial);
                                     mensaje = mensaje.Replace("_inicio_", model.FechaInicio.ToString("dd/MM/yyyy"));
-                                    mensaje = mensaje.Replace("_logo_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/referenciaEvaluacion.png");
+                                    mensaje = mensaje.Replace("_logo_", "http://38.242.215.98/Assets/img/referenciaEvaluacion.png");
                                     mensaje = mensaje.Replace("_fin_", model.FechaFinal.ToString("dd/MM/yyyy"));
-                                    mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login");
+                                    mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login");
                                     asunto = "Extención de periodo de evaluación";
 
 
 
                                     // pdf de Extender
                                     CorreosPdfViewModel modelpdf = new CorreosPdfViewModel();
-                                    modelpdf.img = "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png";
+                                    modelpdf.img = "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png";
                                     modelpdf.empresa = empresa.RazonSocial;
                                     modelpdf.inicio = model.FechaInicio.ToString("dd/MM/yyyy");
-                                    modelpdf.logo = "https://bienestarlaboral.rhcon.com.mx/Assets/img/et1.png";
+                                    modelpdf.logo = "http://38.242.215.98/Assets/img/et1.png";
                                     modelpdf.fin = model.FechaFinal.ToString("dd/MM/yyyy");
 
 
@@ -225,22 +225,22 @@ namespace rhcon.Controllers
 
                                 body = db.correos.Where(d => d.tipo == "activar").First();
                                 mensaje = body.email.ToString();
-                                mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                                mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
 
                                 mensaje = mensaje.Replace("_empresa_", empresa.RazonSocial);
                                 mensaje = mensaje.Replace("_inicio_", model.FechaInicio.ToString("dd/MM/yyyy"));
-                                mensaje = mensaje.Replace("_logo_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/referenciaEvaluacion.png");
+                                mensaje = mensaje.Replace("_logo_", "http://38.242.215.98/Assets/img/referenciaEvaluacion.png");
                                 mensaje = mensaje.Replace("_fin_", model.FechaFinal.ToString("dd/MM/yyyy"));
-                                mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login");
+                                mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login");
                                 asunto = "Periodo de Evaluación";
 
 
                                 // pdf de Activar
                                 CorreosPdfViewModel modelpdf = new CorreosPdfViewModel();
-                                modelpdf.img = "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png";
+                                modelpdf.img = "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png";
                                 modelpdf.empresa = empresa.RazonSocial;
                                 modelpdf.inicio = model.FechaInicio.ToString("dd/MM/yyyy");
-                                modelpdf.logo = "https://bienestarlaboral.rhcon.com.mx/Assets/img/et1.png";
+                                modelpdf.logo = "http://38.242.215.98/Assets/img/et1.png";
                                 modelpdf.fin = model.FechaFinal.ToString("dd/MM/yyyy");
 
 
@@ -528,12 +528,12 @@ namespace rhcon.Controllers
 
                     //Envio de email al empleado
                     string mensaje = body.email.ToString();
-                    mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                    mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                     mensaje = mensaje.Replace("_empresa_", empresa.RazonSocial);
                     mensaje = mensaje.Replace("_inicio_", pr.fechaInicio.ToString("dd/MM/yyyy"));
-                    mensaje = mensaje.Replace("_logo_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/referenciaEvaluacion.png");
+                    mensaje = mensaje.Replace("_logo_", "http://38.242.215.98/Assets/img/referenciaEvaluacion.png");
                     mensaje = mensaje.Replace("_fin_", pr.fechaFinal.ToString("dd/MM/yyyy"));
-                    mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login");
+                    mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login");
                     string asunto = "Recordatorio del periodo de evaluación";
 
                     string EmailORigen = "rhstackcode@gmail.com";
@@ -566,10 +566,10 @@ namespace rhcon.Controllers
 
             // pdf de reforzamiento
             CorreosPdfViewModel modelpdf = new CorreosPdfViewModel();
-            modelpdf.img = "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png";
+            modelpdf.img = "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png";
             modelpdf.empresa = empresa.RazonSocial;
             modelpdf.inicio = pr.fechaInicio.ToString("dd/MM/yyyy");
-            modelpdf.logo = "https://bienestarlaboral.rhcon.com.mx/Assets/img/et1.png";
+            modelpdf.logo = "http://38.242.215.98/Assets/img/et1.png";
             modelpdf.fin = pr.fechaFinal.ToString("dd/MM/yyyy");
 
 
@@ -751,22 +751,22 @@ namespace rhcon.Controllers
 
                     body = db.correos.Where(d => d.tipo == "activar").First();
                     mensaje = body.email.ToString();
-                    mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                    mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
 
                     mensaje = mensaje.Replace("_empresa_", empresa.RazonSocial);
                     mensaje = mensaje.Replace("_inicio_", model.FechaInicio.ToString("dd/MM/yyyy"));
-                    mensaje = mensaje.Replace("_logo_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/referenciaEvaluacion.png");
+                    mensaje = mensaje.Replace("_logo_", "http://38.242.215.98/Assets/img/referenciaEvaluacion.png");
                     mensaje = mensaje.Replace("_fin_", model.FechaFinal.ToString("dd/MM/yyyy"));
-                    mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login");
+                    mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login");
                     asunto = "Periodo de Evaluación";
 
 
                     // pdf de Activar
                     CorreosPdfViewModel modelpdf = new CorreosPdfViewModel();
-                    modelpdf.img = "https://bienestarlaboral.rhcon.com.mx/Assets/logos/bienestar.png";
+                    modelpdf.img = "http://38.242.215.98/Assets/logos/bienestar.png";
                     modelpdf.empresa = empresa.RazonSocial;
                     modelpdf.inicio = model.FechaInicio.ToString("dd/MM/yyyy");
-                    modelpdf.logo = "https://bienestarlaboral.rhcon.com.mx/Assets/img/et1.png";
+                    modelpdf.logo = "http://38.242.215.98/Assets/img/et1.png";
                     modelpdf.fin = model.FechaFinal.ToString("dd/MM/yyyy");
 
 
@@ -959,22 +959,22 @@ namespace rhcon.Controllers
 
                         body = db.correos.Where(d => d.tipo == "extender").First();
                         mensaje = body.email.ToString();
-                        mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                        mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                         mensaje = mensaje.Replace("_empresa_", empresa.RazonSocial);
                         mensaje = mensaje.Replace("_inicio_", model.FechaInicio.ToString("dd/MM/yyyy"));
-                        mensaje = mensaje.Replace("_logo_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/referenciaEvaluacion.png");
+                        mensaje = mensaje.Replace("_logo_", "http://38.242.215.98/Assets/img/referenciaEvaluacion.png");
                         mensaje = mensaje.Replace("_fin_", model.FechaFinal.ToString("dd/MM/yyyy"));
-                        mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login");
+                        mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login");
                         asunto = "Extención de periodo de evaluación";
 
 
 
                         // pdf de Extender
                         CorreosPdfViewModel modelpdf = new CorreosPdfViewModel();
-                        modelpdf.img = "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png";
+                        modelpdf.img = "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png";
                         modelpdf.empresa = empresa.RazonSocial;
                         modelpdf.inicio = model.FechaInicio.ToString("dd/MM/yyyy");
-                        modelpdf.logo = "https://bienestarlaboral.rhcon.com.mx/Assets/img/et1.png";
+                        modelpdf.logo = "http://38.242.215.98/Assets/img/et1.png";
                         modelpdf.fin = model.FechaFinal.ToString("dd/MM/yyyy");
 
 

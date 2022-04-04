@@ -420,6 +420,7 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.result_dimension' no tiene definid
     <Property Name="dimencion_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="suma" Type="int" />
     <Property Name="year" Type="int" />
+    <Property Name="idDimencion" Type="int" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'rhcon.dbo.result_dominio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -1248,7 +1249,8 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
     [result_dimension].[idResuestaEmpleado] AS [idResuestaEmpleado], 
     [result_dimension].[dimencion_descripcion] AS [dimencion_descripcion], 
     [result_dimension].[suma] AS [suma], 
-    [result_dimension].[year] AS [year]
+    [result_dimension].[year] AS [year], 
+    [result_dimension].[idDimencion] AS [idDimencion]
     FROM [dbo].[result_dimension] AS [result_dimension]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="result_dominio" EntityType="Self.result_dominio" store:Type="Views" store:Schema="dbo">

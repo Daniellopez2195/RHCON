@@ -390,6 +390,7 @@
     <EntitySetMapping Name="result_dimension">
       <EntityTypeMapping TypeName="rhconModel.result_dimension">
         <MappingFragment StoreEntitySet="result_dimension">
+          <ScalarProperty Name="idDimencion" ColumnName="idDimencion" />
           <ScalarProperty Name="year" ColumnName="year" />
           <ScalarProperty Name="suma" ColumnName="suma" />
           <ScalarProperty Name="dimencion_descripcion" ColumnName="dimencion_descripcion" />

@@ -425,6 +425,7 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.result_dimension' no tiene definid
           <Property Name="dimencion_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="suma" Type="int" />
           <Property Name="year" Type="int" />
+          <Property Name="idDimencion" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'rhcon.dbo.result_dominio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -1253,7 +1254,8 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
     [result_dimension].[idResuestaEmpleado] AS [idResuestaEmpleado], 
     [result_dimension].[dimencion_descripcion] AS [dimencion_descripcion], 
     [result_dimension].[suma] AS [suma], 
-    [result_dimension].[year] AS [year]
+    [result_dimension].[year] AS [year], 
+    [result_dimension].[idDimencion] AS [idDimencion]
     FROM [dbo].[result_dimension] AS [result_dimension]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="result_dominio" EntityType="Self.result_dominio" store:Type="Views" store:Schema="dbo">
@@ -2660,6 +2662,7 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
           <Property Name="dimencion_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="suma" Type="Int32" />
           <Property Name="year" Type="Int32" />
+          <Property Name="idDimencion" Type="Int32" />
         </EntityType>
         <EntityType Name="result_dominio">
           <Key>
@@ -2949,6 +2952,7 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
           <Property Name="tipoContratacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="tipoJornada" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="tipoPersonal" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+<<<<<<< HEAD
         </EntityType>
         <EntityType Name="plandeaccion">
           <Key>
@@ -2961,6 +2965,8 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="responsable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="fecha" Type="DateTime" Precision="0" />
+=======
+>>>>>>> b8807a33aff8fce01373278f16c719c1eedfaebc
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3357,6 +3363,7 @@ advertencia 6002: La tabla o vista 'rhcon.dbo.resultados_por_usuario_035' no tie
           <EntitySetMapping Name="result_dimension">
             <EntityTypeMapping TypeName="rhconModel.result_dimension">
               <MappingFragment StoreEntitySet="result_dimension">
+                <ScalarProperty Name="idDimencion" ColumnName="idDimencion" />
                 <ScalarProperty Name="year" ColumnName="year" />
                 <ScalarProperty Name="suma" ColumnName="suma" />
                 <ScalarProperty Name="dimencion_descripcion" ColumnName="dimencion_descripcion" />

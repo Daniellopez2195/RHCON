@@ -182,12 +182,12 @@ namespace rhcon.Controllers
                     string pass = "stackcode1.";
                     var body = db.correos.Where(d => d.tipo == "altact").First();
                     string mensaje = body.email.ToString();
-                    mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                    mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                     mensaje = mensaje.Replace("_razonsocial_", oEmpresa.RazonSocial);
                     mensaje = mensaje.Replace("_centrotrabajo_", ct.Nombre);
                     mensaje = mensaje.Replace("_usuario_", ct.email);
                     mensaje = mensaje.Replace("_pass_", password);
-                    mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login?IdRol=" + rol.Id + "&email=" + ct.email + "&password=" + password);
+                    mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login?IdRol=" + rol.Id + "&email=" + ct.email + "&password=" + password);
                     mensaje = mensaje.Replace("_tipousuario_", "Usuario de Centro de trabajo");
                     MailMessage EmailMess = new MailMessage(
                         EmailORigen,
@@ -299,12 +299,12 @@ namespace rhcon.Controllers
                             string EmailDestino = ct.email;
                             string pass = "stackcode1.";
                             string mensaje = body.email.ToString();
-                            mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                            mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                             mensaje = mensaje.Replace("_razonsocial_", oEmpresa.RazonSocial);
                             mensaje = mensaje.Replace("_centrotrabajo_", ct.Nombre);
                             mensaje = mensaje.Replace("_usuario_", ct.email);
                             mensaje = mensaje.Replace("_pass_", password);
-                            mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login?IdRol=" + rol.Id + "&email=" + ct.email + "&password=" + password);
+                            mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login?IdRol=" + rol.Id + "&email=" + ct.email + "&password=" + password);
                             mensaje = mensaje.Replace("_tipousuario_", "Usuario Centro de Trabajo");
                             MailMessage EmailMess = new MailMessage(
                                 EmailORigen,
@@ -553,11 +553,11 @@ namespace rhcon.Controllers
                     string pass = "stackcode1.";
                     var body = db.correos.Where(d => d.tipo == "altaEmp").First();
                     string mensaje = body.email.ToString();
-                    mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                    mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                     mensaje = mensaje.Replace("_razonsocial_", RazonSocial);
                     mensaje = mensaje.Replace("_usuario_", empleado.Email);
                     mensaje = mensaje.Replace("_pass_", password);
-                    mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login?IdRol=" + rol.Id + "&email=" + empleado.Email + "&password=" + password);
+                    mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login?IdRol=" + rol.Id + "&email=" + empleado.Email + "&password=" + password);
                     mensaje = mensaje.Replace("_tipousuario_", "Usuario Empleado(a)");
                     MailMessage EmailMess = new MailMessage(
                         EmailORigen,
@@ -690,11 +690,11 @@ namespace rhcon.Controllers
                             string EmailDestino = empleado.Email;
                             string pass = "stackcode1.";
                             string mensaje = body.email.ToString();
-                            mensaje = mensaje.Replace("_img_", "https://bienestarlaboral.rhcon.com.mx/Assets/img/SVG/LOGO/rhlogo.png");
+                            mensaje = mensaje.Replace("_img_", "http://38.242.215.98/Assets/img/SVG/LOGO/rhlogo.png");
                             mensaje = mensaje.Replace("_razonsocial_", oEmpresa.RazonSocial);
                             mensaje = mensaje.Replace("_usuario_", empleado.Email);
                             mensaje = mensaje.Replace("_pass_", password);
-                            mensaje = mensaje.Replace("_redireccion_", "https://bienestarlaboral.rhcon.com.mx/Home/Login?IdRol=" + rol.Id + "&email=" + empleado.Email + "&password=" + password);
+                            mensaje = mensaje.Replace("_redireccion_", "http://38.242.215.98/Home/Login?IdRol=" + rol.Id + "&email=" + empleado.Email + "&password=" + password);
                             mensaje = mensaje.Replace("_tipousuario_", "Usuario Empleado(a)");
                             MailMessage EmailMess = new MailMessage(
                                 EmailORigen,

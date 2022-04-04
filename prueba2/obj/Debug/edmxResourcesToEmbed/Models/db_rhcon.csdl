@@ -1174,6 +1174,7 @@
     <Property Name="dimencion_descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="suma" Type="Int32" />
     <Property Name="year" Type="Int32" />
+    <Property Name="idDimencion" Type="Int32" />
   </EntityType>
   <EntityType Name="result_dominio">
     <Key>
@@ -1463,6 +1464,7 @@
     <Property Name="tipoContratacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="tipoJornada" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="tipoPersonal" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+<<<<<<< HEAD
   </EntityType>
   <EntityType Name="plandeaccion">
     <Key>
@@ -1475,5 +1477,7 @@
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="responsable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="fecha" Type="DateTime" Precision="0" />
+=======
+>>>>>>> b8807a33aff8fce01373278f16c719c1eedfaebc
   </EntityType>
 </Schema>
